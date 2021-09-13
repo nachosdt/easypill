@@ -1,7 +1,7 @@
 {
   "name": "easypill",
   "version": "0.0.1",
-  "author": "Ionic Framework",
+  "author": "Darío Paucar, Isabel Rosales, Jaime Martorell, Antonio Harán, Kika Picón, Nacho Sáenz de Tejada",
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",

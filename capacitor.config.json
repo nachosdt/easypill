@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "easypill",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

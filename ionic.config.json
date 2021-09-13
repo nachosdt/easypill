@@ -1,0 +1,7 @@
+{
+  "name": "easypill",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

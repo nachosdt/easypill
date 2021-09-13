@@ -1,0 +1,33 @@
+EASY PILL APP (PROYECTO FINAL CODENOTCH)
+----------------------------------------
+
+NORMAS DE ESTILO Y SINTAXIS EN EL CÓDIGO JS, CSS Y HTML
+
+1) AÑADIR UN PUNTO Y COMA AL FINAL DE CADA SENTENCIA
+
+    let variable = "valor"; <-----
+
+2) AÑADIR ESPACIOS ENTRE LOS OPERADORES Y LOS OPERANDOS
+
+                |||
+                VVV
+    let variable = "valor";
+
+3) COMENZAR UNA NUEVA LÍNEA SI SUPERA LOS 80 CARÁCTERES DE LONGITUD
+
+    Los 80 carácteres llegan hasta aquí -------------------------------------->|
+
+4) BLOQUES DE CÓDIGO ENTRE LLAVES { } 
+
+    if (a < b) {   <------- APERTURA: NADA A SU DERECHA
+        // Código con sangría
+    }              <------- CIERRE: NADA A SU IZQUIERDA
+ 
+5) 4 ESPACIOS DE SANGRÍA AL ANIDAR CÓDIGO
+
+6) AÑADIR COMENTARIOS EXPLICATIVOS EN MAYÚSCULAS AL DECLARAR FUNCIONES Y VARIABLES
+
+7) NOMBRAR LAS VARIABLES CON EL ESTILO LOWER CAMEL CASE
+
+    let nombreVariable;
+

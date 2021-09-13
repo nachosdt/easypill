@@ -1,0 +1,71 @@
+@import "../../../theme/variables.scss";
+@import "../../../estilosGenerales.scss";
+
+// HEADER
+
+.header {
+    height: calc(var(--header_height) + 30px);
+    background-color: rgb(var(--primary_color));
+}
+
+.header > div > img {
+    transform: rotate(180deg);
+    left: 20px;
+    position: absolute;
+    width: 20px;
+    height: 30px;
+}
+
+.header > div > h1 {
+    color: rgb(var(--color_white));
+}
+
+
+// CONTENT
+
+p {
+    color: white;
+    margin: 0;
+    font-size: 18px;
+    width: auto;
+    margin: 5px;
+}
+
+.body {
+    position: absolute;
+    height: var(--body_height);
+    border-radius: var(--border_radius-header) var(--border_radius-header) 0 0;
+    width: 100%;
+    top: var(--header_height);
+    background-color: rgb(var(--color_white));
+    z-index: 1;
+}
+
+.seccion {
+    background-color: rgb(var(--primary_color));
+    width: 127px;
+    height: 120px;
+    margin: auto;
+    border-radius: 25px;
+}
+
+.seccion:active {
+    background-color: rgb(var(--primary_color_medium));
+    transition: background-color .15s ease-in-out;
+}
+
+// DISPLAY FLEX
+
+.display-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.display-around {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}

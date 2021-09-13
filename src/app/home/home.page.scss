@@ -1,3 +1,4 @@
+@import "../../theme/variables.scss";
 #container {
   text-align: center;
 
@@ -25,3 +26,13 @@
 #container a {
   text-decoration: none;
 }
+
+// .but {
+//   background-color: var(--primary_color);
+
+// }
+
+// button:hover {
+//   background-color:rgb(var(--secundary_color_cancel));
+//   border-radius: var(--border_radius-button);
+// }

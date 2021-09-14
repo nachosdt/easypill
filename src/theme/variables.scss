@@ -164,6 +164,50 @@
     --ion-color-light-tint: #383a3e;
   }
 
+  // Picker
+ion-picker.sc-ion-picker-ios-h {
+  --background: white;
+  --max-width:80%;
+  --height:200px;
+  --border-color:rgb(var(var(--primary_color_light)));
+  --border-style:solid;
+  --border-width:2px;
+  padding: 0 20px;
+  --border-radius:17px;
+  top:-100px; 
+}
+
+.picker-toolbar .sc-ion-picker-ios{
+  background-color: rgb(var(--primary_color_light));
+
+}
+.picker-button .ion-activatable .sc-ion-picker-ios{
+  color:rgb(var(--primary_color));
+  font-size: 16px;
+}
+.picker-toolbar-button.sc-ion-picker-ios {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.picker-toolbar-cancel .picker-toolbar-button .sc-ion-picker-ios,
+.picker-button .ion-activatable .sc-ion-picker-ios
+{
+  display:flex;
+  justify-content:center;
+}
+
+
+.picker-opt{
+font-size: 11px;
+}
+
+.datetime-placeholder {
+  margin-top: 10px;
+  color: rgba(0,0,0,0.5);
+}
+
   /*
    * iOS Dark Theme
    * -------------------------------------------

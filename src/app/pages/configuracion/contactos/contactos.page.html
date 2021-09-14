@@ -1,0 +1,37 @@
+<ion-content>
+  <header class="header container-center">
+      <div class="container-center">
+        <img src="../../../assets/back_claro.svg" routerLink="/configuracion">
+        <h1>Contactos</h1>
+      </div>
+  </header>
+  
+  <section class="body">
+      <!-- NG FOR PARA CONTACTOS GUARDADOS -->
+    <ng-container *ngIf="contactos else isElse" >
+      <ng-container *ngFor="let contacto of contactos">
+        <div class="display-around">
+          <div class="medicina-next">
+            <div class="izquierda">
+              <div class="medicina-nombre">
+                <p>{{contacto.nombreContacto}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+    <ng-template #isElse>
+      <article class="medicina-next">
+        <div class="izquierda">
+          <div class="medicina-nombre">
+            <p>No hay contactos guardados</p>
+          </div>
+        </div>
+      </article>
+    </ng-template>
+
+    <button class="but">Añadir contacto</button>
+  
+  </section>
+  </ion-content>

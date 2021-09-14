@@ -1,0 +1,12 @@
+// IMPORT
+
+@import "../../medicamentos/medicamentos.page.scss";
+
+// BODY
+.body {
+    height: var(--body_height);
+}
+
+.medicina-nombre > p {
+    color: rgb(var(--secundary_color_title));
+}

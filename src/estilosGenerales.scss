@@ -32,5 +32,31 @@ body {
 
 .but {
     background-color: rgb(var(--primary_color));
-    font-size: 45px;
+    // font-size: 45px;
+    background-color: rgb(var(--primary_color));
+    color: white;
+    border-radius: 17px;
+    height: 34px;
+    max-width:132px;
 }
+.datetime-text {
+    margin-top: 10px;
+    color: rgba(0,0,0,0.5);
+}
+
+.but:focus,.but:active{
+    background-color: rgb(var(--primary_color_medium));
+}
+
+.but-cancel {
+    background-color: rgb(var(--secundary_color_cancel));
+    color: rgb(var(--primary_color));
+    border-radius: 17px;
+    height: 34px;
+    max-width:132px;
+}
+
+.but-cancel:focus, .but-cancel:active {
+    background-color: rgba(var(--secundary_color_cancel),0.7);
+}
+

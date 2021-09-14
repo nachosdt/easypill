@@ -1,9 +1,147 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title>add_medicamento</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content>
+  <!-- Header -->
+  <header class="header container-center">
+    <div class="container-center">
+      <img src="../../../assets/back.svg" routerLink="">
+      <h1>Añadir Medicamento</h1>
+    </div>
+</header>
+
+<!-- Body -->
+<section class="body">
+
+    <form #aniadirMedicamentoForm="ngForm" (ngSubmit)="onSubmit(aniadirMedicamentoForm)" >
+
+      <ion-grid>
+        <!-- Nombre del medicamento -->
+        <ion-row class="ion-justify-content-center grupo-registro">
+          <ion-col size="10">
+            <ion-label for="nombreMedicamento">Nombre del medicamento</ion-label>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="ion-justify-content-center">
+          <ion-col size="10" class="ion-justify-content-center">
+            <ion-input type="text" [(ngModel)]="medicamento.nombreMedicamento" 
+              #nombreMedicamento="ngModel" 
+              placeholder="Nombre del medicamento que buscas"
+              title="Nombre del medicamento que buscas"
+              name="nombreMedicamento" required
+              autocomplete="on"
+              class="registro-borde"></ion-input>
+          </ion-col>
+        </ion-row>
+
+        <!-- Dosis y frecuencia -->
+        <ion-row class="ion-justify-content-around grupo-registro">
+          <ion-col size="4">
+            <ion-label for="dosis">Dosis</ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <ion-label for="frecuencia">Frecuencia</ion-label>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="ion-justify-content-around">
+          <ion-col size="4">
+            <ion-input type="number" [(ngModel)]="medicamento.dosis" 
+              #dosis="ngModel" 
+              placeholder="Cuanto tomar. Admite fracciones."
+              title="Qué cantidad de medicamento tomar"
+              name="dosis" required
+              class="registro-borde"></ion-input>
+          </ion-col>
+          <ion-col size="4">
+            <ion-input type="text" [(ngModel)]="medicamento.frecuencia" 
+              #frecuencia="ngModel" 
+              placeholder="Cada cuanto tomar"
+              title="Cada cuanto tiempo tomas el medicamento"
+              name="frecuencia" required
+              autocomplete="on"
+              class="registro-borde"></ion-input>
+          </ion-col>
+        </ion-row>
+
+        <!-- Cantidad Inicial y Primera toma -->
+        <ion-row class="ion-justify-content-around grupo-registro">
+          <ion-col size="4">
+            <ion-label for="cantidadInicial">Cantidad Inicial</ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <ion-label for="primeraToma">Primera Toma</ion-label>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="ion-justify-content-around">
+          <ion-col size="4">
+            <ion-input type="number" [(ngModel)]="medicamento.cantidadInicial" 
+              #cantidadInicials="ngModel" 
+              placeholder="Cuánto medicamento tienes"
+              title="Stock de medicamento"
+              name="cantidadInicial"
+              autocomplete="on"
+              class="registro-borde"></ion-input>
+          </ion-col>
+          <ion-col size="4">
+            <ion-datetime display-format="HH:mm DD.MM.YYYY "
+              [(ngModel)]="medicamento.primeraToma" 
+                #primeraToma="ngModel" 
+                placeholder="Hora y fecha de la primera toma"
+                title="Hora y fecha (día-mes-año) de tu primera toma"
+                name="primeraToma"
+                autocomplete="on"
+                class="registro-borde"></ion-datetime>
+          </ion-col>
+        </ion-row>
+
+        <!-- Comentarios -->
+        <ion-row class="ion-justify-content-center grupo-registro">
+          <ion-col size="10">
+            <ion-label for="comentarios">Comentarios</ion-label>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="ion-justify-content-center">
+          <ion-col size="10">
+            <ion-textarea type="text" [(ngModel)]="medicamento.comentarios" 
+              #comentarios="ngModel" 
+              placeholder="Añade aquí tus comentarios y notas sobre la toma"
+              title="Comentarios y notas sobre la toma"
+              name="comentarios"
+              autocomplete="on"
+              class="borde-textarea"></ion-textarea>
+          </ion-col>
+        </ion-row>
+
+        <!-- Botones -->
+        <ion-row class="ion-justify-content-center grupo-registro">
+          <ion-col size="5">
+            <ion-button (click)="borrar(aniadirMedicamentoForm)" expand="block" fill="clear" shape="round"
+            class="but-cancel">
+              Cancelar
+            </ion-button>
+          </ion-col>
+
+          <ion-col size="5">
+            <ion-button (click)="onSubmit(aniadirMedicamentoForm)" expand="block" 
+            class="but" fill="clear" shape="round">
+              Guardar
+            </ion-button>
+          </ion-col>
+        </ion-row>
+
+        
+
+      </ion-grid>
+
+    </form>
+
+</section>
 
 </ion-content>

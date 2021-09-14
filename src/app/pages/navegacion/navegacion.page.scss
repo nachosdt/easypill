@@ -1,0 +1,28 @@
+.despues {
+    &:hover {
+      --background: #f0e9fa;
+    }
+  }
+  
+  .despues{
+    .src{
+     
+        #fill{
+          opacity: 0;
+        }
+      
+    }
+  }
+
+
+ion-tab-bar{
+  border: none;
+  --background: rgb(249, 247, 252);
+
+  // rgb(var(--primary_color));
+  
+}
+
+ion-fab-button{
+  --background: rgb(111, 0, 255);
+}

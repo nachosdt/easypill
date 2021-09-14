@@ -10,6 +10,30 @@ const routes: Routes = [
   },  {
     path: 'lunes',
     loadChildren: () => import('./lunes/lunes.module').then( m => m.LunesPageModule)
+  },
+  {
+    path: 'martes',
+    loadChildren: () => import('./martes/martes.module').then( m => m.MartesPageModule)
+  },
+  {
+    path: 'miercoles',
+    loadChildren: () => import('./miercoles/miercoles.module').then( m => m.MiercolesPageModule)
+  },
+  {
+    path: 'jueves',
+    loadChildren: () => import('./jueves/jueves.module').then( m => m.JuevesPageModule)
+  },
+  {
+    path: 'viernes',
+    loadChildren: () => import('./viernes/viernes.module').then( m => m.ViernesPageModule)
+  },
+  {
+    path: 'sabado',
+    loadChildren: () => import('./sabado/sabado.module').then( m => m.SabadoPageModule)
+  },
+  {
+    path: 'domingo',
+    loadChildren: () => import('./domingo/domingo.module').then( m => m.DomingoPageModule)
   }
 
 ];

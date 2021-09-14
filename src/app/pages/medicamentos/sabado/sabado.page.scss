@@ -1,0 +1,152 @@
+//ARCHIVO SCSS
+
+// HEADER
+
+//		Imports
+
+// @import "../../../../theme/variables.scss";
+// @import "../../../../estilosGenerales.scss";
+
+//		HEADER
+
+.header {
+    height: calc(var(--header_height) + 30px);
+    background-color: rgb(var(--color_white));
+    position: fixed;
+    width: 100%;
+}
+
+.header > div > img {
+    left: 20px;
+    position: absolute;
+    width: 10px;
+    height: 20px;
+}
+
+.header > div > h1 {
+    color: rgb(var(--primary_color));
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+.body {
+    position: absolute;
+    height: var(--body_height);
+    width: 100%;
+    top: var(--header_height);
+    background-color: rgb(var(--color_white));
+    z-index: 1;
+}
+
+// .container-center {
+//   display: flex;
+//   flex-direction: row;
+//   align-items: center;
+//   justify-content: center;
+// }
+
+// .display-center {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+// }
+
+// .display-around {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: space-around;
+// }
+
+//          PASTILLAS
+
+.mañana {
+    background-color: #0CBCF2;
+}
+
+.tarde {
+    background-color: #FF3BA0;
+}
+
+.noche {
+    background-color: #20E592;
+}
+
+.completado {
+    background-color: rgba(103, 141, 152, 0.3);
+}
+
+.medicina-next{
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    color: #FFFFFF;
+    width: 80%;
+    height: 65px;
+    border-radius: 11px;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    margin: 10px auto;
+}
+.medicina-nombre{
+    flex:1;
+    font-weight: 700;
+    height: 7px;
+    display: flex;
+    align-items: center;
+}
+.medicina-nombre > p{
+    font-size: 14pt;
+    color: rgb(var(--color_white));
+    font-weight: 700;
+}
+
+.derecha{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content:space-between;
+    height: 60px;
+}
+.izquierda{
+    // background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    height: 60px;
+}
+.medicina-hora{
+    flex:1;
+    font-weight: 700;
+    height: 10px;
+    display: flex;
+    align-items: center;
+}
+.medicina-hora > p{
+    font-size: 14pt;
+    color: rgb(var(--color_white));
+}
+.medicina-line{
+    flex:1;
+    display: flex;
+    align-items: flex-end;
+    // background-color: #FFFFFF;
+    height: 1px;
+    width: 80px;
+    // border: 35px;
+}
+
+//          SUBTITLES
+.subtitle {
+    font-size: 14px;
+    font-weight: 700;
+    color: rgb(var(--primary_color));
+    text-align:start;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}

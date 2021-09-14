@@ -1,0 +1,107 @@
+.header {
+    height: calc(var(--header_height) + 30px);
+    background-color: rgb(var(--primary_color));
+    position: fixed;
+    width: 100%;
+}
+
+.header > div > img {
+    left: 20px;
+    position: absolute;
+    width: 10px;
+    height: 20px;
+}
+
+.header > div > h1 {
+    color: rgb(var(--color_white));
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+.body {
+    position: absolute;
+    height: auto;
+    border-radius: var(--border_radius-header) var(--border_radius-header) 0 0;
+    width: 100%;
+    top: var(--header_height);
+    background-color: rgb(var(--color_white));
+    z-index: 1;
+}
+
+.container-center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.display-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.display-around {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#scrollmenu {    
+    width: 80%; 
+    margin: 45px auto;
+    overflow: auto;
+    white-space: nowrap;
+    /* Hide scrollbar for IE, Edge and Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+#scrollmenu::-webkit-scrollbar {
+    display: none;
+}
+
+.dia {
+    display: inline-block;
+    background-color: rgb(var(--primary_color));
+    font-size: var(--font_size);
+    width: 16vw;
+    height: 16vw;
+    border-radius: 8vw;
+    line-height: 16vw;
+    color: white;
+    text-align: center;
+    margin: 5px;
+    // padding: 10px 0;
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+h2 {
+    text-align: center;
+    font-weight: bold;
+    color: rgb(var(--secundary_color_title));
+    font-size: x-large;
+}
+
+.cardmedicamento {
+    width: 80%;
+    margin: 15px auto;
+    padding: 18px 40px 18px 40px;
+    background-color: rgb(var(--primary_color_light));
+    border-radius: 11px;    
+}
+
+.cardmedicamento>h3 {
+    margin-top: 0;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.cardmedicamento>p {
+    font-size: 16px;
+}

@@ -1,7 +1,28 @@
+// ARCHIVO HTML
+
+<ion-content>
+<header class="header container-center">
+    <div class="container-center">
+      <img src="../../../assets/back.svg" routerLink="">
+      <h1>Configuración</h1>
+    </div>
+</header>
+
+<section class="body">
+
+</section>
+</ion-content>
+
+//ARCHIVO SCSS
+
+// HEADER
+
+//		Imports
+
 @import "../../../theme/variables.scss";
 @import "../../../estilosGenerales.scss";
 
-// HEADER
+//		Diseño
 
 .header {
     height: calc(var(--header_height) + 30px);
@@ -24,17 +45,6 @@
     letter-spacing: 1px;
 }
 
-
-// CONTENT
-
-p {
-    color: white;
-    margin: 0;
-    font-size: 18px;
-    width: auto;
-    margin: 5px;
-}
-
 .body {
     position: absolute;
     height: var(--body_height);
@@ -45,20 +55,12 @@ p {
     z-index: 1;
 }
 
-.seccion {
-    background-color: rgb(var(--primary_color));
-    width: 127px;
-    height: 120px;
-    margin: auto;
-    border-radius: 25px;
+.container-center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
-
-.seccion:active {
-    background-color: rgb(var(--primary_color_medium));
-    transition: background-color .15s ease-in-out;
-}
-
-// DISPLAY FLEX
 
 .display-center {
     display: flex;

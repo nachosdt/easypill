@@ -105,3 +105,94 @@ h2 {
 .cardmedicamento>p {
     font-size: 16px;
 }
+
+//          PASTILLAS
+
+.mañana {
+    background-color: #0CBCF2;
+}
+
+.tarde {
+    background-color: #FF3BA0;
+}
+
+.noche {
+    background-color: #20E592;
+}
+
+.completado {
+    background-color: rgba(103, 141, 152, 0.3);
+}
+
+.medicina-next{
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    color: #FFFFFF;
+    width: 80%;
+    height: 65px;
+    border-radius: 11px;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    margin: 10px auto;
+    background-color: rgb(var(--primary_color_light));
+}
+.medicina-nombre{
+    flex:1;
+    font-weight: 700;
+    height: 7px;
+    display: flex;
+    align-items: center;
+}
+.medicina-nombre > p{
+    font-size: 14pt;
+    color: rgb(var(--color_white));
+    font-weight: 700;
+}
+
+.derecha{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content:space-between;
+    height: 60px;
+}
+.izquierda{
+    // background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    height: 60px;
+}
+.medicina-hora{
+    flex:1;
+    font-weight: 700;
+    height: 10px;
+    display: flex;
+    align-items: center;
+}
+.medicina-hora > p{
+    font-size: 14pt;
+    color: rgb(var(--color_white));
+}
+.medicina-line{
+    flex:1;
+    display: flex;
+    align-items: flex-end;
+    // background-color: #FFFFFF;
+    height: 1px;
+    width: 80px;
+    // border: 35px;
+}
+
+.subtitle {
+    font-size: 14px;
+    font-weight: 700;
+    color: rgb(var(--primary_color));
+    text-align:start;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}

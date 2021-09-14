@@ -30,7 +30,11 @@ const routes: Routes = [
   {
     path: 'add-medicamento',
     loadChildren: () => import('./pages/add-medicamento/add-medicamento.module').then( m => m.AddMedicamentoPageModule)
+  },  {
+    path: 'landing',
+    loadChildren: () => import('./pages/landing/landing.module').then( m => m.LandingPageModule)
   },
+
 ];
 
 @NgModule({

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Medicamento } from 'src/app/models/medicamento/medicamento';
+import { MedicamentosService } from '../../shared/medicamentos.service';
 
 @Component({
   selector: 'app-add-medicamento',
@@ -11,7 +12,7 @@ export class AddMedicamentoPage implements OnInit {
   
   public medicamento : Medicamento = new Medicamento ();
 
-  constructor() { }
+  constructor(public medicamentoService: MedicamentosService) { }
 
   ngOnInit() {
   }
@@ -27,16 +28,9 @@ export class AddMedicamentoPage implements OnInit {
     this.medicamento.nombreMedicamento = form.value.nombreMedicamento;
     this.medicamento.primeraToma = form.value.primeraToma;
     this.medicamento.comentarios = form.value.comentarios;
-  }
 
-  borrar(form:NgForm){
-    form.value.nombreMedicamento = null;
-    form.value.dosis  = null;
-    form.value.frecuencia  = null;
-    form.value.cantidadInicial  = null;
-    form.value.nombreMedicamento  = null;
-    form.value.primeraToma  = null;
-    form.value.comentarios  = null;
+    this.medicamentoService.medicamentos.push(this.medicamento);
+    console.log(this.medicamentoService.medicamentos)
   }
 
 }

@@ -89,11 +89,11 @@
               class="registro-borde"></ion-input>
           </ion-col>
           <ion-col size="4">
-            <ion-datetime display-format="HH:mm DD.MM.YYYY "
+            <ion-datetime display-format="H:mm" picker-format="H:mm"
               [(ngModel)]="medicamento.primeraToma" 
                 #primeraToma="ngModel" 
-                placeholder="Hora y fecha de la primera toma"
-                title="Hora y fecha (día-mes-año) de tu primera toma"
+                placeholder="Hora:Minutos toma"
+                title="Hora y minutos de tu primera toma"
                 name="primeraToma"
                 autocomplete="on"
                 class="registro-borde"></ion-datetime>

@@ -2,4 +2,34 @@
     background-color: black;
     width: 50px;
     height: 50px;
-}
+ }
+  
+  
+ ion-fab{
+    margin-right: 200px;
+ }
+  
+ ion-fab-button{
+    margin-right: 42vw;
+    margin-left: 42vw;
+    position: fixed;
+    bottom: 20px;
+    right: 0;
+    --box-shadow:none;
+    // background-color: rgb(78, 16, 129);
+   
+ }
+  
+ ion-fab-button{
+    --background: rgb(111, 0, 255);
+  }
+  
+ ion-icon{
+    width: 25px;
+    height: 25px;
+ }
+  
+ ion-tabs{
+    background-color: rgb(251, 248, 252);
+ }
+ 

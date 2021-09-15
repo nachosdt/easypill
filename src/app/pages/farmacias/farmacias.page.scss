@@ -1,0 +1,69 @@
+.header {
+    height: 85px;
+    background-color: rgb(var(--primary_color));    
+    width: 100%;     
+}
+
+.header > div > img {
+    left: 20px;
+    position: absolute;
+    width: 10px;
+    height: 20px;
+}
+
+.header > div > h1 {
+    color: rgb(var(--color_white));
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+.container-center {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.mibody {
+  position: relative;  
+  border-radius: 36px 36px 0 0;
+  width: 100%;
+  height:calc(100% - 85px);  
+  background-color: rgb(var(--color_white));  
+}
+
+#buscador {
+    width: 80%;
+    height: 40px; 
+    position: absolute;
+    left: 10%;
+    top: 5%;    
+    background-color: white;    
+    border-radius: 20px;
+    z-index: 1000;
+    font-size: large;
+    padding: 15px 25px;
+}
+
+#buscarEnMapa {
+    background-color: rgb(var(--primary_color));
+    width: 40%;    
+    position: absolute;
+    left: 30%;
+    top: 75%;
+    border-radius: 20px;
+    padding: 15px;
+    z-index: 1000;
+    color: rgb(var(--color_white));
+    font-size: large;
+    font-weight: bold;
+}
+
+ion-item {
+    --position: absolute;
+    --top:30px;
+    --left: 40px;
+    --z-index: 1500;
+    --width: 20px;
+}

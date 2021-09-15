@@ -1,36 +1,5 @@
-.header {
-    height: 85px;
-    background-color: rgb(var(--primary_color));    
-    width: 100%;     
-}
-
-.header > div > img {
-    left: 20px;
-    position: absolute;
-    width: 10px;
-    height: 20px;
-}
-
-.header > div > h1 {
-    color: rgb(var(--color_white));
-    font-weight: 700;
-    font-size: 20px;
-    letter-spacing: 1px;
-}
-
-.container-center {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
-
-.mibody {
-  position: relative;  
-  border-radius: 36px 36px 0 0;
-  width: 100%;
-  height:calc(100% - 85px);  
-  background-color: rgb(var(--color_white));  
+#mapId {
+    border-radius: var(--border_radius-header) var(--border_radius-header) 0 0;
 }
 
 #buscador {

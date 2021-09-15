@@ -7,10 +7,6 @@ const routes: Routes = [
   {
     path: '',
     component: AnadirContactoPage
-  },
-  {
-    path: 'contactos',
-    loadChildren: () => import('../contactos.module').then( m => m.ContactosPageModule)
   }
 ];
 

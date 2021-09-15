@@ -1,7 +1,6 @@
 <ion-content>
   <header class="header container-center">
     <div class="container-center">
-      <!-- <img src="../../../assets/back.svg" routerLink=""> -->
       <h1>Medicamentos</h1>
     </div>
   </header>
@@ -36,6 +35,28 @@
       <h3>Drogaína 340</h3>
       <p>Viernes a las 15:00</p>
     </article>
+    <ng-container *ngIf="medicamentos else isElse" >
+      <ng-container *ngFor="let medicamento of medicamentos">
+        <div class="display-around">
+          <div class="medicina-next color-medio">
+            <div class="izquierda">
+              <div class="medicina-nombre">
+                <p>{{medicamento.nombreMedicamento}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+    <ng-template #isElse>
+      <article class="medicina-next">
+        <div class="izquierda">
+          <div class="medicina-nombre">
+            <p>No hay medicamentos guardados</p>
+          </div>
+        </div>
+      </article>
+    </ng-template>
   </section>
   <!-- <app-navegacion></app-navegacion> -->
 </ion-content>

@@ -17,19 +17,47 @@
 <section class="body">
 
   <!-- Busqueda Formulario -->
-  <form #busquedaProspectoForm="ngForm" (ngSubmit)="buscar(busquedaProspectoForm)">
+  <form #busquedaProspectoForm="ngForm" (ngSubmit)="buscarProspecto(busquedaProspectoForm)">
 
     <ion-grid>
 
-      <ion-row>
+      <ion-row class="ion-justify-content-center">
         <ion-col size="10">
-          <ion-label for="nombreMedicamento">Nombre del medicamento</ion-label>          
+          <ion-label for="medicamentoBuscado">Buscar medicamento</ion-label>          
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="10" class="ion-justify-content-center">
+          <ion-input type="text" [(ngModel)]="medicamento.nombreMedicamento"
+            #medicamentoBuscado="ngModel" 
+            placeholder="Nombre del medicamento que buscas"
+            title="Nombre del medicamento que buscas"
+            name="medicamentoBuscado" required
+            autocomplete="on"
+            class="registro-borde"></ion-input>
+        </ion-col>
+      </ion-row>
+
+      <!-- Botones -->
+      <ion-row class="ion-justify-content-center grupo-registro">
+        <ion-col size="5">
+          <ion-button (click)="buscarProspecto(busquedaProspectoForm)" expand="block" 
+          class="but" fill="clear" shape="round">
+            Buscar
+          </ion-button>
         </ion-col>
       </ion-row>
 
     </ion-grid>
 
   </form>
+
+  <article id="result-busqueda-prospects" class="pastilla-result">
+    <h3 class="titulo2">Resultados</h3>
+    <app-card-medicina routerLink=""></app-card-medicina>
+    <app-card-medicina routerLink=""></app-card-medicina>
+    <app-card-medicina routerLink=""></app-card-medicina>
+  </article>
 
 </section>
 

@@ -8,7 +8,7 @@
   <!-- Header -->
   <header class="header container-center">
     <div class="container-center">
-      <img src="../../../assets/back.svg" routerLink="">
+      <img src="../../../assets/back_claro.svg" routerLink="">
       <h1>Añadir Medicamento</h1>
     </div>
 </header>
@@ -16,7 +16,7 @@
 <!-- Body -->
 <section class="body">
 
-    <form #aniadirMedicamentoForm="ngForm" (ngSubmit)="onSubmit(aniadirMedicamentoForm)" >
+    <form #aniadirMedicamentoForm="ngForm">
 
       <ion-grid>
         <!-- Nombre del medicamento -->
@@ -122,17 +122,17 @@
         <!-- Botones -->
         <ion-row class="ion-justify-content-center grupo-registro">
           <ion-col size="5">
-            <ion-button (click)="borrar(aniadirMedicamentoForm)" expand="block" fill="clear" shape="round"
+            <button (click)="aniadirMedicamentoForm.reset()"
             class="but-cancel">
               Cancelar
-            </ion-button>
+            </button>
           </ion-col>
 
           <ion-col size="5">
-            <ion-button (click)="onSubmit(aniadirMedicamentoForm)" expand="block" 
-            class="but" fill="clear" shape="round">
+            <button (click)="onSubmit(aniadirMedicamentoForm)"
+            class="but">
               Guardar
-            </ion-button>
+            </button>
           </ion-col>
         </ion-row>
 

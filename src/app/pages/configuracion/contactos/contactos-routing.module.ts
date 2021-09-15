@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: ContactosPage
+  },  {
+    path: 'anadir-contacto',
+    loadChildren: () => import('./anadir-contacto/anadir-contacto.module').then( m => m.AnadirContactoPageModule)
   }
+
 ];
 
 @NgModule({

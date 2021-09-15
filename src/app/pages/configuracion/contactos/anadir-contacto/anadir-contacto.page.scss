@@ -16,10 +16,12 @@
     border-bottom: 2px solid rgb(var(--primary_color));
 }
 
+.body form ion-checkbox.checkBoton {
+    margin-top: 5px;
+    --background-checked: rgb(var(--primary_color_medium));
+    --border-color-checked: rgb(var(--primary_color_medium));
+}
+
 .but, .but-cancel {
     width: 100%;
 }
-
-
-
-

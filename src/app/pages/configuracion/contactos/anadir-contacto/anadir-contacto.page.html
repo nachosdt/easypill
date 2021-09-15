@@ -1,0 +1,118 @@
+<ion-content>
+  <!-- Header -->
+  <header class="header container-center">
+    <div class="container-center">
+      <img src="../../../assets/back_claro.svg" routerLink="contactos">
+      <h1>Añadir Contacto</h1>
+    </div>
+</header>
+
+<!-- Body -->
+<section class="body">
+
+    <form #anadirContactoForm="ngForm">
+
+      <ion-grid>
+        <!-- Nombre del contacto -->
+        <ion-row class="ion-justify-content-center grupo-registro">
+          <ion-col size="10">
+            <ion-label for="nombreContacto">Nombre</ion-label>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="ion-justify-content-center">
+          <ion-col size="10" class="ion-justify-content-center">
+            <ion-input type="text" [(ngModel)]="contacto.nombreContacto" 
+              #nombreContacto="ngModel" 
+              placeholder="Nombre completo del contacto"
+              title="Nombre completo del contacto"
+              name="nombreContacto" required
+              autocomplete="on"
+              class="registro-borde"></ion-input>
+          </ion-col>
+        </ion-row>
+
+        <!-- Telefono contacto -->
+        <ion-row class="ion-justify-content-around grupo-registro">
+          <ion-col size="10">
+            <ion-label for="tlfContacto">Teléfono</ion-label>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="ion-justify-content-around">
+          <ion-col size="10">
+            <ion-input type="number" [(ngModel)]="contacto.tlfContacto" 
+              #tlfContacto="ngModel"
+              placeholder="611 123 123"
+              title="Teléfono del contacto"
+              name="tlfContacto" required
+              class="registro-borde"></ion-input>
+          </ion-col>
+        </ion-row>
+
+        <!-- Email del contacto -->
+        <ion-row class="ion-justify-content-around grupo-registro">
+          <ion-col size="10">
+            <ion-label for="emailContacto">Email</ion-label>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="ion-justify-content-around">
+          <ion-col size="10">
+            <ion-input type="email" [(ngModel)]="contacto.emailContacto" 
+              #emailContacto="ngModel" 
+              placeholder="correodeejemplo@noexiste.com"
+              title="Email del contacto"
+              name="emailContacto" required
+              autocomplete="on"
+              class="registro-borde"></ion-input>
+          </ion-col>
+        </ion-row>
+
+        <!-- Notificaciones Email y SMS -->
+        <ion-row class="ion-justify-content-around grupo-registro">
+          <ion-col size="4">
+            <ion-label for="notifEmail">Notificaciones por email</ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <ion-label for="frecuencia">Notificaciones por SMS</ion-label>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="ion-justify-content-around">
+          <ion-col size="4">
+            <ion-checkbox checked="true" class="checkBoton"
+              #notifEmail></ion-checkbox>
+          </ion-col>
+          <ion-col size="4">
+            <ion-checkbox class="checkBoton"
+              #notifSms></ion-checkbox>
+          </ion-col>
+        </ion-row>
+
+        <!-- Botones -->
+        <ion-row class="ion-justify-content-center grupo-registro">
+          <ion-col size="5">
+            <button (click)="anadirContactoForm.reset()"
+            class="but-cancel">
+              Cancelar
+            </button>
+          </ion-col>
+
+          <ion-col size="5">
+            <button (click)="onSubmit(anadirContactoForm)"
+            class="but">
+              Guardar
+            </button>
+          </ion-col>
+        </ion-row>
+
+        
+
+      </ion-grid>
+
+    </form>
+
+</section>
+
+</ion-content>

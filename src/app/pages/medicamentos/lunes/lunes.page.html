@@ -7,91 +7,56 @@
   </header>
   
   <section class="body">
-    <!-- NG FOR PARA TOMAS DE ESE DÍA -->
-    <!-- <ng-container *ngIf="medicamentos.length != 0 else isElse" >
+    <!-- MEDICAMENTOS para el día -->
+    <ng-container *ngIf="medicamentos else isElse" >
       <ng-container *ngFor="let medicamento of medicamentos">
-        <article class="display-around">
-          <div class="medicina-next mañana">
-            <div class="izquierda">
-              <div class="medicina-nombre">
-                <p>{{nombre}}</p>
+        <ng-container *ngIf="medicamento.completado == false else isCompletado">
+          <div class="display-around">
+            <div class="medicina-next color-medio">
+              <div class="izquierda">
+                <div class="medicina-nombre">
+                  <p>{{medicamento.nombreMedicamento}}</p>
+                </div>
+                <div class="medicina-line">
+                </div>
               </div>
-              <div class="medicina-line">
-              </div>
-            </div>
-            <div class="derecha">
-              <div class="medicina-hora">
-                <p>{{toma}}</p>
+              <div class="derecha">
+                <div class="medicina-hora">
+                  <p>{{medicamento.primeraToma}}</p>
+                </div>
               </div>
             </div>
           </div>
+        </ng-container>
+        <ng-template #isCompletado>
+          <article class="display-around">
+            <h3 class="subtitle">Completado</h3>
+            <div class="medicina-next completado">
+              <div class="izquierda">
+                <div class="medicina-nombre">
+                  <p>{{medicamento.nombreMedicamento}}</p>
+                </div>
+                <div class="medicina-line">
+                </div>
+              </div>
+              <div class="derecha">
+                <div class="medicina-hora">
+                  <p>{{medicamento.primeraToma}}</p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </ng-template>
       </ng-container>
     </ng-container>
     <ng-template #isElse>
-      <article class="">
-              <p>No hay medicamentos para hoy</p>
+      <article class="medicina-next">
+        <div class="izquierda">
+          <div class="medicina-nombre">
+            <p>No hay medicamentos guardados</p>
+          </div>
+        </div>
       </article>
-  </ng-template> -->
-    <article class="display-around">
-      <div class="mañana medicina-next">
-        <div class="izquierda">
-          <div class="medicina-nombre">
-            <p>Aspirina</p>
-          </div>
-          <div class="medicina-line">
-          </div>
-        </div>
-        <div class="derecha">
-          <div class="medicina-hora">
-            <p>9:30</p>
-          </div>
-        </div>
-      </div>
-      <div class="medicina-next tarde">
-        <div class="izquierda">
-          <div class="medicina-nombre">
-            <p>Aspirina</p>
-          </div>
-          <div class="medicina-line">
-          </div>
-        </div>
-        <div class="derecha">
-          <div class="medicina-hora">
-            <p>13:30</p>
-          </div>
-        </div>
-      </div>
-      <div class="medicina-next noche">
-        <div class="izquierda">
-          <div class="medicina-nombre">
-            <p>Aspirina</p>
-          </div>
-          <div class="medicina-line">
-          </div>
-        </div>
-        <div class="derecha">
-          <div class="medicina-hora">
-            <p>21:30</p>
-          </div>
-        </div>
-      </div>
-    </article>
-    <article class="display-around">
-      <h3 class="subtitle">Completado</h3>
-      <div class="medicina-next completado">
-        <div class="izquierda">
-          <div class="medicina-nombre">
-            <p>Aspirina</p>
-          </div>
-          <div class="medicina-line">
-          </div>
-        </div>
-        <div class="derecha">
-          <div class="medicina-hora">
-            <p>8:30</p>
-          </div>
-        </div>
-      </div>
-    </article>
+    </ng-template>
   </section>
 </ion-content>

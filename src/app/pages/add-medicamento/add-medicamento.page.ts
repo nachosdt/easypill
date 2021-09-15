@@ -26,11 +26,13 @@ export class AddMedicamentoPage implements OnInit {
     this.medicamento.frecuencia = form.value.frecuencia;
     this.medicamento.cantidadInicial = form.value.cantidadInicial;
     this.medicamento.nombreMedicamento = form.value.nombreMedicamento;
-    this.medicamento.primeraToma = form.value.primeraToma;
+    let hora : string = form.value.primeraToma;
+    this.medicamento.primeraToma = hora.slice(11,16);
     this.medicamento.comentarios = form.value.comentarios;
 
     this.medicamentoService.medicamentos.push(this.medicamento);
-    console.log(this.medicamentoService.medicamentos)
+    console.log(this.medicamentoService.medicamentos);
+    console.log(typeof this.medicamento.primeraToma)
   }
 
 }

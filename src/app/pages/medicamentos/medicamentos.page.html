@@ -14,27 +14,7 @@
       <div class="dia" routerLink="sabado">S</div>
       <div class="dia" routerLink="domingo">D</div>
     </article>
-    <h2>Medicación</h2>
-    <article class="cardmedicamento">
-      <h3>Aspirina C Efervescente</h3>
-      <p>Hoy a las 22:00</p>
-    </article>
-    <article class="cardmedicamento">
-      <h3>Medicinol 500mg.</h3>
-      <p>Mañana a las 8:00</p>
-    </article>
-    <article class="cardmedicamento">
-      <h3>Drogaína 300</h3>
-      <p>Sábado a las 15:00</p>
-    </article>
-    <article class="cardmedicamento">
-      <h3>Drogaína 700</h3>
-      <p>Miércoles a las 15:00</p>
-    </article>
-    <article class="cardmedicamento">
-      <h3>Drogaína 340</h3>
-      <p>Viernes a las 15:00</p>
-    </article>
+    <!-- MEDICAMENTOS GUARDADOS -->
     <ng-container *ngIf="medicamentos else isElse" >
       <ng-container *ngFor="let medicamento of medicamentos">
         <div class="display-around">

@@ -11,6 +11,7 @@ import * as Leaflet from 'leaflet';
 })
 export class FarmaciasPage implements OnInit {
 
+  public nombreCabecera:string = "Buscador de farmacias";
   map: Leaflet.Map;
   constructor(private geolocation: Geolocation) {}  
 
@@ -27,8 +28,17 @@ export class FarmaciasPage implements OnInit {
       zoomOffset: -1,
       accessToken: 'pk.eyJ1IjoibmFjaG83OCIsImEiOiJja3RibjR5NGowbTQxMndteWtvNTMwMGl1In0.SyZ7hjPO3837MJmMAWbNzw'
   }).addTo(this.map);
-
-    let chincheta = Leaflet.marker([latitud, longitud]).addTo(this.map).bindPopup("<b>Ionic Mooooooola!</b>").openPopup();   
+    
+    let icono = Leaflet.icon({
+      iconUrl: "../../../../assets/map/marker-icon.png",
+      iconSize: [35, 55], // size of the icon
+      iconAnchor: [13, 38], // point of the icon which will correspond to marker's location
+      shadowUrl: "../../../../assets/map/marker-shadow.png",
+      shadowSize: [35, 55], // size of the shadow
+      shadowAnchor: [0,38],
+      popupAnchor: [0, -40] // point from which the popup should open relative to the iconAnchor
+    });
+    Leaflet.marker([latitud, longitud],{icon: icono}).addTo(this.map).bindPopup("<b>Ionic Mooooooola!</b>").openPopup();   
   }
 
   ngOnInit() {

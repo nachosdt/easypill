@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../../../../models/usuario';
 import { NgForm } from '@angular/forms';
 import { Location } from '@angular/common';
+
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.page.html',
@@ -10,7 +11,7 @@ import { Location } from '@angular/common';
 export class RegistroPage implements OnInit {
 
   public usuario:Usuario = new Usuario()
-  constructor(public location: Location) { }
+  constructor(public location:Location) { }
 
   ngOnInit() {
   }
@@ -26,5 +27,6 @@ export class RegistroPage implements OnInit {
   }
   goBack(){
     this.location.back();
+    console.log(this.usuario);
   }
 }

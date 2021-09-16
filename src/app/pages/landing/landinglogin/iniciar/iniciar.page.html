@@ -1,4 +1,3 @@
-
 <ion-content>
   <header class="header container-center">
     <div class="container-center">
@@ -8,9 +7,9 @@
 </header>
 
 <section class="body">
-  <div class="titulo display-center">
-    <p>EasyPill</p>
-  </div>
+  <article class="display-center">
+    <img src="../../../assets/logoNegro.svg" id="logoNegro">
+  </article>
   <form #iniciarForm="ngForm">
 
     <ion-grid>
@@ -51,11 +50,16 @@
         </ion-row>
 
       <div size="5" class="display-center">
-        <button  class="btn" (click)="onSubmit(registerForm)" expand="block" 
-        class="but" fill="clear" shape="round">
-          Crear Usuario
+        <button (click)="onSubmit(iniciarForm)" expand="block" 
+        class="but" fill="clear" shape="round" routerLink="/home">
+         Aceptar
+        </button>
+        <button expand="block" 
+        class="but-cancel" fill="clear" shape="round">
+          He olvidado mi contraseña
         </button>
       </div>
+
 
     </ion-grid>
     

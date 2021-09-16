@@ -1,0 +1,32 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>detalleProspecto</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+  <!-- Header -->
+  <header class="header container-center">
+    <div class="container-center">
+      <img src="../../../assets/back.svg" routerLink="">
+      <h1>Prospectos</h1>
+    </div>
+  </header>
+  
+  <!-- Body -->
+  <section class="body">
+      <!-- NG FOR PARA MEDICAMENTO TRAIDO DE RESULTADOS -->
+      <ng-container *ngIf="prospecto else isElse" >
+        <details *ngFor="let secItem of prospecto.secc">
+          <summary>Uno</summary>
+          <p>{{ prospecto.secc[secItem] }}</p>
+        </details>
+      </ng-container>
+      <ng-template #isElse>
+        <p class="alerta">
+          No hay prospecto
+        </p>
+      </ng-template> 
+  </section>
+
+</ion-content>

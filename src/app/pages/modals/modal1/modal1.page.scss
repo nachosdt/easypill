@@ -1,13 +1,16 @@
 ion-content h2{
-    color: #6F88FC;
-    display: flex;
-    justify-content: center;
-
+    color: rgb(var(--secundary_color_title));
 }
 
-.but-centrado-fila{
-    display:flex;
-    justify-content: center;
-    align-items: center;
+.but{
     margin-top: 25px;
+}
+
+.todo {
+    width: 100%;
+    height: 100%;
+}
+
+.parrafo {
+    width: 80%;
 }

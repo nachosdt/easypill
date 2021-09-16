@@ -1,56 +1,56 @@
-HTML
-
 <ion-tabs>
 
   <!-- <ion-fab vertical="bottom" horizontal="center" slot="fixed"></ion-fab> -->
+  <ng-container *ngIf="mostrar">
 
-  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
-    <ion-tab-button class="despues" tab="add-medicamento">
-      <ion-fab-button class="agregar">
-        <!-- <ion-icon class="agregarBtn" src="assets/icon/agregar.svg"></ion-icon> -->
-        <ion-icon color="white" name="add"></ion-icon>
-      </ion-fab-button>
-    </ion-tab-button>
-  </ion-fab>
-
-
-  <ion-tab-bar slot="bottom">
-
-    <ion-tab-button class="despues" tab="home">
-      <ion-icon class="despues" src="assets/icon/home.svg"></ion-icon>
-    </ion-tab-button>
+    <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+      <ion-tab-button class="despues" tab="add-medicamento">
+        <ion-fab-button class="agregar">
+          <!-- <ion-icon class="agregarBtn" src="assets/icon/agregar.svg"></ion-icon> -->
+          <ion-icon color="white" name="add"></ion-icon>
+        </ion-fab-button>
+      </ion-tab-button>
+    </ion-fab>
 
 
-    <ion-tab-button class="despues" tab="medicamentos">
-      <ion-icon src="assets/icon/pill.svg"></ion-icon>
-    </ion-tab-button>
+    <ion-tab-bar slot="bottom">
 
-    <ion-tab-button class="despues" tab="add-medicamento">
-      <ion-icon class="agregarBtn"></ion-icon>
-    </ion-tab-button>
+      <ion-tab-button class="despues" tab="home">
+        <ion-icon class="despues" src="assets/icon/home.svg"></ion-icon>
+      </ion-tab-button>
 
 
+      <ion-tab-button class="despues" tab="medicamentos">
+        <ion-icon src="assets/icon/pill.svg"></ion-icon>
+      </ion-tab-button>
 
-    <ion-tab-button class="despues" tab="farmacias">
-      <ion-icon src="assets/icon/farmacias.svg" name="flash"></ion-icon>
-    </ion-tab-button>
+      <ion-tab-button class="despues" tab="add-medicamento">
+        <ion-icon class="agregarBtn"></ion-icon>
+      </ion-tab-button>
 
-    <ion-tab-button class="despues" tab="prospecto">
-      <ion-icon src="assets/icon/prospectos.svg"></ion-icon>
-    </ion-tab-button>
 
-    <!-- <ion-tab-button tab="home">
-     <ion-icon name="home"></ion-icon>
-   </ion-tab-button>
-   <ion-tab-button tab="prospecto">
-     <ion-icon name="star"></ion-icon>
-   </ion-tab-button>
-   <ion-tab-button tab="farmacias">
-     <ion-icon name="star"></ion-icon>
-   </ion-tab-button>
-   <ion-tab-button class="despues" tab="medicamentos">
-     <ion-icon src="assets/icon/pill.svg"></ion-icon>
-   </ion-tab-button> -->
 
-  </ion-tab-bar>
+      <ion-tab-button class="despues" tab="farmacias">
+        <ion-icon src="assets/icon/farmacias.svg" name="flash"></ion-icon>
+      </ion-tab-button>
+
+      <ion-tab-button class="despues" tab="prospecto">
+        <ion-icon src="assets/icon/prospectos.svg"></ion-icon>
+      </ion-tab-button>
+
+      <!-- <ion-tab-button tab="home">
+       <ion-icon name="home"></ion-icon>
+     </ion-tab-button>
+     <ion-tab-button tab="prospecto">
+       <ion-icon name="star"></ion-icon>
+     </ion-tab-button>
+     <ion-tab-button tab="farmacias">
+       <ion-icon name="star"></ion-icon>
+     </ion-tab-button>
+     <ion-tab-button class="despues" tab="medicamentos">
+       <ion-icon src="assets/icon/pill.svg"></ion-icon>
+     </ion-tab-button> -->
+    </ion-tab-bar>
+  </ng-container>
+
 </ion-tabs>

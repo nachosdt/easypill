@@ -1,22 +1,17 @@
-<ion-header>
-  <ion-toolbar>
-
-    <button routerLink="../home" (click)="closeModal()" class="but-cancel">cerrar</button>
-    
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-<h2>Nuevo contacto añadido</h2>
-<p>¡Has agregado a un nuevo contacto!</p>
-
-<ion-grid>
- <ion-row class="ion-justify-content-center">
-   <ion-col size="10" class="but-centrado-fila">
-     <button routerLink="../home" class="but">Ir a Contactos</button>
-   </ion-col>
- </ion-row>
-</ion-grid>
-
-
+  <section class="container-center todo">
+    <article>
+      <div class="display-center">
+        <h2>Nuevo contacto añadido</h2>
+        <p class="parrafo">¡Has agregado a un nuevo contacto!</p>
+      </div>
+      <ion-grid>
+        <ion-row class="ion-justify-content-center">
+          <ion-col size="10" class="container-center">
+            <button routerLink="/configuracion/contactos" class="but" (click)="closeModal()">Ir a Contactos</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </article>
+  </section>  
 </ion-content>

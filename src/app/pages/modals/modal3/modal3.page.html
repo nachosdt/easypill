@@ -1,23 +1,18 @@
-<ion-header>
-  <ion-toolbar>
-
-    <button routerLink="../home" (click)="closeModal()" class="but-cancel">cerrar</button>
-
-  </ion-toolbar>
-
-</ion-header>
-
 <ion-content>
-  <h2>Nuevo tratamiento añadido</h2>
-  <p>¡Has agregado un nuevo tratamiento,
-     estaremos pendientes de recordartelo!</p>
-
-  <ion-grid>
-    <ion-row class="ion-justify-content-center">
-      <ion-col size="10" class="but-centrado-fila">
-        <button routerLink="../home" class="but">Ir a Medicamentos</button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  
+  <section class="container-center todo">
+    <article>
+      <div class="display-center">
+        <h2>Nuevo tratamiento añadido</h2>
+        <p class="parrafo">¡Has agregado un nuevo tratamiento,
+          estaremos pendientes de recordartelo!</p>
+      </div>
+      <ion-grid>
+        <ion-row class="ion-justify-content-center">
+          <ion-col size="10" class="container-center">
+            <button routerLink="/medicamentos" class="but" (click)="closeModal()">Ir a Medicamentos</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </article>
+  </section>  
 </ion-content>

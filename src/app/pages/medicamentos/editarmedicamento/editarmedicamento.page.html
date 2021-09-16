@@ -8,8 +8,8 @@
   <!-- Header -->
   <header class="header container-center">
     <div class="container-center">
-      <img src="../../../assets/back_claro.svg" routerLink="/medicamentos">
-      <h1>Añadir Medicamento</h1>
+      <img src="../../../assets/back_claro.svg" routerLink="">
+      <h1>Tu Medicamento</h1>
     </div>
   </header>
 
@@ -28,9 +28,11 @@
 
         <ion-row class="ion-justify-content-center">
           <ion-col size="10" class="ion-justify-content-center">
-            <ion-input type="text" [(ngModel)]="medicamento.nombreMedicamento" #nombreMedicamento="ngModel"
-              placeholder="Nombre del medicamento que buscas" title="Nombre del medicamento que buscas"
-              name="nombreMedicamento" required autocomplete="on" class="registro-borde"></ion-input>
+
+            <ion-input color={{colorInput}} value={{MedicamentoNombre}} readonly={{lecturaInput}} type="text"
+              name="nombreMedicamento" class="registro-borde">
+
+            </ion-input>
           </ion-col>
         </ion-row>
 
@@ -46,14 +48,14 @@
 
         <ion-row class="ion-justify-content-around">
           <ion-col size="4">
-            <ion-input type="number" [(ngModel)]="medicamento.dosis" #dosis="ngModel"
-              placeholder="Cuanto tomar. Admite fracciones." title="Qué cantidad de medicamento tomar" name="dosis"
-              required class="registro-borde"></ion-input>
+            <ion-input color={{colorInput}} disabled type="number" name="dosis" required class="registro-borde">
+              {{MedicamentoDosis}}
+            </ion-input>
           </ion-col>
           <ion-col size="4">
-            <ion-input type="text" [(ngModel)]="medicamento.frecuencia" #frecuencia="ngModel"
-              placeholder="Cada cuanto tomar" title="Cada cuanto tiempo tomas el medicamento" name="frecuencia" required
-              autocomplete="on" class="registro-borde"></ion-input>
+            <ion-input color={{colorInput}} readonly type="text" name="frecuencia" required autocomplete="on"
+              class="registro-borde">
+              {{MedicamentoFrecuencia}}</ion-input>
           </ion-col>
         </ion-row>
 
@@ -69,18 +71,16 @@
 
         <ion-row class="ion-justify-content-around">
           <ion-col size="4">
-            <ion-input type="number" [(ngModel)]="medicamento.cantidadInicial" #cantidadInicials="ngModel"
-              placeholder="Cuánto medicamento tienes" title="Stock de medicamento" name="cantidadInicial"
-              autocomplete="on" class="registro-borde"></ion-input>
+            <ion-input color={{colorInput}} readonly type="number" name="cantidadInicial" autocomplete="on"
+              class="registro-borde">
+              {{MedicamentoCantInicial}}</ion-input>
           </ion-col>
           <ion-col size="4">
-            <ion-datetime display-format="H:mm" picker-format="H:mm" [(ngModel)]="medicamento.primeraToma"
-              #primeraToma="ngModel" placeholder="Hora:Minutos toma" title="Hora y minutos de tu primera toma"
-              name="primeraToma" autocomplete="on" class="registro-borde"></ion-datetime>
-            <!-- <input type="time" class="registro-borde prueba"
-            name="primeraToma" required
-            [(ngModel)]="medicamento.primeraToma" 
-                #primeraToma="ngModel"> -->
+            <ion-input readonly type="number" name="cantidadInicial" autocomplete="on" class="registro-borde">
+              {{MedicamentoPrimeraToma}}</ion-input>
+            <!-- <ion-datetime display-format="13" picker-format="00" [(ngModel)]="medicamento.primeraToma"
+              #primeraToma="ngModel" title="Hora y minutos de tu primera toma" name="primeraToma" autocomplete="on"
+              class="registro-borde">{{MedicamentoPrimeraToma}}</ion-datetime> -->
           </ion-col>
         </ion-row>
 
@@ -93,23 +93,23 @@
 
         <ion-row class="ion-justify-content-center">
           <ion-col size="10">
-            <ion-textarea type="text" [(ngModel)]="medicamento.comentarios" #comentarios="ngModel"
-              placeholder="Añade aquí tus comentarios y notas sobre la toma" title="Comentarios y notas sobre la toma"
-              name="comentarios" autocomplete="on" class="borde-textarea"></ion-textarea>
+            <ion-textarea color={{colorInput}} readonly type="text" name="comentarios" autocomplete="on"
+              class="borde-textarea">
+              {{MedicamentoComentarios}}</ion-textarea>
           </ion-col>
         </ion-row>
 
         <!-- Botones -->
         <ion-row class="ion-justify-content-center grupo-registro">
           <ion-col size="5">
-            <button (click)="aniadirMedicamentoForm.reset()" class="but-cancel">
-              Cancelar
+            <button routerLink="/prospecto" class="but-ver">
+              Ver Prospecto
             </button>
           </ion-col>
 
           <ion-col size="5">
-            <button (click)="onSubmit(aniadirMedicamentoForm)" class="but">
-              Guardar
+            <button (click)="habilitar()" class="but">
+              {{nombreBoton}}
             </button>
           </ion-col>
         </ion-row>

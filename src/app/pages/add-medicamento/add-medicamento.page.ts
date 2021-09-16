@@ -40,7 +40,6 @@ export class AddMedicamentoPage implements OnInit {
     
       const modal = await this.modalController.create({
         component: Modal3Page,
-        // cssClass: 'my-custom-class' //tiene q ser global
       });
       return await modal.present();
     

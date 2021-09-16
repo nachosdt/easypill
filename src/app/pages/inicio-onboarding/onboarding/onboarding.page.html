@@ -1,16 +1,17 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title>HOME/MEDICAMENTOS/PROSPECTOS..</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 
 
 
 <ion-content>
- 
-  <img id="flecha" src="../assets/Arrow1.svg"/>   
-  <img id="imagenBarra" src="../assets/NavBar3A_3.svg">
+
+  <img id="flecha" src="../assets/Arrow1.svg" />
+  <img id="imagenBarra" src="../assets/Onboarding/NavBar.svg">
+
 
   <!-- Slideshow container -->
   <div class="slideshow-container">
@@ -20,9 +21,9 @@
       <p>Incluye:</p>
       <ul>
         <li>· Recordatorios de los próximos</li>
-        <li>· Recordatorios de los próximos 
-          medicamentos</li>          
-      </ul>       
+        <li>· Recordatorios de los próximos
+          medicamentos</li>
+      </ul>
     </div>
 
     <div class="mySlides">
@@ -33,16 +34,16 @@
         <li>· Frecuencias en horas</li>
         <li>· Cantidad inicial en la caja</li>
         <li>· Hora de la primera toma</li>
-        <li>· Comentarios</li>        
-      </ul>     
+        <li>· Comentarios</li>
+      </ul>
     </div>
 
     <div class="mySlides">
       <p>Cuenta con:</p>
       <ul>
         <li>· Pastillero semanal y diario</li>
-        <li>· Lista de medicamentos añadidos</li>          
-      </ul>      
+        <li>· Lista de medicamentos añadidos</li>
+      </ul>
     </div>
 
     <div class="mySlides">
@@ -55,16 +56,16 @@
 
   </div>
 
-<!-- Next/prev buttons -->
-<a class="prev" (click)="plusSlides(-1)">&#10094;</a>
-<a class="next" (click)="plusSlides(1)">&#10095;</a>
+  <!-- Next/prev buttons -->
+  <a class="prev" (click)="plusSlides(-1)">&#10094;</a>
+  <a class="next" (click)="plusSlides(1)">&#10095;</a>
 
-<!-- Dots/bullets/indicators -->
-  <div class="dot-container">        
+  <!-- Dots/bullets/indicators -->
+  <div class="dot-container">
     <span class="dot" (click)="currentSlide(1)"></span>
     <span class="dot" (click)="currentSlide(2)"></span>
     <span class="dot" (click)="currentSlide(3)"></span>
     <span class="dot" (click)="currentSlide(4)"></span>
-    <span class="dot" (click)="currentSlide(5)"></span>      
+    <span class="dot" (click)="currentSlide(5)"></span>
   </div>
 </ion-content>

@@ -1,71 +1,58 @@
-<!-- <ion-header>
-  <ion-toolbar>
-    <ion-title>HOME/MEDICAMENTOS/PROSPECTOS..</ion-title>
-  </ion-toolbar>
-</ion-header> -->
-
-
-
-
 <ion-content>
-
-  <img id="flecha" src="../assets/Arrow1.svg" />
-  <img id="imagenBarra" src="../assets/Onboarding/NavBar.svg">
-
-
+  <h1>{{titulo}}</h1>
+  <img id="flecha" src="../assets/Arrow1.svg"/>   
+  <img id="imagenBarra" src="../assets/NavBar3A_3.svg">
+  
+  <div class="omitir">
+    <button routerLink="../../configuracion/contactos/anadir-contacto" class="but-cancel">Omitir</button>
+  </div>
   <!-- Slideshow container -->
   <div class="slideshow-container">
 
     <!-- Full-width slides/quotes -->
     <div class="mySlides">
-      <p>Incluye:</p>
-      <ul>
-        <li>· Recordatorios de los próximos</li>
-        <li>· Recordatorios de los próximos
-          medicamentos</li>
-      </ul>
+      <p>La pestaña HOME te informa de cuál es el siguiente medicamento que tienes 
+        que tomar y cuáles son los medicamentos que te tocan ingerir cada día.
+      </p>         
     </div>
 
     <div class="mySlides">
-      <p>El formulario contiene:</p>
-      <ul>
-        <li>· Nombre del medicamento</li>
-        <li>· Dosis diarias</li>
-        <li>· Frecuencias en horas</li>
-        <li>· Cantidad inicial en la caja</li>
-        <li>· Hora de la primera toma</li>
-        <li>· Comentarios</li>
-      </ul>
+      <p>En esta pestaña puedes consultar la planificación de tus tratamientos
+        a lo largo de la semana y también acceder a la lista de medicamentos 
+        que tienes que ingerir cada día.
+      </p>         
     </div>
 
     <div class="mySlides">
-      <p>Cuenta con:</p>
-      <ul>
-        <li>· Pastillero semanal y diario</li>
-        <li>· Lista de medicamentos añadidos</li>
-      </ul>
+      <p>Aquí es donde puede añadir nuevos medicamentos a tu lista, para poder llevar
+         un seguimiento y que Easypill te recuerde cada toma.
+      </p>        
     </div>
 
     <div class="mySlides">
-      <p>Permite buscar prospectos de cada medicamento indicando su nombre</p>
+      <p>En esta pestaña podrás buscar las farmacias más cercanas a tu localización o 
+        a la dirección que señales en el buscador.
+      </p>
     </div>
 
     <div class="mySlides">
-      <p>Permite buscar farmacias alrededor de su localización o dirección concreta</p>
+      <p>Por último, puedes consultar los prospectos de cualquier tipo de medicamento
+         que existe en el mercado.
+      </p>
     </div>
 
   </div>
 
-  <!-- Next/prev buttons -->
-  <a class="prev" (click)="plusSlides(-1)">&#10094;</a>
-  <a class="next" (click)="plusSlides(1)">&#10095;</a>
+<!-- Next/prev buttons -->
+<a class="prev" (click)="plusSlides(-1)">&#10094;</a>
+<a class="next" (click)="plusSlides(1)">&#10095;</a>
 
-  <!-- Dots/bullets/indicators -->
-  <div class="dot-container">
+<!-- Dots/bullets/indicators -->
+  <div class="dot-container">        
     <span class="dot" (click)="currentSlide(1)"></span>
     <span class="dot" (click)="currentSlide(2)"></span>
     <span class="dot" (click)="currentSlide(3)"></span>
     <span class="dot" (click)="currentSlide(4)"></span>
-    <span class="dot" (click)="currentSlide(5)"></span>
+    <span class="dot" (click)="currentSlide(5)"></span>      
   </div>
 </ion-content>

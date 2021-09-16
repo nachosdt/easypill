@@ -1,0 +1,98 @@
+<ion-content>
+  <header class="header container-center">
+    <div class="container-center">
+      <img src="../../../assets/back_claro.svg" (click)="goBack()">
+     <h1>Perfil de usuario</h1>
+    </div>
+</header>
+
+<section class="body">
+  <div class="titulo">
+    <p>EasyPill</p>
+  </div>
+  <form #registerForm="ngForm">
+
+    <ion-grid>
+      <!-- Nombre del Usuario -->
+      <ion-row class="ion-justify-content-center grupo-registro">
+        <ion-col size="10">
+          <ion-label for="nombre">Nombre</ion-label>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="10" class="ion-justify-content-center">
+          <ion-input type="text" [(ngModel)]="usuario.nombre"
+            readonly 
+            #nombre="ngModel"             
+            title="NombreUsuario"
+            name="nombreUsuario" required
+            autocomplete="on"
+            class="registro-borde"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-justify-content-center grupo-registro">
+        <ion-col size="10">
+          <ion-label for="email">Email</ion-label>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="10" class="ion-justify-content-center">
+          <ion-input type="text" [(ngModel)]="usuario.email" 
+            readonly
+            #email="ngModel"             
+            title="email"
+            name="email" required
+            autocomplete="on"
+            class="registro-borde"></ion-input>
+        </ion-col>
+      </ion-row>
+        <ion-row class="ion-justify-content-center grupo-registro">
+        <ion-col size="10">
+          <ion-label for="contrasenia">Contraseña</ion-label>
+        </ion-col>
+        </ion-row>
+
+        <ion-row class="ion-justify-content-center">
+          <ion-col size="10" class="ion-justify-content-center">
+            <ion-input type="text" [(ngModel)]="usuario.contrasenia"
+              readonly 
+              #contrasenia="ngModel"               
+              title="contrasenia"
+              name="contrasenia" required
+              autocomplete="on"
+              class="registro-borde"></ion-input>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="ion-justify-content-center grupo-registro">
+        <ion-col size="10">
+          <ion-label for="contrasenia">Fecha de nacimiento</ion-label>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="10" class="ion-justify-content-center">
+          <ion-input type="text" [(ngModel)]="usuario.fechaNacimiento"
+            readonly 
+            #contrasenia="ngModel"           
+            title="fechaNacimiento"
+            name="fechaNacimiento" required
+            autocomplete="on"
+            class="registro-borde"></ion-input>
+        </ion-col>
+      </ion-row>
+
+      <div size="5" class="display-center">
+        <button  class="btn but" expand="block" 
+        fill="clear" shape="round" routerLink="/configuracion/perfil/editar-perfil">
+          Editar perfil
+        </button>
+      </div>
+
+    </ion-grid>
+    
+  </form>
+  </section>
+</ion-content>

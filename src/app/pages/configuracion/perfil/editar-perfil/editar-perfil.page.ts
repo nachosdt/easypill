@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../../../../models/usuario';
 import { NgForm } from '@angular/forms';
 import { Location } from '@angular/common';
+
 @Component({
-  selector: 'app-registro',
-  templateUrl: './registro.page.html',
-  styleUrls: ['./registro.page.scss'],
+  selector: 'app-editar-perfil',
+  templateUrl: './editar-perfil.page.html',
+  styleUrls: ['./editar-perfil.page.scss'],
 })
-export class RegistroPage implements OnInit {
+export class EditarPerfilPage implements OnInit {
 
   public usuario:Usuario = new Usuario()
   constructor(public location: Location) { }
@@ -28,4 +29,5 @@ export class RegistroPage implements OnInit {
   goBack(){
     this.location.back();
   }
+
 }

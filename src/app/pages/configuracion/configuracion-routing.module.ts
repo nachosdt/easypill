@@ -10,6 +10,10 @@ const routes: Routes = [
   },  {
     path: 'contactos',
     loadChildren: () => import('./contactos/contactos.module').then( m => m.ContactosPageModule)
+  },
+  {
+    path: 'perfil',
+    loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
   }
 
 ];

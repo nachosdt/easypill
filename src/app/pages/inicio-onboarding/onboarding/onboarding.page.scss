@@ -1,3 +1,21 @@
+h1 {
+  text-align: center;
+  font-weight: bold;
+  color: rgb(var(--primary_color));
+  font-size: x-large;
+  margin-top: 80px;
+}
+
+.omitir{
+  position: absolute;
+  top: 20px;
+  left: 15px;
+}
+
+.but-cancel {
+  padding: 0px 15px;
+}
+
 #flecha {  
   position: absolute;
   top: 18%;
@@ -23,12 +41,16 @@
 .mySlides {
   display: none;
   padding: 30px 40px;
+  margin-top: 20px;
   
 }
 
 .mySlides>p {
   color: rgb(111, 0, 255);
   margin: 10px 0; 
+  font-weight: bold;
+  text-align: center;
+  line-height: 25px;
 }
 
 .mySlides>ul {

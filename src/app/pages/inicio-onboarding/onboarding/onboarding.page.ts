@@ -7,25 +7,25 @@ import { IonIcon } from '@ionic/angular';
   styleUrls: ['./onboarding.page.scss'],
 })
 export class OnboardingPage implements OnInit {
-
+  
+  public listaTitulos:string[] = ["HOME","TRATAMIENTOS","AÑADIR MEDICAMENTOS","BUSCAR FARMACIAS","CONSULTAR PROSPECTOS"];
+  public titulo:string;
   public slideIndex:number;
   public distancia:string[] = ["12vw","27vw","47vw","64vw","83vw"];
   constructor() { 
-    this.slideIndex = 1;
-    
+    this.slideIndex = 1;    
   }
 
   ngOnInit() {
     this.showSlides(this.slideIndex);
-    //document.getElementById("flecha").style.marginLeft = "300px";
-    
   }
+
   public arrowTexto(n:number):void{
     let i: number; 
   }
 
   public plusSlides(n:number):void {
-    this.showSlides(this.slideIndex += n);
+    this.showSlides(this.slideIndex += n);    
   }
 
   public currentSlide(n:number):void {
@@ -48,6 +48,7 @@ export class OnboardingPage implements OnInit {
     document.getElementById("flecha").style.left = this.distancia[this.slideIndex-1];
     slides[this.slideIndex-1].className += " mostrar";
     dots[this.slideIndex-1].className += " active";
+    this.titulo = this.listaTitulos[this.slideIndex-1];
   }
 
 }

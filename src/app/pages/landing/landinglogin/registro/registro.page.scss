@@ -1,0 +1,58 @@
+.titulo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: -135px;
+}
+.titulo > p
+{
+    color: rgb(var(--color_black));
+    font-size: 25px;
+    margin-top: 130px;
+    font-weight: bold;
+}
+
+.check
+{
+    padding: 20px;
+}
+.check p
+{
+    font-size: 11px;
+    margin-top: -25px;
+    padding-right: 50px;
+}
+.circle{
+    width: 35px;
+    height: 35px;
+    padding: 8px;
+}
+.body{
+    padding-top: 40px;
+}
+
+.body form ion-label{
+    font-weight:700;
+}
+
+.body form .grupo-registro{
+    margin-top: 40px;
+}
+
+.body form ion-input.registro-borde
+{
+    border-bottom: 2px solid rgb(var(--primary_color));
+}
+
+.btn .but
+{
+    width: 189px;
+    height: 34px;
+    margin-top: 20px;
+}
+
+.body > form > ion-grid > .check > ion-checkbox.checkBoton {
+    --background-checked: rgb(var(--primary_color_medium));
+    --border-color-checked: rgb(var(--primary_color_medium));
+}

@@ -80,17 +80,23 @@
             class="registro-borde"></ion-input>
         </ion-col>
       </ion-row>
+      <ion-row class="container-around grupo-registro">
+        <ion-col size="5">
+          <button
+          class="but-cancel"
+          (click)="eliminarCuenta()">
+            Eliminar cuenta
+          </button>
+        </ion-col>
 
-      <div size="5" class="display-center">
-        <button  class="but" expand="block" 
-        fill="clear" shape="round" routerLink="editar-perfil">
-          Editar perfil
-        </button>
-        <button  class="but-cancel" expand="block" 
-        fill="clear" shape="round" (click)="eliminarCuenta()">
-          Eliminar perfil
-        </button>
-      </div>
+        <ion-col size="5">
+          <button
+          class="but"
+          routerLink="editar-perfil">
+            Editar perfil
+          </button>
+        </ion-col>
+      </ion-row>
 
     </ion-grid>
     

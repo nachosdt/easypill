@@ -1,7 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Location } from '@angular/common';
 import { ContactosService } from '../../../../shared/contactos.service';
-import { IonButton, IonCheckbox, IonInput } from '@ionic/angular';
+import { IonCheckbox } from '@ionic/angular';
+
+import { Modal1Page } from 'src/app/pages/modals/modal1/modal1.page';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-contacto',
@@ -13,7 +16,8 @@ export class ContactoPage implements OnInit {
   // @ViewChild 
 
   constructor(private location: Location,
-    public contactosService: ContactosService) { }
+    public contactosService: ContactosService,
+    public modalController: ModalController) { }
 
   goBack() {
     this.location.back();
@@ -56,7 +60,7 @@ export class ContactoPage implements OnInit {
       this.mostarBotones(eliminar, cancelar, editar, guardar);      
   }
 
-  guardarContacto(nombre: HTMLInputElement, tlf: HTMLInputElement,
+  async guardarContacto(nombre: HTMLInputElement, tlf: HTMLInputElement,
     email: HTMLInputElement, notifEmail: IonCheckbox,
     notifSms: IonCheckbox, eliminar: HTMLButtonElement, 
     cancelar: HTMLButtonElement, editar: HTMLButtonElement,
@@ -71,6 +75,11 @@ export class ContactoPage implements OnInit {
 
       this.ocultarBotones(eliminar, cancelar, editar, guardar)
       console.log(this.contactosService.contactos[0]);
+
+      const modal = await this.modalController.create({
+        component: Modal1Page,
+      });
+      return await modal.present();
     }
 
   mostarBotones(eliminar: HTMLButtonElement, 

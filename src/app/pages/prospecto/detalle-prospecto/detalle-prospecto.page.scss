@@ -109,8 +109,19 @@ details .tit-acordeon::after{
     margin-top:5px;
 }
 
-details .text-acordeon{
+// details .text-acordeon{
+//     background-color: white;
+//     padding: 15px 10%;
+//     font-size: 12px;
+// }
+
+ion-content p.text-acordeon{
     background-color: white;
     padding: 15px 10%;
     font-size: 12px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0;
+    text-align: left;
 }

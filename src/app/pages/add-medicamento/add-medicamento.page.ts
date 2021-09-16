@@ -3,6 +3,9 @@ import { NgForm } from '@angular/forms';
 import { Medicamento } from 'src/app/models/medicamento/medicamento';
 import { MedicamentosService } from '../../shared/medicamentos.service';
 
+import { ModalController } from '@ionic/angular';
+import { Modal3Page } from '../modals/modal3/modal3.page';
+
 @Component({
   selector: 'app-add-medicamento',
   templateUrl: './add-medicamento.page.html',
@@ -12,12 +15,12 @@ export class AddMedicamentoPage implements OnInit {
   
   public medicamento : Medicamento = new Medicamento ();
 
-  constructor(public medicamentoService: MedicamentosService) { }
+  constructor(public modalController: ModalController, public medicamentoService: MedicamentosService) { }
 
   ngOnInit() {
   }
 
-  onSubmit(form:NgForm) {
+  async onSubmit(form:NgForm) {
 
     console.log(form.value);
 
@@ -33,6 +36,14 @@ export class AddMedicamentoPage implements OnInit {
     this.medicamentoService.medicamentos.push(this.medicamento);
     console.log(this.medicamentoService.medicamentos);
     console.log(typeof this.medicamento.primeraToma)
+
+    
+      const modal = await this.modalController.create({
+        component: Modal3Page,
+        // cssClass: 'my-custom-class' //tiene q ser global
+      });
+      return await modal.present();
+    
   }
 
 }

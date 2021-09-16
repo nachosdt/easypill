@@ -1,3 +1,36 @@
-.titulo{
+#logoNegro{
+    width: 150px;
+    height: 50px;
+}
+.body > div > p{
+    color:rgb(var(--color_black));
+    font-weight:bold;
+    font-size:25px;
+}
+.body{
+    padding-top: 40px;
+}
+
+.body form ion-label{
+    font-weight:700;
+}
+
+.body form .grupo-registro{
+    margin-top: 40px;
+}
+
+.body form ion-input.registro-borde
+{
+    border-bottom: 2px solid rgb(var(--primary_color));
+}
+.but{
+    margin-top: 75px;
+}
+.but-cancel{
+    max-width:132px;
+    min-width: 60%;
+    font-size:14px;
+    height: 34px;
     margin-top: 25px;
+    background-color: rgb(var(--primary_color_light));
 }

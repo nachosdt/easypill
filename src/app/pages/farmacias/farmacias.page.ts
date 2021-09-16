@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
+/* Importaciones para trabajar con geolocalización y el mapa */
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 import * as Leaflet from 'leaflet';
 
 @Component({
@@ -9,12 +12,13 @@ import * as Leaflet from 'leaflet';
 export class FarmaciasPage implements OnInit {
 
   map: Leaflet.Map;
-  constructor() {}  
+  constructor(private geolocation: Geolocation) {}  
 
-  ionViewDidEnter() { this.leafletMap(); }
+  ionViewDidEnter() { this.localizarUsuario(); }
 
-  leafletMap() {
-    this.map = Leaflet.map('mapId',{ zoomControl: false }).setView([40.4, -3.7], 10);
+  // Método que construye el mapa centrado en la posición dle usuario
+  private leafletMap(latitud:number,longitud:number) {
+    this.map = Leaflet.map('mapId',{ zoomControl: false }).setView([latitud, longitud], 15);
     Leaflet.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
       attribution: '',
       maxZoom: 18,
@@ -24,11 +28,20 @@ export class FarmaciasPage implements OnInit {
       accessToken: 'pk.eyJ1IjoibmFjaG83OCIsImEiOiJja3RibjR5NGowbTQxMndteWtvNTMwMGl1In0.SyZ7hjPO3837MJmMAWbNzw'
   }).addTo(this.map);
 
-    // Leaflet.marker([28.6, 77]).addTo(this.map).bindPopup('Delhi').openPopup();
-    // Leaflet.marker([34, 77]).addTo(this.map).bindPopup('Leh').openPopup();    
+    let chincheta = Leaflet.marker([latitud, longitud]).addTo(this.map).bindPopup("<b>Ionic Mooooooola!</b>").openPopup();   
   }
 
   ngOnInit() {
   }
+
+  // Método que localiza la posición de usuario y llama a leafletMap(lat,long)
+  private localizarUsuario() {
+    this.geolocation.getCurrentPosition().then((resp) => {
+      this.leafletMap(resp.coords.latitude,resp.coords.longitude);      
+     }).catch((error) => {
+       console.log('Error getting location', error);
+     });
+  }
+  
 
 }

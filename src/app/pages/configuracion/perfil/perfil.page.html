@@ -7,9 +7,6 @@
 </header>
 
 <section class="body">
-  <div class="titulo">
-    <p>EasyPill</p>
-  </div>
   <form #registerForm="ngForm">
 
     <ion-grid>
@@ -85,9 +82,13 @@
       </ion-row>
 
       <div size="5" class="display-center">
-        <button  class="btn but" expand="block" 
-        fill="clear" shape="round" routerLink="/configuracion/perfil/editar-perfil">
+        <button  class="but" expand="block" 
+        fill="clear" shape="round" routerLink="editar-perfil">
           Editar perfil
+        </button>
+        <button  class="but-cancel" expand="block" 
+        fill="clear" shape="round" (click)="eliminarCuenta()">
+          Eliminar perfil
         </button>
       </div>
 

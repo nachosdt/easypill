@@ -1,11 +1,16 @@
-<ion-header>
-  <ion-toolbar>
-
-    <button routerLink="../home" (click)="closeModal()" class="but-cancel">cerrar</button>
-
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <h2>Cuenta eliminada</h2>
+  <section class="container-center todo">
+    <article>
+      <div class="display-center">
+        <h2>Cuenta eliminada</h2>
+      </div>
+      <ion-grid>
+        <ion-row class="ion-justify-content-center">
+          <ion-col size="10" class="container-center">
+            <button routerLink="/landing" class="but" (click)="closeModal()">Volver</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </article>
+  </section>  
 </ion-content>

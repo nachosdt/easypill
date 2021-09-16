@@ -32,12 +32,9 @@ body {
 
 .but {
     background-color: rgb(var(--primary_color));
-    // font-size: 45px;
-    background-color: rgb(var(--primary_color));
     color: white;
     border-radius: 17px;
     height: 34px;
-    max-width:132px;
     min-width: 60%;
     font-size: 14px;
 }
@@ -55,7 +52,6 @@ body {
     color: rgb(var(--primary_color));
     border-radius: 17px;
     height: 34px;
-    max-width:132px;
     font-size: 14px;
 }
 
@@ -64,11 +60,12 @@ body {
 }
 
 // MODALES
-// ion-modal.sc-ion-modal-md-h 
-#ion-overlay-1
-{
-    background: rgba(0,0,0,0.5);
+
+
+ion-modal {
+    background: rgba(34, 0, 79, 0.77);
 }
+
 .modal-wrapper.sc-ion-modal-md, .modal-shadow.sc-ion-modal-md {
     border-radius: 17px;
     width: 80%;

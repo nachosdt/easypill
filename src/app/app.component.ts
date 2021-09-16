@@ -1,7 +1,4 @@
 import { Component } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
-import { filter } from 'rxjs/operators';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -12,36 +9,10 @@ import { filter } from 'rxjs/operators';
 
 export class AppComponent {
 
-  private subscriber: Subscription;
-  public url: string;
-  public mostrar: boolean = true;
 
 
-  constructor(private router: Router) {
+  constructor() {
 
-    this.subscriber = router.events.pipe
-      (filter(event => event instanceof NavigationEnd)).subscribe((event) => {
-        //console.log('The URL changed to: ' + event['url']);
-        this.url = event['url'];
-        console.log(this.url);
-        this.mostrar = true;
-        if (this.url == "/medicamentos/lunes") {
-          this.mostrar = false;
-          console.log(this.mostrar);
-
-        }
-        if (this.url == "/add-medicamento") {
-          this.mostrar = false;
-        }
-
-
-        // if (this.url == "/add-medicamento") {
-        //   this.mostrar = false;
-        // }
-
-
-        // this.subscriber?.unsubscribe();
-      });
 
 
 

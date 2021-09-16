@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { filter } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-navbar',
@@ -7,8 +11,50 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit() {}
+  private subscriber: Subscription;
+  public url: string;
+  public mostrar: boolean = true;
+
+  constructor(private router: Router) {
+
+    this.subscriber = router.events.pipe
+      (filter(event => event instanceof NavigationEnd)).subscribe((event) => {
+        this.url = event['url'];
+        console.log(this.url);
+        this.mostrar = true;
+        if (this.url == "/medicamentos/lunes") {
+          this.mostrar = false;
+          console.log(this.mostrar);
+
+        }
+        if (this.url == "/medicamentos/martes") {
+          this.mostrar = false;
+          console.log(this.mostrar);
+
+        }
+        if (this.url == "/medicamentos/miercoles") {
+          this.mostrar = false;
+          console.log(this.mostrar);
+
+        }
+        if (this.url == "/medicamentos/jueves") {
+          this.mostrar = false;
+          console.log(this.mostrar);
+
+        }
+        if (this.url == "/add-medicamento") {
+          this.mostrar = false;
+        }
+        if (this.url == "/configuracion") {
+          this.mostrar = false;
+        }
+        if (this.url == "/landing") {
+          this.mostrar = false;
+        }
+      });
+  }
+
+  ngOnInit() { }
 
 }

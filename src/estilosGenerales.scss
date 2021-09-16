@@ -62,3 +62,15 @@ body {
 .but-cancel:focus, .but-cancel:active {
     background-color: rgba(var(--secundary_color_cancel),0.7);
 }
+
+
+.but-ver {
+    background-color: rgb(var(--primary_color_light));
+    color: rgb(var(--primary_color));
+    border-radius: 17px;
+    height: 34px;
+    max-width:132px;
+    font-size: 14px;
+}
+
+

@@ -34,6 +34,10 @@ const routes: Routes = [
   {
     path: 'domingo',
     loadChildren: () => import('./domingo/domingo.module').then( m => m.DomingoPageModule)
+  },
+  {
+    path: 'editarmedicamento',
+    loadChildren: () => import('./editarmedicamento/editarmedicamento.module').then( m => m.EditarmedicamentoPageModule)
   }
 
 ];

@@ -1,0 +1,116 @@
+//		Imports
+
+@import "../../../../theme/variables.scss";
+@import "../../../../estilosGenerales.scss";
+@import "../../../components/cardMedicina/card-medicina.component.scss";
+
+//		Diseño Header
+
+.header {
+    height: calc(var(--header_height) + 30px);
+    background-color: rgb(var(--primary_color));
+    position: fixed;
+    width: 100%;
+}
+
+.header > div > img {
+    left: 20px;
+    position: absolute;
+    width: 10px;
+    height: 20px;
+}
+
+.header > div > h1 {
+    color: rgb(var(--color_white));
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+.body {
+    position: absolute;
+    height: var(--body_height);
+    border-radius: var(--border_radius-header) var(--border_radius-header) 0 0;
+    width: 100%;
+    top: var(--header_height);
+    background-color: rgb(var(--color_white));
+    z-index: 1;
+}
+
+.container-center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.display-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.display-around {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+// Contenido
+#detalle{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    padding: 40px 0 0 0;
+}
+#tit-med{
+    width: 70%;
+    font-weight: 700;
+    font-size:16px;
+    text-align: center;
+    color: rgba(var(--primary_color),0.7);
+    text-transform: uppercase;
+}
+
+img{
+    margin: 30px auto;
+    width: 90%;
+    display:block;
+}
+
+details{
+    width:100%;
+    height:100%;
+    background-color: rgba(var(--primary_color),0.5);
+}
+details:last-of-type{
+    padding-bottom: 40px;
+}
+
+details .tit-acordeon{
+    color: white;
+    text-align: center;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size:12px;
+    padding: 15px 8%;
+    border-bottom: 2px solid rgba(255,255,255,0.5);
+}
+
+details .tit-acordeon::after{
+    content:url('../../../../assets/back_claro_down.svg');
+    display:inline-block;
+    width: 12px;
+    height:auto;
+    margin-left: 20px;
+    margin-top:5px;
+}
+
+details .text-acordeon{
+    background-color: white;
+    padding: 15px 10%;
+    font-size: 12px;
+}

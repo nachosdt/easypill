@@ -30,6 +30,7 @@ ion-content{
     align-items: center;
     justify-content: space-between;
    
+   
     
     // width: 50%;
    
@@ -42,6 +43,8 @@ ion-content{
 
 .header-titulo p{
   font-size: 26pt;
+  font-weight: 700;
+  color: #ffffff;
 }
 
 .header-date{
@@ -49,6 +52,11 @@ ion-content{
     justify-content: flex-start;
     align-items: flex-end;
     height: 5vh;
+}
+
+.header-date p{
+    color: #ffffff;
+    font-weight: 700;
 }
 
 .imagen{
@@ -61,7 +69,7 @@ ion-content{
 .ilustration-header{
     position: absolute;
   //bottom: -100px;
-   top: -52px;
+   top: 20px;
   
 }
 
@@ -78,6 +86,7 @@ ion-content{
     align-items: center;
    padding-top: 40px;
    gap: 20px;
+  
 }
 
 
@@ -119,10 +128,12 @@ ion-content{
    
     display: flex;
     align-items: center;  
+    
 }
 
 .medicina-nombre p{
     font-size: 14pt;
+    color: #ffffff;
 }
 
 .medicina-dia{
@@ -136,6 +147,7 @@ ion-content{
 
 .medicina-dia p{
     font-size: 10pt;
+    color: #ffffff;
 }
 
 .derecha{
@@ -159,6 +171,7 @@ ion-content{
 
 .medicina-hora p{
     font-size: 14pt;
+    color: #ffffff;
 }
 
 

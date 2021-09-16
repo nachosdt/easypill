@@ -39,8 +39,6 @@ const routes: Routes = [
     path: 'navegacion',
     loadChildren: () => import('./pages/navegacion/navegacion.module').then(m => m.NavegacionPageModule)
   },
-<<<<<<< HEAD
-=======
   {
     path: 'inicio-onboarding',
     loadChildren: () => import('./pages/inicio-onboarding/inicio-onboarding.module').then( m => m.InicioOnboardingPageModule)
@@ -48,10 +46,7 @@ const routes: Routes = [
   {
     path: 'modals',
     loadChildren: () => import('./pages/modals/modals.module').then( m => m.ModalsPageModule)
-  },
-
->>>>>>> Isabel
-
+  }
 ];
 
 

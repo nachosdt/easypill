@@ -10,7 +10,7 @@
     <!-- MEDICAMENTOS para el día -->
     <ng-container *ngIf="medicamentos else isElse" >
       <ng-container *ngFor="let medicamento of medicamentos">
-        <ng-container *ngIf="medicamento.completado == false else isCompletado">
+        <ng-container *ngIf="medicamento.completado == false">
           <div class="display-around">
             <div class="medicina-next color-medio">
               <div class="izquierda">
@@ -28,26 +28,28 @@
             </div>
           </div>
         </ng-container>
-        <ng-template #isCompletado>
-          <article class="display-around">
-            <h3 class="subtitle">Completado</h3>
-            <div class="medicina-next completado">
-              <div class="izquierda">
-                <div class="medicina-nombre">
-                  <p>{{medicamento.nombreMedicamento}}</p>
-                </div>
-                <div class="medicina-line">
-                </div>
-              </div>
-              <div class="derecha">
-                <div class="medicina-hora">
-                  <p>{{medicamento.primeraToma}}</p>
-                </div>
-              </div>
-            </div>
-          </article>
-        </ng-template>
       </ng-container>
+        <article class="display-around">
+          <h3 class="subtitle">Completado</h3>
+          <ng-container *ngFor="let medicamento of medicamentos">
+            <ng-container *ngIf="medicamento.completado == true">
+              <div class="medicina-next completado">
+                <div class="izquierda">
+                  <div class="medicina-nombre">
+                    <p>{{medicamento.nombreMedicamento}}</p>
+                  </div>
+                  <div class="medicina-line">
+                  </div>
+                </div>
+                <div class="derecha">
+                  <div class="medicina-hora">
+                    <p>{{medicamento.primeraToma}}</p>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </ng-container>
+        </article>
     </ng-container>
     <ng-template #isElse>
       <article class="medicina-next">

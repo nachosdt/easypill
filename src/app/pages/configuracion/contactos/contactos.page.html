@@ -11,7 +11,7 @@
     <ng-container *ngIf="contactos else isElse" >
       <ng-container *ngFor="let contacto of contactos">
         <div class="display-around">
-          <div class="medicina-next">
+          <div class="medicina-next" routerLink="contacto">
             <div class="izquierda">
               <div class="medicina-nombre">
                 <p>{{contacto.nombreContacto}}</p>

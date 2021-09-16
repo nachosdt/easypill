@@ -1,0 +1,129 @@
+<ion-content>
+  <!-- Header -->
+  <header class="header container-center">
+    <div class="container-center">
+      <img src="../../../assets/back_claro.svg" (click)="goBack()">
+      <h1>Añadir Contacto</h1>
+    </div>
+  </header>
+
+<!-- Body -->
+<section class="body">
+
+    <form #ContactoForm="ngForm">
+
+      <ion-grid>
+        <!-- Nombre del contacto -->
+        <ion-row class="ion-justify-content-center grupo-registro">
+          <ion-col size="10">
+            <ion-label for="nombreContacto">Nombre</ion-label>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="ion-justify-content-center">
+          <ion-col size="10" class="ion-justify-content-center">
+            <input type="text" 
+              title="Nombre completo del contacto"
+              name="nombreContacto" value="Juana Pérez Galdós"
+              readonly
+              class="registro-borde"
+              #nombreContacto>
+          </ion-col>
+        </ion-row>
+
+        <!-- Telefono contacto -->
+        <ion-row class="ion-justify-content-around grupo-registro">
+          <ion-col size="10">
+            <ion-label for="tlfContacto">Teléfono</ion-label>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="ion-justify-content-around">
+          <ion-col size="10">
+            <input type="number" 
+              value="655234123" readonly
+              name="tlfContacto"
+              class="registro-borde"
+              #tlfContacto>
+          </ion-col>
+        </ion-row>
+
+        <!-- Email del contacto -->
+        <ion-row class="ion-justify-content-around grupo-registro">
+          <ion-col size="10">
+            <ion-label for="emailContacto">Email</ion-label>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="ion-justify-content-around">
+          <ion-col size="10">
+            <input type="email"
+              value="juanapg@invent.es" readonly
+              name="emailContacto" required
+              autocomplete="on"
+              class="registro-borde"
+              #emailContacto>
+          </ion-col>
+        </ion-row>
+
+        <!-- Notificaciones Email y SMS -->
+        <ion-row class="ion-justify-content-around grupo-registro">
+          <ion-col size="4">
+            <ion-label for="notifEmail">Notificaciones por email</ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <ion-label for="frecuencia">Notificaciones por SMS</ion-label>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="ion-justify-content-around">
+          <ion-col size="4">
+            <ion-checkbox checked="true" disabled class="checkBoton"
+            #notifEmail></ion-checkbox>
+          </ion-col>
+          <ion-col size="4">
+            <ion-checkbox class="checkBoton" disabled
+            #notifSms></ion-checkbox>
+          </ion-col>
+        </ion-row>
+
+        <!-- Botones -->
+        <ion-row class="ion-justify-content-center grupo-registro">
+          <ion-col size="5">
+            <button
+            class="but-cancel aparecer"
+            (click)="eliminarContacto()" #eliminar>
+              Eliminar
+            </button>
+            <button
+            class="but-cancel desaparecer" #cancelar
+            (click)="cancel(nombreContacto, tlfContacto, emailContacto, notifEmail, notifSms, eliminar, cancelar, editar, guardar)">
+              Cancelar
+            </button>
+          </ion-col>
+
+          <ion-col size="5">
+            <button
+            class="but aparecer"
+            (click)="editarContacto(nombreContacto, tlfContacto, emailContacto,
+            notifEmail, notifSms, eliminar, cancelar, editar, guardar)" #editar>
+              Editar
+            </button>
+            <button
+            class="but desaparecer"
+             #guardar (click)="guardarContacto(nombreContacto, tlfContacto, emailContacto,
+             notifEmail, notifSms, eliminar, cancelar, editar, guardar)">
+              Guardar
+            </button>
+          </ion-col>
+        </ion-row>
+
+        
+
+      </ion-grid>
+
+    </form>
+
+</section>
+
+</ion-content>

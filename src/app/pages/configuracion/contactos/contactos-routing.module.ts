@@ -10,6 +10,10 @@ const routes: Routes = [
   },  {
     path: 'anadir-contacto',
     loadChildren: () => import('./anadir-contacto/anadir-contacto.module').then( m => m.AnadirContactoPageModule)
+  },
+  {
+    path: 'contacto',
+    loadChildren: () => import('./contacto/contacto.module').then( m => m.ContactoPageModule)
   }
 
 ];

@@ -52,9 +52,19 @@ export class NavbarComponent implements OnInit {
         if (this.url == "/landing") {
           this.mostrar = false;
         }
+        if (this.url == "/landing/landinglogin") {
+          this.mostrar = false;
+        }
+        if (this.url == "/landing/landinglogin/iniciar") {
+          this.mostrar = false;
+        }
+        if (this.url == "/landing/landinglogin/iniciar") {
+          this.mostrar = false;
+        }
       });
   }
 
   ngOnInit() { }
 
 }
+

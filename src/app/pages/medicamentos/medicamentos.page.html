@@ -18,7 +18,7 @@
     <ng-container *ngIf="medicamentos else isElse">
       <ng-container *ngFor="let medicamento of medicamentos">
         <div class="display-around">
-          <div class="medicina-next color-medio">
+          <div class="medicina-next color-medio" routerLink="editarmedicamento">
             <div class="izquierda">
               <div class="medicina-nombre">
                 <p>{{medicamento.nombreMedicamento}}</p>

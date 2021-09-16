@@ -39,6 +39,16 @@ const routes: Routes = [
     path: 'navegacion',
     loadChildren: () => import('./pages/navegacion/navegacion.module').then(m => m.NavegacionPageModule)
   },
+  {
+    path: 'inicio-onboarding',
+    loadChildren: () => import('./pages/inicio-onboarding/inicio-onboarding.module').then( m => m.InicioOnboardingPageModule)
+  },
+  {
+    path: 'modals',
+    loadChildren: () => import('./pages/modals/modals.module').then( m => m.ModalsPageModule)
+  },
+
+
 ];
 
 

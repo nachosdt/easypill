@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Medicamento } from 'src/app/models/medicamento/medicamento';
 
+import { ModalController } from '@ionic/angular';
+
+//SE LLAMA A LA PAGINA MODAL 3
+import { Modal3Page } from '../modals/modal3/modal3.page';
+
 @Component({
   selector: 'app-add-medicamento',
   templateUrl: './add-medicamento.page.html',
@@ -11,12 +16,12 @@ export class AddMedicamentoPage implements OnInit {
   
   public medicamento : Medicamento = new Medicamento ();
 
-  constructor() { }
+  constructor(public modalController: ModalController) { }
 
   ngOnInit() {
   }
 
-  onSubmit(form:NgForm) {
+  async onSubmit(form:NgForm) {
 
     console.log(form.value);
 
@@ -27,6 +32,14 @@ export class AddMedicamentoPage implements OnInit {
     this.medicamento.nombreMedicamento = form.value.nombreMedicamento;
     this.medicamento.primeraToma = form.value.primeraToma;
     this.medicamento.comentarios = form.value.comentarios;
+
+    
+      const modal = await this.modalController.create({
+        component: Modal3Page,
+        // cssClass: 'my-custom-class' //tiene q ser global
+      });
+      return await modal.present();
+    
   }
 
   borrar(form:NgForm){
@@ -39,4 +52,11 @@ export class AddMedicamentoPage implements OnInit {
     form.value.comentarios  = null;
   }
 
+  // async openModal() {
+  //   const modal = await this.modalController.create({
+  //     component: Prueba1ModalPage,
+  //     cssClass: 'my-custom-class' 
+  //   });
+  //   return await modal.present();
+  // }
 }

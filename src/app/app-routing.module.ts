@@ -39,6 +39,7 @@ const routes: Routes = [
     path: 'navegacion',
     loadChildren: () => import('./pages/navegacion/navegacion.module').then(m => m.NavegacionPageModule)
   },
+
 ];
 
 

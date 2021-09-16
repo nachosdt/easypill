@@ -8,19 +8,32 @@
   <!-- Header -->
   <header class="header container-center">
     <div class="container-center">
-      <img src="../../../assets/back.svg" routerLink="">
+      <img src="../../../../assets/back_claro.svg" routerLink="">
       <h1>Prospectos</h1>
     </div>
   </header>
-  
   <!-- Body -->
   <section class="body">
       <!-- NG FOR PARA MEDICAMENTO TRAIDO DE RESULTADOS -->
+
+
       <ng-container *ngIf="prospecto else isElse" >
-        <details *ngFor="let secItem of prospecto.secc">
-          <summary>Uno</summary>
-          <p>{{ prospecto.secc[secItem] }}</p>
-        </details>
+        <article id="detalle">
+          <h3 id="tit-med">
+            {{prospecto.nombreMed}}               
+          </h3>
+          <img [src]="prospecto.srcfoto" alt="">
+          
+          <!-- Acordeon  -->
+          <details *ngFor="let secItem of prospecto.secc; let indice = index">
+            <summary><h4 class="tit-acordeon">{{ (indice+1) + prospecto.secc[indice].titulo}}</h4></summary>
+            <p class="text-acordeon">{{ prospecto.secc[indice].contenido }}</p>
+          </details>
+
+        </article>
+       
+        
+        
       </ng-container>
       <ng-template #isElse>
         <p class="alerta">

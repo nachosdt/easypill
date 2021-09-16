@@ -12,6 +12,7 @@ const routes: Routes = [
     path: 'detalle-prospecto',
     loadChildren: () => import('./detalle-prospecto/detalle-prospecto.module').then( m => m.DetalleProspectoPageModule)
   }
+
 ];
 
 @NgModule({

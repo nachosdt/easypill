@@ -58,9 +58,41 @@ export class NavbarComponent implements OnInit {
         if (this.url == "/landing/landinglogin/iniciar") {
           this.mostrar = false;
         }
-        if (this.url == "/landing/landinglogin/iniciar") {
+        if (this.url == "/landing/landinglogin/registro") {
           this.mostrar = false;
         }
+        if (this.url == "/medicamentos/editarmedicamento") {
+          this.mostrar = false;
+        }
+        if (this.url == "/prospecto/detalle-prospecto") {
+          this.mostrar = false;
+        }
+        if (this.url == "/configuracion/perfil") {
+          this.mostrar = false;
+        }
+        if (this.url == "/configuracion/perfil/editar-perfil") {
+          this.mostrar = false;
+        }
+        if (this.url == "/configuracion/contactos") {
+          this.mostrar = false;
+        }
+
+        if (this.url == "/configuracion/contactos/anadir-contacto") {
+          this.mostrar = false;
+        }
+        if (this.url == "/configuracion/contactos/contacto") {
+          this.mostrar = false;
+        }
+
+        if (this.url == "/inicio-onboarding") {
+          this.mostrar = false;
+        }
+        if (this.url == "/inicio-onboarding/onboarding") {
+          this.mostrar = false;
+        }
+
+
+
       });
   }
 

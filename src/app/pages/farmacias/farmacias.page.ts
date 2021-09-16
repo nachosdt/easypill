@@ -30,15 +30,15 @@ export class FarmaciasPage implements OnInit {
   }).addTo(this.map);
     
     let icono = Leaflet.icon({
-      iconUrl: "../../../../assets/map/farmacia.png",
-      iconSize: [30, 40],
-      iconAnchor: [15, 40],
-      shadowUrl: "",
-      shadowSize: [35, 50],
-      shadowAnchor: [0, 55],
-      popupAnchor: [0, -40]
+      iconUrl: "../../../../assets/map/marker-icon.png",
+      iconSize: [35, 55], // size of the icon
+      iconAnchor: [13, 38], // point of the icon which will correspond to marker's location
+      shadowUrl: "../../../../assets/map/marker-shadow.png",
+      shadowSize: [35, 55], // size of the shadow
+      shadowAnchor: [0,38],
+      popupAnchor: [0, -40] // point from which the popup should open relative to the iconAnchor
     });
-    let chincheta = Leaflet.marker([latitud, longitud],{icon: icono}).addTo(this.map).bindPopup("<b>Ionic Mooooooola!</b>").openPopup();   
+    Leaflet.marker([latitud, longitud],{icon: icono}).addTo(this.map).bindPopup("<b>Ionic Mooooooola!</b>").openPopup();   
   }
 
   ngOnInit() {

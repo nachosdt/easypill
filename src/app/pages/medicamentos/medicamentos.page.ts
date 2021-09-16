@@ -8,6 +8,8 @@ import { Medicamento } from '../../models/medicamento/medicamento';
   styleUrls: ['./medicamentos.page.scss'],
 })
 export class MedicamentosPage implements OnInit {
+
+  public nombreCabecera:string = "Medicamentos";
   public medicamento : Medicamento;
   public medicamentos : Medicamento[];
   constructor(public medicamentoService: MedicamentosService) { 

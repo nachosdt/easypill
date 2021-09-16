@@ -29,7 +29,7 @@ export class EditarmedicamentoPage implements OnInit {
   }
 
   colorInput: string = "medium";
-  lecturaInput: boolean = true
+  lecturaInput: boolean = true;
   nombreBoton: string = "Editar"
 
   onSubmit(form: NgForm) {
@@ -48,11 +48,4 @@ export class EditarmedicamentoPage implements OnInit {
     this.medicamentoService.medicamentos.push(this.medicamento);
     console.log(this.medicamentoService.medicamentos)
   }
-
-  habilitar() {
-    this.colorInput = "primary";
-    this.lecturaInput = false
-    this.nombreBoton = "Guardar"
-  }
-
 }

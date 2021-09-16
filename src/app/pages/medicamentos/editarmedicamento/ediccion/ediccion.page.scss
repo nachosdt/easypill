@@ -1,0 +1,25 @@
+// Estilos Section Formulario
+.body{
+    padding-top: 40px;
+}
+
+.body form ion-label{
+    font-weight:700;
+}
+
+.body form .grupo-registro{
+    margin-top: 40px;
+}
+.body form ion-input.registro-borde,
+.body form ion-textarea.borde-textarea
+{
+    border-bottom: 2px solid rgb(var(--primary_color));
+}
+
+.but, .but-cancel, .but-ver {
+    width: 100%;
+}
+
+ion-input {
+    color: rgb(var(secundary_color_title));
+}

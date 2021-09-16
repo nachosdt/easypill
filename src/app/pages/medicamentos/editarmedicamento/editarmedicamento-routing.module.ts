@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: EditarmedicamentoPage
+  },  {
+    path: 'ediccion',
+    loadChildren: () => import('./ediccion/ediccion.module').then( m => m.EdiccionPageModule)
   }
+
 ];
 
 @NgModule({

@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family:'Montserrat';
+}
+#logo{
+    height: 65vw;
+    width: 65vw;
+}
+#iniciar{
+    margin-top: 80px;
+    width: 232px;
+    height: 57px;
+    background-color: rgb(189,138,255);
+    border-radius: 17px;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(var(--color_white));
+}
+#crear{
+    width: 232px;
+    height: 57px;
+    background-color: rgb(var(--color_white));
+    border-radius: 17px;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(var(--primary_color));
+    margin-top:55px;
+}
+ion-content{
+    --ion-background-color:rgb(var(--primary_color));
+}

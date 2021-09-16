@@ -11,10 +11,11 @@ export class MedicamentosPage implements OnInit {
   public medicamento : Medicamento;
   public medicamentos : Medicamento[];
   constructor(public medicamentoService: MedicamentosService) { 
-    // this.medicamentos = medicamentoService.medicamento;
+    this.medicamentos = medicamentoService.medicamentos;
   }
 
   ngOnInit() {
+    console.log(this.medicamentos);
   }
 
 }

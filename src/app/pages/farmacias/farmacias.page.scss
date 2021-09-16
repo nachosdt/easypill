@@ -1,0 +1,38 @@
+#mapId {
+    border-radius: var(--border_radius-header) var(--border_radius-header) 0 0;
+}
+
+#buscador {
+    width: 80%;
+    height: 40px; 
+    position: absolute;
+    left: 10%;
+    top: 5%;    
+    background-color: white;    
+    border-radius: 20px;
+    z-index: 1000;
+    font-size: large;
+    padding: 15px 25px;
+}
+
+#buscarEnMapa {
+    background-color: rgb(var(--primary_color));
+    width: 40%;    
+    position: absolute;
+    left: 30%;
+    top: 75%;
+    border-radius: 20px;
+    padding: 15px;
+    z-index: 1000;
+    color: rgb(var(--color_white));
+    font-size: large;
+    font-weight: bold;
+}
+
+ion-item {
+    --position: absolute;
+    --top:30px;
+    --left: 40px;
+    --z-index: 1500;
+    --width: 20px;
+}

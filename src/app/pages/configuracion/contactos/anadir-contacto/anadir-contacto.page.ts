@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Contacto } from '../../../../models/contacto';
 import { ContactosService } from '../../../../shared/contactos.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-anadir-contacto',
@@ -12,7 +13,7 @@ export class AnadirContactoPage implements OnInit {
 
   public contacto : Contacto = new Contacto();
 
-  constructor(public contactoService: ContactosService) { }
+  constructor(public contactoService: ContactosService, public location: Location) { }
 
   onSubmit(form:NgForm) {
 
@@ -25,6 +26,10 @@ export class AnadirContactoPage implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  goBack() {
+    this.location.back();
   }
 
 }

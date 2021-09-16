@@ -9,9 +9,12 @@
 }
 .check p
 {
-    font-size: 11px;
+    font-size: 10px;
     margin-top: -25px;
     padding-right: 50px;
+    text-decoration: underline;
+    color:rgb(var(--primary_color));
+    font-weight:bold
 }
 .circle{
     width: 35px;

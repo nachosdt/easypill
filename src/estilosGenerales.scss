@@ -58,6 +58,20 @@ body {
 .but-cancel:focus, .but-cancel:active {
     background-color: rgba(var(--secundary_color_cancel),0.7);
 }
+// FORMULARIOS
+.body form ion-label{
+    font-size:var(--font-size-form);
+    font-weight:700;
+}
+ion-input, input,
+.body form ion-input[readonly],
+.body form ion-input[placeholder],
+.body form ion-textarea[placeholder],
+.datetime-placeholder{
+    font-size: var(--font-size-placeholder);
+}
+
+
 
 // MODALES
 
@@ -66,6 +80,7 @@ ion-modal {
     background: rgba(34, 0, 79, 0.77);
 }
 
+.modal-wrapper.ion-overlay-wrapper.sc-ion-modal-ios,
 .modal-wrapper.sc-ion-modal-md, .modal-shadow.sc-ion-modal-md {
     border-radius: 17px;
     width: 80%;

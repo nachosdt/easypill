@@ -64,7 +64,7 @@
     flex-direction: column;
     justify-content: center;
     align-items:center;
-    padding: 40px 0 0 0;
+    padding: 40px 0 40px 0;
 }
 #tit-med{
     width: 70%;
@@ -86,13 +86,16 @@ details{
     height:100%;
     background-color: rgba(var(--primary_color),0.5);
 }
-details:last-of-type{
-    padding-bottom: 40px;
-}
+// details:last-of-type{
+//     padding-bottom: 40px;
+// }
 
 details .tit-acordeon{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     color: white;
-    text-align: center;
+    text-align: left;
     font-weight: 700;
     text-transform: uppercase;
     font-size:12px;

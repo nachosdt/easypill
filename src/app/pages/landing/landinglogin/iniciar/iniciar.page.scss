@@ -11,8 +11,17 @@
     padding-top: 40px;
 }
 
+form{
+    margin-top:80px;
+}
+
 .body form ion-label{
+    font-size:var(--font-size-form);
     font-weight:700;
+}
+
+.body form ion-input[placeholder] {
+    font-size: var(--font-size-placeholder);
 }
 
 .body form .grupo-registro{
@@ -25,12 +34,20 @@
 }
 .but{
     margin-top: 130px;
+    // margin-top: 75px;
+    max-width:186px;
+    width:186px;
 }
 .but-cancel{
-    max-width:132px;
+    max-width:186px;
     min-width: 60%;
     font-size:14px;
     height: 34px;
     margin-top: 25px;
     background-color: rgb(var(--primary_color_light));
+}
+
+.iniciar_but{
+    margin-top: 80px;
+
 }

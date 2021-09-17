@@ -77,6 +77,15 @@
     border-bottom: 2px solid rgb(var(--primary_color));
 }
 
+.body form ion-label{
+    font-size:var(--font-size-form);
+    font-weight:700;
+}
+
+.body form ion-input[placeholder] {
+    font-size: var(--font-size-placeholder);
+}
+
 // Pastilla resultados
 #result-busqueda-prospects {
     margin-top: 40px;

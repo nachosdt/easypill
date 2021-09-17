@@ -17,4 +17,5 @@ export class Modal2Page implements OnInit {
     this.modalController.dismiss();
   }
 
+
 }

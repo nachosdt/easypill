@@ -3,7 +3,7 @@ import { Location } from '@angular/common';
 import { ContactosService } from '../../../../shared/contactos.service';
 import { IonCheckbox } from '@ionic/angular';
 
-import { Modal1Page } from 'src/app/pages/modals/modal1/modal1.page';
+import { Modal2Page } from 'src/app/pages/modals/modal2/modal2.page';
 import { ModalController } from '@ionic/angular';
 
 @Component({
@@ -77,7 +77,10 @@ export class ContactoPage implements OnInit {
       console.log(this.contactosService.contactos[0]);
 
       const modal = await this.modalController.create({
-        component: Modal1Page,
+        component: Modal2Page,
+
+      // const modal = await this.modalController.create({
+      //   component: Modal1Page,
       });
       return await modal.present();
     }

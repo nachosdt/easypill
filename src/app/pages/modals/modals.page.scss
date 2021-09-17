@@ -1,9 +1,12 @@
 ion-content h2{
     color: rgb(var(--secundary_color_title));
+    font-size: 25px;
+    text-align: center;
+    margin-top: 0;
 }
 
 .but{
-    margin-top: 25px;
+    margin-top: 35px;
 }
 
 .todo {
@@ -13,4 +16,11 @@ ion-content h2{
 
 .parrafo {
     width: 80%;
+    text-align:center;
+    margin-top: 15px;
+}
+.parrafo1 {
+    width: 80%;
+    text-align: center;
+    margin-top: 15px;
 }

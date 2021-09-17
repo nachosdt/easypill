@@ -1,8 +1,8 @@
 <ion-content>
   <h1>{{titulo}}</h1>
-  <img id="flecha" src="../assets/Arrow1.svg"/>   
-  <img id="imagenBarra" src="../assets/NavBar3A_3.svg">
-  
+  <img id="flecha" src="../assets/Arrow1.svg" />
+  <img id="imagenBarra" src="../assets/Onboarding/NavBar.svg">
+
   <div class="omitir">
     <button routerLink="../../configuracion/contactos/anadir-contacto" class="but-cancel">Omitir</button>
   </div>
@@ -11,48 +11,48 @@
 
     <!-- Full-width slides/quotes -->
     <div class="mySlides">
-      <p>La pestaña HOME te informa de cuál es el siguiente medicamento que tienes 
+      <p>La pestaña HOME te informa de cuál es el siguiente medicamento que tienes
         que tomar y cuáles son los medicamentos que te tocan ingerir cada día.
-      </p>         
+      </p>
     </div>
 
     <div class="mySlides">
       <p>En esta pestaña puedes consultar la planificación de tus tratamientos
-        a lo largo de la semana y también acceder a la lista de medicamentos 
+        a lo largo de la semana y también acceder a la lista de medicamentos
         que tienes que ingerir cada día.
-      </p>         
+      </p>
     </div>
 
     <div class="mySlides">
       <p>Aquí es donde puede añadir nuevos medicamentos a tu lista, para poder llevar
-         un seguimiento y que Easypill te recuerde cada toma.
-      </p>        
+        un seguimiento y que Easypill te recuerde cada toma.
+      </p>
     </div>
 
     <div class="mySlides">
-      <p>En esta pestaña podrás buscar las farmacias más cercanas a tu localización o 
+      <p>En esta pestaña podrás buscar las farmacias más cercanas a tu localización o
         a la dirección que señales en el buscador.
       </p>
     </div>
 
     <div class="mySlides">
       <p>Por último, puedes consultar los prospectos de cualquier tipo de medicamento
-         que existe en el mercado.
+        que existe en el mercado.
       </p>
     </div>
 
   </div>
 
-<!-- Next/prev buttons -->
-<a class="prev" (click)="plusSlides(-1)">&#10094;</a>
-<a class="next" (click)="plusSlides(1)">&#10095;</a>
+  <!-- Next/prev buttons -->
+  <a class="prev" (click)="plusSlides(-1)">&#10094;</a>
+  <a class="next" (click)="plusSlides(1)">&#10095;</a>
 
-<!-- Dots/bullets/indicators -->
-  <div class="dot-container">        
+  <!-- Dots/bullets/indicators -->
+  <div class="dot-container">
     <span class="dot" (click)="currentSlide(1)"></span>
     <span class="dot" (click)="currentSlide(2)"></span>
     <span class="dot" (click)="currentSlide(3)"></span>
     <span class="dot" (click)="currentSlide(4)"></span>
-    <span class="dot" (click)="currentSlide(5)"></span>      
+    <span class="dot" (click)="currentSlide(5)"></span>
   </div>
 </ion-content>

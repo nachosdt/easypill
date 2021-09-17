@@ -63,12 +63,21 @@ body {
     font-size:var(--font-size-form);
     font-weight:700;
 }
+
 ion-input, input,
 .body form ion-input[readonly],
 .body form ion-input[placeholder],
 .body form ion-textarea[placeholder],
 .datetime-placeholder{
     font-size: var(--font-size-placeholder);
+}
+
+.registro-borde {
+    font-weight: 400;
+    padding: 5px;
+    border-bottom: 2px solid rgb(var(--primary_color));
+    width: 100%;
+    margin:10px 0px 0px 0px;
 }
 
 

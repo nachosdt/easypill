@@ -15,11 +15,14 @@ export class FarmaciasPage implements OnInit {
   map: Leaflet.Map;
   constructor(private geolocation: Geolocation) {}  
 
-  ionViewDidEnter() { this.localizarUsuario(); }
+  ionViewDidEnter() { 
+    this.leafletMap(40.4, -3.6, 9);
+    this.localizarUsuario(); 
+  }
 
   // Método que construye el mapa centrado en la posición dle usuario
-  private leafletMap(latitud:number,longitud:number) {
-    this.map = Leaflet.map('mapId',{ zoomControl: false }).setView([latitud, longitud], 15);
+  private leafletMap(latitud:number,longitud:number,zoom:number) {
+    this.map = Leaflet.map('mapId',{ zoomControl: false }).setView([latitud, longitud], zoom);
     Leaflet.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
       attribution: '',
       maxZoom: 18,
@@ -27,18 +30,7 @@ export class FarmaciasPage implements OnInit {
       tileSize: 512,
       zoomOffset: -1,
       accessToken: 'pk.eyJ1IjoibmFjaG83OCIsImEiOiJja3RibjR5NGowbTQxMndteWtvNTMwMGl1In0.SyZ7hjPO3837MJmMAWbNzw'
-  }).addTo(this.map);
-    
-    let icono = Leaflet.icon({
-      iconUrl: "../../../../assets/map/marker-icon.png",
-      iconSize: [35, 55], // size of the icon
-      iconAnchor: [13, 38], // point of the icon which will correspond to marker's location
-      shadowUrl: "../../../../assets/map/marker-shadow.png",
-      shadowSize: [35, 55], // size of the shadow
-      shadowAnchor: [0,38],
-      popupAnchor: [0, -40] // point from which the popup should open relative to the iconAnchor
-    });
-    Leaflet.marker([latitud, longitud],{icon: icono}).addTo(this.map).bindPopup("<b>Ionic Mooooooola!</b>").openPopup();   
+    }).addTo(this.map);
   }
 
   ngOnInit() {
@@ -47,8 +39,31 @@ export class FarmaciasPage implements OnInit {
   // Método que localiza la posición de usuario y llama a leafletMap(lat,long)
   private localizarUsuario() {
     this.geolocation.getCurrentPosition().then((resp) => {
-      this.leafletMap(resp.coords.latitude,resp.coords.longitude);      
-     }).catch((error) => {
+      this.map.setView([resp.coords.latitude,resp.coords.longitude],15);
+      
+      let icono = Leaflet.icon({
+        iconUrl: "../../../../assets/map/marker-icon.png",
+        iconSize: [35, 55], // size of the icon
+        iconAnchor: [13, 38], // point of the icon which will correspond to marker's location
+        shadowUrl: "../../../../assets/map/marker-shadow.png",
+        shadowSize: [35, 55], // size of the shadow
+        shadowAnchor: [0,38],
+        popupAnchor: [0, -40] // point from which the popup should open relative to the iconAnchor
+      });
+      //Leaflet.marker([resp.coords.latitude, resp.coords.longitude],{icon: icono}).addTo(this.map).bindPopup("<b>Usted está aquí.</b>").openPopup();
+      let iconoFarmacias = Leaflet.icon({
+        iconUrl: "../../../../assets/map/farmacia.png",
+        iconSize: [35, 55], 
+        iconAnchor: [13, 38], 
+        popupAnchor: [0, -40] 
+      });
+      Leaflet.marker([resp.coords.latitude+0.001, resp.coords.longitude-0.0015],{icon: iconoFarmacias}).addTo(this.map);
+      Leaflet.marker([resp.coords.latitude-0.002, resp.coords.longitude-0.0029],{icon: iconoFarmacias}).addTo(this.map);
+      Leaflet.marker([resp.coords.latitude+0.0014, resp.coords.longitude+0.0034],{icon: iconoFarmacias}).addTo(this.map);
+      Leaflet.marker([resp.coords.latitude-0.0041, resp.coords.longitude+0.001],{icon: iconoFarmacias}).addTo(this.map);
+      Leaflet.marker([resp.coords.latitude+0.0052, resp.coords.longitude-0.002],{icon: iconoFarmacias}).addTo(this.map);
+      Leaflet.marker([resp.coords.latitude+0.003, resp.coords.longitude-0.002],{icon: iconoFarmacias}).addTo(this.map);
+    }).catch((error) => {
        console.log('Error getting location', error);
      });
   }

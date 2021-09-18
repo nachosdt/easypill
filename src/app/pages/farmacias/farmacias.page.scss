@@ -1,3 +1,13 @@
+#bodyMapa {
+    position: fixed;
+    height: var(--body_height);
+    border-radius: var(--border_radius-header) var(--border_radius-header) 0 0;
+    width: 100%;
+    top: var(--header_height);
+    background-color: rgb(var(--color_white));
+    z-index: 1;    
+}
+
 #mapId {
     border-radius: var(--border_radius-header) var(--border_radius-header) 0 0;
 }
@@ -12,7 +22,7 @@
     border-radius: 20px;
     z-index: 1000;
     font-size: large;
-    padding: 15px 25px;
+    padding: 15px 45px;
 }
 
 #buscarEnMapa {
@@ -29,10 +39,11 @@
     font-weight: bold;
 }
 
-ion-item {
-    --position: absolute;
-    --top:30px;
-    --left: 40px;
-    --z-index: 1500;
-    --width: 20px;
+ion-icon {
+    position: absolute;
+    top:6.5%;
+    left: 14%;
+    z-index: 1500;
+    font-size: 25px;
+    opacity: 0.5;    
 }

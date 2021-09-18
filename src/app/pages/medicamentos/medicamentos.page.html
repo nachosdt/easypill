@@ -2,15 +2,21 @@
   <app-cabecera [titulo]="nombreCabecera"></app-cabecera>
   
   <section class="body">
-    <article id="scrollmenu">
-      <div class="dia" routerLink="lunes">L</div>
-      <div class="dia" routerLink="martes">M</div>
-      <div class="dia" routerLink="miercoles">X</div>
-      <div class="dia" routerLink="jueves">J</div>
-      <div class="dia" routerLink="viernes">V</div>
-      <div class="dia" routerLink="sabado">S</div>
-      <div class="dia" routerLink="domingo">D</div>
-    </article>
+    <article id="container-scroll" class="container-center">   
+      <img id="atras" src="../../../assets/back_oscuro.svg">
+      <div id="scrollmenu">      
+        <ng-container *ngFor="let dia of diasOrdenados; let i = index">
+          <div class="dia" routerLink="lunes">{{dia}}</div>
+          <!-- <div class="dia" routerLink="martes"></div>
+          <div class="dia" routerLink="miercoles">X</div>
+          <div class="dia" routerLink="jueves">J</div>
+          <div class="dia" routerLink="viernes">V</div>
+          <div class="dia" routerLink="sabado">S</div>
+          <div class="dia" routerLink="domingo">D</div> -->
+        </ng-container>      
+      </div>    
+      <img id="adelante" src="../../../assets/back_oscuro.svg">
+    </article> 
     <!-- MEDICAMENTOS GUARDADOS -->
     <ng-container *ngIf="medicamentos else isElse">
       <ng-container *ngFor="let medicamento of medicamentos">

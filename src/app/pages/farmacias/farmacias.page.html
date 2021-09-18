@@ -1,9 +1,9 @@
 <ion-content>
   <app-cabecera [titulo]="nombreCabecera"></app-cabecera>
-  <section class="body">
-    <div id="mapId" style="width: 100%; height: 100%;">
+  <section id="bodyMapa">
+    <div id="mapId" style="width: 100%; height: var(--body_height);">
     </div>
-    <input id="buscador" type="text" placeholder="Busca en una calle o municipio">
+    <input id="buscador" type="text" placeholder="calle o municipio">
     <ion-icon name="search-outline"></ion-icon>
     <button id="buscarEnMapa">Buscar</button>
   </section>  

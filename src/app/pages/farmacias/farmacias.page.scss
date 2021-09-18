@@ -1,13 +1,3 @@
-#bodyMapa {
-    position: fixed;
-    height: var(--body_height);
-    border-radius: var(--border_radius-header) var(--border_radius-header) 0 0;
-    width: 100%;
-    top: var(--header_height);
-    background-color: rgb(var(--color_white));
-    z-index: 1;    
-}
-
 #mapId {
     border-radius: var(--border_radius-header) var(--border_radius-header) 0 0;
 }

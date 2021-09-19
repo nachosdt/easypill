@@ -27,7 +27,7 @@
           <!-- Acordeon  -->
           <details *ngFor="let secItem of prospecto.secc; let indice = index">
             <summary><h4 class="tit-acordeon">{{ (indice+1) + prospecto.secc[indice].titulo}}</h4></summary>
-            <p class="text-acordeon">{{ prospecto.secc[indice].contenido }}</p>
+            <p class="text-acordeon">{{prospecto.secc[indice].contenido}}</p>
           </details>
 
         </article>

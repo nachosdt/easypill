@@ -1,9 +1,11 @@
 .body {
     height: auto;
 }
-#scrollmenu {    
-    width: 80%; 
-    margin: 45px auto;
+
+#scrollmenu {
+    position: relative;    
+    width: 70%;
+    margin: 45px 15px;
     overflow: auto;
     white-space: nowrap;
     /* Hide scrollbar for IE, Edge and Firefox */
@@ -16,20 +18,28 @@
     display: none;
 }
 
+#adelante {
+    transform: rotateY(180deg);
+}
+
 .dia {
     display: inline-block;
     background-color: rgb(var(--primary_color));
     font-size: var(--font_size);
-    width: 16vw;
-    height: 16vw;
-    border-radius: 8vw;
-    line-height: 16vw;
+    width: 14vw;
+    height: 14vw;
+    border-radius: 7vw;
+    line-height: 14vw;
     color: white;
     text-align: center;
     margin: 5px;
     // padding: 10px 0;
     font-weight: bold;
     font-size: xx-large;
+}
+
+.dia:first-child {
+    background-color: rgb(var(--secundary_color_cancel));
 }
 
 h2 {

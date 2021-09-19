@@ -3,8 +3,8 @@
   <section class="body">
     <div id="mapId" style="width: 100%; height: 100%;">
     </div>
-    <input id="buscador" type="text" placeholder="Busca en una calle o municipio">
+    <input #inputBusqueda id="buscador" type="text" placeholder="Calle o municipio">
     <ion-icon name="search-outline"></ion-icon>
-    <button id="buscarEnMapa">Buscar</button>
+    <button id="buscarEnMapa" (click)="buscarLugar(inputBusqueda)">Buscar</button>
   </section>  
 </ion-content>

@@ -1,34 +1,40 @@
-#logoNegro{
-    width: 150px;
-    height: 50px;
+
+.body{
+    padding-top: 40px;
+}
+
+.pad-bottom{
+    padding-bottom: 40px;
+}
+
+// #logoNegro{
+//     width: 150px;
+//     height: 50px;
+// }
+.logo-cabecera{
+    width:55%;
+
 }
 
 .check
 {
     padding: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
 }
-.check p
+
+.check p.text-checkbox
 {
     font-size: 11px;
-    margin-top: -25px;
     padding-right: 50px;
 }
+
 .circle{
     width: 35px;
     height: 35px;
     padding: 8px;
-}
-.body{
-    padding-top: 40px;
-}
-
-.body form ion-label{
-    font-size:var(--font-size-form);
-    font-weight:700;
-}
-
-.body form ion-input[placeholder] {
-    font-size: var(--font-size-placeholder);
 }
 
 .body form .grupo-registro{
@@ -50,4 +56,10 @@
 .body > form > ion-grid > .check > ion-checkbox.checkBoton {
     --background-checked: rgb(var(--primary_color_medium));
     --border-color-checked: rgb(var(--primary_color_medium));
+}
+
+.check .enlace-legales{
+    color: rgba(var(--primary_color),1);
+    text-decoration: underline;
+    font-size: var(--font_size);
 }

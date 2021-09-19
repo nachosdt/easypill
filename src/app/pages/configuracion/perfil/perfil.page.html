@@ -22,13 +22,13 @@
 
       <ion-row class="ion-justify-content-center">
         <ion-col size="10" class="ion-justify-content-center">
-          <ion-input type="text" [(ngModel)]="usuario.nombre"
+          <input type="text" [(ngModel)]="usuario.nombre"
             readonly 
             #nombre="ngModel"             
             title="NombreUsuario"
             name="nombreUsuario" required
             autocomplete="on"
-            class="registro-borde"></ion-input>
+            class="registro-borde">
         </ion-col>
       </ion-row>
       <ion-row class="ion-justify-content-center grupo-registro">
@@ -39,13 +39,13 @@
 
       <ion-row class="ion-justify-content-center">
         <ion-col size="10" class="ion-justify-content-center">
-          <ion-input type="text" [(ngModel)]="usuario.email" 
+          <input type="text" [(ngModel)]="usuario.email" 
             readonly
             #email="ngModel"             
             title="email"
             name="email" required
             autocomplete="on"
-            class="registro-borde"></ion-input>
+            class="registro-borde">
         </ion-col>
       </ion-row>
         <ion-row class="ion-justify-content-center grupo-registro">
@@ -56,13 +56,13 @@
 
         <ion-row class="ion-justify-content-center">
           <ion-col size="10" class="ion-justify-content-center">
-            <ion-input type="text" [(ngModel)]="usuario.contrasenia"
+            <input type="text" [(ngModel)]="usuario.contrasenia"
               readonly 
               #contrasenia="ngModel"               
               title="contrasenia"
               name="contrasenia" required
               autocomplete="on"
-              class="registro-borde"></ion-input>
+              class="registro-borde">
           </ion-col>
         </ion-row>
 
@@ -74,16 +74,16 @@
 
       <ion-row class="ion-justify-content-center">
         <ion-col size="10" class="ion-justify-content-center">
-          <ion-input type="text" [(ngModel)]="usuario.fechaNacimiento"
+          <input type="text" [(ngModel)]="usuario.fechaNacimiento"
             readonly 
             #contrasenia="ngModel"           
             title="fechaNacimiento"
             name="fechaNacimiento" required
             autocomplete="on"
-            class="registro-borde"></ion-input>
+            class="registro-borde">
         </ion-col>
       </ion-row>
-      <ion-row class="container-around grupo-registro">
+      <ion-row class="grupo-registro grupo-botones">
         <ion-col size="5">
           <button
           class="but-cancel"
@@ -92,7 +92,7 @@
           </button>
         </ion-col>
 
-        <ion-col size="5">
+        <ion-col size="5" class="grupo-botones-start">
           <button
           class="but"
           routerLink="editar-perfil">

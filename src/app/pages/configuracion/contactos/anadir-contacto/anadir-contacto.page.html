@@ -22,13 +22,13 @@
 
         <ion-row class="ion-justify-content-center">
           <ion-col size="10" class="ion-justify-content-center">
-            <ion-input type="text" [(ngModel)]="contacto.nombreContacto" 
+            <input type="text" [(ngModel)]="contacto.nombreContacto" 
               #nombreContacto="ngModel" 
               placeholder="Nombre completo del contacto"
               title="Nombre completo del contacto"
               name="nombreContacto" required
               autocomplete="on"
-              class="registro-borde"></ion-input>
+              class="registro-borde">
           </ion-col>
         </ion-row>
 
@@ -41,12 +41,12 @@
 
         <ion-row class="ion-justify-content-around">
           <ion-col size="10">
-            <ion-input type="number" [(ngModel)]="contacto.tlfContacto" 
+            <input type="tel" [(ngModel)]="contacto.tlfContacto" 
               #tlfContacto="ngModel"
               placeholder="611 123 123"
               title="Teléfono del contacto"
               name="tlfContacto" required
-              class="registro-borde"></ion-input>
+              class="registro-borde">
           </ion-col>
         </ion-row>
 
@@ -59,13 +59,13 @@
 
         <ion-row class="ion-justify-content-around">
           <ion-col size="10">
-            <ion-input type="email" [(ngModel)]="contacto.emailContacto" 
+            <input type="email" [(ngModel)]="contacto.emailContacto" 
               #emailContacto="ngModel" 
               placeholder="correodeejemplo@noexiste.com"
               title="Email del contacto"
               name="emailContacto" required
               autocomplete="on"
-              class="registro-borde"></ion-input>
+              class="registro-borde">
           </ion-col>
         </ion-row>
 
@@ -91,7 +91,7 @@
         </ion-row>
 
         <!-- Botones -->
-        <ion-row class="container-around grupo-registro">
+        <ion-row class="grupo-registro grupo-botones">
           <ion-col size="5">
             <button (click)="anadirContactoForm.reset()"
             class="but-cancel">
@@ -99,16 +99,14 @@
             </button>
           </ion-col>
 
-          <ion-col size="5">
+          <ion-col size="5" class="grupo-botones-start">
             <button (click)="onSubmit(anadirContactoForm)"
             class="but">
               Guardar
             </button>
           </ion-col>
         </ion-row>
-
         
-
       </ion-grid>
 
     </form>

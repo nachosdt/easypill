@@ -13,7 +13,7 @@ export class HomePage {
   public diaDelMes:number;
   public diaDeLaSemana:string;
   public mes:string;
-  public dias:string[] = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"];
+  public dias:string[] = ["Domingo","Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"];
 
   constructor(private servicioGeneral:ServicioGeneralService) {
     this.nombreUsuario = servicioGeneral.nombreUsuario;

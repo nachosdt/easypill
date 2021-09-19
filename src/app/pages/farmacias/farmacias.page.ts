@@ -3,17 +3,21 @@ import { Component, OnInit } from '@angular/core';
 /* Importaciones para trabajar con geolocalización y el mapa */
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import * as Leaflet from 'leaflet';
+/* Servicio del Mapa*/
+import { MapaService } from 'src/app/shared/mapa.service';
 
 @Component({
   selector: 'app-farmacias',
   templateUrl: './farmacias.page.html',
   styleUrls: ['./farmacias.page.scss'],
 })
+
+
 export class FarmaciasPage implements OnInit {
 
   public nombreCabecera:string = "Buscador de farmacias";
   map: Leaflet.Map;
-  constructor(private geolocation: Geolocation) {}  
+  constructor(private geolocation: Geolocation, private servicioMapa:MapaService) {}  
 
   ionViewDidEnter() { 
     this.leafletMap(40.4, -3.6, 9);
@@ -39,8 +43,9 @@ export class FarmaciasPage implements OnInit {
   // Método que localiza la posición de usuario y llama a leafletMap(lat,long)
   private localizarUsuario() {
     this.geolocation.getCurrentPosition().then((resp) => {
+      console.log(resp);
       this.map.setView([resp.coords.latitude,resp.coords.longitude],15);
-      
+      //console.log("resultado localizacion: ",resp);
       let icono = Leaflet.icon({
         iconUrl: "../../../../assets/map/marker-icon.png",
         iconSize: [35, 55], // size of the icon
@@ -66,6 +71,21 @@ export class FarmaciasPage implements OnInit {
     }).catch((error) => {
        console.log('Error getting location', error);
      });
+  }
+
+  public async buscarLugar(input:HTMLInputElement) {
+    let coords = await this.servicioMapa.getCoords(input.value + ", Comunidad de Madrid");    
+    this.map.setView([coords.latitud,coords.longitud],15);
+    let icono = Leaflet.icon({
+      iconUrl: "../../../../assets/map/marker-icon.png",
+      iconSize: [25, 41], // size of the icon
+      iconAnchor: [12, 41], // point of the icon which will correspond to marker's location
+      shadowUrl: "../../../../assets/map/marker-shadow.png",
+      shadowSize: [41, 41], // size of the shadow
+      shadowAnchor: [12, 41],
+      popupAnchor: [0, -40] // point from which the popup should open relative to the iconAnchor
+    });
+    Leaflet.marker([coords.latitud, coords.longitud],{icon: icono}).addTo(this.map);
   }
   
 

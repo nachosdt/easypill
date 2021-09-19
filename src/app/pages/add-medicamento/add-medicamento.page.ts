@@ -34,7 +34,7 @@ export class AddMedicamentoPage implements OnInit {
     this.medicamento.comentarios = form.value.comentarios;
 
     this.medicamentoService.medicamentos.push(this.medicamento);
-    console.log(this.medicamentoService.medicamentos);
+    console.log(this.medicamento.primeraToma);
     console.log(typeof this.medicamento.primeraToma)
 
     

@@ -15,8 +15,7 @@
 .body form .grupo-registro{
     margin-top: 40px;
 }
-.body form ion-input.registro-borde,
-.body form ion-textarea.borde-textarea
+.body form ion-input.registro-borde
 {
     border-bottom: 2px solid rgb(var(--primary_color));
 }
@@ -28,5 +27,6 @@
 }
 
 .but, .but-cancel {
-    width: 100%;
+    width: 132px;
+    max-width: 132px;
 }

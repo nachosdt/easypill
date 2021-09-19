@@ -23,16 +23,17 @@
       </ion-row>
       <ion-row class="ion-justify-content-center">
         <ion-col size="10" class="ion-justify-content-center">
-          <ion-input type="text" [(ngModel)]="usuario.nombre" 
+          <input type="text" [(ngModel)]="usuario.nombre" 
             #nombre="ngModel" 
             placeholder="Nombre Usuario"
             title="NombreUsuario"
             name="nombreUsuario" required
             autocomplete="on"
-            class="registro-borde"></ion-input>
+            class="registro-borde">
         </ion-col>
       </ion-row>
 
+      <!-- Email -->
       <ion-row class="ion-justify-content-center grupo-registro">
         <ion-col size="10">
           <ion-label for="email">Email</ion-label>
@@ -40,16 +41,17 @@
       </ion-row>
       <ion-row class="ion-justify-content-center">
         <ion-col size="10" class="ion-justify-content-center">
-          <ion-input type="text" [(ngModel)]="usuario.email" 
+          <input type="text" [(ngModel)]="usuario.email" 
             #email="ngModel" 
             placeholder="emailejemplo@gmail.com"
             title="email"
             name="email" required
             autocomplete="on"
-            class="registro-borde"></ion-input>
+            class="registro-borde">
         </ion-col>
       </ion-row>
 
+      <!-- Fecha nacimiento -->
       <ion-row class="ion-justify-content-center grupo-registro">
         <ion-col size="10">
           <ion-label for="fechaNacimiento">Fecha de nacimiento</ion-label>
@@ -57,16 +59,17 @@
       </ion-row>
       <ion-row class="ion-justify-content-center">
         <ion-col size="10" class="ion-justify-content-center">
-          <ion-input type="text" [(ngModel)]="usuario.fechaNacimiento" 
+          <input type="text" [(ngModel)]="usuario.fechaNacimiento" 
             #email="ngModel" 
             placeholder="DD/MM/YYYY"
             title="fechaNacimiento"
             name="fechaNacimiento" required
             autocomplete="on"
-            class="registro-borde"></ion-input>
+            class="registro-borde">
         </ion-col>
       </ion-row>
 
+      <!-- Password -->
       <ion-row class="ion-justify-content-center grupo-registro">
       <ion-col size="10">
         <ion-label for="contrasenia">Contraseña</ion-label>
@@ -74,16 +77,17 @@
       </ion-row>
       <ion-row class="ion-justify-content-center">
         <ion-col size="10" class="ion-justify-content-center">
-          <ion-input type="password" [(ngModel)]="usuario.contrasenia" 
+          <input type="password" [(ngModel)]="usuario.contrasenia" 
             #contrasenia="ngModel" 
             placeholder="***********"
             title="contrasenia"
             name="contrasenia" required
             autocomplete="on"
-            class="registro-borde"></ion-input>
+            class="registro-borde">
         </ion-col>
       </ion-row>
 
+      <!-- Confirmar Password -->
       <ion-row class="ion-justify-content-center grupo-registro">
         <ion-col size="10">
           <ion-label for="contrasenia">Confirmación de contraseña</ion-label>
@@ -91,13 +95,13 @@
       </ion-row>
       <ion-row class="ion-justify-content-center">
         <ion-col size="10" class="ion-justify-content-center">
-          <ion-input type="password" [(ngModel)]="usuario.confContrasenia" 
+          <input type="password" [(ngModel)]="usuario.confContrasenia" 
             #contrasenia="ngModel" 
             placeholder="***********"
             title="confContrasenia"
             name="confContrasenia" required
             autocomplete="on"
-            class="registro-borde"></ion-input>
+            class="registro-borde">
         </ion-col>
       </ion-row>      
 

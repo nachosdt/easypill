@@ -64,27 +64,38 @@
 }
 
 // Estilos form busqueda
-.body form ion-label{
-    font-weight:700;
-}
+// .body form ion-label{
+//     font-weight:700;
+// }
 
 .body form .grupo-registro{
     margin-top: 40px;
 }
-
-.body form ion-input.registro-borde
+.body form .grupo-registro,
+.body form .grupo-registro ion-col
 {
-    border-bottom: 2px solid rgb(var(--primary_color));
+    display:flex;
+    justify-content: center;
 }
 
-.body form ion-label{
-    font-size:var(--font-size-form);
-    font-weight:700;
+.but{
+    width: 132px;
+    max-width: 132px;
 }
 
-.body form ion-input[placeholder] {
-    font-size: var(--font-size-placeholder);
-}
+// .body form ion-input.registro-borde
+// {
+//     border-bottom: 2px solid rgb(var(--primary_color));
+// }
+
+// .body form ion-label{
+//     font-size:var(--font-size-form);
+//     font-weight:700;
+// }
+
+// .body form ion-input[placeholder] {
+//     font-size: var(--font-size-placeholder);
+// }
 
 // Pastilla resultados
 #result-busqueda-prospects {

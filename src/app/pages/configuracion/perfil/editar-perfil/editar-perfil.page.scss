@@ -32,29 +32,30 @@
     padding-top: 40px;
 }
 
-.body form ion-label{
-    font-size:var(--font-size-form);
-    font-weight:700;
-}
+// .body form ion-label{
+//     font-size:var(--font-size-form);
+//     font-weight:700;
+// }
 
-.body form ion-input[placeholder] {
-    font-size: var(--font-size-placeholder);
-}
+// .body form ion-input[placeholder] {
+//     font-size: var(--font-size-placeholder);
+// }
 
 .body form .grupo-registro{
     margin-top: 40px;
 }
 
-.body form ion-input.registro-borde
-{
-    border-bottom: 2px solid rgb(var(--primary_color));
-}
+// .body form ion-input.registro-borde
+// {
+//     border-bottom: 2px solid rgb(var(--primary_color));
+// }
 
 .but
 {
     width: 189px;
     height: 34px;
     margin-top: 50px;
+    margin-bottom: 40px;
 }
 
 .body > form > ion-grid > .check > ion-checkbox.checkBoton {

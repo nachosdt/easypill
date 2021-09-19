@@ -23,10 +23,8 @@
         <ion-row class="ion-justify-content-center">
           <ion-col size="10" class="ion-justify-content-center">
 
-            <ion-input color={{colorInput}} value={{MedicamentoNombre}} readonly={{lecturaInput}} type="text"
+            <input  value={{MedicamentoNombre}} readonly={{lecturaInput}} type="text"
               name="nombreMedicamento" class="registro-borde">
-
-            </ion-input>
           </ion-col>
         </ion-row>
 
@@ -42,14 +40,15 @@
 
         <ion-row class="ion-justify-content-around">
           <ion-col size="4">
-            <ion-input color={{colorInput}} disabled type="number" name="dosis" required class="registro-borde">
-              {{MedicamentoDosis}}
-            </ion-input>
+            <input  disabled type="number" name="dosis" required class="registro-borde" value={{MedicamentoDosis}}
+            placeholder={{MedicamentoDosis}}>
+              <!-- {{MedicamentoDosis}} -->
           </ion-col>
           <ion-col size="4">
-            <ion-input color={{colorInput}} readonly type="text" name="frecuencia" required autocomplete="on"
-              class="registro-borde">
-              {{MedicamentoFrecuencia}}</ion-input>
+            <input  readonly type="text" name="frecuencia" required autocomplete="on" value={{MedicamentoFrecuencia}}
+            placeholder={{MedicamentoFrecuencia}}
+            class="registro-borde">
+              <!-- {{MedicamentoFrecuencia}} -->
           </ion-col>
         </ion-row>
 
@@ -65,13 +64,18 @@
 
         <ion-row class="ion-justify-content-around">
           <ion-col size="4">
-            <ion-input color={{colorInput}} readonly type="number" name="cantidadInicial" autocomplete="on"
-              class="registro-borde">
-              {{MedicamentoCantInicial}}</ion-input>
+            <input readonly type="number" name="cantidadInicial" autocomplete="on"
+            value={{MedicamentoCantInicial}} 
+            placeholder={{MedicamentoCantInicial}}
+            class="registro-borde">
+              <!-- {{MedicamentoCantInicial}} -->
           </ion-col>
           <ion-col size="4">
-            <ion-input readonly type="number" name="cantidadInicial" autocomplete="on" class="registro-borde">
-              {{MedicamentoPrimeraToma}}</ion-input>
+            <input readonly type="number" name="cantidadInicial" autocomplete="on" class="registro-borde"
+            value={{MedicamentoPrimeraToma}}
+            placeholder={{MedicamentoPrimeraToma}}
+            >
+              <!-- {{MedicamentoPrimeraToma}} -->
             <!-- <ion-datetime display-format="13" picker-format="00" [(ngModel)]="medicamento.primeraToma"
               #primeraToma="ngModel" title="Hora y minutos de tu primera toma" name="primeraToma" autocomplete="on"
               class="registro-borde">{{MedicamentoPrimeraToma}}</ion-datetime> -->
@@ -87,33 +91,35 @@
 
         <ion-row class="ion-justify-content-center">
           <ion-col size="10">
-            <ion-textarea color={{colorInput}} readonly type="text" name="comentarios" autocomplete="on"
+            <textarea  readonly type="text" name="comentarios" autocomplete="on" value="{{MedicamentoComentarios}}"
+            placeholder="{{MedicamentoComentarios}}"
               class="borde-textarea">
-              {{MedicamentoComentarios}}</ion-textarea>
+              <!-- {{MedicamentoComentarios}} -->
+            </textarea>
           </ion-col>
         </ion-row>
 
         <!-- Botones -->
-        <ion-row class="ion-justify-content-center grupo-registro">
+        <ion-row class="grupo-registro grupo-botones">
+          <!-- Botón Ver Prospecto -->
           <ion-col size="5">
             <button routerLink="/prospecto" class="but-ver">
               Ver Prospecto
             </button>
           </ion-col>
 
-          <ion-col size="5">
+          <ion-col size="5" class="grupo-botones-start">
+            <!-- Botón Editar -->
             <button class="but" routerLink="ediccion">
               Editar
             </button>
           </ion-col>
         </ion-row>
 
-
-
       </ion-grid>
 
     </form>
-
+    
   </section>
 
 </ion-content>

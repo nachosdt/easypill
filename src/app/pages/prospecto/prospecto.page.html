@@ -28,23 +28,23 @@
       </ion-row>
       <ion-row class="ion-justify-content-center">
         <ion-col size="10" class="ion-justify-content-center">
-          <ion-input type="text" [(ngModel)]="medicamento.nombreMedicamento"
+          <input type="text" [(ngModel)]="medicamento.nombreMedicamento"
             #medicamentoBuscado="ngModel" 
             placeholder="Nombre del medicamento que buscas"
             title="Nombre del medicamento que buscas"
             name="medicamentoBuscado" required
             autocomplete="on"
-            class="registro-borde"></ion-input>
+            class="registro-borde">
         </ion-col>
       </ion-row>
 
       <!-- Botones -->
-      <ion-row class="ion-justify-content-center grupo-registro">
+      <ion-row class="grupo-registro">
         <ion-col size="5">
-          <ion-button (click)="buscarProspecto(busquedaProspectoForm)" expand="block" 
+          <button (click)="buscarProspecto(busquedaProspectoForm)" expand="block" 
           class="but" fill="clear" shape="round">
             Buscar
-          </ion-button>
+          </button>
         </ion-col>
       </ion-row>
 

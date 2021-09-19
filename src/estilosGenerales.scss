@@ -30,6 +30,7 @@ body {
     background-color: rgb(var(--color_white));
 }
 
+// BOTONES
 .but {
     background-color: rgb(var(--primary_color));
     color: white;
@@ -37,10 +38,6 @@ body {
     height: 34px;
     min-width: 60%;
     font-size: 14px;
-}
-.datetime-text {
-    margin-top: 10px;
-    color: rgba(0,0,0,0.5);
 }
 
 .but:focus,.but:active{
@@ -58,18 +55,29 @@ body {
 .but-cancel:focus, .but-cancel:active {
     background-color: rgba(var(--secundary_color_cancel),0.7);
 }
+
 // FORMULARIOS
 .body form ion-label{
     font-size:var(--font-size-form);
     font-weight:700;
 }
 
-ion-input, input,
-.body form ion-input[readonly],
-.body form ion-input[placeholder],
-.body form ion-textarea[placeholder],
+input,
+.body form input[readonly],
+.body form input[placeholder],
+.body form textarea[placeholder],
 .datetime-placeholder{
     font-size: var(--font-size-placeholder);
+}
+
+.borde-textarea
+{
+    border-bottom: 2px solid rgb(var(--primary_color));
+    font-size: var(--font-size-placeholder);
+    resize: none;
+    width:100%;
+    padding: 5px;
+    margin-top:10px;
 }
 
 .registro-borde {
@@ -80,11 +88,28 @@ ion-input, input,
     margin:10px 0px 0px 0px;
 }
 
+.datetime-text {
+    margin-top: 10px;
+    color: rgba(0,0,0,0.5);
+}
+
+ form .grupo-botones{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+form .grupo-botones ion-col{
+    display: flex;
+    justify-content: end;
+}
+
+form .grupo-botones ion-col.grupo-botones-start{
+    justify-content: start;
+}
+
 
 
 // MODALES
-
-
 ion-modal {
     background: rgba(34, 0, 79, 0.77);
 }

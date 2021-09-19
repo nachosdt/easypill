@@ -21,5 +21,22 @@ export class HomePage {
     this.mes = servicioGeneral.mes;
     this.diaDeLaSemana = this.dias[servicioGeneral.diaSemana];
   }
-    
+
+  // MOSTRAR Y OCULTAR BOTONES DE CONFIRMACION
+
+  mostarConfirmacion(confirmacion : HTMLDivElement) {
+    confirmacion.classList.remove("desaparecer");
+    confirmacion.classList.add("aparecer");
+  }
+
+  ocultarConfirmacion(confirmacion : HTMLDivElement) {
+    confirmacion.classList.remove("aparecer");
+    confirmacion.classList.add("desaparecer");
+  }
+
+  // AÑADIR MEDICAMENTO TOMADO: 
+  // Importar el servicio medicamento
+  // Seleccionar el medicamento tomado
+  // Cambiarle el valor confirmacion a TRUE
+
 }

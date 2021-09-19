@@ -129,3 +129,24 @@ ion-content p.text-acordeon{
     margin: 0;
     text-align: justify;
 }
+
+.alerta{
+    background-color: rgba(var(--secundary_color_cancel),0.7);
+    border-radius:var(--border_radius-notification);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:80%;
+    max-width:80%;
+    margin: 40px auto 40px auto;
+    padding: 40px 20px;
+}
+
+.alerta p{
+
+    color:rgb(var(--primary_color));
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+
+}

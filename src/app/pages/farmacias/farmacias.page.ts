@@ -16,11 +16,11 @@ import { MapaService } from 'src/app/shared/mapa.service';
 export class FarmaciasPage implements OnInit {
 
   public nombreCabecera:string = "Buscador de farmacias";
-  map: Leaflet.Map;
+  public map: Leaflet.Map;
   constructor(private geolocation: Geolocation, private servicioMapa:MapaService) {}  
 
-  ionViewDidEnter() { 
-    this.leafletMap(40.4, -3.6, 9);
+  ionViewDidEnter() {
+    if (!this.map) {this.leafletMap(40.4, -3.6, 9);}     
     this.localizarUsuario(); 
   }
 
@@ -41,41 +41,35 @@ export class FarmaciasPage implements OnInit {
   }
 
   // Método que localiza la posición de usuario y llama a leafletMap(lat,long)
-  private localizarUsuario() {
+  private async localizarUsuario() {
     this.geolocation.getCurrentPosition().then((resp) => {
       console.log(resp);
-      this.map.setView([resp.coords.latitude,resp.coords.longitude],15);
-      //console.log("resultado localizacion: ",resp);
-      let icono = Leaflet.icon({
-        iconUrl: "../../../../assets/map/marker-icon.png",
-        iconSize: [35, 55], // size of the icon
-        iconAnchor: [13, 38], // point of the icon which will correspond to marker's location
-        shadowUrl: "../../../../assets/map/marker-shadow.png",
-        shadowSize: [35, 55], // size of the shadow
-        shadowAnchor: [0,38],
-        popupAnchor: [0, -40] // point from which the popup should open relative to the iconAnchor
-      });
-      //Leaflet.marker([resp.coords.latitude, resp.coords.longitude],{icon: icono}).addTo(this.map).bindPopup("<b>Usted está aquí.</b>").openPopup();
+      this.map.setView([resp.coords.latitude,resp.coords.longitude],16);
+      
+      // Añadimos las farmacias cercanas      
       let iconoFarmacias = Leaflet.icon({
         iconUrl: "../../../../assets/map/farmacia.png",
         iconSize: [35, 55], 
         iconAnchor: [13, 38], 
         popupAnchor: [0, -40] 
       });
-      Leaflet.marker([resp.coords.latitude+0.001, resp.coords.longitude-0.0015],{icon: iconoFarmacias}).addTo(this.map);
-      Leaflet.marker([resp.coords.latitude-0.002, resp.coords.longitude-0.0029],{icon: iconoFarmacias}).addTo(this.map);
-      Leaflet.marker([resp.coords.latitude+0.0014, resp.coords.longitude+0.0034],{icon: iconoFarmacias}).addTo(this.map);
-      Leaflet.marker([resp.coords.latitude-0.0041, resp.coords.longitude+0.001],{icon: iconoFarmacias}).addTo(this.map);
-      Leaflet.marker([resp.coords.latitude+0.0052, resp.coords.longitude-0.002],{icon: iconoFarmacias}).addTo(this.map);
-      Leaflet.marker([resp.coords.latitude+0.003, resp.coords.longitude-0.002],{icon: iconoFarmacias}).addTo(this.map);
+      let farmacias = this.servicioMapa.buscarFarmacias(resp.coords.latitude,resp.coords.longitude);
+      farmacias.then((resultado) => {
+        resultado.forEach((farmacia:any) => {
+          Leaflet.marker([farmacia.latitud, farmacia.longitud],{icon: iconoFarmacias}).addTo(this.map);
+        });
+      })
+      .catch(error =>{
+        console.log(error);
+      });      
     }).catch((error) => {
        console.log('Error getting location', error);
-     });
+    });
   }
 
   public async buscarLugar(input:HTMLInputElement) {
     let coords = await this.servicioMapa.getCoords(input.value + ", Comunidad de Madrid");    
-    this.map.setView([coords.latitud,coords.longitud],15);
+    this.map.setView([coords.latitud,coords.longitud],16);
     let icono = Leaflet.icon({
       iconUrl: "../../../../assets/map/marker-icon.png",
       iconSize: [25, 41], // size of the icon
@@ -86,7 +80,20 @@ export class FarmaciasPage implements OnInit {
       popupAnchor: [0, -40] // point from which the popup should open relative to the iconAnchor
     });
     Leaflet.marker([coords.latitud, coords.longitud],{icon: icono}).addTo(this.map);
+    let iconoFarmacias = Leaflet.icon({
+      iconUrl: "../../../../assets/map/farmacia.png",
+      iconSize: [35, 55], 
+      iconAnchor: [13, 38], 
+      popupAnchor: [0, -40] 
+    });
+    let farmacias = this.servicioMapa.buscarFarmacias(coords.latitud,coords.longitud);
+      farmacias.then((resultado) => {
+        resultado.forEach((farmacia:any) => {
+          Leaflet.marker([farmacia.latitud, farmacia.longitud],{icon: iconoFarmacias}).addTo(this.map);
+        });
+      })
+      .catch(error =>{
+        console.log(error);
+      });
   }
-  
-
 }

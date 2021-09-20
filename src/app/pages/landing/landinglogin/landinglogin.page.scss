@@ -23,5 +23,46 @@
     margin-top:55px;
 }
 ion-content{
-    --ion-background-color:rgb(var(--primary_color));
+    // --ion-background-color:rgb(var(--primary_color));
+    --background: none;
+    background-image: url("/assets/login/background-02.svg");
+}
+
+.login{
+   
+    animation: moverse 0.3s ease-in-out;
+}
+
+
+.register{
+   
+    animation: moverse 0.3s ease-in-out;
+}
+
+#logo{
+    animation: moverseLogo 0.3s ease-in-out;
+}
+
+@keyframes moverse{
+    0%{
+        transform: translateY(30%);
+        opacity: 0%;
+    }
+
+    100%{
+        transform: translateY(0%);
+        opacity: 100%;
+    }
+}
+
+@keyframes moverseLogo{
+    0%{
+        transform: translateY(15%);
+        opacity: 0%;
+    }
+
+    100%{
+        transform: translateY(0%);
+        opacity: 100%;
+    }
 }

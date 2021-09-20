@@ -11,7 +11,8 @@ const routes: Routes = [
   {
     path: 'terminosycondiciones',
     loadChildren: () => import('./terminosycondiciones/terminosycondiciones.module').then( m => m.TerminosycondicionesPageModule)
-  }
+  },
+
 ];
 
 @NgModule({

@@ -15,7 +15,11 @@ const routes: Routes = [
   {
     path: 'iniciar',
     loadChildren: () => import('./iniciar/iniciar.module').then( m => m.IniciarPageModule)
+  },  {
+    path: 'iniciar-register',
+    loadChildren: () => import('./iniciar-register/iniciar-register.module').then( m => m.IniciarRegisterPageModule)
   }
+
 ];
 
 @NgModule({

@@ -9,6 +9,27 @@
     height: 25vw;
 }
 ion-content{
-    
-    --ion-background-color:rgb(var(--primary_color));
+    --background: none;
+  
+    background-image: url("/assets/landing/background-01.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;   
+
+}
+
+
+.logo{
+    background-image: url("/assets/landing/logo-03.svg");
+    width: 86px;
+    height: 86px;
+}
+
+.container{
+    position:absolute;
+    top:31vh;
+  bottom: 35vh;
+  left: 20vw;
+  right: 20vw;
+   
 }

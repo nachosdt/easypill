@@ -2,14 +2,14 @@
   <section class="container-center todo">
     <article>
       <div class="display-center">
-        <h2 class="modal-header">Nueva Cuenta agregada</h2>
-        <p class="parrafo destacado-modal">BIENVENIDA MARTA!</p>
-        <p class="parrafo">¡Ahora eres parte de nuestra gran familia EasyPill!</p>
+        <h2 class="modal-header">{{titulo}}</h2>
+        <!-- <p class="parrafo destacado-modal">BIENVENIDA MARTA!</p> -->
+        <p class="parrafo">{{mensaje}}</p>
       </div>
       <ion-grid>
         <ion-row class="ion-justify-content-center">
           <ion-col size="10" class="container-center">
-            <button routerLink="landing/landinglogin/iniciar-register" class="but" (click)="closeModal()">Continuar</button>
+            <button routerLink="landing/landinglogin/iniciar-register" class="but" (click)="closeModal()">{{textoBoton}}</button>
           </ion-col>
         </ion-row>
       </ion-grid>

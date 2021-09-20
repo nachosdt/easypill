@@ -33,3 +33,164 @@
     background-color: rgb(251, 248, 252);
  }
  
+
+
+ /// ------ home
+
+.home #lleno{
+    
+   opacity: 0%;
+
+}
+
+
+.home #lleno{
+   &:hover {
+       
+       animation: opacidad 0.3s ease-in forwards;
+   }
+ }
+
+ .home svg{
+   &:hover {
+       
+       animation: bouncing 0.3s ease-in forwards;
+   }
+
+}
+
+ @keyframes bouncing{
+   0%{
+       // transform: scaleX(0);
+       // transform: scaleY(0);
+       transform: scale(1,1);
+   }
+   50%{
+       // transform: scaleX(1);
+       // transform: scaleY(1);
+       transform: scale(1.2,1.4);
+   }
+   
+   100%{
+       transform: scale(1,1);
+      
+   }
+}
+
+@keyframes opacidad{
+   0%{
+       opacity: 0%;
+   }
+   
+   100%{
+       opacity: 100%;
+   }
+}
+
+/// ------ medicamentos
+
+.medicamentos #pill-fill{
+
+   opacity: 0%;
+} 
+
+.medicamentos #pill-outline {
+
+   opacity: 100%;
+} 
+
+.medicamentos #pill-outline {
+   &:hover { animation: lineAblanco 0.6s  forwards;}
+}
+
+@keyframes lineAblanco{
+   0%{
+       opacity: 100%;
+   }
+   
+   100%{
+       opacity: 0%;
+   }
+}  
+ 
+.medicamentos #pill-fill{
+   &:hover { animation: pillfill 0.6s  forwards;}
+}
+
+.medicamentos svg{
+       &:hover {   animation: bouncing 0.2s ease-in forwards;  }  
+   }
+
+@keyframes pillfill{
+   0%{
+       opacity: 0%;
+   }
+   
+   100%{
+       opacity: 100%;
+   }
+}
+
+
+/// ------ FARMACIAS
+
+
+.farmacias #FarmaciasFill{
+
+   opacity: 0%;
+   
+   }
+
+.farmacias #FarmaciasFill{
+   &:hover {
+       
+       animation: opacidad 0.3s  forwards;
+       
+   }
+   }
+
+.farmacias svg{
+   &:hover { animation: bouncingFarmacias 0.3 ease-in forwards;}
+}
+
+@keyframes bouncingFarmacias{
+   0%{
+     
+       transform: scale(1,1);
+   }
+   50%{
+     
+       transform: scale(1.2,1.2);
+   }
+   
+   100%{
+       transform: scale(1,1);
+      
+   }
+}
+
+
+/// ------ PROSPECTOS
+
+.prospectos #Prospectos-fill{
+
+   opacity: 0%;
+   
+   }
+   
+   
+   .prospectos #Prospectos-fill{
+       &:hover {
+          
+          animation: opacidad 0.6s  forwards;
+          
+       }
+     }
+   
+     .prospectos svg{
+       &:hover {
+           
+           animation: bouncing 0.2s ease-in forwards;
+       }
+   
+   }

@@ -15,37 +15,68 @@
     </div>
 
   </div>
+
   <div class="header-medicinas">
-      <div class="medicina-next overConfirmacion" (click)="mostarConfirmacion(confirmacion)">
+    <div class="titulo">
+      <p>Siguiente</p>
+    </div>
+    <div class="medicina-next overConfirmacion" (click)="mostarConfirmacion(confirmacion)">
+      <div class="izquierda">
+        <div class="medicina-nombre">
+          <p>Aspirina</p>
+        </div>
+
+        <div class="medicina-dia">
+          <p>Martes</p>
+        </div>
+      </div>
+
+      <div class="derecha">
+        <div class="medicina-hora">
+          <p>21:30</p>
+        </div>
+        <div class="medicina-line">
+
+        </div>
+      </div>
+    </div>
+    <!-- CONFIRMACION TOMA MEDICAMENTO -->
+    <div class="container-evenly confirmacion desaparecer" #confirmacion>
+      <div class="container-center clickConfirmacion cancelar" (click)="ocultarConfirmacion(confirmacion)">
+        <img src="../../assets/close.png" alt="cancelar">
+      </div>
+      <div class="container-center clickConfirmacion aceptar" (click)="ocultarConfirmacion(confirmacion)">
+        <img src="../../assets/tick.png" alt="aceptar">
+      </div>
+    </div>
+
+
+    <div class="titulo">
+      <p>Para hoy</p>
+    </div>
+    <ng-container>
+      <div class="medicina-lista overConfirmacion">
         <div class="izquierda">
-          <div class="medicina-nombre">
+          <div class="medicinaLista-nombre">
             <p>Aspirina</p>
           </div>
-  
-          <div class="medicina-dia">
+
+          <div class="medicinaLista-dia">
             <p>Martes</p>
           </div>
         </div>
-  
+
         <div class="derecha">
-          <div class="medicina-hora">
+          <div class="medicinaLista-hora">
             <p>21:30</p>
           </div>
           <div class="medicina-line">
-  
+
           </div>
         </div>
       </div>
-      <!-- CONFIRMACION TOMA MEDICAMENTO -->
-      <div class="container-evenly confirmacion desaparecer" #confirmacion>
-        <div class="container-center clickConfirmacion cancelar" (click)="ocultarConfirmacion(confirmacion)">
-          <img src="../../assets/close.png" alt="cancelar">
-        </div>
-        <div class="container-center clickConfirmacion aceptar" (click)="ocultarConfirmacion(confirmacion)">
-          <img src="../../assets/tick.png" alt="aceptar">
-        </div>
-      </div>
-    
+    </ng-container>
+
 
   </div>
 </ion-content>

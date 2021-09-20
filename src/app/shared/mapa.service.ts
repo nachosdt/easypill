@@ -30,11 +30,20 @@ export class MapaService {
     return coords;    
   }
 
-  // public async localizarUsuario() {
-  //   this.geolocation.getCurrentPosition().then((resp) => {
-
-  //   }).catch((error) => {
-  //     console.log('Error getting location', error);
-  //   });
-  // }
+  public async buscarFarmacias(lat:number,long:number) {
+    let url = `http://localhost:4000/farmacias?latitud=${lat}&longitud=${long}`;
+    let param = {
+        headers: {"Content-Type": "application/json; charset = UTF-8"},
+        method: "GET"
+    };
+    try {
+        let data = await fetch(url,param);
+        let resultBruto = await data.json();
+        let farmacias = resultBruto.datos;
+        console.log("Nº farmacias: ", farmacias.length);        
+        return farmacias;                            
+    } catch(error) {
+        console.log(error);
+    }
+}
 }

@@ -1,5 +1,20 @@
+// .body {
+//     position: absolute;
+//     height: var(--body_height);
+//     border-radius: var(--border_radius-header) var(--border_radius-header) 0 0;
+//     width: 100%;
+//     top: var(--header_height);
+//     background-color: rgb(var(--color_white));
+//     z-index: 1;
+// }
+
 #mapId {
     border-radius: var(--border_radius-header) var(--border_radius-header) 0 0;
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 100vw;
+    height: 79.8vh;
 }
 
 #buscador {

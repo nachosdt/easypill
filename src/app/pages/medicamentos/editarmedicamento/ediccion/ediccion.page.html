@@ -29,10 +29,10 @@
         <ion-row class="ion-justify-content-center">
           <ion-col size="10" class="ion-justify-content-center">
 
-            <ion-input value={{MedicamentoNombre}} type="text"
+            <input value={{MedicamentoNombre}} type="text"
               name="nombreMedicamento" class="registro-borde">
 
-            </ion-input>
+            
           </ion-col>
         </ion-row>
 
@@ -48,14 +48,14 @@
 
         <ion-row class="ion-justify-content-around">
           <ion-col size="4">
-            <ion-input type="number" name="dosis" required class="registro-borde"
+            <input type="number" name="dosis" required class="registro-borde"
             value={{MedicamentoDosis}}>
-            </ion-input>
+            
           </ion-col>
           <ion-col size="4">
-            <ion-input type="text" name="frecuencia" required autocomplete="on"
+            <input type="text" name="frecuencia" required autocomplete="on"
               class="registro-borde" value={{MedicamentoFrecuencia}}>
-              </ion-input>
+              
           </ion-col>
         </ion-row>
 
@@ -71,14 +71,15 @@
 
         <ion-row class="ion-justify-content-around">
           <ion-col size="4">
-            <ion-input readonly type="number" name="cantidadInicial" autocomplete="on"
+            <input readonly type="number" name="cantidadInicial" autocomplete="on"
               class="registro-borde" value={{MedicamentoCantInicial}}>
-              </ion-input>
+              
           </ion-col>
           <ion-col size="4">
-            <ion-input readonly type="number" name="cantidadInicial" autocomplete="on" class="registro-borde"
-            value={{MedicamentoPrimeraToma}}>
-              </ion-input>
+            <input readonly type="number" name="cantidadInicial" autocomplete="on" class="registro-borde"
+            value={{MedicamentoPrimeraToma}}
+            placeholder={{MedicamentoPrimeraToma}}>
+              
             <!-- <ion-datetime display-format="13" picker-format="00" [(ngModel)]="medicamento.primeraToma"
               #primeraToma="ngModel" title="Hora y minutos de tu primera toma" name="primeraToma" autocomplete="on"
               class="registro-borde">{{MedicamentoPrimeraToma}}</ion-datetime> -->
@@ -94,14 +95,15 @@
 
         <ion-row class="ion-justify-content-center">
           <ion-col size="10">
-            <ion-textarea color={{colorInput}} readonly type="text" name="comentarios" autocomplete="on"
+            <textarea readonly type="text" name="comentarios" autocomplete="on"
               class="borde-textarea" value={{MedicamentoComentarios}}>
-              </ion-textarea>
+              </textarea>
           </ion-col>
         </ion-row>
 
         <!-- Botones -->
-        <ion-row class="container-around grupo-registro">
+        <ion-row class="grupo-registro grupo-botones">
+          <!-- Botón Eliminar -->
           <ion-col size="5">
             <button routerLink="/prospecto" class="but-cancel"
             (click)="eliminarMedicamento()">
@@ -109,7 +111,8 @@
             </button>
           </ion-col>
 
-          <ion-col size="5">
+          <!-- Botón Guardar -->
+          <ion-col size="5" class="grupo-botones-start">
             <button class="but" (click)="guardarMedicamento()">
               Guardar
             </button>

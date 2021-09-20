@@ -3,11 +3,11 @@
 
     <div class="header-textos">
       <div class="header-titulo">
-        <p>¡Hola Marta!</p>
+        <p>¡Hola {{nombreUsuario}}!</p>
         <img class="config-icon" src="../../assets/icon/settings-01.svg" routerLink="/configuracion">
       </div>
       <div class="header-date">
-        <p>8 sep</p>
+        <p>{{diaDeLaSemana}}, {{diaDelMes}} {{mes}}.</p>
       </div>
     </div>
     <div class="imagen">
@@ -16,28 +16,36 @@
 
   </div>
   <div class="header-medicinas">
-
-
-    <div class="medicina-next">
-      <div class="izquierda">
-        <div class="medicina-nombre">
-          <p>Aspirina</p>
+      <div class="medicina-next overConfirmacion" (click)="mostarConfirmacion(confirmacion)">
+        <div class="izquierda">
+          <div class="medicina-nombre">
+            <p>Aspirina</p>
+          </div>
+  
+          <div class="medicina-dia">
+            <p>Martes</p>
+          </div>
         </div>
-
-        <div class="medicina-dia">
-          <p>Martes</p>
+  
+        <div class="derecha">
+          <div class="medicina-hora">
+            <p>21:30</p>
+          </div>
+          <div class="medicina-line">
+  
+          </div>
         </div>
       </div>
-
-      <div class="derecha">
-        <div class="medicina-hora">
-          <p>21:30</p>
+      <!-- CONFIRMACION TOMA MEDICAMENTO -->
+      <div class="container-evenly confirmacion desaparecer" #confirmacion>
+        <div class="container-center clickConfirmacion cancelar" (click)="ocultarConfirmacion(confirmacion)">
+          <img src="../../assets/close.png" alt="cancelar">
         </div>
-        <div class="medicina-line">
-
+        <div class="container-center clickConfirmacion aceptar" (click)="ocultarConfirmacion(confirmacion)">
+          <img src="../../assets/tick.png" alt="aceptar">
         </div>
       </div>
-    </div>
+    
 
   </div>
 </ion-content>

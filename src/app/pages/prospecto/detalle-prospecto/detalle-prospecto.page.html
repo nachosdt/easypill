@@ -16,29 +16,32 @@
   <section class="body">
       <!-- NG FOR PARA MEDICAMENTO TRAIDO DE RESULTADOS -->
 
+      <!-- Si hay prospecto-->
+      <ng-container *ngIf="miProspecto else isElse" >
 
-      <ng-container *ngIf="prospecto else isElse" >
         <article id="detalle">
+
           <h3 id="tit-med">
-            {{prospecto.nombreMed}}               
+            {{miProspecto.nombreMed}}               
           </h3>
-          <img [src]="prospecto.srcfoto" alt="">
+          <img [src]="miProspecto.srcfoto" alt="">
           
           <!-- Acordeon  -->
-          <details *ngFor="let secItem of prospecto.secc; let indice = index">
-            <summary><h4 class="tit-acordeon">{{ (indice+1) + prospecto.secc[indice].titulo}}</h4></summary>
-            <p class="text-acordeon">{{ prospecto.secc[indice].contenido }}</p>
+          <details *ngFor="let secItem of miProspecto.secc; let indice = index">
+            <summary><h4 class="tit-acordeon">{{ (indice+1) + miProspecto.secc[indice].titulo}}</h4></summary>
+            <p class="text-acordeon">{{miProspecto.secc[indice].contenido}}</p>
           </details>
 
         </article>
-       
-        
         
       </ng-container>
+
       <ng-template #isElse>
-        <p class="alerta">
-          No hay prospecto
-        </p>
+
+        <div class="alerta">
+          <p>No hay prospecto que mostrar</p>
+        </div>
+        
       </ng-template> 
   </section>
 

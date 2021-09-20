@@ -8,10 +8,10 @@ import { IonIcon } from '@ionic/angular';
 })
 export class OnboardingPage implements OnInit {
   
-  public listaTitulos:string[] = ["HOME","TRATAMIENTOS","AÑADIR MEDICAMENTOS","BUSCAR FARMACIAS","CONSULTAR PROSPECTOS"];
+  public listaTitulos:string[] = ["Home","Tratamientos","Añadir medicamentos","Buscar farmacias","Consultar prospectos"];
   public titulo:string;
   public slideIndex:number;
-  public distancia:string[] = ["12vw","27vw","47vw","64vw","83vw"];
+  public distancia:string[] = ["10vw","27vw","46vw","63vw","82vw"];
   constructor() { 
     this.slideIndex = 1;    
   }

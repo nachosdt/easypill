@@ -28,9 +28,9 @@
 
         <ion-row class="ion-justify-content-center">
           <ion-col size="10" class="ion-justify-content-center">
-            <ion-input type="text" [(ngModel)]="medicamento.nombreMedicamento" #nombreMedicamento="ngModel"
+            <input type="text" [(ngModel)]="medicamento.nombreMedicamento" #nombreMedicamento="ngModel"
               placeholder="Nombre del medicamento que buscas" title="Nombre del medicamento que buscas"
-              name="nombreMedicamento" required autocomplete="on" class="registro-borde"></ion-input>
+              name="nombreMedicamento" required autocomplete="on" class="registro-borde">
           </ion-col>
         </ion-row>
 
@@ -46,14 +46,14 @@
 
         <ion-row class="ion-justify-content-around">
           <ion-col size="4">
-            <ion-input type="number" [(ngModel)]="medicamento.dosis" #dosis="ngModel"
-              placeholder="Cuanto tomar. Admite fracciones." title="Qué cantidad de medicamento tomar" name="dosis"
-              required class="registro-borde"></ion-input>
+            <input type="number" [(ngModel)]="medicamento.dosis" #dosis="ngModel"
+              placeholder="Cuánto tomar. Admite fracciones." title="Qué cantidad de medicamento tomar" name="dosis"
+              required class="registro-borde">
           </ion-col>
           <ion-col size="4">
-            <ion-input type="text" [(ngModel)]="medicamento.frecuencia" #frecuencia="ngModel"
+            <input type="text" [(ngModel)]="medicamento.frecuencia" #frecuencia="ngModel"
               placeholder="Cada cuanto tomar" title="Cada cuanto tiempo tomas el medicamento" name="frecuencia" required
-              autocomplete="on" class="registro-borde"></ion-input>
+              autocomplete="on" class="registro-borde">
           </ion-col>
         </ion-row>
 
@@ -69,9 +69,9 @@
 
         <ion-row class="ion-justify-content-around">
           <ion-col size="4">
-            <ion-input type="number" [(ngModel)]="medicamento.cantidadInicial" #cantidadInicials="ngModel"
+            <input type="number" [(ngModel)]="medicamento.cantidadInicial" #cantidadInicials="ngModel"
               placeholder="Cuánto medicamento tienes" title="Stock de medicamento" name="cantidadInicial"
-              autocomplete="on" class="registro-borde"></ion-input>
+              autocomplete="on" class="registro-borde">
           </ion-col>
           <ion-col size="4">
             <ion-datetime display-format="H:mm" picker-format="H:mm" [(ngModel)]="medicamento.primeraToma"
@@ -93,28 +93,30 @@
 
         <ion-row class="ion-justify-content-center">
           <ion-col size="10">
-            <ion-textarea type="text" [(ngModel)]="medicamento.comentarios" #comentarios="ngModel"
+            <textarea type="text" [(ngModel)]="medicamento.comentarios" #comentarios="ngModel"
               placeholder="Añade aquí tus comentarios y notas sobre la toma" title="Comentarios y notas sobre la toma"
-              name="comentarios" autocomplete="on" class="borde-textarea"></ion-textarea>
+              name="comentarios" autocomplete="on" class="borde-textarea"></textarea>
           </ion-col>
         </ion-row>
 
         <!-- Botones -->
-        <ion-row class="ion-justify-content-center grupo-registro">
+        <ion-row class="grupo-registro grupo-botones">
+          
+          <!-- Botón Cancelar -->
           <ion-col size="5">
             <button (click)="aniadirMedicamentoForm.reset()" class="but-cancel">
               Cancelar
             </button>
           </ion-col>
+        
 
-          <ion-col size="5">
+          <!-- Botón Guardar -->
+          <ion-col size="5" class="grupo-botones-start">
             <button (click)="onSubmit(aniadirMedicamentoForm)" class="but">
               Guardar
             </button>
           </ion-col>
         </ion-row>
-
-
 
       </ion-grid>
 

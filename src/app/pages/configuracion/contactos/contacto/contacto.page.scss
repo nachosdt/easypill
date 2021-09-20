@@ -21,12 +21,12 @@
     border-bottom: 2px solid rgb(var(--primary_color));
 }
 
-.registro-borde {
-    font-weight: 400;
-    padding: 5px;
-    border-bottom: 2px solid rgb(var(--primary_color));
-    width: 100%;
-}
+// .registro-borde {
+//     font-weight: 400;
+//     padding: 5px;
+//     border-bottom: 2px solid rgb(var(--primary_color));
+//     width: 100%;
+// }
 
 .body form ion-checkbox.checkBoton {
     margin-top: 5px;
@@ -35,7 +35,8 @@
 }
 
 .but, .but-cancel {
-    width: 100%;
+    width: 132px;
+    max-width: 132px;
 }
 
 .aparecer {

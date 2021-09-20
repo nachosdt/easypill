@@ -2,6 +2,12 @@
     width: 150px;
     height: 50px;
 }
+
+.logo-small{
+    height:20vh;
+    max-height: 140px;
+}
+
 .body > div > p{
     color:rgb(var(--color_black));
     font-weight:bold;
@@ -11,21 +17,21 @@
     padding-top: 40px;
 }
 
-form{
-    margin-top:80px;
-}
+// form{
+//     margin-top:80px;
+// }
 
-.body form ion-label{
-    font-size:var(--font-size-form);
-    font-weight:700;
-}
+// .body form ion-label{
+//     font-size:var(--font-size-form);
+//     font-weight:700;
+// }
 
-.body form ion-input[placeholder] {
-    font-size: var(--font-size-placeholder);
-}
+// .body form ion-input[placeholder] {
+//     font-size: var(--font-size-placeholder);
+// }
 
 .body form .grupo-registro{
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 .body form ion-input.registro-borde

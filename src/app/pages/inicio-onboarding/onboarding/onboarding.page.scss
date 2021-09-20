@@ -3,7 +3,8 @@ h1 {
   font-weight: bold;
   color: rgb(var(--primary_color));
   font-size: x-large;
-  margin-top: 80px;
+  margin-top: 30%;
+  letter-spacing: 2px;
 }
 
 .omitir{
@@ -18,13 +19,23 @@ h1 {
 
 #flecha {  
   position: absolute;
-  top: 18%;
-  left: 12%;
+  top: 35%;
+  transition: top ease-in-out;
+  animation: arribaAbajo;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes arribaAbajo {
+  0% {top:35%;}
+  50% {top:30%;}
+  100% {top:35%;}
+
 }
 
 #imagenBarra {
   position: absolute;
-  top: 35%;
+  top: 45%;
   left: 0;
   width:100vw;
 }
@@ -32,7 +43,7 @@ h1 {
 /* Slideshow container */
 .slideshow-container {
   position: absolute;
-  top: 50%;
+  top: 60%;
   width: 100%;
   background-color:white; 
 }
@@ -40,9 +51,7 @@ h1 {
 /* Slides */
 .mySlides {
   display: none;
-  padding: 30px 40px;
-  margin-top: 20px;
-  
+  padding: 10px 45px;  
 }
 
 .mySlides>p {

@@ -1,4 +1,5 @@
 <ion-content>
+  <!-- Cabecera -->
   <header class="header container-center">
     <div class="container-center">
     <img src="../../../assets/back_claro.svg" (click)="goBack()">
@@ -6,14 +7,20 @@
     </div>
 </header>
 
-
+<!-- Contenido -->
 <section class="body">
+  <!-- Logo letra imagen -->
   <article class="display-center">
     <img src="../../../assets/logoMorado.svg" id="logoNegro">
+    <!-- <img src="../../../assets/logoNegro.svg" id="logoNegro"> -->
+    <img src="../../../../../assets/logopillNombre.svg" alt="Logo" class="logo-cabecera">
   </article>
-  <form #registerForm="ngForm">
+
+  <!-- Formulario -->
+  <form #registerForm="ngForm" class="pad-bottom">
 
     <ion-grid>
+
       <!-- Nombre del Usuario -->
       <ion-row class="ion-justify-content-center grupo-registro">
         <ion-col size="10">
@@ -22,16 +29,17 @@
       </ion-row>
       <ion-row class="ion-justify-content-center">
         <ion-col size="10" class="ion-justify-content-center">
-          <ion-input type="text" [(ngModel)]="usuario.nombre" 
+          <input type="text" [(ngModel)]="usuario.nombre" 
             #nombre="ngModel" 
             placeholder="Nombre Usuario"
             title="NombreUsuario"
             name="nombreUsuario" required
             autocomplete="on"
-            class="registro-borde"></ion-input>
+            class="registro-borde"> 
         </ion-col>
       </ion-row>
 
+      <!-- Email -->
       <ion-row class="ion-justify-content-center grupo-registro">
         <ion-col size="10">
           <ion-label for="email">Email</ion-label>
@@ -39,16 +47,17 @@
       </ion-row>
       <ion-row class="ion-justify-content-center">
         <ion-col size="10" class="ion-justify-content-center">
-          <ion-input type="text" [(ngModel)]="usuario.email" 
+          <input type="text" [(ngModel)]="usuario.email" 
             #email="ngModel" 
             placeholder="emailejemplo@gmail.com"
             title="email"
             name="email" required
             autocomplete="on"
-            class="registro-borde"></ion-input>
+            class="registro-borde"> 
         </ion-col>
       </ion-row>
 
+      <!-- Fecha nacimiento -->
       <ion-row class="ion-justify-content-center grupo-registro">
         <ion-col size="10">
           <ion-label for="fechaNacimiento">Fecha de nacimiento</ion-label>
@@ -56,16 +65,17 @@
       </ion-row>
       <ion-row class="ion-justify-content-center">
         <ion-col size="10" class="ion-justify-content-center">
-          <ion-input type="text" [(ngModel)]="usuario.fechaNacimiento" 
+          <input type="text" [(ngModel)]="usuario.fechaNacimiento" 
             #email="ngModel" 
             placeholder="DD/MM/YYYY"
             title="fechaNacimiento"
             name="fechaNacimiento" required
             autocomplete="on"
-            class="registro-borde"></ion-input>
+            class="registro-borde"> 
         </ion-col>
       </ion-row>
 
+      <!-- Contraseña -->
       <ion-row class="ion-justify-content-center grupo-registro">
       <ion-col size="10">
         <ion-label for="contrasenia">Contraseña</ion-label>
@@ -73,16 +83,17 @@
       </ion-row>
       <ion-row class="ion-justify-content-center">
         <ion-col size="10" class="ion-justify-content-center">
-          <ion-input type="password" [(ngModel)]="usuario.contrasenia" 
+          <input type="password" [(ngModel)]="usuario.contrasenia" 
             #contrasenia="ngModel" 
             placeholder="***********"
             title="contrasenia"
             name="contrasenia" required
             autocomplete="on"
-            class="registro-borde"></ion-input>
+            class="registro-borde"> 
         </ion-col>
       </ion-row>
 
+      <!-- Confirmación Contraseña -->
       <ion-row class="ion-justify-content-center grupo-registro">
         <ion-col size="10">
           <ion-label for="contrasenia">Confirmación de contraseña</ion-label>
@@ -90,21 +101,24 @@
       </ion-row>
       <ion-row class="ion-justify-content-center">
         <ion-col size="10" class="ion-justify-content-center">
-          <ion-input type="password" [(ngModel)]="usuario.confContrasenia" 
+          <input type="password" [(ngModel)]="usuario.confContrasenia" 
             #contrasenia="ngModel" 
             placeholder="***********"
             title="confContrasenia"
             name="confContrasenia" required
             autocomplete="on"
-            class="registro-borde"></ion-input>
+            class="registro-borde"> 
         </ion-col>
       </ion-row>
 
+      <!-- Check Terminos y Condiciones -->
       <div class="check">
         <ion-checkbox class="checkBoton circle" required></ion-checkbox>
-        <p class="container-center" routerLink="terminosycondiciones">Acepto términos y condiciones legales</p>
+        <p class="text-checkbox">Acepto &nbsp; <span routerLink="terminosycondiciones" class="enlace-legales"> términos y condiciones legales</span></p>
       </div>
 
+      <!-- Botones -->
+      <!-- Botón Crear Usuario -->
       <div size="5" class="display-center">
         <button  class="btn" (click)="onSubmit(registerForm)" expand="block" 
         class="but" fill="clear" shape="round">
@@ -115,5 +129,6 @@
     </ion-grid>
     
   </form>
+
   </section>
 </ion-content>

@@ -4,6 +4,8 @@ ion-content h2{
 
 .but{
     margin-top: 25px;
+    width:132px;
+    max-width: 132px;
 }
 
 .todo {
@@ -11,6 +13,16 @@ ion-content h2{
     height: 100%;
 }
 
-.parrafo {
-    width: 80%;
+// .parrafo {
+//     width: 80%;
+//     text-align: justify;
+// }
+
+.modal-header {
+    width: 100%;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom:0px;
 }

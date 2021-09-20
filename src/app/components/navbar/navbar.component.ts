@@ -90,6 +90,10 @@ export class NavbarComponent implements OnInit {
         if (this.url == "/inicio-onboarding/onboarding") {
           this.mostrar = false;
         }
+        if (this.url == "/landing/landinglogin/registro/terminosycondiciones") {
+          this.mostrar = false;
+        }
+
 
 
 

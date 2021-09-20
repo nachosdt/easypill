@@ -3,5 +3,5 @@ export class Prospecto {
     public nombreMed : string | undefined;
     public lab : string | undefined;
     public url : string | undefined;
-    public secc : string[] | undefined;
+    public secc : any[] | undefined;
 }

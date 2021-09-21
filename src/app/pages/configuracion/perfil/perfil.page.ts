@@ -20,7 +20,7 @@ export class PerfilPage implements OnInit {
     this.usuario.nombre = "Juan Martínez";
     this.usuario.email = "juanmartinez@gmail.com";
     this.usuario.contrasenia = "1234567";
-    this.usuario.fechaNacimiento="08/03/1988";
+    // this.usuario.fechaNacimiento="08/03/1988";
   }
 
   ngOnInit() {

@@ -30,9 +30,9 @@ export class EditarPerfilPage implements OnInit {
     
     this.usuario.nombre = form.value.nombreUsuario;
     this.usuario.email = form.value.email;
-    this.usuario.fechaNacimiento = form.value.fechaNacimiento;
+    // this.usuario.fechaNacimiento = form.value.fechaNacimiento;
     this.usuario.contrasenia = form.value.contrasenia;
-    this.usuario.confContrasenia=form.value.confContrasenia;
+    // this.usuario.confContrasenia=form.value.confContrasenia;
 
     const modal = await this.modalController.create({
       component: ModalsPage,

@@ -19,7 +19,7 @@ import { DetalleProspectoService } from './shared/detalle-prospecto.service';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, ComponentsModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, ComponentsModule,HttpClientModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, Geolocation,
   DetalleProspectoService
   ], // Añadido Geolocation a providers

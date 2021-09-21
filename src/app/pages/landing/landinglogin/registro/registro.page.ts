@@ -3,9 +3,10 @@ import { Usuario } from '../../../../models/usuario';
 import { NgForm } from '@angular/forms';
 import { Location } from '@angular/common';
 
+import { RegistroService } from 'src/app/shared/registro.service';
 import { ModalController } from '@ionic/angular';
 import { ModalsPage } from 'src/app/pages/modals/modals.page';
-
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.page.html',
@@ -14,7 +15,7 @@ import { ModalsPage } from 'src/app/pages/modals/modals.page';
 export class RegistroPage implements OnInit {
 
   public usuario:Usuario = new Usuario()
-  constructor(public location:Location, public modalController: ModalController) { }
+  constructor(public location:Location, public modalController: ModalController, public registro:RegistroService) { }
 
   ngOnInit() {
   }
@@ -25,13 +26,13 @@ export class RegistroPage implements OnInit {
     
     this.usuario.nombre = form.value.nombreUsuario;
     this.usuario.email = form.value.email;
-    this.usuario.fechaNacimiento = form.value.fechaNacimiento;
+    // this.usuario.fechaNacimiento = form.value.fechaNacimiento;
     this.usuario.contrasenia = form.value.contrasenia;
-    this.usuario.confContrasenia=form.value.confContrasenia;
+    // this.usuario.confContrasenia=form.value.confContrasenia;
 
     console.log("Usuario.nombreUsuario"+ this.usuario.nombre);
     
-
+    this.postRegistro(this.usuario)
     const modal = await this.modalController.create({
       component: ModalsPage,
       componentProps: {
@@ -46,5 +47,12 @@ export class RegistroPage implements OnInit {
   goBack(){
     this.location.back();
     console.log(this.usuario);
+  }
+  postRegistro(usuario){
+    
+    this.registro.postRegistro(usuario)
+    .subscribe((data)=>{
+      console.log(data);
+    })
   }
 }

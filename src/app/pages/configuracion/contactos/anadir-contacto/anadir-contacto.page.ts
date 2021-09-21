@@ -5,7 +5,7 @@ import { ContactosService } from '../../../../shared/contactos.service';
 import { Location } from '@angular/common';
 
 import { ModalController } from '@ionic/angular';
-import { Modal1Page } from 'src/app/pages/modals/modal1/modal1.page';
+import { ModalsPage } from 'src/app/pages/modals/modals.page';
 
 @Component({
   selector: 'app-anadir-contacto',
@@ -28,7 +28,13 @@ export class AnadirContactoPage implements OnInit {
     this.contactoService.contactos.push(this.contacto);
 
     const modal = await this.modalController.create({
-      component: Modal1Page,
+      component: ModalsPage,
+      componentProps: {
+        'titulo': 'Nuevo Contacto Añadido',
+        'mensaje': '¡Has añadido un nuevo contacto a tu lista de contactos!',
+        'textoBoton': 'Ir a Contactos',
+        'urlSalida' : '/configuracion/contactos'
+      }
     });
     return await modal.present();
   }

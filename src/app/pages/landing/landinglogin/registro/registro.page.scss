@@ -1,6 +1,7 @@
 
 .body{
-    padding-top: 40px;
+    padding-top: 30px;
+    // Es 20px por llevar logo
 }
 
 .pad-bottom{
@@ -12,8 +13,7 @@
 //     height: 50px;
 // }
 .logo-cabecera{
-    width:55%;
-
+    width:50%;
 }
 
 .check
@@ -27,12 +27,12 @@
 
 .check p.text-checkbox
 {
-    margin-top: -25px;
+    // margin-top: -25px;
     font-size: 11px;
     padding-right: 50px;
-    text-decoration: underline;
-    color:rgb(var(--primary_color));
-    font-weight:bold
+    // text-decoration: underline;
+    // color:rgb(var(--primary_color));
+    // font-weight:bold;
 }
 
 .circle{

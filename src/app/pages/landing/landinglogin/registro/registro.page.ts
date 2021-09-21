@@ -34,8 +34,8 @@ export class RegistroPage implements OnInit {
       componentProps: {
         'titulo': 'Nueva Cuenta agregada',
         'mensaje': `¡${this.usuario.nombre} Ahora eres parte de nuestra gran familia EasyPill!`,
-        'textoBoton': 'Prueba',
-        'urlSalida' : '/farmacias'
+        'textoBoton': 'Continuar',
+        'urlSalida' : 'landing/landinglogin/iniciar-register'
       }
     });
     return await modal.present();

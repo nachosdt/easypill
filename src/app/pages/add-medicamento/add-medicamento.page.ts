@@ -4,7 +4,7 @@ import { Medicamento } from 'src/app/models/medicamento/medicamento';
 import { MedicamentosService } from '../../shared/medicamentos.service';
 
 import { ModalController } from '@ionic/angular';
-import { Modal3Page } from '../modals/modal3/modal3.page';
+import { ModalsPage } from '../modals/modals.page';
 
 @Component({
   selector: 'app-add-medicamento',
@@ -39,7 +39,14 @@ export class AddMedicamentoPage implements OnInit {
 
     
       const modal = await this.modalController.create({
-        component: Modal3Page,
+        component: ModalsPage,
+        componentProps: {
+          'titulo': 'Nuevo tratamiento añadido',
+          'mensaje': `¡Tratamiento añadido!\n
+          ${this.medicamento.nombreMedicamento}\n Te ayudaremos a recordar tus tomas`,
+          'textoBoton': 'Ir a Medicamentos',
+          'urlSalida' : '/medicamentos'
+        }
       });
       return await modal.present();
     

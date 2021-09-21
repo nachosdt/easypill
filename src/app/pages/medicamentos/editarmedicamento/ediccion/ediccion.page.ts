@@ -4,7 +4,7 @@ import { MedicamentosService } from '../../../../shared/medicamentos.service';
 import { Location } from '@angular/common';
 
 import { ModalController } from '@ionic/angular';
-import { Modal3Page } from '../../../modals/modal3/modal3.page';
+import { ModalsPage } from '../../../modals/modals.page';
 
 @Component({
   selector: 'app-ediccion',
@@ -40,15 +40,33 @@ export class EdiccionPage implements OnInit {
   goBack() {
     this.location.back();
   }
+  
   async guardarMedicamento() {
     const modal = await this.modalController.create({
-      component: Modal3Page,
+      component: ModalsPage,
+      componentProps: {
+        'titulo': 'Nuevo tratamiento añadido',
+          'mensaje': `¡Tratamiento añadido!\n
+          ${this.medicamento.nombreMedicamento}\n Te ayudaremos a recordar tus tomas`,
+          'textoBoton': 'Ir a Medicamentos',
+          'urlSalida' : '/medicamentos'
+      }
     });
     return await modal.present();
   }
 
-  eliminarMedicamento() {
-    this.medicamento = null;
+  async eliminarMedicamento() {
+    // this.medicamento = null;
+    const modal = await this.modalController.create({
+      component: ModalsPage,
+      componentProps: {
+        'titulo': 'Tratamiento eliminado',
+          'mensaje': `${this.medicamento.nombreMedicamento} eliminado de tus tratamientos`,
+          'textoBoton': 'Continuar',
+          'urlSalida' : '/medicamentos'
+      }
+    });
+    return await modal.present();
 
   }
 }

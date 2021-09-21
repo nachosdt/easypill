@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from 'src/app/models/usuario';
+import { NgForm } from '@angular/forms';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-iniciar-register',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IniciarRegisterPage implements OnInit {
 
-  constructor() { }
+  public usuario : Usuario = new Usuario();
+
+  constructor(public location:Location) { }
 
   ngOnInit() {
+  }
+
+  onSubmit(form:NgForm){
+    this.usuario.email=form.value.email;
+    this.usuario.contrasenia=form.value.contrasenia;  
+  }
+  
+  goBack(){
+    this.location.back();
   }
 
 }

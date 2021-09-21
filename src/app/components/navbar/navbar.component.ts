@@ -94,7 +94,13 @@ export class NavbarComponent implements OnInit {
           this.mostrar = false;
         }
 
+        if (this.url == "/landing/landinglogin/iniciar-register") {
+          this.mostrar = false;
+        }
 
+        if (this.url == "/medicamentos/editarmedicamento/ediccion") {
+          this.mostrar = false;
+        }
 
 
       });

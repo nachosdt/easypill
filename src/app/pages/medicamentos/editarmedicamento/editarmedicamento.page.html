@@ -40,7 +40,7 @@
 
         <ion-row class="ion-justify-content-around">
           <ion-col size="4">
-            <input  disabled type="number" name="dosis" required class="registro-borde" value={{MedicamentoDosis}}
+            <input  disabled type="text" name="dosis" required class="registro-borde" value={{MedicamentoDosis}}
             placeholder={{MedicamentoDosis}}>
               <!-- {{MedicamentoDosis}} -->
           </ion-col>
@@ -64,14 +64,14 @@
 
         <ion-row class="ion-justify-content-around">
           <ion-col size="4">
-            <input readonly type="number" name="cantidadInicial" autocomplete="on"
+            <input readonly type="text" name="cantidadInicial" autocomplete="on"
             value={{MedicamentoCantInicial}} 
             placeholder={{MedicamentoCantInicial}}
             class="registro-borde">
               <!-- {{MedicamentoCantInicial}} -->
           </ion-col>
           <ion-col size="4">
-            <input readonly type="number" name="cantidadInicial" autocomplete="on" class="registro-borde"
+            <input readonly type="text" name="cantidadInicial" autocomplete="on" class="registro-borde"
             value={{MedicamentoPrimeraToma}}
             placeholder={{MedicamentoPrimeraToma}}
             >
@@ -93,7 +93,7 @@
           <ion-col size="10">
             <textarea  readonly type="text" name="comentarios" autocomplete="on" value="{{MedicamentoComentarios}}"
             placeholder="{{MedicamentoComentarios}}"
-              class="borde-textarea">
+              class="borde-textarea" rows="1">
               <!-- {{MedicamentoComentarios}} -->
             </textarea>
           </ion-col>

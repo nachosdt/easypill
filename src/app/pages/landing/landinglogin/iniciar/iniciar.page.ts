@@ -15,10 +15,10 @@ export class IniciarPage implements OnInit {
   ngOnInit(){
   }
   onSubmit(form:NgForm){
-    this.usuario.email=form.value.email
-    this.usuario.contrasenia=form.value.contrasenia
-    
+    this.usuario.email=form.value.email;
+    this.usuario.contrasenia=form.value.contrasenia;  
   }
+  
   goBack(){
     this.location.back();
   }

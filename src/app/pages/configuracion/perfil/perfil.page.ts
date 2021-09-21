@@ -4,7 +4,7 @@ import { NgForm } from '@angular/forms';
 import { Usuario } from 'src/app/models/usuario';
 
 import { ModalController } from '@ionic/angular';
-import { Modal2Page } from '../../modals/modal2/modal2.page';
+import { ModalsPage } from '../../modals/modals.page';
 
 
 @Component({
@@ -32,7 +32,15 @@ export class PerfilPage implements OnInit {
 
   async eliminarCuenta() {
     const modal = await this.modalController.create({
-      component: Modal2Page,
+      component: ModalsPage,
+      componentProps: {
+        'titulo': 'Cuenta Eliminada',
+        'mensaje': `La cuenta con nombre 
+        ${this.usuario.nombre}
+         se ha eliminado con éxito`,
+        'textoBoton': 'Volver',
+        'urlSalida' : '/configuracion'
+      }
     });
     return await modal.present();
   }

@@ -1,39 +1,52 @@
 #logoNegro{
     width: 150px;
-    height: 50px;
+    height: auto;
 }
+
+.logo-small{
+    height:15vh;
+    max-height: 110px;
+    margin-bottom:40px;
+}
+
 .body > div > p{
     color:rgb(var(--color_black));
     font-weight:bold;
     font-size:25px;
 }
 .body{
-    padding-top: 40px;
+    padding-top: 20px;
+    // En resto de paginas suele ser 40px pero aquí
+    // por el logo interesa 20px
 }
 
-form{
-    margin-top:80px;
-}
+// form{
+//     margin-top:80px;
+// }
 
-.body form ion-label{
-    font-size:var(--font-size-form);
-    font-weight:700;
-}
+// .body form ion-label{
+//     font-size:var(--font-size-form);
+//     font-weight:700;
+// }
 
-.body form ion-input[placeholder] {
-    font-size: var(--font-size-placeholder);
+// .body form input[placeholder] {
+//     font-size: var(--font-size-placeholder);
+// }
+
+.body form .grupo-registro:first-of-type{
+    margin-top: 20px;
 }
 
 .body form .grupo-registro{
     margin-top: 40px;
 }
 
-.body form ion-input.registro-borde
+.body form input.registro-borde
 {
     border-bottom: 2px solid rgb(var(--primary_color));
 }
 .but{
-    margin-top: 130px;
+    // margin-top: 130px;
     // margin-top: 75px;
     max-width:186px;
     width:186px;
@@ -48,5 +61,5 @@ form{
 }
 
 .iniciar_but{
-    margin-top: 80px;
+    margin-top: 60px;
 }

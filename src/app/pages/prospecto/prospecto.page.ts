@@ -21,7 +21,9 @@ export class ProspectoPage implements OnInit {
 
   // public detalleServicio : DetalleProspectoService = new DetalleProspectoService();
 
-  constructor(private detalleServicio : DetalleProspectoService) { }
+  constructor() { }
+
+  // constructor(private detalleServicio : DetalleProspectoService) { }
 
   ngOnInit() {
   }
@@ -35,16 +37,16 @@ export class ProspectoPage implements OnInit {
     this.prospectoBuscar = form.value.medicamentoBuscado;
     console.log("prospectoBuscar: " + this.medicamento.nombreMedicamento );
 
-    this.enviarADetalleServicio(this.prospectoBuscar);
-    console.log("Medicamento a buscar en Servicio:" + this.detalleServicio.medicamento2Buscar);
+    // this.enviarADetalleServicio(this.prospectoBuscar);
+    // console.log("Medicamento a buscar en Servicio:" + this.detalleServicio.medicamento2Buscar);
 
-    this.resultado = this.detalleServicio.getResultadosProspectos();
+    // this.resultado = this.detalleServicio.getResultadosProspectos();
     
   }
 
-  enviarADetalleServicio(name:string)
-  {
-    this.detalleServicio.setMedicamento2Buscar(name);
-  }
+  // enviarADetalleServicio(name:string)
+  // {
+  //   this.detalleServicio.setMedicamento2Buscar(name);
+  // }
 
 }

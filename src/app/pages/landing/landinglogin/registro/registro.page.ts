@@ -23,17 +23,20 @@ export class RegistroPage implements OnInit {
   {
     console.log(form.value);
     
-    this.usuario.nombre = form.value.nombre;
+    this.usuario.nombre = form.value.nombreUsuario;
     this.usuario.email = form.value.email;
     this.usuario.fechaNacimiento = form.value.fechaNacimiento;
     this.usuario.contrasenia = form.value.contrasenia;
     this.usuario.confContrasenia=form.value.confContrasenia;
 
+    console.log("Usuario.nombreUsuario"+ this.usuario.nombre);
+    
+
     const modal = await this.modalController.create({
       component: ModalsPage,
       componentProps: {
         'titulo': 'Nueva Cuenta agregada',
-        'mensaje': `¡${this.usuario.nombre} Ahora eres parte de nuestra gran familia EasyPill!`,
+        'mensaje': `¡${this.usuario.nombre} ahora eres parte de nuestra gran familia EasyPill!`,
         'textoBoton': 'Continuar',
         'urlSalida' : 'landing/landinglogin/iniciar-register'
       }

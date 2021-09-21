@@ -3,7 +3,7 @@ import { Location } from '@angular/common';
 import { ContactosService } from '../../../../shared/contactos.service';
 import { IonCheckbox } from '@ionic/angular';
 
-import { Modal1Page } from 'src/app/pages/modals/modal1/modal1.page';
+import { ModalsPage } from 'src/app/pages/modals/modals.page';
 import { ModalController } from '@ionic/angular';
 
 @Component({
@@ -27,9 +27,19 @@ export class ContactoPage implements OnInit {
     // nombre.value = this.contactosService.contactos[0].nombreContacto;
   }
 
-  eliminarContacto() {
+  async eliminarContacto() {
     this.contactosService.contactos.splice(0,1);
-    console.log(this.contactosService.contactos)
+    console.log(this.contactosService.contactos);
+    const modal = await this.modalController.create({
+      component: ModalsPage,
+      componentProps: {
+        'titulo': 'Contacto Eliminado',
+        'mensaje': `El contacto se ha eliminado con éxito`,
+        'textoBoton': 'Ir a Contactos',
+        'urlSalida' : '/configuracion/contactos'
+      }
+    });
+    return await modal.present();
   }
 
   cancel(nombre: HTMLInputElement, tlf: HTMLInputElement,
@@ -77,7 +87,13 @@ export class ContactoPage implements OnInit {
       console.log(this.contactosService.contactos[0]);
 
       const modal = await this.modalController.create({
-        component: Modal1Page,
+        component: ModalsPage,
+        componentProps: {
+          'titulo': 'Contacto Guardado',
+          'mensaje': `El contacto ${nombre.value} se ha guardado con éxito`,
+          'textoBoton': 'Ir a Contactos',
+          'urlSalida' : '/configuracion/contactos'
+        }
       });
       return await modal.present();
     }

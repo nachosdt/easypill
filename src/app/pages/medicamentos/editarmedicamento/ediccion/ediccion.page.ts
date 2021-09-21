@@ -46,8 +46,8 @@ export class EdiccionPage implements OnInit {
       component: ModalsPage,
       componentProps: {
         'titulo': 'Nuevo tratamiento añadido',
-          'mensaje': `¡Tratamiento añadido!\n
-          ${this.medicamento.nombreMedicamento}\n Te ayudaremos a recordar tus tomas`,
+          'mensaje': `¡Tratamiento añadido!
+          ${this.MedicamentoNombre} Te ayudaremos a recordar tus tomas`,
           'textoBoton': 'Ir a Medicamentos',
           'urlSalida' : '/medicamentos'
       }
@@ -61,7 +61,7 @@ export class EdiccionPage implements OnInit {
       component: ModalsPage,
       componentProps: {
         'titulo': 'Tratamiento eliminado',
-          'mensaje': `${this.medicamento.nombreMedicamento} eliminado de tus tratamientos`,
+          'mensaje': `${this.MedicamentoNombre} eliminado de tus tratamientos`,
           'textoBoton': 'Continuar',
           'urlSalida' : '/medicamentos'
       }

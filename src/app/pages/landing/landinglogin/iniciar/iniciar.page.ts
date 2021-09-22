@@ -5,24 +5,27 @@ import { Location } from '@angular/common';
 
 import { ModalController } from '@ionic/angular';
 import { ModalsPage } from 'src/app/pages/modals/modals.page';
-
+import { LoginService } from 'src/app/shared/login.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-iniciar',
   templateUrl: './iniciar.page.html',
   styleUrls: ['./iniciar.page.scss'],
 })
 export class IniciarPage implements OnInit {
-  public usuario:Usuario=new Usuario()
-  constructor(public location:Location,public modalController: ModalController) { }
+  public usuario: Usuario = new Usuario()
+  constructor(public location: Location, public modalController: ModalController, public login: LoginService, private router: Router) { }
 
-  ngOnInit(){
+  ngOnInit() {
   }
-  onSubmit(form:NgForm){
-    this.usuario.email=form.value.email;
-    this.usuario.contrasenia=form.value.contrasenia;  
+  onSubmit(form: NgForm) {
+    this.usuario.email = form.value.email;
+    this.usuario.contrasenia = form.value.contrasenia;
+
+    this.iniciarSesion(this.usuario)
   }
 
-  async recuperarPass(){
+  async recuperarPass() {
 
     const modal = await this.modalController.create({
       component: ModalsPage,
@@ -30,14 +33,51 @@ export class IniciarPage implements OnInit {
         'titulo': 'Recuperar contraseña',
         'mensaje': `En breve te enviaremos un email a ${this.usuario.email}`,
         'textoBoton': 'Continuar',
-        'urlSalida' : 'landing'
+        'urlSalida': 'landing'
       }
     });
     return await modal.present();
 
   }
-  
-  goBack(){
+
+  goBack() {
     this.location.back();
   }
+
+  iniciarSesion(usuario) {
+    // console.log("login correcto");
+
+    // this.login.postLogin(usuario)
+    //   .subscribe(
+    //     res => {
+    //       console.log(res);
+    //       if (res.error == null) {
+
+    //       }
+    //       this.router.navigate(["/home"])
+
+    //     },
+    //     err => {
+    //       console.log("soy el error");
+    //       console.log(err);
+    //     }
+
+    //   )
+    this.login.postLogin(usuario).subscribe((data) => {
+      let resultado: any = {}
+      resultado = data
+      console.log(resultado.datos);
+      if (resultado.datos == null) {
+        alert("error en alguno de los campos")
+      } else {
+        this.router.navigate(["/home"])
+      }
+    });
+
+
+
+  }
+
+
 }
+

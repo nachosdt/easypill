@@ -81,12 +81,12 @@
 
         <ion-row class="ion-justify-content-around">
           <ion-col size="4">
-            <ion-checkbox checked="true" class="checkBoton"
-              #notifEmail></ion-checkbox>
+            <ion-checkbox [checked]="checkedEmail" class="checkBoton"
+            (ionChange)="cambiarCheckboxEmail(notifEmail)" #notifEmail></ion-checkbox>
           </ion-col>
           <ion-col size="4">
-            <ion-checkbox class="checkBoton"
-              #notifSms></ion-checkbox>
+            <ion-checkbox [checked]="checkedSms" class="checkBoton"
+            (ionChange)="cambiarCheckboxSms(notifSms)" #notifSms></ion-checkbox>
           </ion-col>
         </ion-row>
 

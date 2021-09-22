@@ -26,6 +26,9 @@ ion-content{
     // --ion-background-color:rgb(var(--primary_color));
     --background: none;
     background-image: url("/assets/login/background-02.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;   
 }
 
 .login{

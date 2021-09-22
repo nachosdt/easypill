@@ -7,6 +7,7 @@ import { ModalController } from '@ionic/angular';
 import { ModalsPage } from 'src/app/pages/modals/modals.page';
 import { LoginService } from 'src/app/shared/login.service';
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 @Component({
   selector: 'app-iniciar',
   templateUrl: './iniciar.page.html',
@@ -14,7 +15,12 @@ import { Router } from '@angular/router';
 })
 export class IniciarPage implements OnInit {
   public usuario: Usuario = new Usuario()
-  constructor(public location: Location, public modalController: ModalController, public login: LoginService, private router: Router) { }
+  constructor(
+    public location: Location,
+    public modalController: ModalController,
+    public login: LoginService,
+    private router: Router,
+    public toast: ToastController) { }
 
   ngOnInit() {
   }
@@ -66,16 +72,24 @@ export class IniciarPage implements OnInit {
     this.login.postLogin(usuario).subscribe((data) => {
       let resultado: any = {}
       resultado = data
-      console.log(resultado.datos);
+      console.log(resultado);
       if (resultado.datos == null) {
-        alert("error en alguno de los campos")
+        this.loginIncorrecto()
       } else {
         this.router.navigate(["/home"])
       }
     });
+  }
 
+  async loginIncorrecto() {
+    const alerta = await this.toast.create({
+      message: "Email o contraseña incorrectos",
+      duration: 3000,
+      position: 'top',
+      color: "warning",
 
-
+    });
+    alerta.present();
   }
 
 

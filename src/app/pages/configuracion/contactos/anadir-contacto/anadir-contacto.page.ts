@@ -4,7 +4,7 @@ import { Contacto } from '../../../../models/contacto';
 import { ContactosService } from '../../../../shared/contactos.service';
 import { Location } from '@angular/common';
 
-import { ModalController } from '@ionic/angular';
+import { ModalController, IonCheckbox } from '@ionic/angular';
 import { ModalsPage } from 'src/app/pages/modals/modals.page';
 
 @Component({
@@ -15,6 +15,8 @@ import { ModalsPage } from 'src/app/pages/modals/modals.page';
 export class AnadirContactoPage implements OnInit {
 
   public contacto : Contacto = new Contacto();
+  public checkedEmail: boolean;
+  public checkedSms: boolean;
 
   constructor(public contactoService: ContactosService, public location: Location, public modalController: ModalController) { }
 
@@ -23,9 +25,22 @@ export class AnadirContactoPage implements OnInit {
     this.contacto.nombreContacto= form.value.nombreContacto;
     this.contacto.tlfContacto = form.value.tlfContacto;
     this.contacto.emailContacto = form.value.emailContacto;
-    this.contacto.notifEmail = form.value.notifEmail;
-    this.contacto.notifSms = form.value.notifSms;
+    this.contacto.notifEmail = this.checkedEmail;
+    this.contacto.notifSms = this.checkedSms;
+    if (this.contacto.notifEmail && this.contacto.notifSms) {
+      this.contacto.notificacionContacto = "ambos";
+    }
+    else if (this.contacto.notifEmail && !this.contacto.notifSms) {
+      this.contacto.notificacionContacto = "email";
+    }
+    else if(!this.contacto.notifEmail && this.contacto.notifSms) {
+      this.contacto.notificacionContacto = "sms";
+    }
+    else {
+      this.contacto.notificacionContacto = "ninguno";
+    }
     this.contactoService.contactos.push(this.contacto);
+    this.contactoService.postContacto(this.contacto);
 
     const modal = await this.modalController.create({
       component: ModalsPage,
@@ -46,4 +61,10 @@ export class AnadirContactoPage implements OnInit {
     this.location.back();
   }
 
+  cambiarCheckboxEmail(event: IonCheckbox) {
+    this.checkedEmail = event.checked;
+  }
+  cambiarCheckboxSms(event: IonCheckbox) {
+    this.checkedSms = event.checked;
+  }
 }

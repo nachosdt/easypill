@@ -21,7 +21,7 @@ export class ServicioGeneralService {
   }
 
   public async getTomasHoy() {
-    let url = `http://localhost:4000/tomashoy?id=${this.idUsuario}`;
+    let url = `https://api-easypill.herokuapp.com/tomashoy?id=${this.idUsuario}`;
     let param = {
         headers: {"Content-Type": "application/json; charset = UTF-8"},
         method: "GET"
@@ -38,7 +38,7 @@ export class ServicioGeneralService {
   }  
 
   public async actualizarTomas(idtomas:number,estatus:string) {
-    let url = `http://localhost:4000/tomas`;
+    let url = `https://api-easypill.herokuapp.com/tomas`;
     let param = {
         headers: {"Content-Type": "application/json; charset = UTF-8"},
         method: "PUT",

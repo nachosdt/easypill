@@ -6,7 +6,7 @@ import { Usuario } from '../models/usuario';
 })
 export class RegistroService {
 
-  private url="http://localhost:4000/registro"
+  private url="http://localhost:300/registro"
   constructor(private http:HttpClient) { }
 
   postRegistro(newUser:Usuario){

@@ -9,12 +9,49 @@ export class ServicioGeneralService {
   public diaSemana: number; // 0 = Lunes y 6 = Domingo
   public diaDelMes: number;
   public mes: string;
-  public nombreUsuario: string = "Marta";  
+  public nombreUsuario:string = "Marta";
+  public idUsuario:number = 9;
+  
 
   constructor() {
     let hoy = new Date();    
     this.diaDelMes = hoy.getDate();
     this.diaSemana = hoy.getDay(); // 0 = Lunes y 6 = Domingo
-    this.mes = hoy.toDateString().split(" ")[1];
+    this.mes = hoy.toDateString().split(" ")[1];    
   }
+
+  public async getTomasHoy() {
+    let url = `http://localhost:4000/tomashoy?id=${this.idUsuario}`;
+    let param = {
+        headers: {"Content-Type": "application/json; charset = UTF-8"},
+        method: "GET"
+    };
+    try {
+        let data = await fetch(url,param);
+        let resultBruto = await data.json();
+        let tomas = resultBruto.datos;
+        console.log("Nº tomas de hoy:", tomas.length);        
+        return tomas;                            
+    } catch(error) {
+        console.log(error);
+    }
+  }  
+
+  public async actualizarTomas(idtomas:number,estatus:string) {
+    let url = `http://localhost:4000/tomas`;
+    let param = {
+        headers: {"Content-Type": "application/json; charset = UTF-8"},
+        method: "PUT",
+        body: JSON.stringify({"idtomas":idtomas,"estatus":estatus})
+    };
+    try {
+        let data = await fetch(url,param);
+        let resultBruto = await data.json();
+        let respuesta = resultBruto.datos;                   
+        return respuesta;                            
+    } catch(error) {
+        console.log(error);
+    }
+  }
+  
 }

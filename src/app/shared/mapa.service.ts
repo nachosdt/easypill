@@ -31,7 +31,7 @@ export class MapaService {
   }
 
   public async buscarFarmacias(lat:number,long:number) {
-    let url = `http://localhost:4000/farmacias?latitud=${lat}&longitud=${long}`;
+    let url = `https://api-easypill.herokuapp.com/farmacias?latitud=${lat}&longitud=${long}`;
     let param = {
         headers: {"Content-Type": "application/json; charset = UTF-8"},
         method: "GET"
@@ -45,5 +45,5 @@ export class MapaService {
     } catch(error) {
         console.log(error);
     }
-}
+  }
 }

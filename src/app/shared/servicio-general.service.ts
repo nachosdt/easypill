@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 
 
 @Injectable({
@@ -9,12 +11,14 @@ export class ServicioGeneralService {
   public diaSemana: number; // 0 = Lunes y 6 = Domingo
   public diaDelMes: number;
   public mes: string;
-  public nombreUsuario: string = "Marta";  
+  public nombreUsuario: string = "Marta";
 
-  constructor() {
+  constructor(private http:HttpClient) {
     let hoy = new Date();    
     this.diaDelMes = hoy.getDate();
     this.diaSemana = hoy.getDay(); // 0 = Lunes y 6 = Domingo
     this.mes = hoy.toDateString().split(" ")[1];
+
   }
+
 }

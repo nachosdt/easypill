@@ -5,7 +5,7 @@ import { Location } from '@angular/common';
 
 import { ModalController } from '@ionic/angular';
 import { ModalsPage } from 'src/app/pages/modals/modals.page';
-
+import { PerfilService } from 'src/app/shared/perfil.service';
 @Component({
   selector: 'app-editar-perfil',
   templateUrl: './editar-perfil.page.html',
@@ -15,9 +15,7 @@ export class EditarPerfilPage implements OnInit {
 
   public usuario:Usuario = new Usuario()
 
-
-  constructor(public location: Location, public modalController: ModalController) { 
-
+  constructor(public location: Location, public modalController: ModalController, public perfilService:PerfilService) { 
 
   }
 
@@ -27,12 +25,13 @@ export class EditarPerfilPage implements OnInit {
   async onSubmit(form:NgForm)
   {
     console.log(form.value);
-    
     this.usuario.nombre = form.value.nombreUsuario;
     this.usuario.email = form.value.email;
     // this.usuario.fechaNacimiento = form.value.fechaNacimiento;
     this.usuario.contrasenia = form.value.contrasenia;
     // this.usuario.confContrasenia=form.value.confContrasenia;
+
+    this.putPerfil(this.usuario)
 
     const modal = await this.modalController.create({
       component: ModalsPage,
@@ -46,6 +45,16 @@ export class EditarPerfilPage implements OnInit {
       }
     });
     return await modal.present();
+  }
+
+  putPerfil(usuario){
+    
+    
+    this.perfilService.putPerfil(usuario).subscribe((data)=>{
+      console.log(data); 
+      console.log(usuario);
+      console.log("Perfil editado perfectamente");
+    });
   }
   goBack(){
     this.location.back();

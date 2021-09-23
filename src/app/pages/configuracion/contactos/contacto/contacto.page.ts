@@ -23,9 +23,7 @@ export class ContactoPage implements OnInit {
     this.location.back();
   }
 
-  ngOnInit() {
-    // nombre.value = this.contactosService.contactos[0].nombreContacto;
-  }
+  ngOnInit() {  }
 
   async eliminarContacto() {
     this.contactosService.contactos.splice(0,1);

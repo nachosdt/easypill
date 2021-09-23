@@ -1,0 +1,199 @@
+ion-content{
+    // background-color: #6F00FF;
+  
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    // --background: #6F00FF;
+    --background: url("/assets/equipo/backgroundTeam.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;  
+  
+}
+
+.header-team{
+    z-index: -30;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 20px;
+    width: 100%;
+    height: 258px;
+    color: #ffffff;
+    // font-size: 22pt;
+    font-weight: 700;
+    // background: url("/assets/equipo/backgroundTeam.svg");
+    // background-position: center center;
+    // background-repeat: no-repeat;
+    // background-size: cover;  
+  
+   
+}
+
+.arriba{
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 40px;
+
+}
+
+.arriba h1{
+    position: absolute;
+    left: 45%;
+    right: 45%;
+    width: 100%;
+    color: #ffffff;
+}
+
+.header-textos{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 30px;
+}
+
+.header-titulo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   
+   
+    
+    // width: 50%;
+   
+}
+.config-icon{
+    height: 30px;
+    width: 30px;
+  
+}
+
+.header-titulo p{
+  font-size: 26pt;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.header-descripcion{
+    display: flex;
+  
+    height: 22vh;
+    width: 50%;
+    list-style: 30px;
+}
+
+.header-descripcion p{
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 10pt;
+}
+
+
+
+
+
+
+/*//////*/
+
+.perfiles-container{
+    background-color: #ffffff;
+    width: 100%;
+    height: 100%;
+    border-radius: 36px 36px 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   padding-top: 40px;   
+   
+}
+
+
+.perfil{
+    
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-top: 20px;
+   
+    
+    background-color: #e4e9fd;
+    color: #ffffff;
+    width: 80%;
+    height: 280px;
+    border-radius: 11px;
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-between;
+    align-items:center;
+}
+
+.perfil-imagen{
+    flex:3;
+    background-color: #566abb;
+     background-image: url("/assets/equipo/foto.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;   
+   
+     width: 120px;
+     height: 80px;
+    border-radius: 50%;
+
+   
+}
+
+
+.perfil-info{
+    color: #6F00FF;
+    flex:1;
+    // background-color: #182c7c;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.perfil .nombre{
+    font-weight: 600;
+    font-size: 14pt;
+}
+
+.perfil .titulo{
+    font-weight: 400;
+    font-size: 10pt;
+}
+
+.perfil-info p {  color: #6F00FF;
+}
+
+.perfil-enlaces{
+    flex:1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-top: 5%;
+}
+
+
+
+.linkedin{
+    background-image: url("/assets/equipo/linkedin.svg");
+    width: 60px;
+    height:60px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    
+}
+
+.email{
+    background-image: url("/assets/equipo/email.svg");
+    width:60px;
+    height:60px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    
+}

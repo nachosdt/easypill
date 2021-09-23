@@ -2,78 +2,66 @@
   <header class="header container-center">
     <div class="container-center">
       <img src="../../../assets/back_claro.svg" (click)="goBack()">
-     <h1>Iniciar Sesión</h1>
+      <h1>Iniciar Sesión</h1>
     </div>
-</header>
+  </header>
 
-<section class="body">
+  <section class="body">
 
-  <!-- Logo NUEVO-->
-  <article class="display-center">
-    <img src="../../../../../assets/logoEasypill_ok_fblanco.svg" alt="Logo Easypill" class= "logo-small">
-  </article>
+    <!-- Logo NUEVO-->
+    <article class="display-center">
+      <img src="../../../../../assets/logoEasypill_ok_fblanco.svg" alt="Logo Easypill" class="logo-small">
+    </article>
 
-  <!-- Formulario -->
-  <form #iniciarForm="ngForm">
+    <!-- Formulario -->
+    <form #iniciarForm="ngForm">
 
-    <ion-grid>
-      <!-- Email -->
-      <ion-row class="ion-justify-content-center grupo-registro">
-        <ion-col size="10">
-          <ion-label for="email">Email</ion-label>
-        </ion-col>
-      </ion-row>
+      <ion-grid>
+        <!-- Email -->
+        <ion-row class="ion-justify-content-center grupo-registro">
+          <ion-col size="10">
+            <ion-label for="email">Email</ion-label>
+          </ion-col>
+        </ion-row>
 
-      <ion-row class="ion-justify-content-center">
-        <ion-col size="10" class="ion-justify-content-center">
-          <input type="text" [(ngModel)]="usuario.email" 
-            #email="ngModel" 
-            placeholder="emailejemplo@gmail.com"
-            title="email"
-            name="email" required
-            autocomplete="on"
-            class="registro-borde">
-        </ion-col>
-      </ion-row>
+        <ion-row class="ion-justify-content-center">
+          <ion-col size="10" class="ion-justify-content-center">
+            <input type="text" [(ngModel)]="usuario.email" #email="ngModel" placeholder="emailejemplo@gmail.com"
+              title="email" name="email" required autocomplete="on" class="registro-borde">
+          </ion-col>
+        </ion-row>
 
-      <!-- Contraseña -->
-      <ion-row class="ion-justify-content-center grupo-registro">
-      <ion-col size="10">
-        <ion-label for="contrasenia">Contraseña</ion-label>
-      </ion-col>
-      </ion-row>
+        <!-- Contraseña -->
+        <ion-row class="ion-justify-content-center grupo-registro">
+          <ion-col size="10">
+            <ion-label for="contrasenia">Contraseña</ion-label>
+          </ion-col>
+        </ion-row>
 
-      <ion-row class="ion-justify-content-center">
-        <ion-col size="10" class="ion-justify-content-center">
-          <input type="password" [(ngModel)]="usuario.contrasenia" 
-            #contrasenia="ngModel" 
-            placeholder="***********"
-            title="contrasenia"
-            name="contrasenia" required
-            autocomplete="on"
-            class="registro-borde">
-        </ion-col>
-      </ion-row>
+        <ion-row class="ion-justify-content-center">
+          <ion-col size="10" class="ion-justify-content-center">
+            <input type="password" [(ngModel)]="usuario.contrasenia" #contrasenia="ngModel" placeholder="***********"
+              title="contrasenia" name="contrasenia" required autocomplete="on" class="registro-borde">
+          </ion-col>
+        </ion-row>
 
-      <!-- Botones -->
-      <div size="10" class="display-center iniciar_but">
-        <!-- Btn Aceptar -->
-        <button (click)="onSubmit(iniciarForm)" expand="block" 
-        class="but" fill="clear" shape="round" routerLink="/home">
-         Aceptar
-        </button>
+        <!-- Botones -->
+        <div size="10" class="display-center iniciar_but">
+          <!-- Btn Aceptar -->
+          <button (click)="onSubmit(iniciarForm)" expand="block" class="but" fill="clear" shape="round">
+            <!-- routerLink="/home" -->
+            Aceptar
+          </button>
 
-        <!-- Btn Recuperar Pass -->
-        <button (click)="recuperarPass()" expand="block" 
-        class="but-cancel" fill="clear" shape="round"
-        >
-          He olvidado mi contraseña
-        </button>
-      </div>
+          <!-- Btn Recuperar Pass -->
+          <button (click)="recuperarPass()" expand="block" class="but-cancel" fill="clear" shape="round">
+            He olvidado mi contraseña
+          </button>
+        </div>
 
-    </ion-grid>
-    
-  </form>
+      </ion-grid>
+
+    </form>
 
   </section>
 </ion-content>

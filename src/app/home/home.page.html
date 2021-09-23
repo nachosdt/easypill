@@ -17,66 +17,118 @@
   </div>
 
   <div class="header-medicinas">
-    <div class="titulo">
-      <p>Siguiente</p>
-    </div>
-    <div class="medicina-next overConfirmacion" (click)="mostarConfirmacion(confirmacion)">
-      <div class="izquierda">
-        <div class="medicina-nombre">
-          <p>Aspirina</p>
+    <!--TOMAS PENDIENTES DE HOY-->
+    <ng-container *ngIf="tomasDeHoyPendientes.length!==0">
+      <div class="titulo">
+        <p>Pendientes de confirmar</p>
+      </div>
+    </ng-container>
+    <ng-container *ngFor="let toma of tomasDeHoyPendientes; let i = index;">
+      <div class="card pendiente overConfirmacion" (id)="'card'+i" (click)="mostarConfirmacion(botones)">
+        <div class="botones desaparecer" #botones>
+          <button class="lohetomado" (click)="tomada(i)">Lo he tomado</button>
+          <button class="loheolvidado" (click)="olvidada(i)">Se me ha olvidado</button>
+        </div>        
+        <div class="izquierda">
+          <div class="nombre">
+            <p class="textoPendiente">{{tomasDeHoyPendientes[i].nombre}}</p>
+          </div>
+          <div class="dia">
+            <p class="textoPendiente">{{hoyOManiana(tomasDeHoyPendientes[i].fecha)}}</p>
+          </div>
         </div>
-
-        <div class="medicina-dia">
-          <p>Martes</p>
+        <div class="derecha">
+          <div class="hora">
+            <p class="textoPendiente">{{convertirHora(tomasDeHoyPendientes[i].fecha)}}</p>
+          </div>
+          <div class="line">
+          </div>
         </div>
       </div>
-
-      <div class="derecha">
-        <div class="medicina-hora">
-          <p>21:30</p>
+    </ng-container>
+    <!--TOMAS FUTURAS DE HOY-->
+    <ng-container *ngIf="tomasDeHoyFuturas.length!==0">
+      <div class="titulo">
+        <p>Próximas tomas</p>
+      </div>
+    </ng-container>
+    <ng-container *ngFor="let toma of tomasDeHoyFuturas; let i = index;">
+      <div [ngClass]="(i===0)?'card primero':'card proximo'">
+        <div class="izquierda">
+          <div class="nombre">
+            <p [ngClass]="(i===0)?'textoPrimero':'textoProximo'">{{tomasDeHoyFuturas[i].nombre}}</p>
+          </div>
+          <div class="dia">
+            <p [ngClass]="(i===0)?'textoPrimero':'textoProximo'">{{hoyOManiana(tomasDeHoyFuturas[i].fecha)}}</p>
+          </div>
         </div>
-        <div class="medicina-line">
-
+        <div class="derecha">
+          <div class="hora">
+            <p [ngClass]="(i===0)?'textoPrimero':'textoProximo'">{{convertirHora(tomasDeHoyFuturas[i].fecha)}}</p>
+          </div>
+          <div class="line">
+          </div>
         </div>
       </div>
-    </div>
+    </ng-container>
+    <!--TOMAS YA INGERIDAS Y CONFIRMADAS-->
+    <ng-container *ngIf="tomasDeHoyTomadas.length!==0">
+      <div class="titulo">
+        <p>Medicamentos tomados</p>
+      </div>
+    </ng-container>
+    <ng-container *ngFor="let toma of tomasDeHoyTomadas; let i = index;">
+      <div class="card tomado">
+        <div class="izquierda">
+          <div class="nombre">
+            <p class="textoTomado">{{tomasDeHoyTomadas[i].nombre}}</p>
+          </div>
+          <div class="dia">
+            <p class="textoTomado">{{hoyOManiana(tomasDeHoyTomadas[i].fecha)}}</p>
+          </div>
+        </div>
+        <div class="derecha">
+          <div class="hora">
+            <p class="textoTomado">{{convertirHora(tomasDeHoyTomadas[i].fecha)}}</p>
+          </div>
+          <div class="line">
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <!-- MEDICAMENTOS OLVIDADOS -->
+    <ng-container *ngIf="tomasDeHoyOlvidadas.length!==0">
+      <div class="titulo">
+        <p>Medicamentos olvidados</p>
+      </div>
+    </ng-container>
+    <ng-container *ngFor="let toma of tomasDeHoyOlvidadas; let i = index;">
+      <div class="card olvidado">
+        <div class="izquierda">
+          <div class="nombre">
+            <p class="textoOlvidado">{{tomasDeHoyOlvidadas[i].nombre}}</p>
+          </div>
+          <div class="dia">
+            <p class="textoOlvidado">{{hoyOManiana(tomasDeHoyOlvidadas[i].fecha)}}</p>
+          </div>
+        </div>
+        <div class="derecha">
+          <div class="hora">
+            <p class="textoOlvidado">{{convertirHora(tomasDeHoyOlvidadas[i].fecha)}}</p>
+          </div>
+          <div class="line">
+          </div>
+        </div>
+      </div>
+    </ng-container>
     <!-- CONFIRMACION TOMA MEDICAMENTO -->
-    <div class="container-evenly confirmacion desaparecer" #confirmacion>
+    <!-- <div class="container-evenly confirmacion desaparecer" #confirmacion>
       <div class="container-center clickConfirmacion cancelar" (click)="ocultarConfirmacion(confirmacion)">
         <img src="../../assets/close.png" alt="cancelar">
       </div>
       <div class="container-center clickConfirmacion aceptar" (click)="ocultarConfirmacion(confirmacion)">
         <img src="../../assets/tick.png" alt="aceptar">
       </div>
-    </div>
-
-
-    <div class="titulo">
-      <p>Para hoy</p>
-    </div>
-    <ng-container>
-      <div class="medicina-lista overConfirmacion">
-        <div class="izquierda">
-          <div class="medicinaLista-nombre">
-            <p>Aspirina</p>
-          </div>
-
-          <div class="medicinaLista-dia">
-            <p>Martes</p>
-          </div>
-        </div>
-
-        <div class="derecha">
-          <div class="medicinaLista-hora">
-            <p>21:30</p>
-          </div>
-          <div class="medicina-line">
-
-          </div>
-        </div>
-      </div>
-    </ng-container>
-
-
+    </div> -->
   </div>
 </ion-content>

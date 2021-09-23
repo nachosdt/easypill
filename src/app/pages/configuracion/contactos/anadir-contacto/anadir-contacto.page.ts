@@ -4,8 +4,9 @@ import { Contacto } from '../../../../models/contacto';
 import { ContactosService } from '../../../../shared/contactos.service';
 import { Location } from '@angular/common';
 
-import { ModalController } from '@ionic/angular';
+import { ModalController, IonCheckbox } from '@ionic/angular';
 import { ModalsPage } from 'src/app/pages/modals/modals.page';
+import { ServicioGeneralService } from '../../../../shared/servicio-general.service';
 
 @Component({
   selector: 'app-anadir-contacto',
@@ -15,17 +16,36 @@ import { ModalsPage } from 'src/app/pages/modals/modals.page';
 export class AnadirContactoPage implements OnInit {
 
   public contacto : Contacto = new Contacto();
+  public checkedEmail: boolean;
+  public checkedSms: boolean;
 
-  constructor(public contactoService: ContactosService, public location: Location, public modalController: ModalController) { }
+  constructor(public contactoService: ContactosService,
+     public servicioGeneralService: ServicioGeneralService,
+     public location: Location, 
+     public modalController: ModalController) { }
 
   async onSubmit(form:NgForm) {
 
     this.contacto.nombreContacto= form.value.nombreContacto;
     this.contacto.tlfContacto = form.value.tlfContacto;
     this.contacto.emailContacto = form.value.emailContacto;
-    this.contacto.notifEmail = form.value.notifEmail;
-    this.contacto.notifSms = form.value.notifSms;
+    this.contacto.notifEmail = this.checkedEmail;
+    this.contacto.notifSms = this.checkedSms;
+    this.contacto.idUsuario = this.servicioGeneralService.idUsuario;
+    if (this.contacto.notifEmail && this.contacto.notifSms) {
+      this.contacto.notificacionContacto = "ambos";
+    }
+    else if (this.contacto.notifEmail && !this.contacto.notifSms) {
+      this.contacto.notificacionContacto = "email";
+    }
+    else if(!this.contacto.notifEmail && this.contacto.notifSms) {
+      this.contacto.notificacionContacto = "sms";
+    }
+    else {
+      this.contacto.notificacionContacto = "ninguno";
+    }
     this.contactoService.contactos.push(this.contacto);
+    this.contactoService.postContacto(this.contacto);
 
     const modal = await this.modalController.create({
       component: ModalsPage,
@@ -46,4 +66,10 @@ export class AnadirContactoPage implements OnInit {
     this.location.back();
   }
 
+  cambiarCheckboxEmail(event: IonCheckbox) {
+    this.checkedEmail = event.checked;
+  }
+  cambiarCheckboxSms(event: IonCheckbox) {
+    this.checkedSms = event.checked;
+  }
 }

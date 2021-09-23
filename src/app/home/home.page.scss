@@ -5,13 +5,15 @@ ion-content{
     flex-direction: column;
     gap: 60px;
     --background: #6F00FF;
+   
   
 }
 
 .header-home{
+    
     padding-left: 40px;
     padding-right: 40px;
-    padding-top: 20px;
+    padding-top: 40px;
     width: 100%;
     height: 260px;
     color: #ffffff;
@@ -69,7 +71,7 @@ ion-content{
 .ilustration-header{
     position: absolute;
   //bottom: -100px;
-   top: 20px;
+   top: -4px;
   
 }
 
@@ -78,7 +80,7 @@ ion-content{
 .titulo p {
     color: rgba(var(--secundary_color_title));
     font-weight: 500;
-     padding-top: 14px;
+    padding-top: 14px;
     font-size: 10pt;
 }
 
@@ -112,57 +114,50 @@ ion-content{
 }
 
 
-.medicina-next{
+// .medicina-next{
     
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
-    padding-top: 20px;
+//     padding-left: 20px;
+//     padding-right: 20px;
+//     padding-bottom: 20px;
+//     padding-top: 20px;
    
     
-    background-color: #6F00FF;
-    color: #ffffff;
-    width: 100%;
-    height: 65px;
-    border-radius: 11px;
-    display: flex;
-    justify-content: space-between;
-    align-items:center;
-}
+//     background-color: #6F00FF;
+//     color: #ffffff;
+//     width: 100%;
+//     height: 65px;
+//     border-radius: 11px;
+//     display: flex;
+//     justify-content: space-between;
+//     align-items:center;
+// }
 
-.medicina-nombre{
-    flex:1;
-   
-   
-    height: 7px;
-   
-    display: flex;
-    align-items: center;  
-    
-}
+// .medicina-nombre{
+//     flex:1;   
+//     height: 7px;   
+//     display: flex;
+//     align-items: center;    
+// }
 
-.medicina-nombre p{
-    font-size: 14pt;
-    font-weight: 700;
-    color: #ffffff;
-}
+// .medicina-nombre p{
+//     font-size: 14pt;
+//     font-weight: 700;    
+// }
 
-.medicina-dia{
-    flex:1;
-    font-size: 10pt;
-    height: 10px;
-    display: flex;
-    align-items: center;
+// .medicina-dia{
+//     flex:1;
+//     font-size: 10pt;
+//     height: 10px;
+//     display: flex;
+//     align-items: center;
    
-}
+// }
 
-.medicina-dia p{
-    font-size: 10pt;
-    color: #ffffff;
-}
+// .medicina-dia p{
+//     font-size: 10pt;    
+// }
 
-.derecha{
-   
+.derecha{   
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -170,23 +165,21 @@ ion-content{
     height: 60px;
 }
 
-.medicina-hora{
-  
-    flex:1;
-    font-weight: 700;
-    height: 10px;
-    display: flex;
-    align-items: center;
+// .medicina-hora{  
+//     flex:1;
+//     font-weight: 700;
+//     height: 10px;
+//     display: flex;
+//     align-items: center;
    
-}
+// }
 
-.medicina-hora p{
-    font-size: 14pt;
-    color: #ffffff;
-}
+// .medicina-hora p{
+//     font-size: 14pt;    
+// }
 
 
-.medicina-line{
+.line{
     flex:1;
     display: flex;
     align-items: flex-end;
@@ -204,70 +197,61 @@ ion-content{
 
 /////////// LISTA DE MEDICAMENTOS
 
-.medicina-lista{
+// .medicina-lista{
     
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
-    padding-top: 20px;
+//     padding-left: 20px;
+//     padding-right: 20px;
+//     padding-bottom: 20px;
+//     padding-top: 20px;
     
-    background-color: rgba(var(--primary_color_light));  
-    // background-color: #6F00FF;
-    // 
-    color: #6F00FF;
-    width: 100%;
-    height: 65px;
-    border-radius: 11px;
-    display: flex;
-    justify-content: space-between;
-    align-items:center;
-}
+//     background-color: rgba(var(--primary_color_light));  
+//     // background-color: #6F00FF;
+//     // 
+//     color: #6F00FF;
+//     width: 100%;
+//     height: 65px;
+//     border-radius: 11px;
+//     display: flex;
+//     justify-content: space-between;
+//     align-items:center;
+// }
 
-.medicinaLista-nombre{
-    flex:1;
-   
-   
-    height: 7px;
-   
-    display: flex;
-    align-items: center;  
-    
-}
+// .medicinaLista-nombre{
+//     flex:1;  
+//     height: 7px;   
+//     display: flex;
+//     align-items: center;
+// }
 
-.medicinaLista-nombre p{
-    font-size: 14pt;
-    font-weight: 700;
-    color: rgba(var(--primary_color));   
-}
+// .medicinaLista-nombre p{
+//     font-size: 14pt;
+//     font-weight: 700;    
+// }
 
 
-.medicinaLista-dia{
-    flex:1;
-    font-size: 10pt;
-    height: 10px;
-    display: flex;
-    align-items: center;
-   
-}
+// .medicinaLista-dia{
+//     flex:1;
+//     font-size: 10pt;
+//     height: 10px;
+//     display: flex;
+//     align-items: center;   
+// }
 
-.medicinaLista-dia p{
-    font-size: 10pt;
-    color: rgba(var(--primary_color));   
-}
+// .medicinaLista-dia p{
+//     font-size: 10pt;    
+// }
 
-.medicinaLista-hora{
-    flex:1;
-    font-weight: 700;
-    height: 10px;
-    display: flex;
-    align-items: center;
+// .medicinaLista-hora{
+//     flex:1;
+//     font-weight: 700;
+//     height: 10px;
+//     display: flex;
+//     align-items: center;
+// }
 
-}
-
-.medicinaLista-hora p{
-    font-size: 14pt;
-    color: rgba(var(--primary_color));
-}
+// .medicinaLista-hora p{
+//     font-size: 14pt;    
+// }
 
 
 // CONFIRMACION MEDICAMENTO TOMADO
@@ -312,4 +296,128 @@ ion-content{
 
 .desaparecer {
     display: none;
+}
+
+// CLASIFICACIÓN DE LAS MEDICINAS
+
+.card {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    width: 100%;
+    height: 65px;
+    border-radius: 11px;
+    display: flex;
+    justify-content: space-between;
+    align-items:center; 
+    position:relative;   
+}
+
+.pendiente {
+    background-color: rgba(var(--secundary_color_cancel));
+    
+}
+
+.textoPendiente {
+    color: rgb(111, 0, 255);
+}
+
+.primero {
+    background-color: rgb(111, 0, 255);
+}
+
+.textoPrimero {
+    color: rgb(var(--primary_color_light));
+}
+
+.proximo {
+    background-color: rgb(var(--primary_color_light));
+}
+
+.textoProximo {
+    color: rgb(111, 0, 255);
+}
+
+.tomado {
+    background-color: rgb(var(--primary_color_medium));
+}
+
+.textoTomado {
+    color: rgb(111, 0, 255);
+}
+
+.olvidado {
+    background-color: red;
+}
+
+.textoOlvidado {
+    color: white;
+}
+
+.nombre{
+    flex:1;   
+    height: 7px;   
+    display: flex;
+    align-items: center;     
+}
+
+.nombre p{    
+    font-size: 14pt;
+    font-weight: 700;       
+}
+
+
+
+.dia{
+    flex:1;
+    font-size: 10pt;
+    height: 10px;
+    display: flex;
+    align-items: center;   
+}
+
+.dia p{
+    font-size: 10pt;    
+}
+
+.hora{
+    flex:1;
+    font-weight: 700;
+    height: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.hora p{
+    font-size: 14pt;    
+}
+
+.botones {
+    position:absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 65px;
+    z-index: 10;
+    border-radius: 11px;
+    overflow: hidden;
+    
+}
+
+.lohetomado,.loheolvidado {
+    width: 50%;
+    height: 65px;  
+    font-size: 13pt;
+    font-weight: 600;   
+    color: white;
+    padding: 15px;     
+}
+
+.lohetomado {
+    background-color: green;
+}
+
+.loheolvidado {
+    background-color: red;
 }

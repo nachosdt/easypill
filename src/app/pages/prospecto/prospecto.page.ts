@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { DetalleProspectoService } from 'src/app/shared/detalle-prospecto.service';
-import { Medicamento } from 'src/app/models/medicamento/medicamento';
+import { MedBuscado } from 'src/app/models/medBuscado/med-buscado';
 import { Prospecto } from 'src/app/models/prospecto/prospecto';
 
 @Component({
@@ -12,41 +12,47 @@ import { Prospecto } from 'src/app/models/prospecto/prospecto';
 
 export class ProspectoPage implements OnInit {
 
-  public medicamento : Medicamento = new Medicamento();
+  public prospectoBuscar : MedBuscado = new MedBuscado();  ;
 
-  public prospectoBuscar : string  ;
-
-  public resultado: any [] = [];
+  public resultados: any [] = [];
 
 
-  // public detalleServicio : DetalleProspectoService = new DetalleProspectoService();
+  constructor(private detalleServicio : DetalleProspectoService) { 
 
-  constructor() { }
-
-  // constructor(private detalleServicio : DetalleProspectoService) { }
+  }
 
   ngOnInit() {
   }
 
-  buscarProspecto(form:NgForm){
-
-    this.medicamento.nombreMedicamento = form.value.medicamentoBuscado;
-    
-    console.log("Valor nombre buscado: " + this.medicamento.nombreMedicamento );
-
-    this.prospectoBuscar = form.value.medicamentoBuscado;
-    console.log("prospectoBuscar: " + this.medicamento.nombreMedicamento );
-
-    // this.enviarADetalleServicio(this.prospectoBuscar);
-    // console.log("Medicamento a buscar en Servicio:" + this.detalleServicio.medicamento2Buscar);
-
-    // this.resultado = this.detalleServicio.getResultadosProspectos();
-    
-  }
-
-  // enviarADetalleServicio(name:string)
-  // {
-  //   this.detalleServicio.setMedicamento2Buscar(name);
+  // ionViewDidLoad() {
+  //   this.buscarProspectos(this.prospectoBuscar.nombreMedBuscado);//Llamamos a la función getPost cuando la vista se cargue
   // }
 
+
+  async buscarProspectos(form:NgForm){
+
+    this.prospectoBuscar.nombreMedBuscado = form.value.medicamentoBuscado;
+    
+    // console.log("Valor nombre buscado: " + this.prospectoBuscar.nombreMedBuscado );
+
+    // console.log("prospectoBuscar: " + this.prospectoBuscar.nombreMedBuscado );
+
+    await this.detalleServicio.getProspectos(this.prospectoBuscar.nombreMedBuscado)
+    .then( data => {
+      for(let elemento in data){
+        this.resultados.push(data[elemento]);
+      }
+      // console.log("Longitud: " + this.resultados.length);
+
+      // for (let r in this.resultados){
+      //   console.log("R: " + r);
+      //   for(let i in this.resultados[r] ){
+      //     console.log("I: " + i);
+      //     console.log(this.resultados[r][i]);
+      //   }
+      // }
+      
+    });
+
+  }
 }

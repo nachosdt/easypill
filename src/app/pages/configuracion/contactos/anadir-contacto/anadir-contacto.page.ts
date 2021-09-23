@@ -6,6 +6,7 @@ import { Location } from '@angular/common';
 
 import { ModalController, IonCheckbox } from '@ionic/angular';
 import { ModalsPage } from 'src/app/pages/modals/modals.page';
+import { ServicioGeneralService } from '../../../../shared/servicio-general.service';
 
 @Component({
   selector: 'app-anadir-contacto',
@@ -18,7 +19,10 @@ export class AnadirContactoPage implements OnInit {
   public checkedEmail: boolean;
   public checkedSms: boolean;
 
-  constructor(public contactoService: ContactosService, public location: Location, public modalController: ModalController) { }
+  constructor(public contactoService: ContactosService,
+     public servicioGeneralService: ServicioGeneralService,
+     public location: Location, 
+     public modalController: ModalController) { }
 
   async onSubmit(form:NgForm) {
 
@@ -27,6 +31,7 @@ export class AnadirContactoPage implements OnInit {
     this.contacto.emailContacto = form.value.emailContacto;
     this.contacto.notifEmail = this.checkedEmail;
     this.contacto.notifSms = this.checkedSms;
+    this.contacto.idUsuario = this.servicioGeneralService.idUsuario;
     if (this.contacto.notifEmail && this.contacto.notifSms) {
       this.contacto.notificacionContacto = "ambos";
     }

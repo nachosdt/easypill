@@ -24,4 +24,9 @@ export class ContactosPage implements OnInit {
   ngOnInit() {
   }
 
+  // POSICION DEL CONTACTO SELECCIONADO EN EL ARRAY
+  guardarPosicion(posicion: number) {
+    this.contactoService.posicionArr = posicion;
+  }
+
 }

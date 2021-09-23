@@ -24,8 +24,8 @@
           <ion-col size="10" class="ion-justify-content-center">
             <input type="text" 
               title="Nombre completo del contacto"
-              name="nombreContacto" value="Juana Pérez Galdós"
-              readonly
+              name="nombreContacto"
+              value={{contacto.nombreContacto}} readonly
               class="registro-borde"
               #nombreContacto>
           </ion-col>
@@ -41,7 +41,7 @@
         <ion-row class="ion-justify-content-around">
           <ion-col size="10">
             <input type="text" 
-              value="655234123" readonly
+              value={{contacto.tlfContacto}} readonly
               name="tlfContacto"
               class="registro-borde"
               #tlfContacto>
@@ -58,7 +58,7 @@
         <ion-row class="ion-justify-content-around">
           <ion-col size="10">
             <input type="email"
-              value="juanapg@invent.es" readonly
+              value={{contacto.emailContacto}} readonly
               name="emailContacto" required
               autocomplete="on"
               class="registro-borde"
@@ -78,11 +78,11 @@
 
         <ion-row class="ion-justify-content-around">
           <ion-col size="4">
-            <ion-checkbox checked="true" disabled class="checkBoton"
+            <ion-checkbox checked={{contacto.notifEmail}} disabled class="checkBoton"
             #notifEmail></ion-checkbox>
           </ion-col>
           <ion-col size="4">
-            <ion-checkbox class="checkBoton" disabled
+            <ion-checkbox checked={{contacto.notifSms}} class="checkBoton" disabled
             #notifSms></ion-checkbox>
           </ion-col>
         </ion-row>

@@ -17,7 +17,7 @@
 <section class="body">
 
   <!-- Busqueda Formulario -->
-  <form #busquedaProspectoForm="ngForm" (ngSubmit)="buscarProspecto(busquedaProspectoForm)">
+  <form #busquedaProspectoForm="ngForm" (ngSubmit)="buscarProspectos(busquedaProspectoForm)">
 
     <ion-grid>
 
@@ -28,7 +28,7 @@
       </ion-row>
       <ion-row class="ion-justify-content-center">
         <ion-col size="10" class="ion-justify-content-center">
-          <input type="text" [(ngModel)]="medicamento.nombreMedicamento"
+          <input type="text" [(ngModel)]="prospectoBuscar.nombreMedBuscado"
             #medicamentoBuscado="ngModel" 
             placeholder="Nombre del medicamento que buscas"
             title="Nombre del medicamento que buscas"
@@ -41,7 +41,7 @@
       <!-- Botones -->
       <ion-row class="grupo-registro">
         <ion-col size="5">
-          <button (click)="buscarProspecto(busquedaProspectoForm)" expand="block" 
+          <button (click)="buscarProspectos(busquedaProspectoForm)" expand="block" 
           class="but" fill="clear" shape="round">
             Buscar
           </button>
@@ -54,9 +54,31 @@
 
   <article id="result-busqueda-prospects" class="pastilla-result">
     <h3 class="titulo2">Resultados</h3>
-    <app-card-medicina routerLink="detalle-prospecto"></app-card-medicina>
-    <app-card-medicina routerLink="detalle-prospecto"></app-card-medicina>
-    <app-card-medicina routerLink="detalle-prospecto"></app-card-medicina>
+    <ng-container *ngIf="resultados else isElse" >
+      <ng-container *ngFor="let resultado of resultados">
+        <div class="cardMed container" routerLink="detalle-prospecto">
+          <img src={{resultado.srcfoto}} alt="" class="img-card">
+          
+          <div class="tituloMed">
+            <h4 class="nombre-med">{{resultado.nombreMed}}</h4>   
+          </div>
+          <div class="laboratorio">
+            <h5 class="nombre-lab">{{resultado.lab}}</h5>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+    <ng-template #isElse>
+      <article >
+        <div >
+          <div >
+            <p>No se han encontrados medicamentos con ese nombre</p>
+          </div>
+        </div>
+      </article>
+    </ng-template>
+    <!-- <app-card-medicina routerLink="detalle-prospecto"></app-card-medicina> -->
+
   </article>
 
 </section>

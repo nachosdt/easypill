@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-
+import { LoginService } from '../shared/login.service';
 import { ServicioGeneralService } from '../shared/servicio-general.service';
+
 
 @Component({
   selector: 'app-home',
@@ -8,28 +9,35 @@ import { ServicioGeneralService } from '../shared/servicio-general.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  
-  public nombreUsuario:string;
-  public diaDelMes:number;
-  public diaDeLaSemana:string;
-  public mes:string;
-  public dias:string[] = ["Domingo","Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"];
 
-  constructor(private servicioGeneral:ServicioGeneralService) {
+  public idUsuarioHome: number;
+  public nombreUsuario: string;
+  public diaDelMes: number;
+  public diaDeLaSemana: string;
+  public mes: string;
+  public dias: string[] = ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"];
+
+  constructor(private servicioGeneral: ServicioGeneralService) {
     this.nombreUsuario = servicioGeneral.nombreUsuario;
     this.diaDelMes = servicioGeneral.diaDelMes;
     this.mes = servicioGeneral.mes;
     this.diaDeLaSemana = this.dias[servicioGeneral.diaSemana];
+    console.log(servicioGeneral.idUsuario);
+
+
+
+
+
   }
 
   // MOSTRAR Y OCULTAR BOTONES DE CONFIRMACION
 
-  mostarConfirmacion(confirmacion : HTMLDivElement) {
+  mostarConfirmacion(confirmacion: HTMLDivElement) {
     confirmacion.classList.remove("desaparecer");
     confirmacion.classList.add("aparecer");
   }
 
-  ocultarConfirmacion(confirmacion : HTMLDivElement) {
+  ocultarConfirmacion(confirmacion: HTMLDivElement) {
     confirmacion.classList.remove("aparecer");
     confirmacion.classList.add("desaparecer");
   }

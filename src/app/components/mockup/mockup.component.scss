@@ -1,0 +1,76 @@
+p{
+    font-size: 11pt;
+    color: #fff;
+}
+
+.info-mobil{
+    // background: url("/assets/infoMobile/informacion-mobile.svg");
+    // background-repeat: no-repeat;
+    // background-position: center center;
+   
+  
+    // //  background-size: 100% 20px;
+    // background-color: aqua;
+    width: 100%;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    padding-left: 12px;
+    padding-right: 12px;
+   
+    // padding-right: 30px;
+    // background-image: url("/assets/equipo/backgroundTeam.svg");
+}
+
+.señal{
+    background: url("/assets/infoMobile/señal2.svg");
+    height: 30px;
+    width: 30px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: flex;
+    align-items: center;
+}
+
+.bateria-icono{
+    background: url("/assets/infoMobile/bateria.svg");
+    height: 30px;
+    width: 30px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: flex;
+    align-items: center;
+
+}
+
+// ion-content{
+//     height: 50px;
+//     width: 100%;
+// }
+
+.izquierda{
+    flex:2;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+   
+   
+    // background-color: rgb(255, 166, 0);
+}
+
+.centro{
+    flex:4;
+    display: flex;
+   justify-content: center;
+    // background-color: rgb(81, 255, 0);
+}
+
+.derecha{
+    flex:2;
+    display: flex;
+    justify-content: flex-end;
+    
+    align-items: center;
+    width: 60px;
+    // background-color: rgb(111, 0, 255);
+}

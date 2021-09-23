@@ -6,6 +6,8 @@ import { Location } from '@angular/common';
 import { ModalController } from '@ionic/angular';
 import { ModalsPage } from 'src/app/pages/modals/modals.page';
 import { LoginService } from 'src/app/shared/login.service';
+import { ServicioGeneralService } from 'src/app/shared/servicio-general.service';
+
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 @Component({
@@ -20,14 +22,20 @@ export class IniciarPage implements OnInit {
     public modalController: ModalController,
     public login: LoginService,
     private router: Router,
-    public toast: ToastController) { }
+    public toast: ToastController,
+    public servicioGeneral: ServicioGeneralService
+  ) { }
+
+  nombreUsuario: string
+  idUsuario: number;
 
   ngOnInit() {
+
   }
+
   onSubmit(form: NgForm) {
     this.usuario.email = form.value.email;
     this.usuario.contrasenia = form.value.contrasenia;
-
     this.iniciarSesion(this.usuario)
   }
 
@@ -50,36 +58,45 @@ export class IniciarPage implements OnInit {
     this.location.back();
   }
 
-  iniciarSesion(usuario) {
-    // console.log("login correcto");
+  iniciarSesion(usuario): string {
 
-    // this.login.postLogin(usuario)
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       if (res.error == null) {
-
-    //       }
-    //       this.router.navigate(["/home"])
-
-    //     },
-    //     err => {
-    //       console.log("soy el error");
-    //       console.log(err);
-    //     }
-
-    //   )
     this.login.postLogin(usuario).subscribe((data) => {
       let resultado: any = {}
       resultado = data
       console.log(resultado);
-      if (resultado.datos == null) {
+
+      // console.log(resultado.datos[0].nombre);
+      // this.nombreUsuario = resultado.datos[0].nombre;
+      if (resultado.datos === null) {
         this.loginIncorrecto()
       } else {
-        this.router.navigate(["/home"])
+        this.nombreUsuario = resultado.datos[0].nombre;
+        this.idUsuario = resultado.datos[0].idusuarios;
+        console.log(this.nombreUsuario);
+        this.router.navigate(["/home"]);
+        this.servicioGeneral.nombreUsuario = this.nombreUsuario;
+        this.servicioGeneral.idUsuario = this.idUsuario
+
+
+
       }
+      // console.log(this.nombreUsuario);
+
     });
+
+    return this.nombreUsuario;
   }
+
+  // getNombre(): string {
+  //   return this.nombreUsuario;
+
+  // }
+
+
+
+
+
+
 
   async loginIncorrecto() {
     const alerta = await this.toast.create({

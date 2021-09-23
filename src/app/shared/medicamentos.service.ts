@@ -5,15 +5,11 @@ import { Medicamento } from '../models/medicamento/medicamento';
   providedIn: 'root'
 })
 export class MedicamentosService {
-  public medicamentos: Medicamento[] = [
-    {nombreMedicamento: "Aspirina", dosis: 3, frecuencia: "8 horas", cantidadInicial: 28, comentarios: "", primeraToma: "12:30", completado : false },
-    {nombreMedicamento: "Aspirina2", dosis: 3, frecuencia: "8 horas", cantidadInicial: 28, primeraToma: "13:30", comentarios: "", completado : false},
-    {nombreMedicamento: "Aspirina3", dosis: 3, frecuencia: "8 horas", cantidadInicial: 28, primeraToma: "20:00", comentarios: "", completado : false},
-    {nombreMedicamento: "Aspirina4", dosis: 3, frecuencia: "8 horas", cantidadInicial: 28, primeraToma: "21:15", comentarios: "", completado : false},
-    {nombreMedicamento: "Aspirina5", dosis: 3, frecuencia: "8 horas", cantidadInicial: 28, primeraToma: "22:00", comentarios: "", completado : true},
-  ]
-  constructor() { 
 
+  public medicamentos: Medicamento[];
+  public diaSolicitado:number;
+
+  constructor() { 
   }
 
   public async getMedicamentosDeHoy(hora00:number, hora24:number, id:number) {
@@ -32,4 +28,38 @@ export class MedicamentosService {
         console.log(error);
     }
   }
+
+  public async getTodosLosMedicamentos(id:number) {
+    let url = `https://api-easypill.herokuapp.com/medicamentos?id=${id}`;
+    let param = {
+        headers: {"Content-Type": "application/json; charset = UTF-8"},
+        method: "GET"
+    };
+    try {
+        let data = await fetch(url,param);
+        let resultBruto = await data.json();
+        let medicamentos = resultBruto.datos;
+        console.log("Nº medicamentos: ", medicamentos.length);        
+        return medicamentos;                            
+    } catch(error) {
+        console.log(error);
+    }
+  }
+
+  public async getTomasDia(id:number,dia:number) {
+    let url = `https://api-easypill.herokuapp.com/tomasdia?id=${id}&dia=${dia}`;
+    let param = {
+        headers: {"Content-Type": "application/json; charset = UTF-8"},
+        method: "GET"
+    };
+    try {
+        let data = await fetch(url,param);
+        let resultBruto = await data.json();
+        let tomas = resultBruto.datos;
+        console.log(`Nº tomas de del día ${dia}:`, tomas.length);        
+        return tomas;                            
+    } catch(error) {
+        console.log(error);
+    }
+  }  
 }

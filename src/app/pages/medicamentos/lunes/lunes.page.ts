@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { MedicamentosService } from '../../../shared/medicamentos.service';
-import { Medicamento } from '../../../models/medicamento/medicamento';
+import { ServicioGeneralService } from 'src/app/shared/servicio-general.service';
 
 @Component({
   selector: 'app-lunes',
@@ -9,13 +10,40 @@ import { Medicamento } from '../../../models/medicamento/medicamento';
 })
 export class LunesPage implements OnInit {
 
-  public medicamentos !: Medicamento[];
+  public diaSolicitado:number = this.medicamentoService.diaSolicitado;
+  public medicamentosDia:any[] = [];
+  public dias:string[] = ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"];
+  public titulo:string = this.dias[this.calcularDia()];
 
-  constructor(public medicamentoService: MedicamentosService) {
-    this.medicamentos = medicamentoService.medicamentos;
-   }
+  constructor(private medicamentoService: MedicamentosService, private servicioGeneral:ServicioGeneralService) {
+    
+  }
 
   ngOnInit() {
+    let medicamentos = this.medicamentoService.getTomasDia(this.servicioGeneral.idUsuario,this.diaSolicitado);
+    medicamentos.then((respuesta) => {
+      this.medicamentosDia = respuesta;
+      console.log(respuesta);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
+  }
+
+  private calcularDia() {
+    let resultado = null;
+    let suma = this.servicioGeneral.diaSemana + this.diaSolicitado;
+    if(suma > 6) {
+      resultado = suma-7;
+    } else {
+      resultado = suma;
+    }
+    return resultado;
+  }
+
+  public convertirHora(hora:string):string {
+    return hora.slice(10,15);
   }
 
 }

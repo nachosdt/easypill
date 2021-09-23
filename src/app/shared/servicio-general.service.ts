@@ -10,7 +10,7 @@ export class ServicioGeneralService {
   public diaDelMes: number;
   public mes: string;
   public nombreUsuario:string = "Marta";
-  public idUsuario:number = 9;
+  public idUsuario:number = 7;
   
 
   constructor() {

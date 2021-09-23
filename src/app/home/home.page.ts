@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ServicioGeneralService } from '../shared/servicio-general.service';
-import { MedicamentosService } from '../shared/medicamentos.service';
-
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -22,13 +20,11 @@ export class HomePage implements OnInit{
   public tomasDeHoyOlvidadas:any[] = [];
   
 
-  constructor(private servicioGeneral:ServicioGeneralService, private servicioMedicamento:MedicamentosService) {
+  constructor(private servicioGeneral:ServicioGeneralService) {
     this.nombreUsuario = servicioGeneral.nombreUsuario;
     this.diaDelMes = servicioGeneral.diaDelMes;
     this.mes = servicioGeneral.mes;
-    this.diaDeLaSemana = this.dias[servicioGeneral.diaSemana];
-    
-    
+    this.diaDeLaSemana = this.dias[servicioGeneral.diaSemana];    
   }
 
   ngOnInit() {
@@ -60,7 +56,7 @@ export class HomePage implements OnInit{
   }
 
   public convertirHora(hora:string):string {
-    return hora.slice(11,16);
+    return hora.slice(10,15);
   }
 
   public hoyOManiana(hora:string) {
@@ -93,15 +89,5 @@ export class HomePage implements OnInit{
     this.tomasDeHoyOlvidadas.push(registro);
     this.servicioGeneral.actualizarTomas(registro.idtomas,"olvidada");
   }
-
-  ocultarConfirmacion(confirmacion : HTMLDivElement) {
-    confirmacion.classList.remove("aparecer");
-    confirmacion.classList.add("desaparecer");
-  }
-
-  // AÑADIR MEDICAMENTO TOMADO: 
-  // Importar el servicio medicamento
-  // Seleccionar el medicamento tomado
-  // Cambiarle el valor confirmacion a TRUE
 
 }

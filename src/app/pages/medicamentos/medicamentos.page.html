@@ -6,25 +6,19 @@
       <img id="atras" src="../../../assets/back_oscuro.svg">
       <div id="scrollmenu">      
         <ng-container *ngFor="let dia of diasOrdenados; let i = index">
-          <div class="dia" routerLink="lunes">{{dia}}</div>
-          <!-- <div class="dia" routerLink="martes"></div>
-          <div class="dia" routerLink="miercoles">X</div>
-          <div class="dia" routerLink="jueves">J</div>
-          <div class="dia" routerLink="viernes">V</div>
-          <div class="dia" routerLink="sabado">S</div>
-          <div class="dia" routerLink="domingo">D</div> -->
+          <div class="dia" routerLink="lunes" (click)="diaSolicitado(i)">{{dia}}</div>          
         </ng-container>      
       </div>    
       <img id="adelante" src="../../../assets/back_oscuro.svg">
     </article> 
     <!-- MEDICAMENTOS GUARDADOS -->
-    <ng-container *ngIf="medicamentos else isElse">
+    <ng-container *ngIf="medicamentos.length!=0 else isElse">
       <ng-container *ngFor="let medicamento of medicamentos">
         <div class="display-around">
           <div class="medicina-next color-medio" routerLink="editarmedicamento">
             <div class="izquierda">
               <div class="medicina-nombre">
-                <p>{{medicamento.nombreMedicamento}}</p>
+                <p>{{medicamento.nombre}}</p>
               </div>
             </div>
           </div>

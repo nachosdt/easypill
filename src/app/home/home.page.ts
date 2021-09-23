@@ -9,6 +9,7 @@ import { MedicamentosService } from '../shared/medicamentos.service';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
+
 export class HomePage implements OnInit {
 
   public idUsuario: number;
@@ -61,8 +62,8 @@ export class HomePage implements OnInit {
       });
   }
 
-  public convertirHora(hora: string): string {
-    return hora.slice(11, 16);
+  public convertirHora(hora:string):string {
+    return hora.slice(10,15);
   }
 
   public hoyOManiana(hora: string) {
@@ -73,12 +74,6 @@ export class HomePage implements OnInit {
       resultado = "Mañana";
     }
     return resultado;
-
-
-
-
-
-
   }
 
   // MOSTRAR Y OCULTAR BOTONES DE CONFIRMACION
@@ -101,15 +96,5 @@ export class HomePage implements OnInit {
     this.tomasDeHoyOlvidadas.push(registro);
     this.servicioGeneral.actualizarTomas(registro.idtomas, "olvidada");
   }
-
-  ocultarConfirmacion(confirmacion: HTMLDivElement) {
-    confirmacion.classList.remove("aparecer");
-    confirmacion.classList.add("desaparecer");
-  }
-
-  // AÑADIR MEDICAMENTO TOMADO: 
-  // Importar el servicio medicamento
-  // Seleccionar el medicamento tomado
-  // Cambiarle el valor confirmacion a TRUE
 
 }

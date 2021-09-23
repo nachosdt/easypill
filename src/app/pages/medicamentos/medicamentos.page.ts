@@ -15,18 +15,23 @@ export class MedicamentosPage implements OnInit {
   public diaSemana: number;
   public dias:string[] = ["L","M","X","J","V","S","D"];
   public diasOrdenados:string[];
-  public medicamento : Medicamento;
-  public medicamentos : Medicamento[];
+  
+  public medicamentos:any[] = [];
 
   constructor(public medicamentoService: MedicamentosService, private servicioGeneral:ServicioGeneralService) { 
-
-    this.medicamentos = medicamentoService.medicamentos;
-    this.diaSemana = servicioGeneral.diaSemana;
-    this.diasOrdenados = this.ordenDiasSemana();
     
+    this.diaSemana = servicioGeneral.diaSemana;
+    this.diasOrdenados = this.ordenDiasSemana(); 
   }
 
   ngOnInit() {
+    let consultaMed = this.medicamentoService.getTodosLosMedicamentos(this.servicioGeneral.idUsuario);
+    consultaMed.then((respuesta) => {
+      this.medicamentos = respuesta;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
     console.log(this.medicamentos);
   }
 
@@ -34,6 +39,10 @@ export class MedicamentosPage implements OnInit {
     let arrayDias:string[] = this.dias.slice(this.diaSemana-1).concat(this.dias.slice(0,this.diaSemana-1));
     //console.log(arrayDias);
     return arrayDias;
+  }
+
+  public diaSolicitado(indice:number) {
+    this.medicamentoService.diaSolicitado = indice;
   }
 
 }

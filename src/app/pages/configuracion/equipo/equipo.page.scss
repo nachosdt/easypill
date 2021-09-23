@@ -5,10 +5,10 @@ ion-content{
     flex-direction: column;
     gap: 60px;
     // --background: #6F00FF;
-    // --background-image: url("/assets/equipo/backgroundTeam.svg");
-    // background-position: center center;
-    // background-repeat: no-repeat;
-    // background-size: cover;  
+    --background: url("/assets/equipo/backgroundTeam.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;  
   
 }
 
@@ -22,10 +22,10 @@ ion-content{
     color: #ffffff;
     // font-size: 22pt;
     font-weight: 700;
-    background-image: url("/assets/equipo/backgroundTeam.svg");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;  
+    // background: url("/assets/equipo/backgroundTeam.svg");
+    // background-position: center center;
+    // background-repeat: no-repeat;
+    // background-size: cover;  
   
    
 }

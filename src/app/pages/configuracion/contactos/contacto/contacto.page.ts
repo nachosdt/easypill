@@ -5,6 +5,8 @@ import { IonCheckbox } from '@ionic/angular';
 
 import { ModalsPage } from 'src/app/pages/modals/modals.page';
 import { ModalController } from '@ionic/angular';
+import { Contacto } from 'src/app/models/contacto';
+import { ServicioGeneralService } from '../../../../shared/servicio-general.service';
 
 @Component({
   selector: 'app-contacto',
@@ -13,33 +15,42 @@ import { ModalController } from '@ionic/angular';
 })
 export class ContactoPage implements OnInit {
 
-  // @ViewChild 
+  public posicion: number;
+  public contacto: Contacto;
 
   constructor(private location: Location,
     public contactosService: ContactosService,
-    public modalController: ModalController) { }
+    public modalController: ModalController,
+    public serviciosGenerales: ServicioGeneralService) 
+    {
+      this.posicion = this.contactosService.posicionArr;
+      this.contacto = this.contactosService.contactos[this.posicion];
+    }
 
   goBack() {
     this.location.back();
   }
 
-  ngOnInit() {
-    // nombre.value = this.contactosService.contactos[0].nombreContacto;
-  }
+  ngOnInit() {  }
 
   async eliminarContacto() {
-    this.contactosService.contactos.splice(0,1);
-    console.log(this.contactosService.contactos);
-    const modal = await this.modalController.create({
-      component: ModalsPage,
-      componentProps: {
-        'titulo': 'Contacto Eliminado',
-        'mensaje': `El contacto se ha eliminado con éxito`,
-        'textoBoton': 'Ir a Contactos',
-        'urlSalida' : '/configuracion/contactos'
-      }
-    });
-    return await modal.present();
+    let id: number = this.contacto.idContacto;
+    this.contactosService.deleteContacto(id)
+    .then ( async result => {
+      const modal = await this.modalController.create({
+        component: ModalsPage,
+        componentProps: {
+          'titulo': 'Contacto Eliminado',
+          'mensaje': `El contacto se ha eliminado con éxito`,
+          'textoBoton': 'Ir a Contactos',
+          'urlSalida' : '/configuracion/contactos'
+        }
+      });
+      return await modal.present();
+    })
+    .catch (error => {
+      console.log(error);
+    })   
   }
 
   cancel(nombre: HTMLInputElement, tlf: HTMLInputElement,
@@ -75,16 +86,44 @@ export class ContactoPage implements OnInit {
     notifSms: IonCheckbox, eliminar: HTMLButtonElement, 
     cancelar: HTMLButtonElement, editar: HTMLButtonElement,
     guardar: HTMLButtonElement) {
-      this.contactosService.contactos[0].nombreContacto = nombre.value;
+      this.contacto.nombreContacto = nombre.value;
       let numero: string = tlf.value;
       let numero1: number = parseFloat(numero);
-      this.contactosService.contactos[0].tlfContacto = numero1;
-      this.contactosService.contactos[0].emailContacto = email.value;
-      this.contactosService.contactos[0].notifEmail = notifEmail.checked;
-      this.contactosService.contactos[0].notifSms = notifSms.checked;
+      this.contacto.tlfContacto = numero1;
+      this.contacto.emailContacto = email.value;
+      this.contacto.notifEmail = notifEmail.checked;
+      this.contacto.notifSms = notifSms.checked;
+      this.contacto.idUsuario = this.serviciosGenerales.idUsuario;
+      if (this.contacto.notifSms && this.contacto.notifEmail) {
+        this.contacto.notificacionContacto = "ambos";
+      }
+      else if (!this.contacto.notifSms && this.contacto.notifEmail) {
+        this.contacto.notificacionContacto = "email";
+      }
+      else if(this.contacto.notifSms && !this.contacto.notifEmail) {
+        this.contacto.notificacionContacto = "sms";
+      }
+      else {
+        this.contacto.notificacionContacto = "ninguno";
+      }
+      this.contactosService.putContacto(this.contacto)
+      .then ( async result => {
+        const modal = await this.modalController.create({
+          component: ModalsPage,
+          componentProps: {
+            'titulo': 'Contacto Guardado',
+            'mensaje': `El contacto ${nombre.value} se ha guardado con éxito`,
+            'textoBoton': 'Ir a Contactos',
+            'urlSalida' : '/configuracion/contactos'
+          }
+        });
+        return await modal.present();
+      })
+      .catch (error => {
+        console.log(error);
+      })   
 
       this.ocultarBotones(eliminar, cancelar, editar, guardar)
-      console.log(this.contactosService.contactos[0]);
 
       const modal = await this.modalController.create({
         component: ModalsPage,

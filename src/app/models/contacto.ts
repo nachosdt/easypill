@@ -5,5 +5,8 @@ export class Contacto {
     public notifEmail !: boolean;
     public notifSms !: boolean;
     public notificacionContacto !: string;
+    public idUsuario : number | undefined;
+    public posicionArray : number | undefined;
+    public idContacto: number | undefined;
     constructor () {}
 }

@@ -12,10 +12,21 @@ export class ContactosPage implements OnInit {
   public contacto !: Contacto;
 
   constructor(public contactoService: ContactosService) { 
-    this.contactos = contactoService.contactos;
+    this.contactoService.getContacto()
+    .then (result => {
+      return this.contactos = result;
+    })
+    .catch (error => {
+      console.log(error);
+    })    
   }
 
   ngOnInit() {
+  }
+
+  // POSICION DEL CONTACTO SELECCIONADO EN EL ARRAY
+  guardarPosicion(posicion: number) {
+    this.contactoService.posicionArr = posicion;
   }
 
 }

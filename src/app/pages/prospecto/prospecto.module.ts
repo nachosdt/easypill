@@ -9,7 +9,6 @@ import { ComponentsModule } from 'src/app/components/components.module';
 import { ProspectoPageRoutingModule } from './prospecto-routing.module';
 
 import { ProspectoPage } from './prospecto.page';
-import { CardMedicinaComponent } from '../../components/cardMedicina/card-medicina.component';
 
 @NgModule({
   imports: [
@@ -18,12 +17,12 @@ import { CardMedicinaComponent } from '../../components/cardMedicina/card-medici
     IonicModule,
     ComponentsModule,
     ProspectoPageRoutingModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: CardMedicinaComponent
-      }
-    ])
+    // RouterModule.forChild([
+    //   {
+    //     path: '',
+    //     component: CardMedicinaComponent
+    //   }
+    // ])
   ],
   declarations: [
     ProspectoPage

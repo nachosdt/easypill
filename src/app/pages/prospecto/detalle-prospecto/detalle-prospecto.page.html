@@ -17,7 +17,7 @@
       <!-- NG FOR PARA MEDICAMENTO TRAIDO DE RESULTADOS -->
 
       <!-- Si hay prospecto-->
-      <ng-container *ngIf="miProspecto else isElse" >
+      <ng-container *ngIf="miProspecto else isElse" > 
 
         <article id="detalle">
 
@@ -27,9 +27,9 @@
           <img [src]="miProspecto.srcfoto" alt="">
           
           <!-- Acordeon  -->
-          <details *ngFor="let secItem of miProspecto.secc; let indice = index">
-            <summary><h4 class="tit-acordeon">{{ (indice+1) + miProspecto.secc[indice].titulo}}</h4></summary>
-            <p class="text-acordeon">{{miProspecto.secc[indice].contenido}}</p>
+          <details *ngFor="let item of arrSecciones; let indice = index">
+            <summary><h4 class="tit-acordeon">{{ (indice+1) +". " + arrSecciones[indice].titulo}}</h4></summary>
+            <p class="text-acordeon" [innerHTML]="arrSecciones[indice].contenido"></p>
           </details>
 
         </article>

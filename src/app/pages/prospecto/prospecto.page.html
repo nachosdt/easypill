@@ -56,7 +56,8 @@
     <h3 class="titulo2">Resultados</h3>
     <ng-container *ngIf="resultados else isElse" >
       <ng-container *ngFor="let resultado of resultados">
-        <div class="cardMed container" routerLink="detalle-prospecto">
+        <div class="cardMed container" routerLink="detalle-prospecto"
+        (click)="guardarProspecto(resultado)">
           <img src={{resultado.srcfoto}} alt="" class="img-card">
           
           <div class="tituloMed">
@@ -77,8 +78,6 @@
         </div>
       </article>
     </ng-template>
-    <!-- <app-card-medicina routerLink="detalle-prospecto"></app-card-medicina> -->
-
   </article>
 
 </section>

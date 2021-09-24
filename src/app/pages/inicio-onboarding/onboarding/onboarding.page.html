@@ -36,17 +36,21 @@
       </p>
     </div>
 
-    <div class="mySlides">
+    <div class="mySlides ultimo">
       <p>Por último, EasyPill te permite consultar el prospecto de todos los medicamentos
-        que existen en el mercado.<br>¡Ojalá EasyPill te sea de ayuda!
+        que existen en el mercado.
       </p>
+      <ng-container *ngIf="mostrarComenzar">
+        <button (click)="bntComenzar()" class="but comenzar">Comenzar</button>
+      </ng-container>
     </div>
-
+    n
   </div>
 
   <!-- Next/prev buttons -->
   <a class="prev" (click)="plusSlides(-1)">&#10094;</a>
   <a class="next" (click)="plusSlides(1)">&#10095;</a>
+
 
   <!-- Dots/bullets/indicators -->
   <div class="dot-container">

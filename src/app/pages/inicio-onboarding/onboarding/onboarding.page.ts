@@ -14,6 +14,7 @@ export class OnboardingPage implements OnInit {
   public titulo: string;
   public slideIndex: number;
   public distancia: string[] = ["10vw", "27vw", "46vw", "63vw", "82vw"];
+  public yaEstoyLogueado: boolean = false
 
   constructor(public servicioGeneral: ServicioGeneralService, public router: Router) {
     this.slideIndex = 1;
@@ -30,9 +31,23 @@ export class OnboardingPage implements OnInit {
 
 
     } else {
-      this.router.navigate(["/home"])
+      this.router.navigate(["/configuracion"])
     }
   }
+
+
+  // mostrar/quitar el boton de comenzar en la ultima parte del onboarding
+
+  public mostrarComenzar: boolean = this.servicioGeneral.primeraVezServicio
+
+
+  bntComenzar() {
+    this.mostrarComenzar = false;
+    this.router.navigate(["/home"])
+
+  }
+
+  /////////
 
   public arrowTexto(n: number): void {
     let i: number;

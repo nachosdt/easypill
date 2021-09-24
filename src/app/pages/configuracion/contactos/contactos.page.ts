@@ -2,14 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { ContactosService } from '../../../shared/contactos.service';
 import { Contacto } from '../../../models/contacto';
 
+
 @Component({
   selector: 'app-contactos',
   templateUrl: './contactos.page.html',
   styleUrls: ['./contactos.page.scss'],
 })
 export class ContactosPage implements OnInit {
-  public contactos : Contacto[];
+  public contactos: Contacto[];
   public contacto !: Contacto;
+<<<<<<< HEAD
 
   constructor(public contactoService: ContactosService) { 
     if(this.contactoService.contactos = []) {
@@ -21,6 +23,21 @@ export class ContactosPage implements OnInit {
         console.log(error);
       })
     }   
+=======
+  public cargar: boolean = true;
+
+  constructor(public contactoService: ContactosService) {
+    if (this.cargar) {
+      this.contactoService.getContacto()
+        .then(result => {
+          this.cargar = false;
+          return this.contactos = result;
+        })
+        .catch(error => {
+          console.log(error);
+        })
+    }
+>>>>>>> master
   }
 
   ngOnInit() {

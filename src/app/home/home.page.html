@@ -4,7 +4,9 @@
     <div class="header-textos">
       <div class="header-titulo">
         <p>¡Hola {{nombreUsuario}}!</p>
-        <div #irAconfiguracion class="config-icon" routerLink="/configuracion">
+        <!-- (click)="mostarConfirmacion(botones)" -->
+        <!-- <div #irAconfiguracion class="config-icon" routerLink="/configuracion"> -->
+        <div #irAconfiguracion class="config-icon" (click)="configpage()">
           <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
             x="0px" y="0px" width="30px" height="30px" viewBox="0 0 48 48" enable-background="new 0 0 48 48"
             xml:space="preserve">
@@ -157,15 +159,6 @@
           </div>
         </div>
       </div>
-    </ng-container>
-    <!-- CONFIRMACION TOMA MEDICAMENTO -->
-    <!-- <div class="container-evenly confirmacion desaparecer" #confirmacion>
-      <div class="container-center clickConfirmacion cancelar" (click)="ocultarConfirmacion(confirmacion)">
-        <img src="../../assets/close.png" alt="cancelar">
-      </div>
-      <div class="container-center clickConfirmacion aceptar" (click)="ocultarConfirmacion(confirmacion)">
-        <img src="../../assets/tick.png" alt="aceptar">
-      </div>
-    </div> -->
+    </ng-container>    
   </div>
 </ion-content>

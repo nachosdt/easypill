@@ -9,7 +9,7 @@
   <header class="header container-center">
     <div class="container-center">
       <img src="../../../assets/back_claro.svg" routerLink="/medicamentos">
-      <h1>Añadir Medicamento</h1>
+      <h1>Añadir un tratamiento</h1>
     </div>
   </header>
 
@@ -29,7 +29,7 @@
         <ion-row class="ion-justify-content-center">
           <ion-col size="10" class="ion-justify-content-center">
             <input type="text" [(ngModel)]="medicamento.nombreMedicamento" #nombreMedicamento="ngModel"
-              placeholder="Medicamento que buscas" title="Medicamento que buscas"
+              placeholder="Nombre del medicamento" title="Medicamento que buscas"
               name="nombreMedicamento" required autocomplete="on" class="registro-borde">
           </ion-col>
         </ion-row>
@@ -37,21 +37,21 @@
         <!-- Dosis y frecuencia -->
         <ion-row class="ion-justify-content-around grupo-registro">
           <ion-col size="4">
-            <ion-label for="dosis">Dosis</ion-label>
+            <ion-label for="dosis">Dosis en cada toma</ion-label>
           </ion-col>
           <ion-col size="4">
-            <ion-label for="frecuencia">Frecuencia</ion-label>
+            <ion-label for="frecuencia">Frecuencia en horas</ion-label>
           </ion-col>
         </ion-row>
 
         <ion-row class="ion-justify-content-around">
           <ion-col size="4">
-            <input type="text" [(ngModel)]="medicamento.dosis" #dosis="ngModel"
+            <input type="number" inputmode="numeric" [(ngModel)]="medicamento.dosis" #dosis="ngModel"
               placeholder="Cantidad toma" title="Qué cantidad de medicamento tomar" name="dosis"
               required class="registro-borde">
           </ion-col>
           <ion-col size="4">
-            <input type="text" [(ngModel)]="medicamento.frecuencia" #frecuencia="ngModel"
+            <input type="number" inputmode="numeric" [(ngModel)]="medicamento.frecuencia" #frecuencia="ngModel"
               placeholder="Frecuencia" title="Cada cuanto tiempo tomas el medicamento" name="frecuencia" required
               autocomplete="on" class="registro-borde">
           </ion-col>
@@ -60,27 +60,23 @@
         <!-- Cantidad Inicial y Primera toma -->
         <ion-row class="ion-justify-content-around grupo-registro">
           <ion-col size="4">
-            <ion-label for="cantidadInicial">Cantidad Inicial</ion-label>
+            <ion-label for="cantidadInicial">Cantidad restante</ion-label>
           </ion-col>
           <ion-col size="4">
-            <ion-label for="primeraToma">Primera Toma</ion-label>
+            <ion-label for="primeraToma">Hora de referencia</ion-label>
           </ion-col>
         </ion-row>
 
         <ion-row class="ion-justify-content-around">
           <ion-col size="4">
-            <input type="text" [(ngModel)]="medicamento.cantidadInicial" #cantidadInicials="ngModel"
+            <input type="number" inputmode="numeric" [(ngModel)]="medicamento.cantidadInicial" #cantidadInicials="ngModel"
               placeholder="Unidades" title="Stock de medicamento" name="cantidadInicial"
               autocomplete="on" class="registro-borde">
           </ion-col>
           <ion-col size="4">
-            <ion-datetime display-format="H:mm" picker-format="H:mm" [(ngModel)]="medicamento.primeraToma"
+            <ion-datetime displayFormat="h:mm A" minuteValues="0,15,30,45" [(ngModel)]="medicamento.fechaInicio"
               #primeraToma="ngModel" placeholder="HH:MM" title="Hora y minutos de tu primera toma"
-              name="primeraToma" autocomplete="on" class="registro-borde"></ion-datetime>
-            <!-- <input type="time" class="registro-borde prueba"
-            name="primeraToma" required
-            [(ngModel)]="medicamento.primeraToma" 
-                #primeraToma="ngModel"> -->
+              name="primeraToma" autocomplete="on" class="registro-borde"></ion-datetime>            
           </ion-col>
         </ion-row>
 

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+
 import { Medicamento } from '../models/medicamento/medicamento';
 
 @Injectable({
@@ -58,6 +59,30 @@ export class MedicamentosService {
         let tomas = resultBruto.datos;
         console.log(`Nº tomas de del día ${dia}:`, tomas.length);        
         return tomas;                            
+    } catch(error) {
+        console.log(error);
+    }
+  }  
+
+  public async postMedicamento(medicamento:Medicamento,id:number) {
+    let url = `http://localhost:4000/medicamentos`;
+    let cuerpo = {"idUsuario": id,...medicamento};
+    let param = {
+        headers: {"Content-Type": "application/json; charset = UTF-8"},
+        method: "POST",
+        body: JSON.stringify(cuerpo)
+    };
+    console.log(cuerpo);
+    try {
+        let data = await fetch(url,param);
+        let resultadoBruto = await data.json();
+        let respuesta:boolean;
+        if (resultadoBruto.error===false) {
+          respuesta = true;
+        } else {
+          respuesta = false;
+        }
+        return respuesta;
     } catch(error) {
         console.log(error);
     }

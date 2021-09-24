@@ -43,29 +43,26 @@ ion-content{
   
 }
 
-// .config-icon svg{
-//     &:hover {
-//         animation: girar 0.8s  ;
-//         transform-origin: center;
-//     }
-    
-// }
-
-.config-icon svg::hover{
-  
-        animation: girar 0.8s  ;
+.config-icon svg{
+    &:hover {
+        animation: girar 0.7s ease-in-out ;
         transform-origin: center;
+    }
     
- 
 }
 
 
 
+
 @keyframes girar{
-    from {
+    0% {
+        transform: rotateZ(0deg);
+    }
+
+    20% {
         transform: rotateZ(-20deg);
     }
-    to {
+    100% {
         transform: rotateZ(360deg);
     }
    
@@ -117,17 +114,16 @@ ion-content{
 
 .header-medicinas{
     background-color: #ffffff;
-    width: 100%;
-    height: 100%;
+    width: 100%;    
     border-radius: 36px 36px 0 0;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
     gap: 20px;
-   padding-top: 30px;   
-   padding-left: 40px;
-   padding-right: 40px;
+    padding-top: 30px;   
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
 

@@ -8,13 +8,10 @@ import { IniciarPage } from '../pages/landing/landinglogin/iniciar/iniciar.page'
 })
 export class LoginService {
 
-  private url = "http://localhost:4000/login"
+  private url = "https://api-easypill.herokuapp.com/login"
   constructor(private http: HttpClient) { }
 
   postLogin(newUser: Usuario) {
     return this.http.post(this.url, newUser)
   }
-
-
-
 }

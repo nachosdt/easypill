@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'landing',
     pathMatch: 'full'
   },
   {
@@ -41,11 +41,11 @@ const routes: Routes = [
   },
   {
     path: 'inicio-onboarding',
-    loadChildren: () => import('./pages/inicio-onboarding/inicio-onboarding.module').then( m => m.InicioOnboardingPageModule)
+    loadChildren: () => import('./pages/inicio-onboarding/inicio-onboarding.module').then(m => m.InicioOnboardingPageModule)
   },
   {
     path: 'modals',
-    loadChildren: () => import('./pages/modals/modals.module').then( m => m.ModalsPageModule)
+    loadChildren: () => import('./pages/modals/modals.module').then(m => m.ModalsPageModule)
   }
 ];
 

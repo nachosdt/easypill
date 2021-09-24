@@ -11,19 +11,9 @@ import { NgForm } from '@angular/forms';
 })
 export class EditarmedicamentoPage implements OnInit {
 
-  public medicamento: Medicamento = new Medicamento();
+  public medicamento: Medicamento;
 
   constructor(public medicamentoService: MedicamentosService) { }
-
-
-
-  MedicamentoNombre: string = "Aspirina C Efervescente"
-  MedicamentoDosis: string = "3"
-  MedicamentoFrecuencia: string = "Cada 8 horas"
-  MedicamentoCantInicial: string = "20"
-  MedicamentoPrimeraToma: string = "13:00"
-
-  MedicamentoComentarios: string = "No la cortes"
 
   ngOnInit() {
   }
@@ -42,7 +32,7 @@ export class EditarmedicamentoPage implements OnInit {
     this.medicamento.frecuencia = form.value.frecuencia;
     this.medicamento.cantidadInicial = form.value.cantidadInicial;
     this.medicamento.nombreMedicamento = form.value.nombreMedicamento;
-    this.medicamento.primeraToma = form.value.primeraToma;
+    this.medicamento.fechaInicio = form.value.primeraToma;
     this.medicamento.comentarios = form.value.comentarios;
 
     this.medicamentoService.medicamentos.push(this.medicamento);

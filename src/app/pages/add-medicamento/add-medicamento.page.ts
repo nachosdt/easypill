@@ -5,6 +5,7 @@ import { MedicamentosService } from '../../shared/medicamentos.service';
 
 import { ModalController } from '@ionic/angular';
 import { ModalsPage } from '../modals/modals.page';
+import { ServicioGeneralService } from '../../shared/servicio-general.service';
 
 @Component({
   selector: 'app-add-medicamento',
@@ -13,43 +14,42 @@ import { ModalsPage } from '../modals/modals.page';
 })
 export class AddMedicamentoPage implements OnInit {
   
-  public medicamento : Medicamento = new Medicamento ();
+  public medicamento : Medicamento = new Medicamento();
 
-  constructor(public modalController: ModalController, public medicamentoService: MedicamentosService) { }
+  constructor(private modalController: ModalController, private medicamentoService: MedicamentosService,
+    private servicioGeneral:ServicioGeneralService) { }
 
   ngOnInit() {
   }
 
   async onSubmit(form:NgForm) {
 
-    console.log(form.value);
-
     this.medicamento.nombreMedicamento = form.value.nombreMedicamento;
-    this.medicamento.dosis = form.value.dosis;
-    this.medicamento.frecuencia = form.value.frecuencia;
+    this.medicamento.dosis=form.value.dosis;
+    this.medicamento.frecuencia=form.value.frecuencia;
     this.medicamento.cantidadInicial = form.value.cantidadInicial;
-    this.medicamento.nombreMedicamento = form.value.nombreMedicamento;
-    let hora : string = form.value.primeraToma;
-    this.medicamento.primeraToma = hora.slice(11,16);
-    this.medicamento.comentarios = form.value.comentarios;
+    this.medicamento.fechaInicio = form.value.primeraToma;
+    this.medicamento.fechaInicio = this.medicamento.fechaInicio.slice(0,16).replace("T"," ")
+    this.medicamento.comentarios = form.value.comentarios;    
 
-    this.medicamentoService.medicamentos.push(this.medicamento);
-    console.log(this.medicamento.primeraToma);
-    console.log(typeof this.medicamento.primeraToma)
-
-    
-      const modal = await this.modalController.create({
-        component: ModalsPage,
-        componentProps: {
-          'titulo': 'Nuevo tratamiento añadido',
-          'mensaje': `¡Tratamiento añadido!
-          ${this.medicamento.nombreMedicamento}. Con EasyPill será más fácil recordar tus tomas`,
-          'textoBoton': 'Ir a Medicamentos',
-          'urlSalida' : '/medicamentos'
-        }
-      });
-      return await modal.present();
-    
+    let post = this.medicamentoService.postMedicamento(this.medicamento, this.servicioGeneral.idUsuario);
+    post.then(async (respuesta)=>{
+      if (respuesta) {
+        const modal = await this.modalController.create({
+          component: ModalsPage,
+          componentProps: {
+            'titulo': 'Nuevo tratamiento añadido',
+            'mensaje': `¡Tratamiento añadido! Con EasyPill será más fácil recordar tus tomas`,
+            'textoBoton': 'Ir a Medicamentos',
+            'urlSalida' : '/medicamentos'
+          }
+        });
+        return await modal.present();
+      }
+    })
+    .catch((error)=>{
+      console.log(error);
+    });    
   }
 
 }

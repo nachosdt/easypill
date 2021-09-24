@@ -13,7 +13,7 @@ import { ModalsPage } from '../../../modals/modals.page';
 })
 export class EdiccionPage implements OnInit {
 
-  public medicamento: Medicamento = new Medicamento();
+  public medicamento: Medicamento;
 
   constructor(public medicamentoService: MedicamentosService,
     public modalController: ModalController,

@@ -28,6 +28,7 @@ export class IniciarPage implements OnInit {
 
   nombreUsuario: string
   idUsuario: number;
+  primeraVez: boolean = false;
 
   ngOnInit() {
 
@@ -73,9 +74,14 @@ export class IniciarPage implements OnInit {
         this.nombreUsuario = resultado.datos[0].nombre;
         this.idUsuario = resultado.datos[0].idusuarios;
         console.log(this.nombreUsuario);
-        this.router.navigate(["/home"]);
+        this.router.navigate(["/inicio-onboarding"]);
         this.servicioGeneral.nombreUsuario = this.nombreUsuario;
-        this.servicioGeneral.idUsuario = this.idUsuario
+        this.servicioGeneral.idUsuario = this.idUsuario;
+        this.primeraVez = true;
+        this.servicioGeneral.primeraVezServicio = this.primeraVez
+        console.log(this.servicioGeneral.primeraVezServicio);
+
+
 
 
 

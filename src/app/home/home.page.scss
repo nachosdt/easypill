@@ -43,29 +43,26 @@ ion-content{
   
 }
 
-// .config-icon svg{
-//     &:hover {
-//         animation: girar 0.8s  ;
-//         transform-origin: center;
-//     }
-    
-// }
-
-.config-icon svg::hover{
-  
-        animation: girar 0.8s  ;
+.config-icon svg{
+    &:hover {
+        animation: girar 0.7s ease-in-out ;
         transform-origin: center;
+    }
     
- 
 }
 
 
 
+
 @keyframes girar{
-    from {
+    0% {
+        transform: rotateZ(0deg);
+    }
+
+    20% {
         transform: rotateZ(-20deg);
     }
-    to {
+    100% {
         transform: rotateZ(360deg);
     }
    

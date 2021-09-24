@@ -12,6 +12,7 @@ ion-content{
   
 }
 
+
 .header-team{
     z-index: -30;
     padding-left: 40px;
@@ -31,12 +32,17 @@ ion-content{
 }
 
 .arriba{
-    padding-bottom: 10px;
+    padding-top: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-bottom: 40px;
 
+}
+
+.arriba  > h1 {
+    position: relative;
+    top: 1.7vh;
 }
 
 .arriba h1{

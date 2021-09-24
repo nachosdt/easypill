@@ -14,7 +14,7 @@ export class ContactosService {
   // LLAMADA A LA API POST CONTACTO
   async postContacto(contacto: Contacto) {
     try {
-      let url: string = "http://localhost:4000/contacto";
+      let url: string = "https://api-easypill.herokuapp.com/contacto";
 
       let param: any =
       {
@@ -38,8 +38,7 @@ export class ContactosService {
   async getContacto() {
     try {
       let id: number = this.servicioGeneral.idUsuario;
-      let url: string = `http://localhost:4000/contacto?id=${id}`;
-
+      let url: string = `https://api-easypill.herokuapp.com/contacto?id=${id}`;
       let param: any =
       {
           headers: {"Content-type": "application/json; chasert= UTF-8"},
@@ -82,11 +81,12 @@ export class ContactosService {
         console.log(error);
     }
   }
+  
 
   // LLAMADA A LA API PUT CONTACTOS
   async putContacto(contacto: Contacto) {
     try {
-      let url: string = "http://localhost:4000/contacto";
+      let url: string = "https://api-easypill.herokuapp.com/contacto";
 
       let param: any =
       {
@@ -110,7 +110,7 @@ export class ContactosService {
   async deleteContacto(idContacto: number) {
     let body1 = {"id": idContacto};
     try {
-      let url: string = "http://localhost:4000/contacto";
+      let url: string = "https://api-easypill.herokuapp.com/contacto";
 
       let param: any =
       {

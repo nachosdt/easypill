@@ -7,7 +7,7 @@ import { Usuario } from '../models/usuario';
 })
 export class PerfilService {
 
-  private url="http://localhost:4000/usuario"
+  private url="https://api-easypill.herokuapp.com/usuario"
   constructor(private http:HttpClient) { }
 
   getPerfil(id:number){

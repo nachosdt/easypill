@@ -103,6 +103,7 @@
     background-color: rgba(var(--primary_color),0.5);
     display: flex;
     flex-direction: column;
+    align-items: center;
 
     min-height: 100%;
     overflow-y: scroll;
@@ -116,20 +117,101 @@
     margin-bottom: 40px;
     align-self:center;
 }
-// 
-app-card-medicina:first-of-type{
+// Cards
+// app-card-medicina:first-of-type{
+//     margin-top: 0px;
+// } 
+
+// app-card-medicina{
+//     background-color: rgb(var(--color_white));
+//     border-radius: 17px;
+//     max-width: 310px;
+//     max-height: 150px;
+//     box-shadow:  5px 11px 12px 2px rgba(0, 0, 0, 0.25);
+//     display:flex;
+//     align-self: center;
+//     padding:20px 10px;
+//     margin-top: 20px;
+// }
+
+#result-busqueda-prospects>div:first-of-type{
     margin-top: 0px;
 } 
 
-app-card-medicina{
+#result-busqueda-prospects>div{
+    background-color: rgb(var(--color_white));
+    border-radius: 17px;
+    // max-width: 310px;
+    // max-height: 150px;
+    box-shadow:  5px 11px 12px 2px rgba(0, 0, 0, 0.25);
+    // display:flex;
+    // align-self: center;
+    padding:20px 10px;
+    margin-top: 20px;
+}
+
+// .carMed{
+//   background-color: rgb(var(--color_white));
+//   border-radius: 17px;
+//   max-width: 310px;
+//   max-height: 150px;
+//   box-shadow:  5px 11px 12px 2px rgba(0, 0, 0, 0.25);
+// }
+
+.container {
     background-color: rgb(var(--color_white));
     border-radius: 17px;
     max-width: 310px;
     max-height: 150px;
     box-shadow:  5px 11px 12px 2px rgba(0, 0, 0, 0.25);
-    display:flex;
-    align-self: center;
-    padding:20px 10px;
-    margin-top: 20px;
-}
+
+  
+    display: grid; 
+    grid-auto-flow: row dense; 
+    grid-auto-columns: 1fr; 
+    grid-auto-rows: 1fr; 
+    grid-template-columns: 
+      40%
+      60%; 
+    grid-template-rows: 70% 30%; 
+    gap: 0% 0%; 
+    grid-template-areas: 
+      "img-card tituloMed"
+      "img-card laboratorio"; 
+    justify-content: center; 
+    align-content: center; 
+    align-items: center; 
+  }
+  
+  .img-card { 
+    grid-area: img-card; 
+  } 
+
+  #result-busqueda-prospects>img{
+      max-height:110px;
+  }
+  
+  .laboratorio { 
+    grid-area: laboratorio;
+    padding: 0 5px;
+  }
+  .nombre-lab{
+    font-size:10px;
+    font-weight: 500;
+    margin:20px 0px 0px 0px;
+  }
+  
+  .tituloMed {
+    grid-area: tituloMed; 
+    padding: 0 5px;
+  }
+  .nombre-med {
+    font-size: 14px;
+    color:rgb(var(--primary_color));
+    font-weight:600;
+    text-transform: uppercase;
+    margin:0px;
+  }
+
+
 

@@ -9,8 +9,11 @@
 
 .header > div > h1 {
     color: rgb(var(--primary_color));
+    position: relative;
+    top: -1vh;
 }
 
 .body {
     height: var(--body_height);
 }
+

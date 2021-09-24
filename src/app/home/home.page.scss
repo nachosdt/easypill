@@ -43,6 +43,34 @@ ion-content{
   
 }
 
+// .config-icon svg{
+//     &:hover {
+//         animation: girar 0.8s  ;
+//         transform-origin: center;
+//     }
+    
+// }
+
+.config-icon svg::hover{
+  
+        animation: girar 0.8s  ;
+        transform-origin: center;
+    
+ 
+}
+
+
+
+@keyframes girar{
+    from {
+        transform: rotateZ(-20deg);
+    }
+    to {
+        transform: rotateZ(360deg);
+    }
+   
+}
+
 .header-titulo p{
   font-size: 26pt;
   font-weight: 700;

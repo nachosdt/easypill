@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 import { ServicioGeneralService } from '../shared/servicio-general.service';
 import { MedicamentosService } from '../shared/medicamentos.service';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +11,10 @@ import { MedicamentosService } from '../shared/medicamentos.service';
 })
 
 export class HomePage implements OnInit {
+
+  @ViewChild('irAconfiguracion') irAconfiguracion: ElementRef;
+
+
 
   public idUsuario: number;
   public nombreUsuario: string;
@@ -25,16 +29,24 @@ export class HomePage implements OnInit {
   public tomasDeHoyOlvidadas: any[] = [];
 
 
-  constructor(private servicioGeneral: ServicioGeneralService, private servicioMedicamento: MedicamentosService) {
+  constructor(private servicioGeneral: ServicioGeneralService, private servicioMedicamento: MedicamentosService, router: Router) {
     this.nombreUsuario = servicioGeneral.nombreUsuario;
     this.diaDelMes = servicioGeneral.diaDelMes;
     this.mes = servicioGeneral.mes;
     this.diaDeLaSemana = this.dias[servicioGeneral.diaSemana];
 
 
+
+
   }
 
   ngOnInit() {
+
+    setTimeout(() => {
+      // this.router.navigate(["/configuracion"])
+      this.irAconfiguracion.nativeElement.click();
+    }, 5000);
+
     let tomas = this.servicioGeneral.getTomasHoy();
     tomas.then((resultado) => {
       let ahora = new Date();

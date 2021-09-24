@@ -3,7 +3,7 @@ export class Prospecto {
     public nregistro : string | undefined;
     public nombreMed : string | undefined;
     public lab : string | undefined;
-    public url : string | undefined;
+    // public url : string | undefined;
     public secc0: {titulo:string,contenido:string} | undefined;
     public secc1: {titulo:string,contenido:string} | undefined;
     public secc2: {titulo:string,contenido:string} | undefined;

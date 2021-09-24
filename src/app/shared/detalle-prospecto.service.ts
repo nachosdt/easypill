@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-// import { Prospecto } from '../models/prospecto/prospecto';
+import { Prospecto } from '../models/prospecto/prospecto';
 
 
 import { HttpClient } from '@angular/common/http';
@@ -17,6 +17,8 @@ export class DetalleProspectoService {
 
   public result : any [] = [];
 
+  public prospectoAver :Prospecto;
+
 
   public setMedicamento2Buscar (nombre : string){
     this.medicamento2Buscar = nombre;
@@ -27,7 +29,6 @@ export class DetalleProspectoService {
   }
 
   constructor(private http:HttpClient){
-    console.log("Servicio-Medicamento buscado: "+ this.medicamento2Buscar);
   }
 
   public async getProspectos(nameMedicina:string){
@@ -43,14 +44,6 @@ export class DetalleProspectoService {
       let data = await fetch(url, param);
       let result = await data.json();
 
-      // for (let r in result){
-      //   console.log("R: " + r);
-      //   for(let i in result[r] ){
-      //     console.log("I: " + i);
-      //     console.log(result[r][i]);
-      //   }
-      // }
-      
       return result;
 
     }
@@ -59,10 +52,10 @@ export class DetalleProspectoService {
     }
   }
 
-  public async getSecciones(numReg:string){
+  public async getSecciones(nReg){
     try{
-      let url = "http://localhost:4000/detalle-prospecto?nregistro=" + numReg;
-
+      let url = "http://localhost:4000/detalle?nregistro=" + nReg;
+      
       let param: any =
       {
           headers: {"Content-type": "application/json; chasert= UTF-8"},
@@ -71,17 +64,8 @@ export class DetalleProspectoService {
 
       let data = await fetch(url, param);
       let resultSecc = await data.json();
-
-      // for (let r in result){
-      //   console.log("R: " + r);
-      //   for(let i in result[r] ){
-      //     console.log("I: " + i);
-      //     console.log(result[r][i]);
-      //   }
-      // }
-      
+     
       return resultSecc;
-
     }
     catch(err){
       console.log(err);

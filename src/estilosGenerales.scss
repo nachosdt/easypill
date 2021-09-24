@@ -169,4 +169,16 @@ ion-content > p{
     font-size: 14px;
 }
 
+ion-content p.text-acordeon p, ion-content p.text-acordeon a, 
+ion-content p.text-acordeon li, ion-content p.text-acordeon span{
+    font-size: 12px;
+    line-height: 18px;  
+    text-align: justify;
+}
+
+ion-content p.text-acordeon strong span{
+    font-weight: 700;
+    color:rgba(var(--primary_color));
+}
+
 

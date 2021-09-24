@@ -18,7 +18,6 @@ export class ContactosService {
   // LLAMADA A LA API POST CONTACTO
   async postContacto(contacto: Contacto) {
     try {
-      console.log(contacto);
       let url: string = "https://api-easypill.herokuapp.com/contacto";
 
       let param: any =
@@ -89,7 +88,6 @@ export class ContactosService {
   // LLAMADA A LA API PUT CONTACTOS
   async putContacto(contacto: Contacto) {
     try {
-      console.log(contacto);
       let url: string = "https://api-easypill.herokuapp.com/contacto";
 
       let param: any =

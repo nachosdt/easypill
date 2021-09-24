@@ -16,6 +16,7 @@ export class HomePage implements OnInit {
 
 
 
+
   public idUsuario: number;
   public nombreUsuario: string;
   public diaDelMes: number;
@@ -29,7 +30,7 @@ export class HomePage implements OnInit {
   public tomasDeHoyOlvidadas: any[] = [];
 
 
-  constructor(private servicioGeneral: ServicioGeneralService, private servicioMedicamento: MedicamentosService, router: Router) {
+  constructor(private servicioGeneral: ServicioGeneralService, private servicioMedicamento: MedicamentosService, public router: Router) {
     this.nombreUsuario = servicioGeneral.nombreUsuario;
     this.diaDelMes = servicioGeneral.diaDelMes;
     this.mes = servicioGeneral.mes;
@@ -37,15 +38,19 @@ export class HomePage implements OnInit {
 
 
 
-
   }
+
+
 
   ngOnInit() {
 
-    setTimeout(() => {
-      // this.router.navigate(["/configuracion"])
-      this.irAconfiguracion.nativeElement.click();
-    }, 5000);
+    // setTimeout(() => {
+    //   // this.router.navigate(["/configuracion"])
+    //   this.irAconfiguracion.nativeElement.click();
+    // }, 51000);
+
+
+
 
     let tomas = this.servicioGeneral.getTomasHoy();
     tomas.then((resultado) => {
@@ -74,8 +79,16 @@ export class HomePage implements OnInit {
       });
   }
 
-  public convertirHora(hora:string):string {
-    return hora.slice(10,15);
+  configpage() {
+    setTimeout(() => {
+      this.router.navigate(["/configuracion"])
+      //   this.irAconfiguracion.nativeElement.click();
+    }, 400);
+  }
+
+
+  public convertirHora(hora: string): string {
+    return hora.slice(10, 15);
   }
 
   public hoyOManiana(hora: string) {
@@ -108,5 +121,9 @@ export class HomePage implements OnInit {
     this.tomasDeHoyOlvidadas.push(registro);
     this.servicioGeneral.actualizarTomas(registro.idtomas, "olvidada");
   }
+
+
+
+
 
 }

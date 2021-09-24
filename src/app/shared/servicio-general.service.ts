@@ -11,8 +11,9 @@ export class ServicioGeneralService {
   public diaSemana: number; // 0 = Lunes y 6 = Domingo
   public diaDelMes: number;
   public mes: string;
-  public nombreUsuario:string = "Marta";
-  public idUsuario:number = 7;  
+  public nombreUsuario: string = "Marta";
+  public idUsuario: number = 7;
+  public primeraVezServicio: boolean = false
 
   constructor() {
     let hoy = new Date();

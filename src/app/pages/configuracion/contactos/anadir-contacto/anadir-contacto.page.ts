@@ -7,6 +7,7 @@ import { Location } from '@angular/common';
 import { ModalController, IonCheckbox } from '@ionic/angular';
 import { ModalsPage } from 'src/app/pages/modals/modals.page';
 import { ServicioGeneralService } from '../../../../shared/servicio-general.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-anadir-contacto',
@@ -15,18 +16,20 @@ import { ServicioGeneralService } from '../../../../shared/servicio-general.serv
 })
 export class AnadirContactoPage implements OnInit {
 
-  public contacto : Contacto = new Contacto();
+  public contacto: Contacto = new Contacto();
   public checkedEmail: boolean;
   public checkedSms: boolean;
+  public yaEstoyLogueado: boolean = false
 
   constructor(public contactoService: ContactosService,
-     public servicioGeneralService: ServicioGeneralService,
-     public location: Location, 
-     public modalController: ModalController) { }
+    public servicioGeneralService: ServicioGeneralService,
+    public location: Location,
+    public modalController: ModalController,
+    public router: Router) { }
 
-  async onSubmit(form:NgForm) {
+  async onSubmit(form: NgForm) {
 
-    this.contacto.nombreContacto= form.value.nombreContacto;
+    this.contacto.nombreContacto = form.value.nombreContacto;
     this.contacto.tlfContacto = form.value.tlfContacto;
     this.contacto.emailContacto = form.value.emailContacto;
     this.contacto.notifEmail = this.checkedEmail;
@@ -38,7 +41,7 @@ export class AnadirContactoPage implements OnInit {
     else if (this.contacto.notifEmail && !this.contacto.notifSms) {
       this.contacto.notificacionContacto = "email";
     }
-    else if(!this.contacto.notifEmail && this.contacto.notifSms) {
+    else if (!this.contacto.notifEmail && this.contacto.notifSms) {
       this.contacto.notificacionContacto = "sms";
     }
     else {
@@ -53,13 +56,26 @@ export class AnadirContactoPage implements OnInit {
         'titulo': 'Nuevo Contacto Añadido',
         'mensaje': '¡Has añadido un nuevo contacto a tu lista de contactos!',
         'textoBoton': 'Ir a Contactos',
-        'urlSalida' : '/configuracion/contactos'
+        'urlSalida': '/configuracion/contactos'
       }
     });
     return await modal.present();
   }
 
   ngOnInit() {
+  }
+
+  bntCancelar() {
+    console.log(this.servicioGeneralService.primeraVezServicio);
+    if (this.servicioGeneralService.primeraVezServicio == true) {
+
+      this.router.navigate(["/home"])
+      this.servicioGeneralService.primeraVezServicio = this.yaEstoyLogueado
+    }
+
+    // this.servicioGeneralService.primeraVezServicio == false
+    // console.log(this.servicioGeneralService.primeraVezServicio);
+
   }
 
   goBack() {

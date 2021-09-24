@@ -7,8 +7,8 @@
     </div>
   </header>
 
-<!-- Body -->
-<section class="body">
+  <!-- Body -->
+  <section class="body">
 
     <form #anadirContactoForm="ngForm">
 
@@ -22,13 +22,9 @@
 
         <ion-row class="ion-justify-content-center">
           <ion-col size="10" class="ion-justify-content-center">
-            <input type="text" [(ngModel)]="contacto.nombreContacto" 
-              #nombreContacto="ngModel" 
-              placeholder="Nombre completo del contacto"
-              title="Nombre completo del contacto"
-              name="nombreContacto" required
-              autocomplete="on"
-              class="registro-borde">
+            <input type="text" [(ngModel)]="contacto.nombreContacto" #nombreContacto="ngModel"
+              placeholder="Nombre completo del contacto" title="Nombre completo del contacto" name="nombreContacto"
+              required autocomplete="on" class="registro-borde">
           </ion-col>
         </ion-row>
 
@@ -41,12 +37,8 @@
 
         <ion-row class="ion-justify-content-around">
           <ion-col size="10">
-            <input type="text" [(ngModel)]="contacto.tlfContacto" 
-              #tlfContacto="ngModel"
-              placeholder="611 123 123"
-              title="Teléfono del contacto"
-              name="tlfContacto" required
-              class="registro-borde">
+            <input type="text" [(ngModel)]="contacto.tlfContacto" #tlfContacto="ngModel" placeholder="611 123 123"
+              title="Teléfono del contacto" name="tlfContacto" required class="registro-borde">
           </ion-col>
         </ion-row>
 
@@ -59,13 +51,9 @@
 
         <ion-row class="ion-justify-content-around">
           <ion-col size="10">
-            <input type="email" [(ngModel)]="contacto.emailContacto" 
-              #emailContacto="ngModel" 
-              placeholder="correodeejemplo@noexiste.com"
-              title="Email del contacto"
-              name="emailContacto" required
-              autocomplete="on"
-              class="registro-borde">
+            <input type="email" [(ngModel)]="contacto.emailContacto" #emailContacto="ngModel"
+              placeholder="correodeejemplo@noexiste.com" title="Email del contacto" name="emailContacto" required
+              autocomplete="on" class="registro-borde">
           </ion-col>
         </ion-row>
 
@@ -81,36 +69,34 @@
 
         <ion-row class="ion-justify-content-around">
           <ion-col size="4">
-            <ion-checkbox [checked]="checkedEmail" class="checkBoton"
-            (ionChange)="cambiarCheckboxEmail(notifEmail)" #notifEmail></ion-checkbox>
+            <ion-checkbox [checked]="checkedEmail" class="checkBoton" (ionChange)="cambiarCheckboxEmail(notifEmail)"
+              #notifEmail></ion-checkbox>
           </ion-col>
           <ion-col size="4">
-            <ion-checkbox [checked]="checkedSms" class="checkBoton"
-            (ionChange)="cambiarCheckboxSms(notifSms)" #notifSms></ion-checkbox>
+            <ion-checkbox [checked]="checkedSms" class="checkBoton" (ionChange)="cambiarCheckboxSms(notifSms)"
+              #notifSms></ion-checkbox>
           </ion-col>
         </ion-row>
 
         <!-- Botones -->
         <ion-row class="grupo-registro grupo-botones">
           <ion-col size="5">
-            <button (click)="anadirContactoForm.reset()"
-            class="but-cancel">
+            <button (click)="anadirContactoForm.reset(); bntCancelar()" class="but-cancel">
               Cancelar
             </button>
           </ion-col>
 
           <ion-col size="5" class="grupo-botones-start">
-            <button (click)="onSubmit(anadirContactoForm)"
-            class="but">
+            <button (click)="onSubmit(anadirContactoForm)" class="but">
               Guardar
             </button>
           </ion-col>
         </ion-row>
-        
+
       </ion-grid>
 
     </form>
 
-</section>
+  </section>
 
 </ion-content>

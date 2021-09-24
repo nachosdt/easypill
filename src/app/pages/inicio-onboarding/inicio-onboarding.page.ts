@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 // import { ModalController } from '@ionic/angular';
+import { ServicioGeneralService } from '../../shared/servicio-general.service';
 
 
 @Component({
@@ -10,10 +13,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InicioOnboardingPage implements OnInit {
 
-  constructor() { }
+  constructor(public router: Router, public servicioGeneral: ServicioGeneralService) { }
+
+
 
   ngOnInit() {
   }
-  
 
+
+  bntOmitir() {
+    console.log(this.servicioGeneral.primeraVezServicio);
+    if (this.servicioGeneral.primeraVezServicio == true) {
+      this.router.navigate(["/configuracion/contactos/anadir-contacto"])
+
+
+    } else {
+      this.router.navigate(["/home"])
+    }
+  }
 }
+
+

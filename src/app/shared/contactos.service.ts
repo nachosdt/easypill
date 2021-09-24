@@ -43,17 +43,14 @@ export class ContactosService {
   async getContacto() {
     try {
       let id: number = this.servicioGeneral.idUsuario;
-      let url: string = `https://api-easypill.herokuapp.com/contacto?id=7`;
-
+      let url: string = `https://api-easypill.herokuapp.com/contacto?id=${id}`;
       let param: any =
       {
           headers: {"Content-type": "application/json; chasert= UTF-8"},
           method: "GET"
       }
-
       let data = await fetch(url, param);
       let result = await data.json();
-
       for (let i in result.datos) {
         let newContact: Contacto = new Contacto ();
         newContact.nombreContacto = result.datos[i].alias;
@@ -87,6 +84,7 @@ export class ContactosService {
         console.log(error);
     }
   }
+  
 
   // LLAMADA A LA API PUT CONTACTOS
   async putContacto(contacto: Contacto) {

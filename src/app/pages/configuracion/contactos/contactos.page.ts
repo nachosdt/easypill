@@ -10,15 +10,19 @@ import { Contacto } from '../../../models/contacto';
 export class ContactosPage implements OnInit {
   public contactos : Contacto[];
   public contacto !: Contacto;
+  public cargar : boolean =true;
 
   constructor(public contactoService: ContactosService) { 
-    this.contactoService.getContacto()
-    .then (result => {
-      return this.contactos = result;
-    })
-    .catch (error => {
-      console.log(error);
-    })    
+    if(this.cargar) {
+      this.contactoService.getContacto()
+      .then (result => {
+        this.cargar = false;
+        return this.contactos = result;
+      })
+      .catch (error => {
+        console.log(error);
+      })
+    }   
   }
 
   ngOnInit() {

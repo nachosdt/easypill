@@ -10,13 +10,11 @@ import { Contacto } from '../../../models/contacto';
 export class ContactosPage implements OnInit {
   public contactos : Contacto[];
   public contacto !: Contacto;
-  public cargar : boolean =true;
 
   constructor(public contactoService: ContactosService) { 
-    if(this.cargar) {
+    if(this.contactoService.contactos = []) {
       this.contactoService.getContacto()
       .then (result => {
-        this.cargar = false;
         return this.contactos = result;
       })
       .catch (error => {

@@ -33,6 +33,11 @@ export class NavbarComponent implements OnInit {
           console.log(this.mostrar);
 
         }
+        if (this.url == "/") {
+          this.mostrar = false;
+          console.log(this.mostrar);
+
+        }
         if (this.url == "/medicamentos/miercoles") {
           this.mostrar = false;
           console.log(this.mostrar);

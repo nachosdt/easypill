@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-landing',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingPage implements OnInit {
 
-  constructor() { }
+  @ViewChild('irAlogin') irAlogin: ElementRef;
+
+
+  constructor(private router: Router,) { }
 
   ngOnInit() {
+    setTimeout(() => {
+      this.irAlogin.nativeElement.click();
+    }, 3500);
   }
 
+  // cambiarpagina() {
+  //   this.router.navigate(["/home"])
+
+  // }
+  // router.navigate(["/home"]);
 }

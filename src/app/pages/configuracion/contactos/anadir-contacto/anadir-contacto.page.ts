@@ -16,6 +16,10 @@ import { Router } from '@angular/router';
 })
 export class AnadirContactoPage implements OnInit {
 
+  public nombreCabecera:string = "Añadir contacto";
+  public icono:boolean = true;
+  public rutaAtras:any = "/configuracion/contactos";
+
   public contacto: Contacto = new Contacto();
   public checkedEmail: boolean;
   public checkedSms: boolean;

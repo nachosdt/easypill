@@ -33,7 +33,7 @@ export class DetalleProspectoService {
 
   public async getProspectos(nameMedicina:string){
     try{
-      let url = "http://localhost:4000/prospecto?nombreMed=" + nameMedicina;
+      let url = "https://api-easypill.herokuapp.com/prospecto?nombreMed=" + nameMedicina;
 
       let param: any =
       {
@@ -54,7 +54,7 @@ export class DetalleProspectoService {
 
   public async getSecciones(nReg){
     try{
-      let url = "http://localhost:4000/detalle?nregistro=" + nReg;
+      let url = "https://api-easypill.herokuapp.com/detalle?nregistro=" + nReg;
       
       let param: any =
       {

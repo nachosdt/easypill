@@ -16,6 +16,10 @@ import { ServicioGeneralService } from 'src/app/shared/servicio-general.service'
 })
 export class EdiccionPage implements OnInit {
 
+  public nombreCabecera:string = "Editar tratamiento";
+  public icono:boolean = true;
+  public rutaAtras:any = "/medicamentos/editarmedicamento"
+
   public medicamento: Medicamento = this.servicioMedicamento.medicamentoSolicitado;
   public colorInput: string = "medium";
   public lecturaInput: boolean = false;

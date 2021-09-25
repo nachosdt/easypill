@@ -13,7 +13,10 @@ import { PerfilService } from 'src/app/shared/perfil.service';
 })
 export class EditarPerfilPage implements OnInit {
 
-  public usuario:Usuario = new Usuario()
+  public nombreCabecera:string = "Editar perfil";
+  public icono:boolean = true;
+  public rutaAtras:any = "/configuracion/perfil";
+  public usuario:Usuario = new Usuario();
 
   constructor(public location: Location, public modalController: ModalController, public perfilService:PerfilService) { 
 

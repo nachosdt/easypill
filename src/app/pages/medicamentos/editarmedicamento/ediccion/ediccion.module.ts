@@ -5,15 +5,17 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { EdiccionPageRoutingModule } from './ediccion-routing.module';
-
 import { EdiccionPage } from './ediccion.page';
+import { ComponentsModule } from '../../../../components/components.module';
+
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    EdiccionPageRoutingModule
+    EdiccionPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [EdiccionPage]
 })

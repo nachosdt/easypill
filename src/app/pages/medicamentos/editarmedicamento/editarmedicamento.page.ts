@@ -14,6 +14,10 @@ import { ModalsPage } from '../../modals/modals.page';
 })
 export class EditarmedicamentoPage implements OnInit {
 
+  public nombreCabecera:string = "Tu tratamiento";
+  public icono:boolean = true;
+  public rutaAtras:any = "/medicamentos"
+
   public medicamento: Medicamento = this.medicamentoService.medicamentoSolicitado;
   public colorInput: string = "medium";
   public lecturaInput: boolean = true;

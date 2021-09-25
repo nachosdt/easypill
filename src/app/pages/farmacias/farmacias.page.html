@@ -3,8 +3,7 @@
   <section class="body">
     <div id="mapId">
     </div>
-    <input #inputBusqueda id="buscador" type="text" placeholder="Calle o municipio">
-    <ion-icon name="search-outline"></ion-icon>
-    <button id="buscarEnMapa" (click)="buscarLugar(inputBusqueda)">Buscar</button>
+    <input #inputBusqueda id="buscador" type="text" (keypress)="detectarIntro($event,inputBusqueda.value)" placeholder="Calle o municipio">
+    <ion-icon (click)="buscarLugar(inputBusqueda.value)" name="search-outline"></ion-icon>    
   </section>  
 </ion-content>

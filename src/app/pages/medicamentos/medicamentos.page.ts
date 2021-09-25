@@ -10,7 +10,7 @@ import { ServicioGeneralService } from 'src/app/shared/servicio-general.service'
 })
 export class MedicamentosPage implements OnInit {
 
-  public nombreCabecera:string = "Medicamentos";
+  public nombreCabecera:string = "Tratamientos";
   public diaSemana: number;
   public dias:string[] = ["L","M","X","J","V","S","D"];
   public diasOrdenados:string[];  

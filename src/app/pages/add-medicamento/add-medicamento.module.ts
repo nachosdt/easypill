@@ -5,15 +5,16 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { AddMedicamentoPageRoutingModule } from './add-medicamento-routing.module';
-
 import { AddMedicamentoPage } from './add-medicamento.page';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AddMedicamentoPageRoutingModule
+    AddMedicamentoPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [AddMedicamentoPage]
 })

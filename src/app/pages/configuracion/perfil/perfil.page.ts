@@ -14,6 +14,10 @@ import { ModalsPage } from '../../modals/modals.page';
 })
 export class PerfilPage implements OnInit {
 
+  public nombreCabecera:string = "Perfil del usuario";
+  public icono:boolean = true;
+  public rutaAtras:any = "/configuracion";
+
   public usuario:Usuario = new Usuario();
   public informacion:any = {};
 

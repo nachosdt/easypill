@@ -15,6 +15,9 @@ import { ServicioGeneralService } from '../../../../shared/servicio-general.serv
 })
 export class ContactoPage implements OnInit {
 
+  public nombreCabecera:string = "Contacto del usuario";
+  public icono:boolean = true;
+  public rutaAtras:any = "/configuracion/contactos";
   public posicion: number;
   public contacto: Contacto;
 

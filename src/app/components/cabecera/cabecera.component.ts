@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cabecera',
@@ -8,9 +9,15 @@ import { Component, Input, OnInit } from '@angular/core';
 export class CabeceraComponent implements OnInit {
 
   @Input() titulo:string;
+  @Input() iconoAtras:boolean;
+  @Input() rutaAtras:any;
   
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {}
+
+  public ruta(ruta:any) {
+    this.router.navigate([ruta]);
+  }
 
 }

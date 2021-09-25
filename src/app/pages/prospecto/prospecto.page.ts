@@ -13,8 +13,9 @@ import { Prospecto } from 'src/app/models/prospecto/prospecto';
 
 export class ProspectoPage implements OnInit {
 
-  public prospectoBuscar : MedBuscado = new MedBuscado();  ;
-
+  public prospectoBuscar : MedBuscado = new MedBuscado();
+  public nombreCabecera:string = "Consultar prospectos";
+  public icono:boolean = false;
   public resultados: any [] = [];
 
 

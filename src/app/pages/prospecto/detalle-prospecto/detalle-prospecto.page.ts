@@ -10,6 +10,10 @@ import { Prospecto } from '../../../models/prospecto/prospecto';
 
 export class DetalleProspectoPage implements OnInit {
 
+  public nombreCabecera:string = "Detalle del prospecto";
+  public icono:boolean = true;
+  public rutaAtras:any = "/prospecto"
+
   public miProspecto : Prospecto = new Prospecto(); 
   public arrSecciones : any[] = [];
 

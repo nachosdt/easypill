@@ -9,6 +9,10 @@ import { Contacto } from '../../../models/contacto';
   styleUrls: ['./contactos.page.scss'],
 })
 export class ContactosPage implements OnInit {
+
+  public nombreCabecera:string = "Contactos del usuario";
+  public icono:boolean = true;
+  public rutaAtras:any = "/configuracion";
   public contactos: Contacto[];
   public contacto !: Contacto;
   public cargar: boolean = true;

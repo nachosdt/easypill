@@ -16,7 +16,8 @@ import { MapaService } from 'src/app/shared/mapa.service';
 export class FarmaciasPage implements OnInit {
 
   public nombreCabecera:string = "Buscador de farmacias";
-  public map: Leaflet.Map;
+  public map: Leaflet.Map;  
+
   constructor(private geolocation: Geolocation, private servicioMapa:MapaService) {}  
 
   ionViewDidEnter() {
@@ -49,8 +50,8 @@ export class FarmaciasPage implements OnInit {
       // Añadimos las farmacias cercanas      
       let iconoFarmacias = Leaflet.icon({
         iconUrl: "../../../../assets/map/farmacia.png",
-        iconSize: [35, 55], 
-        iconAnchor: [13, 38], 
+        iconSize: [32, 37], 
+        iconAnchor: [16, 37], 
         popupAnchor: [0, -40] 
       });
       let farmacias = this.servicioMapa.buscarFarmacias(resp.coords.latitude,resp.coords.longitude);
@@ -67,8 +68,8 @@ export class FarmaciasPage implements OnInit {
     });
   }
 
-  public async buscarLugar(input:HTMLInputElement) {
-    let coords = await this.servicioMapa.getCoords(input.value + ", Comunidad de Madrid");    
+  public async buscarLugar(dato:string) {
+    let coords = await this.servicioMapa.getCoords(dato + ", Comunidad de Madrid");    
     this.map.setView([coords.latitud,coords.longitud],16);
     let icono = Leaflet.icon({
       iconUrl: "../../../../assets/map/marker-icon.png",
@@ -82,8 +83,8 @@ export class FarmaciasPage implements OnInit {
     Leaflet.marker([coords.latitud, coords.longitud],{icon: icono}).addTo(this.map);
     let iconoFarmacias = Leaflet.icon({
       iconUrl: "../../../../assets/map/farmacia.png",
-      iconSize: [35, 55], 
-      iconAnchor: [13, 38], 
+      iconSize: [32, 37], 
+      iconAnchor: [16, 17], 
       popupAnchor: [0, -40] 
     });
     let farmacias = this.servicioMapa.buscarFarmacias(coords.latitud,coords.longitud);
@@ -95,5 +96,12 @@ export class FarmaciasPage implements OnInit {
       .catch(error =>{
         console.log(error);
       });
+  }
+
+  public detectarIntro(event:KeyboardEvent,dato:string) {
+    if (event.key==="Enter") {
+      this.buscarLugar(dato);
+    }
+
   }
 }

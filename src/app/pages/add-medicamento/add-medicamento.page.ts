@@ -15,6 +15,9 @@ import { ServicioGeneralService } from '../../shared/servicio-general.service';
 export class AddMedicamentoPage implements OnInit {
   
   public medicamento : Medicamento = new Medicamento();
+  public nombreCabecera:string = "Añadir un tratamiento";
+  public rutaAtras:string = "/home";
+  public icono:boolean = true;
 
   constructor(private modalController: ModalController, private medicamentoService: MedicamentosService,
     private servicioGeneral:ServicioGeneralService) { }

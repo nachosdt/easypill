@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfiguracionPage implements OnInit {
 
+  public nombreCabecera:string = "Configuración";
+  public rutaAtras:string = "/home";
+  public icono:boolean = true;
+
   constructor() { }
 
   ngOnInit() {

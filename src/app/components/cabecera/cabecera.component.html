@@ -1,5 +1,8 @@
 <header class="header container-center">
   <div class="container-center">
+    <ng-container *ngIf="iconoAtras">
+      <img src="../../../assets/back_claro.svg" (click)="ruta(rutaAtras)">
+    </ng-container>
     <h1>{{titulo}}</h1>
   </div>
 </header>

@@ -5,15 +5,16 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { AnadirContactoPageRoutingModule } from './anadir-contacto-routing.module';
-
 import { AnadirContactoPage } from './anadir-contacto.page';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AnadirContactoPageRoutingModule
+    AnadirContactoPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [AnadirContactoPage]
 })

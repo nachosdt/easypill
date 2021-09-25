@@ -1,8 +1,4 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -40,21 +36,20 @@ export class ServicioGeneralService {
     }
   }
 
-  public async actualizarTomas(idtomas: number, estatus: string) {
+  public async actualizarTomas(idtomas: number, estatus: string, idmedicamentos:number) {
     let url = `https://api-easypill.herokuapp.com/tomas`;
     let param = {
       headers: { "Content-Type": "application/json; charset = UTF-8" },
       method: "PUT",
-      body: JSON.stringify({ "idtomas": idtomas, "estatus": estatus })
+      body: JSON.stringify({ "idtomas": idtomas, "estatus": estatus, "idmedicamentos":idmedicamentos })
     };
     try {
       let data = await fetch(url, param);
       let resultBruto = await data.json();
-      let respuesta = resultBruto.datos;
-      return respuesta;
+      
     } catch (error) {
       console.log(error);
     }
-  }
+  } 
 
 }

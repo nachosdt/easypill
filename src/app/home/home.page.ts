@@ -14,9 +14,6 @@ export class HomePage implements OnInit {
 
   @ViewChild('irAconfiguracion') irAconfiguracion: ElementRef;
 
-
-
-
   public idUsuario: number;
   public nombreUsuario: string;
   public diaDelMes: number;
@@ -29,29 +26,14 @@ export class HomePage implements OnInit {
   public tomasDeHoyTomadas: any[] = [];
   public tomasDeHoyOlvidadas: any[] = [];
 
-
-  constructor(private servicioGeneral: ServicioGeneralService, private servicioMedicamento: MedicamentosService, public router: Router) {
+  constructor(private servicioGeneral: ServicioGeneralService, public router: Router) {
     this.nombreUsuario = servicioGeneral.nombreUsuario;
     this.diaDelMes = servicioGeneral.diaDelMes;
     this.mes = servicioGeneral.mes;
     this.diaDeLaSemana = this.dias[servicioGeneral.diaSemana];
-
-
-
   }
 
-
-
   ngOnInit() {
-
-    // setTimeout(() => {
-    //   // this.router.navigate(["/configuracion"])
-    //   this.irAconfiguracion.nativeElement.click();
-    // }, 51000);
-
-
-
-
     let tomas = this.servicioGeneral.getTomasHoy();
     tomas.then((resultado) => {
       let ahora = new Date();
@@ -112,14 +94,15 @@ export class HomePage implements OnInit {
     let registro = this.tomasDeHoyPendientes[indice];
     this.tomasDeHoyPendientes.splice(indice, 1);
     this.tomasDeHoyTomadas.push(registro);
-    this.servicioGeneral.actualizarTomas(registro.idtomas, "tomada");
+    this.servicioGeneral.actualizarTomas(registro.idtomas, "tomada",registro.id_medicamento);
+    
   }
 
   olvidada(indice: number) {
     let registro = this.tomasDeHoyPendientes[indice];
     this.tomasDeHoyPendientes.splice(indice, 1);
     this.tomasDeHoyOlvidadas.push(registro);
-    this.servicioGeneral.actualizarTomas(registro.idtomas, "olvidada");
+    this.servicioGeneral.actualizarTomas(registro.idtomas, "olvidada",null);
   }
 
 

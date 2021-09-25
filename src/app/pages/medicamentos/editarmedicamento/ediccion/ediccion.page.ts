@@ -2,9 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Medicamento } from '../../../../models/medicamento/medicamento';
 import { MedicamentosService } from '../../../../shared/medicamentos.service';
 import { Location } from '@angular/common';
+import { NgForm } from '@angular/forms';
 
 import { ModalController } from '@ionic/angular';
 import { ModalsPage } from '../../../modals/modals.page';
+import { ServicioGeneralService } from 'src/app/shared/servicio-general.service';
+
 
 @Component({
   selector: 'app-ediccion',
@@ -13,26 +16,15 @@ import { ModalsPage } from '../../../modals/modals.page';
 })
 export class EdiccionPage implements OnInit {
 
-  public medicamento: Medicamento;
+  public medicamento: Medicamento = this.servicioMedicamento.medicamentoSolicitado;
+  public colorInput: string = "medium";
+  public lecturaInput: boolean = false;
+  public nombreBoton: string = "Editar"
 
-  constructor(public medicamentoService: MedicamentosService,
+  constructor(private servicioMedicamento: MedicamentosService,
     public modalController: ModalController,
-    public location: Location)
-   { }
-
-
-
-  MedicamentoNombre: string = "Aspirina C Efervescente"
-  MedicamentoDosis: string = "3"
-  MedicamentoFrecuencia: string = "Cada 8 horas"
-  MedicamentoCantInicial: string = "20"
-  MedicamentoPrimeraToma: string = "13:00"
-
-  MedicamentoComentarios: string = "No la cortes"
-
-  colorInput: string = "medium";
-  lecturaInput: boolean = false;
-  nombreBoton: string = "Editar"
+    public location: Location,
+    private servicioGeneral:ServicioGeneralService) { }   
 
   ngOnInit() {
   }
@@ -40,33 +32,55 @@ export class EdiccionPage implements OnInit {
   goBack() {
     this.location.back();
   }
-  
-  async guardarMedicamento() {
-    const modal = await this.modalController.create({
-      component: ModalsPage,
-      componentProps: {
-        'titulo': 'Nuevo tratamiento añadido',
-          'mensaje': `¡Tratamiento añadido!
-          ${this.MedicamentoNombre} Te ayudaremos a recordar tus tomas`,
-          'textoBoton': 'Ir a Medicamentos',
-          'urlSalida' : '/medicamentos'
-      }
-    });
-    return await modal.present();
-  }
 
-  async eliminarMedicamento() {
-    // this.medicamento = null;
-    const modal = await this.modalController.create({
-      component: ModalsPage,
-      componentProps: {
-        'titulo': 'Tratamiento eliminado',
-          'mensaje': `${this.MedicamentoNombre} eliminado de tus tratamientos`,
-          'textoBoton': 'Continuar',
-          'urlSalida' : '/medicamentos'
-      }
-    });
-    return await modal.present();
+  onSubmit(form: NgForm) {
+    
+    this.medicamento.nombre = form.value.nombreMedicamento;
+    this.medicamento.dosisPorToma=form.value.dosis;
+    this.medicamento.frecuencia=form.value.frecuencia;
+    this.medicamento.stock = form.value.cantidadInicial;
+    this.medicamento.fechaInicio = form.value.primeraToma;
+    this.medicamento.fechaInicio = this.medicamento.fechaInicio.slice(0,16).replace("T"," ")
+    this.medicamento.comentarios = form.value.comentarios;    
 
+    let post = this.servicioMedicamento.modificarMedicamento(this.medicamento);
+    post.then(async (respuesta)=>{
+      if (respuesta) {
+        const modal = await this.modalController.create({
+          component: ModalsPage,
+          componentProps: {
+            'titulo': 'Tratamiento actualizado',
+            'mensaje': `El tratamiento se ha actualizado corréctamente`,
+            'textoBoton': 'Ir a Medicamentos',
+            'urlSalida' : '/medicamentos'
+          }
+        });
+        return await modal.present();
+      }
+    })
+    .catch((error)=>{
+      console.log(error);
+    }); 
+  }  
+
+  async eliminarMedicamento(idmedicamentos:number) {
+    let peticion = this.servicioMedicamento.eliminarMedicamento(idmedicamentos);
+    peticion.then(async (respuesta)=>{
+      if (respuesta) {
+        const modal = await this.modalController.create({
+          component: ModalsPage,
+          componentProps: {
+              'titulo': 'Tratamiento eliminado',
+              'mensaje': `${this.medicamento.nombre} eliminado de tus tratamientos`,
+              'textoBoton': 'Continuar',
+              'urlSalida' : '/medicamentos'
+          }
+        });
+        return await modal.present();
+      }
+    })
+    .catch((error)=>{
+      console.log(error);
+    });
   }
 }

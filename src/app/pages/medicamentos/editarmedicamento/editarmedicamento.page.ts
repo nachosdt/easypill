@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Medicamento } from 'src/app/models/medicamento/medicamento';
 
 import { MedicamentosService } from 'src/app/shared/medicamentos.service';
+import { ServicioGeneralService } from 'src/app/shared/servicio-general.service';
 import { NgForm } from '@angular/forms';
+import { ModalController } from '@ionic/angular';
+import { ModalsPage } from '../../modals/modals.page';
 
 @Component({
   selector: 'app-editarmedicamento',
@@ -11,31 +14,13 @@ import { NgForm } from '@angular/forms';
 })
 export class EditarmedicamentoPage implements OnInit {
 
-  public medicamento: Medicamento;
+  public medicamento: Medicamento = this.medicamentoService.medicamentoSolicitado;
+  public colorInput: string = "medium";
+  public lecturaInput: boolean = true;
+  public nombreBoton: string = "Editar";
 
-  constructor(public medicamentoService: MedicamentosService) { }
+  constructor(public medicamentoService: MedicamentosService,private modalController: ModalController,private servicioGeneral:ServicioGeneralService) { }
 
   ngOnInit() {
-  }
-
-  colorInput: string = "medium";
-  lecturaInput: boolean = true;
-  nombreBoton: string = "Editar"
-
-  onSubmit(form: NgForm) {
-
-    console.log(form.value);
-
-    this.medicamento.nombreMedicamento = form.value.nombreMedicamento;
-
-    this.medicamento.dosis = form.value.dosis;
-    this.medicamento.frecuencia = form.value.frecuencia;
-    this.medicamento.cantidadInicial = form.value.cantidadInicial;
-    this.medicamento.nombreMedicamento = form.value.nombreMedicamento;
-    this.medicamento.fechaInicio = form.value.primeraToma;
-    this.medicamento.comentarios = form.value.comentarios;
-
-    this.medicamentoService.medicamentos.push(this.medicamento);
-    console.log(this.medicamentoService.medicamentos)
-  }
+  }    
 }

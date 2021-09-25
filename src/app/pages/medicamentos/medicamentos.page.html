@@ -13,9 +13,9 @@
     </article> 
     <!-- MEDICAMENTOS GUARDADOS -->
     <ng-container *ngIf="medicamentos.length!=0 else isElse">
-      <ng-container *ngFor="let medicamento of medicamentos">
+      <ng-container *ngFor="let medicamento of medicamentos; let i = index;">
         <div class="display-around">
-          <div class="medicina-next color-medio" routerLink="editarmedicamento">
+          <div class="medicina-next color-medio" routerLink="editarmedicamento" (click)="editarMedicamento(i)">
             <div class="izquierda">
               <div class="medicina-nombre">
                 <p>{{medicamento.nombre}}</p>

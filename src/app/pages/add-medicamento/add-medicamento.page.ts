@@ -24,15 +24,16 @@ export class AddMedicamentoPage implements OnInit {
 
   async onSubmit(form:NgForm) {
 
-    this.medicamento.nombreMedicamento = form.value.nombreMedicamento;
-    this.medicamento.dosis=form.value.dosis;
+    this.medicamento.idusuario = this.servicioGeneral.idUsuario;
+    this.medicamento.nombre = form.value.nombreMedicamento;
+    this.medicamento.dosisPorToma=form.value.dosis;
     this.medicamento.frecuencia=form.value.frecuencia;
-    this.medicamento.cantidadInicial = form.value.cantidadInicial;
+    this.medicamento.stock = form.value.cantidadInicial;
     this.medicamento.fechaInicio = form.value.primeraToma;
     this.medicamento.fechaInicio = this.medicamento.fechaInicio.slice(0,16).replace("T"," ")
     this.medicamento.comentarios = form.value.comentarios;    
 
-    let post = this.medicamentoService.postMedicamento(this.medicamento, this.servicioGeneral.idUsuario);
+    let post = this.medicamentoService.postMedicamento(this.medicamento);
     post.then(async (respuesta)=>{
       if (respuesta) {
         const modal = await this.modalController.create({

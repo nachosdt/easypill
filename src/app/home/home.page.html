@@ -64,9 +64,9 @@
     </ng-container>
     <ng-container *ngFor="let toma of tomasDeHoyPendientes; let i = index;">
       <div class="card pendiente overConfirmacion" (id)="'card'+i" (click)="mostarConfirmacion(botones)">
-        <div class="botones desaparecer" #botones>
-          <button class="lohetomado" (click)="tomada(i)">Lo he tomado</button>
+        <div class="botones desaparecer" #botones>          
           <button class="loheolvidado" (click)="olvidada(i)">Se me ha olvidado</button>
+          <button class="lohetomado" (click)="tomada(i)">Lo he tomado</button>
         </div>
         <div class="izquierda">
           <div class="nombre">

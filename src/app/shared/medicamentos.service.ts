@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 
 import { Medicamento } from '../models/medicamento/medicamento';
-
 @Injectable({
   providedIn: 'root'
 })
 export class MedicamentosService {
 
-  public medicamentos: Medicamento[];
   public diaSolicitado:number;
+  public medicamentoSolicitado:Medicamento;
+  public medicamentos:Medicamento[] = [];
+  
 
-  constructor() { 
-  }
+  constructor() {} 
 
   public async getMedicamentosDeHoy(hora00:number, hora24:number, id:number) {
     let url = `https://api-easypill.herokuapp.com/tomas?id=${id}&desde=${hora00}&hasta=${hora24}`;
@@ -64,15 +64,13 @@ export class MedicamentosService {
     }
   }  
 
-  public async postMedicamento(medicamento:Medicamento,id:number) {
-    let url = `http://localhost:4000/medicamentos`;
-    let cuerpo = {"idUsuario": id,...medicamento};
+  public async postMedicamento(medicamento:Medicamento) {
+    let url = `https://api-easypill.herokuapp.com/medicamentos`;    
     let param = {
         headers: {"Content-Type": "application/json; charset = UTF-8"},
         method: "POST",
-        body: JSON.stringify(cuerpo)
-    };
-    console.log(cuerpo);
+        body: JSON.stringify(medicamento)
+    };    
     try {
         let data = await fetch(url,param);
         let resultadoBruto = await data.json();
@@ -87,4 +85,49 @@ export class MedicamentosService {
         console.log(error);
     }
   }  
+
+  public async eliminarMedicamento(idmedicamentos:number) {
+    let url = `https://api-easypill.herokuapp.com/medicamentos`;
+    let cuerpo = {"idmedicamentos": idmedicamentos};
+    let param = {
+        headers: {"Content-Type": "application/json; charset = UTF-8"},
+        method: "DELETE",
+        body: JSON.stringify(cuerpo)
+    };    
+    try {
+        let data = await fetch(url,param);
+        let resultadoBruto = await data.json();
+        let respuesta:boolean;
+        if (resultadoBruto.error===false) {
+          respuesta = true;
+        } else {
+          respuesta = false;
+        }
+        return respuesta;
+    } catch(error) {
+        console.log(error);
+    }
+  }  
+
+  public async modificarMedicamento(medicamento:Medicamento) {
+    let url = `https://api-easypill.herokuapp.com/medicamentos`;
+    let param = {
+        headers: {"Content-Type": "application/json; charset = UTF-8"},
+        method: "PUT",
+        body: JSON.stringify(medicamento)
+    };    
+    try {
+        let data = await fetch(url,param);
+        let resultadoBruto = await data.json();
+        let respuesta:boolean;
+        if (resultadoBruto.error===false) {
+          respuesta = true;
+        } else {
+          respuesta = false;
+        }
+        return respuesta;
+    } catch(error) {
+        console.log(error);
+    }
+  } 
 }

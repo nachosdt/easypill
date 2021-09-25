@@ -1,9 +1,3 @@
-<!-- <ion-header>
-  <ion-toolbar>
-    <ion-title>add_medicamento</ion-title>
-  </ion-toolbar>
-</ion-header> -->
-
 <ion-content>
   <!-- Header -->
   <header class="header container-center">
@@ -28,7 +22,7 @@
 
         <ion-row class="ion-justify-content-center">
           <ion-col size="10" class="ion-justify-content-center">
-            <input type="text" [(ngModel)]="medicamento.nombreMedicamento" #nombreMedicamento="ngModel"
+            <input type="text" [(ngModel)]="medicamento.nombre" #nombreMedicamento="ngModel"
               placeholder="Nombre del medicamento" title="Medicamento que buscas"
               name="nombreMedicamento" required autocomplete="on" class="registro-borde">
           </ion-col>
@@ -46,7 +40,7 @@
 
         <ion-row class="ion-justify-content-around">
           <ion-col size="4">
-            <input type="number" inputmode="numeric" [(ngModel)]="medicamento.dosis" #dosis="ngModel"
+            <input type="number" inputmode="numeric" [(ngModel)]="medicamento.dosisPorToma" #dosis="ngModel"
               placeholder="Cantidad toma" title="Qué cantidad de medicamento tomar" name="dosis"
               required class="registro-borde">
           </ion-col>
@@ -69,12 +63,12 @@
 
         <ion-row class="ion-justify-content-around">
           <ion-col size="4">
-            <input type="number" inputmode="numeric" [(ngModel)]="medicamento.cantidadInicial" #cantidadInicials="ngModel"
+            <input type="number" inputmode="numeric" [(ngModel)]="medicamento.stock" #cantidadInicials="ngModel"
               placeholder="Unidades" title="Stock de medicamento" name="cantidadInicial"
               autocomplete="on" class="registro-borde">
           </ion-col>
           <ion-col size="4">
-            <ion-datetime displayFormat="h:mm A" minuteValues="0,15,30,45" [(ngModel)]="medicamento.fechaInicio"
+            <ion-datetime displayFormat="HH:mm" minuteValues="0,15,30,45" [(ngModel)]="medicamento.fechaInicio"
               #primeraToma="ngModel" placeholder="HH:MM" title="Hora y minutos de tu primera toma"
               name="primeraToma" autocomplete="on" class="registro-borde"></ion-datetime>            
           </ion-col>

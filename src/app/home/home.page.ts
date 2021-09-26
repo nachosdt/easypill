@@ -29,6 +29,8 @@ export class HomePage implements OnInit {
   public tomasDeHoyTomadas: any[] = [];
   public tomasDeHoyOlvidadas: any[] = [];
 
+  public iconoConfiguracion: string = "quietoIcon";
+
 
   constructor(private servicioGeneral: ServicioGeneralService, private servicioMedicamento: MedicamentosService, public router: Router) {
     this.nombreUsuario = servicioGeneral.nombreUsuario;
@@ -80,7 +82,9 @@ export class HomePage implements OnInit {
   }
 
   configpage() {
+    this.iconoConfiguracion = "config-icon"
     setTimeout(() => {
+      this.iconoConfiguracion = "quietoIcon"
       this.router.navigate(["/configuracion"])
       //   this.irAconfiguracion.nativeElement.click();
     }, 400);

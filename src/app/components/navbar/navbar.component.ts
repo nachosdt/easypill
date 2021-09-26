@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
+import { Geolocation } from '@ionic-native/geolocation';
 
 
 @Component({
@@ -15,6 +16,18 @@ export class NavbarComponent implements OnInit {
   private subscriber: Subscription;
   public url: string;
   public mostrar: boolean = true;
+  public mostrarIconoHome: string = "soyUnValor"
+  public mostrarIconoMedicamentos: string = "soyUnValor"
+  public mostrarIconoFarmacias: string = "soyUnValor"
+  public mostrarIconoProspectos: string = "soyUnValor"
+
+
+  public homeIconoAnimacion: string = "";
+  public medicamentosIconoAnimacion: string = "";
+  public farmaciasIconoAnimacion: string = "";
+  public prospectosIconoAnimacion: string = "";
+
+
 
   constructor(private router: Router) {
 
@@ -23,6 +36,47 @@ export class NavbarComponent implements OnInit {
         this.url = event['url'];
         console.log(this.url);
         this.mostrar = true;
+
+        /// para mostrar el icono de la Home cuando comienza la aplicación
+        if (this.url == "/home") {
+          this.mostrarIconoHome = "mostrarHome"
+
+        } else {
+          this.mostrarIconoHome = "ocultarHome"
+          this.homeIconoAnimacion = "";
+
+        }
+        /// mostrar el icono de Medicamentos
+        if (this.url == "/medicamentos") {
+          this.mostrarIconoMedicamentos = "mostrarMedicamentos"
+
+        } else {
+          this.mostrarIconoMedicamentos = "ocultarMedicamentos";
+          this.medicamentosIconoAnimacion = "";
+
+        }
+        /// mostrar el icono de Farmacias
+        if (this.url == "/farmacias") {
+          this.mostrarIconoFarmacias = "mostrarFarmacias"
+
+        } else {
+          this.mostrarIconoFarmacias = "ocultarFarmacias"
+          this.farmaciasIconoAnimacion = "";
+
+        }
+
+        /// mostrar el icono de Farmacias
+        if (this.url == "/prospecto") {
+          this.mostrarIconoProspectos = "mostrarFarmacias"
+
+        } else {
+          this.mostrarIconoProspectos = "ocultarFarmacias"
+          this.prospectosIconoAnimacion = "";
+
+        }
+
+        ////////////////////////////
+
         if (this.url == "/medicamentos/lunes") {
           this.mostrar = false;
           console.log(this.mostrar);
@@ -109,7 +163,41 @@ export class NavbarComponent implements OnInit {
 
 
       });
+
+
+
   }
+
+
+  public animacionIconoHome() {
+
+    this.homeIconoAnimacion = "homeIcon";
+
+  }
+
+
+
+  public animacionMedicamentosHome() {
+
+    this.medicamentosIconoAnimacion = "medicamentos";
+
+  }
+
+
+  public animacionFarmaciasIcono() {
+
+    this.farmaciasIconoAnimacion = "pharmacy";
+
+  }
+
+
+
+  public animacionProspectosIcono() {
+
+    this.prospectosIconoAnimacion = "prospectos";
+
+  }
+
 
   ngOnInit() { }
 

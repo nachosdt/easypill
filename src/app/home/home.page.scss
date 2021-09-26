@@ -43,26 +43,39 @@ ion-content{
   
 }
 
+.quietoIcon{
+    height: 30px;
+    width: 30px;
+}
+
+// .config-icon svg{
+//     &:hover {
+//         animation: girar 0.7s ease-in-out ;
+//         transform-origin: center;
+//     }
+    
+// }
+
 .config-icon svg{
-    &:hover {
+   
         animation: girar 0.7s ease-in-out ;
         transform-origin: center;
-    }
-    
+        -webkit-animation: girar 0.7s ease-in-out ;
+        -webkit-transform-origin: center;
 }
 
 
 
 
 @keyframes girar{
-    0% {
+    from {
         transform: rotateZ(0deg);
     }
 
     20% {
         transform: rotateZ(-20deg);
     }
-    100% {
+    to {
         transform: rotateZ(360deg);
     }
    

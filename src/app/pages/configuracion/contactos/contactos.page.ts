@@ -13,24 +13,22 @@ export class ContactosPage implements OnInit {
   public nombreCabecera:string = "Contactos del usuario";
   public icono:boolean = true;
   public rutaAtras:any = "/configuracion";
-  public contactos: Contacto[];
-  public contacto !: Contacto;
-  public cargar: boolean = true;
+  public contactos: Contacto[] = [];
+  public contacto !: Contacto;  
 
-  constructor(public contactoService: ContactosService) {
-    if (this.cargar) {
-      this.contactoService.getContacto()
-        .then(result => {
-          this.cargar = false;
-          return this.contactos = result;
-        })
-        .catch(error => {
-          console.log(error);
-        })
-    }
-  }
+  constructor(public contactoService: ContactosService) {}
 
   ngOnInit() {
+  }
+
+  ionViewWillEnter() {
+    this.contactoService.getContacto()
+    .then(result => {      
+      this.contactos = result;
+    })
+    .catch(error => {
+      console.log(error);
+    });
   }
 
   // POSICION DEL CONTACTO SELECCIONADO EN EL ARRAY

@@ -1,24 +1,21 @@
 ion-content{
-    // background-color: #6F00FF;
-  
     display: flex;
     flex-direction: column;
     gap: 60px;
-    --background: #6F00FF;
-   
-  
+    --background: #6F00FF;  
 }
 
-.header-home{
-    
+.header-home{    
     padding-left: 40px;
     padding-right: 40px;
     padding-top: 40px;
     width: 100%;
-    height: 260px;
+    height: 40vh;
     color: #ffffff;
     // font-size: 22pt;
     font-weight: 700;
+    position: fixed;
+    top: 0;
 }
 
 .header-textos{
@@ -31,28 +28,19 @@ ion-content{
     display: flex;
     align-items: center;
     justify-content: space-between;
-   
-   
-    
-    // width: 50%;
-   
 }
+
 .config-icon{
     height: 30px;
-    width: 30px;
-  
+    width: 30px;  
 }
 
 .config-icon svg{
     &:hover {
         animation: girar 0.7s ease-in-out ;
         transform-origin: center;
-    }
-    
+    }    
 }
-
-
-
 
 @keyframes girar{
     0% {
@@ -64,8 +52,7 @@ ion-content{
     }
     100% {
         transform: rotateZ(360deg);
-    }
-   
+    }   
 }
 
 .header-titulo p{
@@ -94,10 +81,8 @@ ion-content{
 }
 
 .ilustration-header{
-    position: absolute;
-  //bottom: -100px;
-   top: -4px;
-  
+    position: absolute;  
+    top: -4px;  
 }
 
 /*///  Titulo de Medicina del día y de lista de medicinas///*/
@@ -114,72 +99,27 @@ ion-content{
 
 .header-medicinas{
     background-color: #ffffff;
-    width: 100%;    
+    width: 100%; 
+    min-height: 53vh; 
     border-radius: 36px 36px 0 0;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
     gap: 20px;
-    padding-top: 30px;   
-    padding-left: 40px;
-    padding-right: 40px;
+    padding: 30px 40px;
+    position: absolute;
+    top: 40vh;
+    z-index: 1;
 }
-
-
 
 .izquierda{
     // background-color: aqua;
     display: flex;
     flex-direction: column;
     justify-content:space-between;
-    height: 60px;
-    
+    height: 60px;   
 }
-
-
-// .medicina-next{
-    
-//     padding-left: 20px;
-//     padding-right: 20px;
-//     padding-bottom: 20px;
-//     padding-top: 20px;
-   
-    
-//     background-color: #6F00FF;
-//     color: #ffffff;
-//     width: 100%;
-//     height: 65px;
-//     border-radius: 11px;
-//     display: flex;
-//     justify-content: space-between;
-//     align-items:center;
-// }
-
-// .medicina-nombre{
-//     flex:1;   
-//     height: 7px;   
-//     display: flex;
-//     align-items: center;    
-// }
-
-// .medicina-nombre p{
-//     font-size: 14pt;
-//     font-weight: 700;    
-// }
-
-// .medicina-dia{
-//     flex:1;
-//     font-size: 10pt;
-//     height: 10px;
-//     display: flex;
-//     align-items: center;
-   
-// }
-
-// .medicina-dia p{
-//     font-size: 10pt;    
-// }
 
 .derecha{   
     display: flex;
@@ -188,20 +128,6 @@ ion-content{
     justify-content:space-between;
     height: 60px;
 }
-
-// .medicina-hora{  
-//     flex:1;
-//     font-weight: 700;
-//     height: 10px;
-//     display: flex;
-//     align-items: center;
-   
-// }
-
-// .medicina-hora p{
-//     font-size: 14pt;    
-// }
-
 
 .line{
     flex:1;
@@ -213,72 +139,10 @@ ion-content{
     // border: 35px;
 }
 
-
 .app-medicamento{
     width: 100%;
 
 }
-
-/////////// LISTA DE MEDICAMENTOS
-
-// .medicina-lista{
-    
-//     padding-left: 20px;
-//     padding-right: 20px;
-//     padding-bottom: 20px;
-//     padding-top: 20px;
-    
-//     background-color: rgba(var(--primary_color_light));  
-//     // background-color: #6F00FF;
-//     // 
-//     color: #6F00FF;
-//     width: 100%;
-//     height: 65px;
-//     border-radius: 11px;
-//     display: flex;
-//     justify-content: space-between;
-//     align-items:center;
-// }
-
-// .medicinaLista-nombre{
-//     flex:1;  
-//     height: 7px;   
-//     display: flex;
-//     align-items: center;
-// }
-
-// .medicinaLista-nombre p{
-//     font-size: 14pt;
-//     font-weight: 700;    
-// }
-
-
-// .medicinaLista-dia{
-//     flex:1;
-//     font-size: 10pt;
-//     height: 10px;
-//     display: flex;
-//     align-items: center;   
-// }
-
-// .medicinaLista-dia p{
-//     font-size: 10pt;    
-// }
-
-// .medicinaLista-hora{
-//     flex:1;
-//     font-weight: 700;
-//     height: 10px;
-//     display: flex;
-//     align-items: center;
-// }
-
-// .medicinaLista-hora p{
-//     font-size: 14pt;    
-// }
-
-
-// CONFIRMACION MEDICAMENTO TOMADO
 
 .confirmacion {
     position: relative;

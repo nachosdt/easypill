@@ -14,7 +14,10 @@ export class OnboardingPage implements OnInit {
   public titulo: string;
   public slideIndex: number;
   public distancia: string[] = ["10vw", "27vw", "46vw", "63vw", "82vw"];
-  public yaEstoyLogueado: boolean = false
+  public yaEstoyLogueado: boolean = false;
+
+  // mostrar/quitar el boton de comenzar en la ultima parte del onboarding
+  public mostrarComenzar: boolean = this.servicioGeneral.primeraVezServicio;
 
   constructor(public servicioGeneral: ServicioGeneralService, public router: Router) {
     this.slideIndex = 1;
@@ -27,19 +30,11 @@ export class OnboardingPage implements OnInit {
   bntOmitir() {
     console.log(this.servicioGeneral.primeraVezServicio);
     if (this.servicioGeneral.primeraVezServicio == true) {
-      this.router.navigate(["/configuracion/contactos/anadir-contacto"])
-
-
+      this.router.navigate(["/configuracion/contactos/anadir-contacto"]);
     } else {
-      this.router.navigate(["/configuracion"])
+      this.router.navigate(["/configuracion"]);
     }
   }
-
-
-  // mostrar/quitar el boton de comenzar en la ultima parte del onboarding
-
-  public mostrarComenzar: boolean = this.servicioGeneral.primeraVezServicio
-
 
   bntComenzar() {
     this.mostrarComenzar = false;
@@ -54,7 +49,15 @@ export class OnboardingPage implements OnInit {
   }
 
   public plusSlides(n: number): void {
-    this.showSlides(this.slideIndex += n);
+    if (this.slideIndex === 5 && n === 1) {
+      if (this.servicioGeneral.primeraVezServicio == true) {
+        this.router.navigate(["/configuracion/contactos/anadir-contacto"]);
+      } else {
+        this.router.navigate(["/configuracion"]);
+      }
+    } else {
+      this.showSlides(this.slideIndex += n);
+    }    
   }
 
   public currentSlide(n: number): void {

@@ -5,15 +5,16 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { IniciarPageRoutingModule } from './iniciar-routing.module';
-
 import { IniciarPage } from './iniciar.page';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    IniciarPageRoutingModule
+    IniciarPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [IniciarPage]
 })

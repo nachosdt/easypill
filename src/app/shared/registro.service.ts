@@ -6,10 +6,11 @@ import { Usuario } from '../models/usuario';
 })
 export class RegistroService {
 
-  private url="https://api-easypill.herokuapp.com/registro"
+  private 
   constructor(private http:HttpClient) { }
 
-  postRegistro(newUser:Usuario){
-    return this.http.post(this.url, newUser)
+  public postRegistro(newUser:Usuario):any {
+    let url = "https://api-easypill.herokuapp.com/registro";
+    return this.http.post(url, newUser);
   }
 }

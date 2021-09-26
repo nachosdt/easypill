@@ -7,11 +7,12 @@ import { IniciarPage } from '../pages/landing/landinglogin/iniciar/iniciar.page'
   providedIn: 'root'
 })
 export class LoginService {
-
-  private url = "https://api-easypill.herokuapp.com/login"
+  
   constructor(private http: HttpClient) { }
 
-  postLogin(newUser: Usuario) {
-    return this.http.post(this.url, newUser)
+  public postLogin(email:string,contrasenia:string):any {
+    let url = "https://api-easypill.herokuapp.com/login";
+    let body = {"email":email,"contrasenia":contrasenia};
+    return this.http.post(url, body);
   }
 }

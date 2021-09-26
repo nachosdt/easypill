@@ -1,11 +1,5 @@
 <ion-content>
-  <header class="header container-center">
-    <div class="container-center">
-      <img src="../../../assets/back_claro.svg" (click)="goBack()">
-     <h1>Terminos y condiciones</h1>
-    </div>
-</header>
-
+  <app-cabecera [titulo]="nombreCabecera" [iconoAtras]="icono" [rutaAtras]="rutaAtras"></app-cabecera> 
 <section class="body">
 <ul class="display-center">
  <li>1. Estos Términos y Condiciones de Uso regulan las reglas a que se sujeta la utilización de la APP

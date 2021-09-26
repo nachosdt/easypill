@@ -1,11 +1,6 @@
 <ion-content>
   <!-- Cabecera -->
-  <header class="header container-center">
-    <div class="container-center">
-    <img src="../../../assets/back_claro.svg" (click)="goBack()">
-     <h1>Registro</h1>
-    </div>
-</header>
+  <app-cabecera [titulo]="nombreCabecera" [iconoAtras]="icono" [rutaAtras]="rutaAtras"></app-cabecera>  
 
 <!-- Contenido -->
 <section class="body">
@@ -65,13 +60,13 @@
       </ion-row>
       <ion-row class="ion-justify-content-center">
         <ion-col size="10" class="ion-justify-content-center">
-          <input type="text" [(ngModel)]="usuario.fechaNacimiento" 
-            #email="ngModel" 
+          <ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="usuario.fechaNacimiento" 
+            #fechaNacimiento="ngModel" 
             placeholder="DD/MM/YYYY"
             title="fechaNacimiento"
             name="fechaNacimiento" required
             autocomplete="on"
-            class="registro-borde"> 
+            class="registro-borde"></ion-datetime> 
         </ion-col>
       </ion-row>
 
@@ -102,7 +97,7 @@
       <ion-row class="ion-justify-content-center">
         <ion-col size="10" class="ion-justify-content-center">
           <input type="password" [(ngModel)]="usuario.confContrasenia" 
-            #contrasenia="ngModel" 
+            #confContrasenia="ngModel" 
             placeholder="***********"
             title="confContrasenia"
             name="confContrasenia" required
@@ -113,7 +108,7 @@
 
       <!-- Check Terminos y Condiciones -->
       <div class="check">
-        <ion-checkbox class="checkBoton circle" required></ion-checkbox>
+        <ion-checkbox class="checkBoton circle" required #terminos name="terminos"></ion-checkbox>
         <p class="text-checkbox">Acepto &nbsp; <span routerLink="terminosycondiciones" class="enlace-legales"> términos y condiciones legales</span></p>
       </div>
 
@@ -122,7 +117,7 @@
       <div size="5" class="display-center">
         <button  class="btn" (click)="onSubmit(registerForm)" expand="block" 
         class="but" fill="clear" shape="round">
-          Crear Usuario
+          Aceptar
         </button>
       </div>
 

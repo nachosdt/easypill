@@ -7,6 +7,10 @@ import { Location } from '@angular/common';
 })
 export class TerminosycondicionesPage implements OnInit {
 
+  public nombreCabecera:string = "Términos y condiciones";
+  public icono:boolean = true;
+  public rutaAtras:any = "/landing/landinglogin/registro";
+
   constructor(public location:Location) { }
 
   ngOnInit() {

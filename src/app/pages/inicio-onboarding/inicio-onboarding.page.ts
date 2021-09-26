@@ -24,9 +24,7 @@ export class InicioOnboardingPage implements OnInit {
   bntOmitir() {
     console.log(this.servicioGeneral.primeraVezServicio);
     if (this.servicioGeneral.primeraVezServicio == true) {
-      this.router.navigate(["/configuracion/contactos/anadir-contacto"])
-
-
+      this.router.navigate(["/configuracion/contactos/anadir-contacto"]);
     } else {
       this.router.navigate(["/home"])
     }

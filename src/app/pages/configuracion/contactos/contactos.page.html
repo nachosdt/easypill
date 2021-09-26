@@ -3,7 +3,7 @@
   
   <section class="body">
       <!-- NG FOR PARA CONTACTOS GUARDADOS -->
-    <ng-container *ngIf="contactos else isElse" >
+    <ng-container *ngIf="contactos.length!==0 else isElse" >
       <ng-container *ngFor="let contacto of contactos">
         <div class="display-around">
           <div class="medicina-next" routerLink="contacto" (click)="guardarPosicion(contacto.posicionArray)">

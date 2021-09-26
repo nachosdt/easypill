@@ -10,8 +10,8 @@ export class PerfilService {
   private url="https://api-easypill.herokuapp.com/usuario"
   constructor(private http:HttpClient) { }
 
-  getPerfil(id:number){
-    return this.http.get(this.url + "/" + id)
+  getPerfil(id:number):any {
+    return this.http.get(this.url + `/?id=${id}`);
   }
 
   putPerfil(usuario:Usuario){

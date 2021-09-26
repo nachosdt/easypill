@@ -16,7 +16,14 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['./iniciar.page.scss'],
 })
 export class IniciarPage implements OnInit {
-  public usuario: Usuario = new Usuario()
+
+  public nombreCabecera:string = "Iniciar sesión";
+  public icono:boolean = true;
+  public rutaAtras:any = "/landing/landinglogin";  
+  public email:string;
+  public contrasenia:string;
+  public primeraVez: boolean = false;
+
   constructor(
     public location: Location,
     public modalController: ModalController,
@@ -24,97 +31,59 @@ export class IniciarPage implements OnInit {
     private router: Router,
     public toast: ToastController,
     public servicioGeneral: ServicioGeneralService
-  ) { }
-
-  nombreUsuario: string
-  idUsuario: number;
-  primeraVez: boolean = false;
+  ) { }  
 
   ngOnInit() {
 
   }
 
-  onSubmit(form: NgForm) {
-    this.usuario.email = form.value.email;
-    this.usuario.contrasenia = form.value.contrasenia;
-    this.iniciarSesion(this.usuario)
+  onSubmit(form: NgForm) {    
+    this.login.postLogin(form.value.email,form.value.contrasenia)
+    .subscribe(async (respuesta)=>{
+      console.log(respuesta);
+      if (respuesta.datos===null) {
+        const modal = await this.modalController.create({
+          component: ModalsPage,
+          componentProps: {
+            'titulo': 'Email o contraseña incorrectos',
+            'mensaje': `Por favor, asegurese de introducir correctamente el email y la contraseña.`,
+            'textoBoton': 'Continuar',
+            'urlSalida': 'landing/landinlogin/'
+          }
+        });
+        return await modal.present();
+      } else {        
+        this.servicioGeneral.nombreUsuario = respuesta.datos[0].nombre;
+        this.servicioGeneral.idUsuario = respuesta.datos[0].idusuarios;
+        this.primeraVez = true;
+        this.servicioGeneral.primeraVezServicio = this.primeraVez;
+        this.router.navigate(["/inicio-onboarding"]);        
+      }
+
+    });
   }
 
   async recuperarPass() {
-
     const modal = await this.modalController.create({
       component: ModalsPage,
       componentProps: {
-        'titulo': 'Recuperar contraseña',
-        'mensaje': `En breve te enviaremos un email a ${this.usuario.email}`,
+        'titulo': 'Recuperación de contraseña',
+        'mensaje': `En breve te enviaremos un email.`,
         'textoBoton': 'Continuar',
         'urlSalida': 'landing'
       }
     });
     return await modal.present();
+  } 
 
-  }
-
-  goBack() {
-    this.location.back();
-  }
-
-  iniciarSesion(usuario): string {
-
-    this.login.postLogin(usuario).subscribe((data) => {
-      let resultado: any = {}
-      resultado = data
-      console.log(resultado);
-
-      // console.log(resultado.datos[0].nombre);
-      // this.nombreUsuario = resultado.datos[0].nombre;
-      if (resultado.datos === null) {
-        this.loginIncorrecto()
-      } else {
-        this.nombreUsuario = resultado.datos[0].nombre;
-        this.idUsuario = resultado.datos[0].idusuarios;
-        console.log(this.nombreUsuario);
-        this.router.navigate(["/inicio-onboarding"]);
-        this.servicioGeneral.nombreUsuario = this.nombreUsuario;
-        this.servicioGeneral.idUsuario = this.idUsuario;
-        this.primeraVez = true;
-        this.servicioGeneral.primeraVezServicio = this.primeraVez
-        console.log(this.servicioGeneral.primeraVezServicio);
-
-
-
-
-
-      }
-      // console.log(this.nombreUsuario);
-
-    });
-
-    return this.nombreUsuario;
-  }
-
-  // getNombre(): string {
-  //   return this.nombreUsuario;
-
+  // async loginIncorrecto() {
+  //   const alerta = await this.toast.create({
+  //     message: "Email o contraseña incorrectos",
+  //     duration: 3000,
+  //     position: 'top',
+  //     color: "warning",
+  //   });
+  //   alerta.present();
   // }
-
-
-
-
-
-
-
-  async loginIncorrecto() {
-    const alerta = await this.toast.create({
-      message: "Email o contraseña incorrectos",
-      duration: 3000,
-      position: 'top',
-      color: "warning",
-
-    });
-    alerta.present();
-  }
-
-
 }
 

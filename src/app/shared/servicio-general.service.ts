@@ -46,6 +46,13 @@ export class ServicioGeneralService {
     try {
       let data = await fetch(url, param);
       let resultBruto = await data.json();
+      let respuesta:boolean;
+      if (resultBruto.error) {
+        respuesta = false;
+      } else {
+        respuesta = true;
+      }
+      return respuesta;
       
     } catch (error) {
       console.log(error);

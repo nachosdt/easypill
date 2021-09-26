@@ -36,7 +36,9 @@ export class HomePage implements OnInit {
     this.diaDeLaSemana = this.dias[servicioGeneral.diaSemana];
   }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  ionViewWillEnter() {
     let tomas = this.servicioGeneral.getTomasHoy();
     tomas.then((resultado) => {
       let ahora = new Date();
@@ -90,28 +92,38 @@ export class HomePage implements OnInit {
 
   // MOSTRAR Y OCULTAR BOTONES DE CONFIRMACION
 
-  mostarConfirmacion(botones: HTMLDivElement) {
+  public mostarConfirmacion(botones: HTMLDivElement) {
     botones.classList.remove("desaparecer");
     botones.classList.add("aparecer");
   }
 
-  tomada(indice: number) {
+  public tomada(indice: number) {
     let registro = this.tomasDeHoyPendientes[indice];
-    this.tomasDeHoyPendientes.splice(indice, 1);
-    this.tomasDeHoyTomadas.push(registro);
-    this.servicioGeneral.actualizarTomas(registro.idtomas, "tomada", registro.id_medicamento);
-
+    let actualizacion = this.servicioGeneral.actualizarTomas(registro.idtomas, "tomada", registro.id_medicamento);
+    actualizacion.then((respuesta) => {
+      if (respuesta) {
+        this.tomasDeHoyPendientes.splice(indice, 1);
+        this.tomasDeHoyTomadas.push(registro);
+      }
+    })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
-  olvidada(indice: number) {
+  public olvidada(indice: number) {
     let registro = this.tomasDeHoyPendientes[indice];
-    this.tomasDeHoyPendientes.splice(indice, 1);
-    this.tomasDeHoyOlvidadas.push(registro);
-    this.servicioGeneral.actualizarTomas(registro.idtomas, "olvidada", null);
+    let actualizacion = this.servicioGeneral.actualizarTomas(registro.idtomas, "olvidada", null);
+    actualizacion.then((respuesta) => {
+      if (respuesta) {
+        this.tomasDeHoyPendientes.splice(indice, 1);
+        this.tomasDeHoyOlvidadas.push(registro);
+      }
+    })
+      .catch((error) => {
+        console.log(error);
+      });
+
   }
-
-
-
-
 
 }

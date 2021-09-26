@@ -1,14 +1,8 @@
-<!-- <ion-header>
-  <ion-toolbar>
-    <ion-title>landing</ion-title>
-  </ion-toolbar>
-</ion-header> -->
-<!-- <div #divClick class="display-center container" routerLink="landinglogin"> -->
-<!-- <div #divClick class="display-center container" (click)="cambiarpagina()"> -->
 <ion-content>
-  <div #irAlogin class="display-center container" routerLink="landinglogin">
-
-    <div class="logo"></div>
-    <ion-icon src="assets/letrero.svg" id="logo2"></ion-icon>
-  </div>
+    <img #imagen id="logo" src="/assets/landing/logo-03.svg">
+    <img src="assets/letrero.svg" id="logo2" #marca>
+    <div #botones id="botones" class="display-center">
+      <button class="login" id="iniciar" routerLink="landinglogin/iniciar">Iniciar Sesión</button>
+      <button class="register" id="crear" routerLink="landinglogin/registro">Crear Usuario</button>
+    </div>  
 </ion-content>

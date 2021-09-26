@@ -51,19 +51,40 @@ export class AnadirContactoPage implements OnInit {
     else {
       this.contacto.notificacionContacto = "ninguno";
     }
-    this.contactoService.contactos.push(this.contacto);
-    this.contactoService.postContacto(this.contacto);
-
-    const modal = await this.modalController.create({
-      component: ModalsPage,
-      componentProps: {
-        'titulo': 'Nuevo Contacto Añadido',
-        'mensaje': '¡Has añadido un nuevo contacto a tu lista de contactos!',
-        'textoBoton': 'Ir a Contactos',
-        'urlSalida': '/configuracion/contactos'
+    console.log(this.contacto);
+    
+    this.contactoService.postContacto(this.contacto)
+    .then(async (respuesta)=>{
+      if (respuesta) {
+        this.contactoService.contactos.push(this.contacto);
+        const modal = await this.modalController.create({
+          component: ModalsPage,
+          componentProps: {
+            'titulo': 'Nuevo Contacto Añadido',
+            'mensaje': '¡Has añadido un nuevo contacto a tu lista de contactos!',
+            'textoBoton': 'Ir a Contactos',
+            'urlSalida': '/configuracion/contactos'
+          }
+        });
+        return await modal.present();
+      } else {
+        const modal = await this.modalController.create({
+          component: ModalsPage,
+          componentProps: {
+            'titulo': 'Error al crear el nuevo contacto',
+            'mensaje': 'Se ha producido un error al crear el nuevo  contacto. Por favor, inténtalo de nuvo más tarde',
+            'textoBoton': 'Ir a Contactos',
+            'urlSalida': '/configuracion/contactos'
+          }
+        });
+        return await modal.present();
       }
+    })
+    .catch((error) =>{
+      console.log(error);
     });
-    return await modal.present();
+
+    
   }
 
   ngOnInit() {

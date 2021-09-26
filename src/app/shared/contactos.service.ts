@@ -7,11 +7,7 @@ import { ServicioGeneralService } from './servicio-general.service';
 })
 export class ContactosService {
 
-  public contactos: Contacto[] = [
-    // {nombreContacto: "Juana Pérez Galdós", tlfContacto: 655234123, emailContacto: "juanapg@invent.es", notifEmail: true, notifSms: false, notificacionContacto: "email"},
-    // {nombreContacto: "Sara Rodriguez Esteban", tlfContacto: 788900111, emailContacto: "sara23@invent.es", notifEmail: true, notifSms: false, notificacionContacto: "email"},
-    // {nombreContacto: "Pedro García Robles", tlfContacto: 600121234, emailContacto: "pedro_garcia@invent.es", notifEmail: true, notifSms: false, notificacionContacto: "email"},
-  ];
+  public contactos: Contacto[] = [];
   public posicionArr: number;
   constructor(public servicioGeneral : ServicioGeneralService) { }
 
@@ -28,18 +24,25 @@ export class ContactosService {
       }
 
       let data = await fetch(url, param);
-      let result = await data.json();
-
+      let result = await data.json();      
       console.log(result);
+      let respuesta:boolean;
+      if (result.error) {
+        respuesta = false;
+      } else {
+        respuesta = true;
+      }
+      return respuesta;
     }
     catch(error) 
     {
-        console.log(error);
+      console.log(error);
     }
   }
 
   // LLAMADA A LA API GET CONTACTOS
   async getContacto() {
+    this.contactos = [];
     try {
       let id: number = this.servicioGeneral.idUsuario;
       let url: string = `https://api-easypill.herokuapp.com/contacto?id=${id}`;
@@ -99,8 +102,14 @@ export class ContactosService {
 
       let data = await fetch(url, param);
       let result = await data.json();
-
       console.log(result);
+      let respuesta:boolean;
+      if (result.error) {
+        respuesta = false;
+      } else {
+        respuesta = true;
+      }
+      return respuesta;
     }
     catch(error) 
     {
@@ -123,8 +132,14 @@ export class ContactosService {
 
       let data = await fetch(url, param);
       let result = await data.json();
-
       console.log(result);
+      let respuesta:boolean;
+      if (result.error) {
+        respuesta = false;
+      } else {
+        respuesta = true;
+      }
+      return respuesta;
     }
     catch(error) 
     {

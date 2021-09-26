@@ -40,16 +40,30 @@ export class ContactoPage implements OnInit {
     let id: number = this.contacto.idContacto;
     this.contactosService.deleteContacto(id)
     .then ( async result => {
-      const modal = await this.modalController.create({
-        component: ModalsPage,
-        componentProps: {
-          'titulo': 'Contacto Eliminado',
-          'mensaje': `El contacto se ha eliminado con éxito`,
-          'textoBoton': 'Ir a Contactos',
-          'urlSalida' : '/configuracion/contactos'
-        }
-      });
-      return await modal.present();
+      if (result) {
+        const modal = await this.modalController.create({
+          component: ModalsPage,
+          componentProps: {
+            'titulo': 'Contacto Eliminado',
+            'mensaje': `El contacto se ha eliminado con éxito`,
+            'textoBoton': 'Ir a Contactos',
+            'urlSalida' : '/configuracion/contactos'
+          }
+        });
+        return await modal.present();
+      } else {
+        const modal = await this.modalController.create({
+          component: ModalsPage,
+          componentProps: {
+            'titulo': 'Error al eliminar el contacto',
+            'mensaje': `No se pudo eliminar el contacto. Por favor, inténtalo de nuevo más tarde.`,
+            'textoBoton': 'Ir a Contactos',
+            'urlSalida' : '/configuracion/contactos'
+          }
+        });
+        return await modal.present();
+      }
+      
     })
     .catch (error => {
       console.log(error);
@@ -111,33 +125,37 @@ export class ContactoPage implements OnInit {
       }
       this.contactosService.putContacto(this.contacto)
       .then ( async result => {
-        const modal = await this.modalController.create({
-          component: ModalsPage,
-          componentProps: {
-            'titulo': 'Contacto Guardado',
-            'mensaje': `El contacto ${nombre.value} se ha guardado con éxito`,
-            'textoBoton': 'Ir a Contactos',
-            'urlSalida' : '/configuracion/contactos'
-          }
-        });
-        return await modal.present();
+        if (result) {
+          const modal = await this.modalController.create({
+            component: ModalsPage,
+            componentProps: {
+              'titulo': 'Contacto actualizado corréctamente',
+              'mensaje': `Los datos del contacto ${nombre.value} se han guardado con éxito`,
+              'textoBoton': 'Ir a Contactos',
+              'urlSalida' : '/configuracion/contactos'
+            }
+          });
+          return await modal.present();
+        } else {
+          const modal = await this.modalController.create({
+            component: ModalsPage,
+            componentProps: {
+              'titulo': 'Error al actualizar el contacto',
+              'mensaje': `Los datos del contacto ${nombre.value} no se han podido actualizar. Por favor, 
+              inténtalo de nuevo más tarde.`,
+              'textoBoton': 'Ir a Contactos',
+              'urlSalida' : '/configuracion/contactos'
+            }
+          });
+          return await modal.present();
+        }
+        
       })
       .catch (error => {
         console.log(error);
       })   
 
-      this.ocultarBotones(eliminar, cancelar, editar, guardar)
-
-      const modal = await this.modalController.create({
-        component: ModalsPage,
-        componentProps: {
-          'titulo': 'Contacto Guardado',
-          'mensaje': `El contacto ${nombre.value} se ha guardado con éxito`,
-          'textoBoton': 'Ir a Contactos',
-          'urlSalida' : '/configuracion/contactos'
-        }
-      });
-      return await modal.present();
+      this.ocultarBotones(eliminar, cancelar, editar, guardar);      
     }
 
   mostarBotones(eliminar: HTMLButtonElement, 

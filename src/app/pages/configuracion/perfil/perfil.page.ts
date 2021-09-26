@@ -5,6 +5,7 @@ import { Usuario } from 'src/app/models/usuario';
 import { PerfilService } from 'src/app/shared/perfil.service';
 import { ModalController } from '@ionic/angular';
 import { ModalsPage } from '../../modals/modals.page';
+import { ServicioGeneralService } from 'src/app/shared/servicio-general.service';
 
 
 @Component({
@@ -21,14 +22,22 @@ export class PerfilPage implements OnInit {
   public usuario:Usuario = new Usuario();
   public informacion:any = {};
 
-  constructor(public location: Location, public modalController: ModalController, public perfilService:PerfilService) { 
-    this.usuario.nombre = "Juan Martínez";
-    this.usuario.email = "juanmartinez@gmail.com";
-    this.usuario.contrasenia = "1234567";
-    // this.usuario.fechaNacimiento="08/03/1988";
+  constructor(public location: Location, public modalController: ModalController, 
+    public perfilService:PerfilService, private servicioGeneral:ServicioGeneralService) { 
+    
   }
 
   ngOnInit() {
+  }
+
+  ionViewWillEnter() {
+    this.perfilService.getPerfil(this.servicioGeneral.idUsuario)
+    .subscribe((respuesta)=>{
+      console.log(respuesta);
+      this.usuario.nombre = respuesta.datos[0].nombre;
+      this.usuario.email = respuesta.datos[0].email;
+      this.usuario.contrasenia = respuesta.datos[0].contrasenia;
+    });
   }
 
   public goBack():void {

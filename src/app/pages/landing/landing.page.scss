@@ -1,16 +1,22 @@
 #logo{
-    margin-top: 40%;
-    height: 65vw;
-    width: 65vw;
-
+    display: block;
+    margin: 35vh auto 0 auto;
+    width: 35vw;
+    height: 35vw; 
 }
+
 #logo2{
     width: 65vw;
     height: 25vw;
+    position:absolute;
+    top: calc(35vh+35vw);
+    left: 17.5vw;      
 }
+
+
 ion-content{
-    --background: none;
-  
+    text-align: center;
+    --background: none;  
     background-image: url("/assets/landing/background-01.svg");
     background-position: center center;
     background-repeat: no-repeat;
@@ -18,18 +24,38 @@ ion-content{
 
 }
 
-
-.logo{
-    background-image: url("/assets/landing/logo-03.svg");
-    width: 86px;
-    height: 86px;
-}
-
 .container{
     position:absolute;
     top:31vh;
-  bottom: 35vh;
-  left: 20vw;
-  right: 20vw;
-   
+    bottom: 35vh;
+    left: 20vw;
+    right: 20vw;
+    opacity: 1;
+}
+
+#iniciar{    
+    width: 232px;
+    height: 57px;
+    background-color: rgb(var(--primary_color_medium));
+    border-radius: 17px;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(var(--color_white));
+}
+
+#crear{
+    width: 232px;
+    height: 57px;
+    background-color: rgb(var(--color_white));
+    border-radius: 17px;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(var(--primary_color));
+    margin-top:35px;
+}
+
+#botones {
+    margin: 0 auto 200px auto;
+    display: none;
+    opacity: 0;
 }

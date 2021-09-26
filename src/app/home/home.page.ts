@@ -26,7 +26,10 @@ export class HomePage implements OnInit {
   public tomasDeHoyTomadas: any[] = [];
   public tomasDeHoyOlvidadas: any[] = [];
 
-  constructor(private servicioGeneral: ServicioGeneralService, public router: Router) {
+  public iconoConfiguracion: string = "quietoIcon";
+
+
+  constructor(private servicioGeneral: ServicioGeneralService, private servicioMedicamento: MedicamentosService, public router: Router) {
     this.nombreUsuario = servicioGeneral.nombreUsuario;
     this.diaDelMes = servicioGeneral.diaDelMes;
     this.mes = servicioGeneral.mes;
@@ -62,7 +65,9 @@ export class HomePage implements OnInit {
   }
 
   configpage() {
+    this.iconoConfiguracion = "config-icon"
     setTimeout(() => {
+      this.iconoConfiguracion = "quietoIcon"
       this.router.navigate(["/configuracion"])
       //   this.irAconfiguracion.nativeElement.click();
     }, 400);
@@ -94,15 +99,15 @@ export class HomePage implements OnInit {
     let registro = this.tomasDeHoyPendientes[indice];
     this.tomasDeHoyPendientes.splice(indice, 1);
     this.tomasDeHoyTomadas.push(registro);
-    this.servicioGeneral.actualizarTomas(registro.idtomas, "tomada",registro.id_medicamento);
-    
+    this.servicioGeneral.actualizarTomas(registro.idtomas, "tomada", registro.id_medicamento);
+
   }
 
   olvidada(indice: number) {
     let registro = this.tomasDeHoyPendientes[indice];
     this.tomasDeHoyPendientes.splice(indice, 1);
     this.tomasDeHoyOlvidadas.push(registro);
-    this.servicioGeneral.actualizarTomas(registro.idtomas, "olvidada",null);
+    this.servicioGeneral.actualizarTomas(registro.idtomas, "olvidada", null);
   }
 
 

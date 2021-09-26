@@ -6,7 +6,8 @@
         <p>¡Hola {{nombreUsuario}}!</p>
         <!-- (click)="mostarConfirmacion(botones)" -->
         <!-- <div #irAconfiguracion class="config-icon" routerLink="/configuracion"> -->
-        <div #irAconfiguracion class="config-icon" (click)="configpage()">
+
+        <div #irAconfiguracion [ngClass]=[iconoConfiguracion] (click)="configpage()">
           <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
             x="0px" y="0px" width="30px" height="30px" viewBox="0 0 48 48" enable-background="new 0 0 48 48"
             xml:space="preserve">
@@ -159,6 +160,6 @@
           </div>
         </div>
       </div>
-    </ng-container>    
+    </ng-container>
   </div>
 </ion-content>

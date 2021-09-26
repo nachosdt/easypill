@@ -1,3 +1,14 @@
+// /// mover el scroll a la derecha
+
+ion-content {
+  width: calc(100% + 15px);
+}
+ion-content::part(scroll) {
+  padding-right: 15px;
+}
+
+////
+
 //		Imports
 
 @import "../../../theme/variables.scss";

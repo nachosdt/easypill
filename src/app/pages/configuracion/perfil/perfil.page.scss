@@ -1,3 +1,25 @@
+/// aca no hace scroll ni dios
+
+::-webkit-scrollbar, *::-webkit-scrollbar {
+    display: none;
+    overflow: hidden;
+  }
+  ion-content {
+    overflow: hidden;
+    --overflow: hidden;
+  }
+  
+  
+  .scroll-content {
+    overflow: hidden;
+  }
+    ion-infinite-scroll.md.infinite-scroll-enabled.hydrated {
+        overflow: scroll!important;
+        height: 100%!important;
+      }  
+
+//////////
+
 .titulo{
     display: flex;
     align-items: center;

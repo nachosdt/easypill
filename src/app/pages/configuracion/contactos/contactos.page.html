@@ -3,7 +3,7 @@
   
   <section class="body">
       <!-- NG FOR PARA CONTACTOS GUARDADOS -->
-    <ng-container *ngIf="contactos.length!==0 else isElse" >
+    <ng-container *ngIf="contactos.length!==0; else vacio" >
       <ng-container *ngFor="let contacto of contactos">
         <div class="display-around">
           <div class="medicina-next" routerLink="contacto" (click)="guardarPosicion(contacto.posicionArray)">
@@ -16,14 +16,21 @@
         </div>
       </ng-container>
     </ng-container>
-    <ng-template #isElse>
-      <article class="medicina-next">
-        <div class="izquierda">
-          <div class="medicina-nombre">
-            <p>No hay contactos guardados</p>
+    <ng-template #vacio>
+      <p id="vacio">En cuanto hayas añadido nuevos contactos, aquí te aparecerá una lista con todos ellos.
+        <br><br>
+        En caso de que olvides tomarte algún medicamento les avisaremos por mail o sms, para ayudarte a 
+        estar al día con tus tratamientos.
+      </p>
+      <div class="display-around" id="ejemplo">
+        <div class="medicina-next">
+          <div class="izquierda">
+            <div class="medicina-nombre">
+              <p>Tu contacto</p>
+            </div>
           </div>
         </div>
-      </article>
+      </div>
     </ng-template>
 
     <article class="container-center">

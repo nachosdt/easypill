@@ -41,7 +41,7 @@ export class ContactosService {
   }
 
   // LLAMADA A LA API GET CONTACTOS
-  async getContacto() {
+  public async getContacto() {
     this.contactos = [];
     try {
       let id: number = this.servicioGeneral.idUsuario;
@@ -89,7 +89,7 @@ export class ContactosService {
   
 
   // LLAMADA A LA API PUT CONTACTOS
-  async putContacto(contacto: Contacto) {
+  public async putContacto(contacto: Contacto) {
     try {
       let url: string = "https://api-easypill.herokuapp.com/contacto";
 
@@ -118,7 +118,7 @@ export class ContactosService {
   }
 
   // LLAMADA A LA API DELETE CONTACTO
-  async deleteContacto(idContacto: number) {
+  public async deleteContacto(idContacto: number) {
     let body1 = {"id": idContacto};
     try {
       let url: string = "https://api-easypill.herokuapp.com/contacto";

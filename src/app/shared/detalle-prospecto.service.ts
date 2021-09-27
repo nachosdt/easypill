@@ -13,10 +13,8 @@ import { HttpClient } from '@angular/common/http';
 
 export class DetalleProspectoService {
 
-  public medicamento2Buscar : string;
-
+  public medicamento2Buscar:string = "";
   public result : any [] = [];
-
   public prospectoAver :Prospecto;
 
 

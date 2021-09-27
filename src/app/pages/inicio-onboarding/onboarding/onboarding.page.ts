@@ -17,7 +17,7 @@ export class OnboardingPage implements OnInit {
   public yaEstoyLogueado: boolean = false;
 
   // mostrar/quitar el boton de comenzar en la ultima parte del onboarding
-  public mostrarComenzar: boolean = this.servicioGeneral.primeraVezServicio;
+  //public mostrarComenzar: boolean = this.servicioGeneral.primeraVezServicio;
 
   constructor(public servicioGeneral: ServicioGeneralService, public router: Router) {
     this.slideIndex = 1;
@@ -36,11 +36,11 @@ export class OnboardingPage implements OnInit {
     }
   }
 
-  bntComenzar() {
-    this.mostrarComenzar = false;
-    this.router.navigate(["/home"])
+  // bntComenzar() {
+  //   this.mostrarComenzar = false;
+  //   this.router.navigate(["/home"])
 
-  }
+  // }
 
   /////////
 

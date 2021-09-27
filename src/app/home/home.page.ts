@@ -14,7 +14,6 @@ export class HomePage implements OnInit {
 
   @ViewChild('irAconfiguracion') irAconfiguracion: ElementRef;
 
-  public idUsuario: number;
   public nombreUsuario: string;
   public diaDelMes: number;
   public diaDeLaSemana: string;
@@ -25,12 +24,13 @@ export class HomePage implements OnInit {
   public tomasDeHoyPendientes: any[] = [];
   public tomasDeHoyTomadas: any[] = [];
   public tomasDeHoyOlvidadas: any[] = [];
+  public casoVacio:boolean;
 
   public iconoConfiguracion: string = "quietoIcon";
 
 
   constructor(private servicioGeneral: ServicioGeneralService, private servicioMedicamento: MedicamentosService, public router: Router) {
-    this.nombreUsuario = servicioGeneral.nombreUsuario;
+    this.nombreUsuario = servicioGeneral.nombreUsuario.split(" ")[0];
     this.diaDelMes = servicioGeneral.diaDelMes;
     this.mes = servicioGeneral.mes;
     this.diaDeLaSemana = this.dias[servicioGeneral.diaSemana];
@@ -39,27 +39,38 @@ export class HomePage implements OnInit {
   ngOnInit() { }
 
   ionViewWillEnter() {
+    this.tomasDeHoyFuturas = [];
+    this.tomasDeHoyPasadas = [];
+    this.tomasDeHoyOlvidadas = [];
+    this.tomasDeHoyPendientes = [];
+    this.tomasDeHoyTomadas = [];
     let tomas = this.servicioGeneral.getTomasHoy();
     tomas.then((resultado) => {
-      let ahora = new Date();
-      for (let i = 0; i < resultado.length; i++) {
-        if (new Date(resultado[i].fecha) < ahora) {
-          this.tomasDeHoyPasadas.push(resultado[i]);
-        } else {
-          this.tomasDeHoyFuturas.push(resultado[i]);
+      if (resultado.length===0) {
+        this.casoVacio = true;
+      } else {
+        this.casoVacio = false;
+        let ahora = new Date();
+        for (let i = 0; i < resultado.length; i++) {
+          if (new Date(resultado[i].fecha) < ahora) {
+            this.tomasDeHoyPasadas.push(resultado[i]);
+          } else {
+            this.tomasDeHoyFuturas.push(resultado[i]);
+          }
         }
+        this.tomasDeHoyPendientes = this.tomasDeHoyPasadas.filter((toma) => {
+          return toma.estatus === "pendiente";
+        });
+        this.tomasDeHoyTomadas = this.tomasDeHoyPasadas.filter((toma) => {
+          return toma.estatus === "tomada";
+        });
+        this.tomasDeHoyOlvidadas = this.tomasDeHoyPasadas.filter((toma) => {
+          return toma.estatus === "olvidada";
+        });
+        // console.log("Pasadas:", this.tomasDeHoyPasadas);
+        // console.log("Futuras:", this.tomasDeHoyFuturas);
       }
-      this.tomasDeHoyPendientes = this.tomasDeHoyPasadas.filter((toma) => {
-        return toma.estatus === "pendiente";
-      });
-      this.tomasDeHoyTomadas = this.tomasDeHoyPasadas.filter((toma) => {
-        return toma.estatus === "tomada";
-      });
-      this.tomasDeHoyOlvidadas = this.tomasDeHoyPasadas.filter((toma) => {
-        return toma.estatus === "olvidada";
-      });
-      console.log("Pasadas:", this.tomasDeHoyPasadas);
-      console.log("Futuras:", this.tomasDeHoyFuturas);
+      
     })
       .catch((error) => {
         console.log(error);

@@ -25,8 +25,7 @@
       <ion-row class="ion-justify-content-center">
         <ion-col size="10" class="ion-justify-content-center">
           <input type="text" [(ngModel)]="usuario.nombre" 
-            #nombre="ngModel" 
-            placeholder="Nombre Usuario"
+            #nombre="ngModel"             
             title="NombreUsuario"
             name="nombreUsuario" required
             autocomplete="on"
@@ -43,8 +42,7 @@
       <ion-row class="ion-justify-content-center">
         <ion-col size="10" class="ion-justify-content-center">
           <input type="text" [(ngModel)]="usuario.email" 
-            #email="ngModel" 
-            placeholder="emailejemplo@gmail.com"
+            #email="ngModel"             
             title="email"
             name="email" required
             autocomplete="on"
@@ -61,8 +59,7 @@
       <ion-row class="ion-justify-content-center">
         <ion-col size="10" class="ion-justify-content-center">
           <ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="usuario.fechaNacimiento" 
-            #fechaNacimiento="ngModel" 
-            placeholder="DD/MM/YYYY"
+            #fechaNacimiento="ngModel"             
             title="fechaNacimiento"
             name="fechaNacimiento" required
             autocomplete="on"
@@ -79,8 +76,7 @@
       <ion-row class="ion-justify-content-center">
         <ion-col size="10" class="ion-justify-content-center">
           <input type="password" [(ngModel)]="usuario.contrasenia" 
-            #contrasenia="ngModel" 
-            placeholder="***********"
+            #contrasenia="ngModel"             
             title="contrasenia"
             name="contrasenia" required
             autocomplete="on"
@@ -98,7 +94,7 @@
         <ion-col size="10" class="ion-justify-content-center">
           <input type="password" [(ngModel)]="usuario.confContrasenia" 
             #confContrasenia="ngModel" 
-            placeholder="***********"
+            
             title="confContrasenia"
             name="confContrasenia" required
             autocomplete="on"
@@ -109,7 +105,7 @@
       <!-- Check Terminos y Condiciones -->
       <div class="check">
         <ion-checkbox class="checkBoton circle" required #terminos name="terminos"></ion-checkbox>
-        <p class="text-checkbox">Acepto &nbsp; <span routerLink="terminosycondiciones" class="enlace-legales"> términos y condiciones legales</span></p>
+        <p class="text-checkbox">Acepto los &nbsp; <span routerLink="terminosycondiciones" class="enlace-legales">Términos y condiciones legales</span></p>
       </div>
 
       <!-- Botones -->

@@ -12,7 +12,7 @@
       <img id="adelante" src="../../../assets/back_oscuro.svg">
     </article> 
     <!-- MEDICAMENTOS GUARDADOS -->
-    <ng-container *ngIf="medicamentos.length!=0 else isElse">
+    <ng-container *ngIf="medicamentos.length!=0; else vacio">
       <ng-container *ngFor="let medicamento of medicamentos; let i = index;">
         <div class="display-around">
           <div class="medicina-next color-medio" routerLink="editarmedicamento" (click)="editarMedicamento(i)">
@@ -25,14 +25,20 @@
         </div>
       </ng-container>
     </ng-container>
-    <ng-template #isElse>
-      <article class="medicina-next">
-        <div class="izquierda">
-          <div class="medicina-nombre">
-            <p>No hay medicamentos guardados</p>
+    <ng-template #vacio>
+      <p id="vacio">En cuanto hayas añadido nuevos medicamentos, aquí se mostrará la lista de todos los 
+        que tienes guardados en la aplicación.<br><br>
+        Pulsando en los botones de arriba podrás acceder a los tratamientos planificaddos cada día de la semana.
+      </p>
+      <div class="display-around" id="ejemplo">
+        <div class="medicina-next color-medio">
+          <div class="izquierda">
+            <div class="medicina-nombre">
+              <p>Tu medicina</p>
+            </div>
           </div>
         </div>
-      </article>
+      </div>
     </ng-template>
 
   </section>

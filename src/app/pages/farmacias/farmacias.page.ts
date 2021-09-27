@@ -57,7 +57,9 @@ export class FarmaciasPage implements OnInit {
       let farmacias = this.servicioMapa.buscarFarmacias(resp.coords.latitude,resp.coords.longitude);
       farmacias.then((resultado) => {
         resultado.forEach((farmacia:any) => {
-          Leaflet.marker([farmacia.latitud, farmacia.longitud],{icon: iconoFarmacias}).addTo(this.map);
+          Leaflet.marker([farmacia.latitud, farmacia.longitud],{icon: iconoFarmacias})
+          .bindPopup(farmacia.direccion)
+          .addTo(this.map);          
         });
       })
       .catch(error =>{
@@ -90,7 +92,9 @@ export class FarmaciasPage implements OnInit {
     let farmacias = this.servicioMapa.buscarFarmacias(coords.latitud,coords.longitud);
       farmacias.then((resultado) => {
         resultado.forEach((farmacia:any) => {
-          Leaflet.marker([farmacia.latitud, farmacia.longitud],{icon: iconoFarmacias}).addTo(this.map);
+          Leaflet.marker([farmacia.latitud, farmacia.longitud],{icon: iconoFarmacias})
+          .bindPopup(farmacia.direccion)
+          .addTo(this.map);
         });
       })
       .catch(error =>{

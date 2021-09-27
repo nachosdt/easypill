@@ -32,7 +32,7 @@ h1 {
 .omitir{
   position: absolute;
   top: 47px;
-  left: 15px;
+  left: 40px;
 }
 
 .but-cancel {
@@ -49,15 +49,15 @@ h1 {
 }
 
 @keyframes arribaAbajo {
-  0% {top:35%;}
-  50% {top:30%;}
-  100% {top:35%;}
+  0% {top:30%;}
+  50% {top:25%;}
+  100% {top:30%;}
 
 }
 
 #imagenBarra {
   position: absolute;
-  top: 45%;
+  top: 40%;
   left: 0;
   width:100vw;
 }
@@ -65,7 +65,7 @@ h1 {
 /* Slideshow container */
 .slideshow-container {
   position: absolute;
-  top: 60%;
+  top: 52%;
   width: 100%;
   background-color:white; 
 }
@@ -79,7 +79,7 @@ h1 {
 .mySlides>p {
   color: rgb(111, 0, 255);
   margin: 10px 0; 
-  font-weight: bold;
+  font-weight: 500;
   text-align: center;
   line-height: 25px;
 }

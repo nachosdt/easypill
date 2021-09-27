@@ -17,7 +17,7 @@
       </ion-row>
       <ion-row class="ion-justify-content-center">
         <ion-col size="10" class="ion-justify-content-center">
-          <input type="text" [(ngModel)]="prospectoBuscar.nombreMedBuscado"
+          <input type="text" [(ngModel)]="prospectoBuscar"
             #medicamentoBuscado="ngModel" 
             placeholder="Nombre del medicamento que buscas"
             title="Nombre del medicamento que buscas"
@@ -40,10 +40,9 @@
     </ion-grid>
 
   </form>
-
-  <article id="result-busqueda-prospects" class="pastilla-result">
-    <h3 class="titulo2">Resultados</h3>
-    <ng-container *ngIf="resultados else isElse" >
+  <ng-container *ngIf="resultados.length!==0 || sinResultados">
+    <article id="result-busqueda-prospects" class="pastilla-result">
+      <h3 class="titulo2">{{resultados.length}} resultados encontrados</h3>      
       <ng-container *ngFor="let resultado of resultados">
         <div class="cardMed container" routerLink="detalle-prospecto"
         (click)="guardarProspecto(resultado)">
@@ -55,19 +54,14 @@
           <div class="laboratorio">
             <h5 class="nombre-lab">{{resultado.lab}}</h5>
           </div>
-        </div>
-      </ng-container>
+        </div>        
+      </ng-container>      
+    </article>
+    <ng-container *ngIf="resultados.length===0 && sinResultados">      
+      <p id="sinResultados">Lo lamentamos, pero no se ha encontrado ningún medicamento con ese nombre.</p>
     </ng-container>
-    <ng-template #isElse>
-      <article >
-        <div >
-          <div >
-            <p>No se han encontrados medicamentos con ese nombre</p>
-          </div>
-        </div>
-      </article>
-    </ng-template>
-  </article>
+  </ng-container>
+  
 
 </section>
 

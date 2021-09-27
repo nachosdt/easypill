@@ -51,12 +51,12 @@ export class AnadirContactoPage implements OnInit {
     else {
       this.contacto.notificacionContacto = "ninguno";
     }
-    console.log(this.contacto);
+    //console.log(this.contacto);
     
     this.contactoService.postContacto(this.contacto)
     .then(async (respuesta)=>{
       if (respuesta) {
-        this.contactoService.contactos.push(this.contacto);
+        this.contacto = new Contacto();
         const modal = await this.modalController.create({
           component: ModalsPage,
           componentProps: {
@@ -93,14 +93,11 @@ export class AnadirContactoPage implements OnInit {
   bntCancelar() {
     console.log(this.servicioGeneralService.primeraVezServicio);
     if (this.servicioGeneralService.primeraVezServicio == true) {
-
       this.router.navigate(["/home"])
       this.servicioGeneralService.primeraVezServicio = this.yaEstoyLogueado
     }
-
     // this.servicioGeneralService.primeraVezServicio == false
     // console.log(this.servicioGeneralService.primeraVezServicio);
-
   }
 
   goBack() {

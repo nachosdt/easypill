@@ -6,6 +6,7 @@ import { ServicioGeneralService } from 'src/app/shared/servicio-general.service'
 import { NgForm } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 import { ModalsPage } from '../../modals/modals.page';
+import { DetalleProspectoService } from 'src/app/shared/detalle-prospecto.service';
 
 @Component({
   selector: 'app-editarmedicamento',
@@ -23,8 +24,13 @@ export class EditarmedicamentoPage implements OnInit {
   public lecturaInput: boolean = true;
   public nombreBoton: string = "Editar";
 
-  constructor(public medicamentoService: MedicamentosService,private modalController: ModalController,private servicioGeneral:ServicioGeneralService) { }
+  constructor(private medicamentoService: MedicamentosService,private modalController: ModalController,
+    private servicioGeneral:ServicioGeneralService, private prospectoService:DetalleProspectoService) { }
 
   ngOnInit() {
   }    
+
+  public verProspecto() {
+    this.prospectoService.medicamento2Buscar = this.medicamento.nombre;    
+  }
 }

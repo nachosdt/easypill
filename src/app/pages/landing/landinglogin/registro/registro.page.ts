@@ -52,10 +52,10 @@ export class RegistroPage implements OnInit {
     } else {
       this.usuario.nombre = form.value.nombreUsuario;
       this.usuario.email = form.value.email;
-      this.usuario.fechaNacimiento = form.value.fechaNacimiento;
+      this.usuario.fechaNacimiento = form.value.fechaNacimiento.slice(0,10);
       this.usuario.contrasenia = form.value.contrasenia;
       this.usuario.confContrasenia=form.value.confContrasenia;
-
+      console.log(this.usuario);
       this.registro.postRegistro(this.usuario)
       .subscribe(async (data)=>{
         if (!data.error) {
@@ -63,7 +63,7 @@ export class RegistroPage implements OnInit {
             component: ModalsPage,
             componentProps: {
               'titulo': 'Acabas de crear una nueva cuenta',
-              'mensaje': `¡Bienvenido, ${this.usuario.nombre}! Esperamos que EasyPill te sea de gran ayuda.`,
+              'mensaje': `¡Bienvenido, ${this.usuario.nombre.split(" ")[0]}! Esperamos que EasyPill te sea de gran ayuda.`,
               'textoBoton': 'Continuar',
               'urlSalida' : 'landing/landinglogin/iniciar'
             }

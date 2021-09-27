@@ -34,9 +34,9 @@ export class PerfilPage implements OnInit {
     this.perfilService.getPerfil(this.servicioGeneral.idUsuario)
     .subscribe((respuesta)=>{
       console.log(respuesta);
-      this.usuario.nombre = respuesta.datos[0].nombre;
-      this.usuario.email = respuesta.datos[0].email;
-      this.usuario.contrasenia = respuesta.datos[0].contrasenia;
+      this.perfilService.usuario = respuesta.datos[0];
+      this.perfilService.usuario.fechaNacimiento = this.perfilService.usuario.fechaNacimiento.slice(0,10);
+      this.usuario = this.perfilService.usuario;
     });
   }
 
@@ -50,44 +50,33 @@ export class PerfilPage implements OnInit {
     })
   }
 
-    async deletePerfil(id:number){
-    console.log("Ha eliminado el perfil");
-     this.perfilService.deletePerfil(id).subscribe(async (data)=>{
-    console.log(data);
-      this.informacion = data
-      console.log(this.informacion.datos);
-      
-    if (this.informacion.datos !== {}){
-      const modal = await this.modalController.create({
-        component: ModalsPage,
-        componentProps: {
-          'titulo': 'Cuenta Eliminada',
-          'mensaje': `La cuenta con nombre 
-          ${this.usuario.nombre}
-           se ha eliminado con éxito`,
-          'textoBoton': 'Volver',
-          'urlSalida' : '/configuracion',
-        }
-      });
-      return await modal.present();
-    }
-  })
-}
-
-  async eliminarCuenta() {
-    
-    // const modal = await this.modalController.create({
-    //   component: ModalsPage,
-    //   componentProps: {
-    //     'titulo': 'Cuenta Eliminada',
-    //     'mensaje': `La cuenta con nombre 
-    //     ${this.usuario.nombre}
-    //      se ha eliminado con éxito`,
-    //     'textoBoton': 'Volver',
-    //     'urlSalida' : '/configuracion',
-    //   }
-    // });
-    // return await modal.present();
-  }
-
+  public deletePerfil(id:number) {    
+    this.perfilService.deletePerfil(id).subscribe(async (data)=>{    
+      if (data.error) {
+        const modal = await this.modalController.create({
+          component: ModalsPage,
+          componentProps: {
+            'titulo': 'Error al eliminar la cuenta',
+            'mensaje': `No se ha podido eliminar la cuenta. Por favor, inténtelo de nnuevo más tarde`,
+            'textoBoton': 'Volver',
+            'urlSalida' : '/configuracion',
+          }
+        });
+        return await modal.present();
+      } else {
+        const modal = await this.modalController.create({
+          component: ModalsPage,
+          componentProps: {
+            'titulo': 'Cuenta de usuario eliminada',
+            'mensaje': `La cuenta con nombre 
+            ${this.usuario.nombre}
+             ha sido eliminada. Esperamos volver a verle pronto.`,
+            'textoBoton': 'Volver',
+            'urlSalida' : '/landing',
+          }
+        });
+        return await modal.present();
+      }
+    });
+  }  
 }

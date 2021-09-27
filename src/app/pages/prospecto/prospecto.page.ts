@@ -13,10 +13,11 @@ import { Prospecto } from 'src/app/models/prospecto/prospecto';
 
 export class ProspectoPage implements OnInit {
 
-  public prospectoBuscar : MedBuscado = new MedBuscado();
+  public prospectoBuscar : string = this.detalleServicio.medicamento2Buscar;
   public nombreCabecera:string = "Consultar prospectos";
   public icono:boolean = false;
   public resultados: any [] = [];
+  public sinResultados:boolean = false;
 
 
   constructor(private detalleServicio : DetalleProspectoService) { 
@@ -25,13 +26,29 @@ export class ProspectoPage implements OnInit {
   ngOnInit() {
   }
 
+  ionViewWillEnter() {
+    if (this.detalleServicio.medicamento2Buscar !== "") {
+      this.detalleServicio.getProspectos(this.detalleServicio.medicamento2Buscar)
+      .then((respuesta)=>{
+        this.resultados = respuesta;
+      })
+      .catch((error)=>{
+        console.log(error);
+      });
+    }
+  }
+
   async buscarProspectos(form:NgForm){
 
-    this.prospectoBuscar.nombreMedBuscado = form.value.medicamentoBuscado;
+    this.prospectoBuscar = form.value.medicamentoBuscado;
 
-    await this.detalleServicio.getProspectos(this.prospectoBuscar.nombreMedBuscado)
+    await this.detalleServicio.getProspectos(this.prospectoBuscar)
     .then( data => {
-      this.resultados = data;
+      this.resultados = data;      
+      if (data.length===0) {this.sinResultados = true;}
+    })
+    .catch((error)=>{
+      console.log(error);
     });
 
   }

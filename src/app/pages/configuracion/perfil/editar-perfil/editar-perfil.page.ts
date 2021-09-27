@@ -16,7 +16,7 @@ export class EditarPerfilPage implements OnInit {
   public nombreCabecera:string = "Editar perfil";
   public icono:boolean = true;
   public rutaAtras:any = "/configuracion/perfil";
-  public usuario:Usuario = new Usuario();
+  public usuario:Usuario = this.perfilService.usuario;
 
   constructor(public location: Location, public modalController: ModalController, public perfilService:PerfilService) { 
 
@@ -25,14 +25,12 @@ export class EditarPerfilPage implements OnInit {
   ngOnInit() {
   }
 
-  async onSubmit(form:NgForm)
-  {
-    console.log(form.value);
+  async onSubmit(form:NgForm) {
+    
     this.usuario.nombre = form.value.nombreUsuario;
     this.usuario.email = form.value.email;
-    // this.usuario.fechaNacimiento = form.value.fechaNacimiento;
-    this.usuario.contrasenia = form.value.contrasenia;
-    // this.usuario.confContrasenia=form.value.confContrasenia;
+    this.usuario.fechaNacimiento = form.value.fechaNacimiento;
+    this.usuario.contrasenia = form.value.contrasenia;    
 
     this.putPerfil(this.usuario)
 

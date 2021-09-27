@@ -16,8 +16,8 @@
 
         <ion-row class="ion-justify-content-center">
           <ion-col size="10" class="ion-justify-content-center">
-            <input type="text" [(ngModel)]="contacto.nombreContacto" #nombreContacto="ngModel"
-              placeholder="Nombre completo del contacto" title="Nombre completo del contacto" name="nombreContacto"
+            <input type="text" [(ngModel)]="contacto.nombreContacto" #nombreContacto="ngModel" 
+              title="Nombre completo del contacto" name="nombreContacto"
               required autocomplete="on" class="registro-borde">
           </ion-col>
         </ion-row>
@@ -31,7 +31,7 @@
 
         <ion-row class="ion-justify-content-around">
           <ion-col size="10">
-            <input type="text" [(ngModel)]="contacto.tlfContacto" #tlfContacto="ngModel" placeholder="611 123 123"
+            <input type="text" [(ngModel)]="contacto.tlfContacto" #tlfContacto="ngModel" 
               title="Teléfono del contacto" name="tlfContacto" required class="registro-borde">
           </ion-col>
         </ion-row>
@@ -46,7 +46,7 @@
         <ion-row class="ion-justify-content-around">
           <ion-col size="10">
             <input type="email" [(ngModel)]="contacto.emailContacto" #emailContacto="ngModel"
-              placeholder="correodeejemplo@noexiste.com" title="Email del contacto" name="emailContacto" required
+               title="Email del contacto" name="emailContacto" required
               autocomplete="on" class="registro-borde">
           </ion-col>
         </ion-row>

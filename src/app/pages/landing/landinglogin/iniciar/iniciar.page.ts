@@ -55,6 +55,8 @@ export class IniciarPage implements OnInit {
       } else {        
         this.servicioGeneral.nombreUsuario = respuesta.datos[0].nombre;
         this.servicioGeneral.idUsuario = respuesta.datos[0].idusuarios;
+        this.servicioGeneral.emailUsuario = respuesta.datos[0].email;
+        this.servicioGeneral.fechaNacUsuario = respuesta.datos[0].fechaNacimiento;
         this.primeraVez = true;
         this.servicioGeneral.primeraVezServicio = this.primeraVez;
         this.router.navigate(["/inicio-onboarding"]);        

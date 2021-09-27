@@ -15,6 +15,7 @@ export class TerminosycondicionesPage implements OnInit {
 
   ngOnInit() {
   }
+  
   goBack(){
     this.location.back();
   }

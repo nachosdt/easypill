@@ -35,7 +35,7 @@ export class MedicamentosPage implements OnInit {
     .catch((error) => {
       console.log(error);
     });
-    console.log("Medicamentos encontrados:",this.medicamentos);
+    //console.log("Medicamentos encontrados:",this.medicamentos);
   }
 
   private ordenDiasSemana() {

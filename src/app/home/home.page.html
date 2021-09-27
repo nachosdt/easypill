@@ -56,12 +56,38 @@
   </div>
 
   <div class="header-medicinas">
+    <ng-container *ngIf="casoVacio">
+      <p id="vacio">
+        En cuanto hayas añadido tratamientos a tu lista, Easypill te informará de las próximas 
+        horas de ingesta.
+      </p>
+      <div class="titulo">
+        <p>Pendientes de confirmar</p>
+      </div>
+      <div class="card pendiente overConfirmacion" id="ejemplo">        
+        <div class="izquierda">
+          <div class="nombre">
+            <p class="textoPendiente">Tu medicina</p>
+          </div>
+          <div class="dia">
+            <p class="textoPendiente">Hoy</p>
+          </div>
+        </div>
+        <div class="derecha">
+          <div class="hora">
+            <p class="textoPendiente">12:00</p>
+          </div>
+          <div class="line">
+          </div>
+        </div>
+      </div>
+    </ng-container>
     <!--TOMAS PENDIENTES DE HOY-->
     <ng-container *ngIf="tomasDeHoyPendientes.length!==0">
       <div class="titulo">
         <p>Pendientes de confirmar</p>
       </div>
-    </ng-container>
+    </ng-container>    
     <ng-container *ngFor="let toma of tomasDeHoyPendientes; let i = index;">
       <div class="card pendiente overConfirmacion" (id)="'card'+i" (click)="mostarConfirmacion(botones)">
         <div class="botones desaparecer" #botones>          

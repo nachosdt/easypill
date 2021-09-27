@@ -54,13 +54,14 @@
       </ion-row>
       <ion-row class="ion-justify-content-center">
         <ion-col size="10" class="ion-justify-content-center">
-          <input type="text" [(ngModel)]="usuario.fechaNacimiento" 
+          <ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="usuario.fechaNacimiento" 
             #email="ngModel" 
             placeholder="DD/MM/YYYY"
             title="fechaNacimiento"
             name="fechaNacimiento" required
             autocomplete="on"
             class="registro-borde">
+          </ion-datetime>
         </ion-col>
       </ion-row>
 

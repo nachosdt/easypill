@@ -26,16 +26,8 @@ export class MedicamentosPage implements OnInit {
     
   }
 
-  ionViewWillEnter() {
-    let consultaMed = this.medicamentoService.getTodosLosMedicamentos(this.servicioGeneral.idUsuario);
-    consultaMed.then((respuesta) => {
-      this.medicamentoService.medicamentos = respuesta;
-      this.medicamentos = this.medicamentoService.medicamentos;
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-    //console.log("Medicamentos encontrados:",this.medicamentos);
+  ionViewWillEnter() {    
+    this.medicamentos = this.medicamentoService.medicamentos;
   }
 
   private ordenDiasSemana() {

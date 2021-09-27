@@ -31,6 +31,7 @@ export class ContactosService {
         respuesta = false;
       } else {
         respuesta = true;
+        this.actualizarContactos();
       }
       return respuesta;
     }
@@ -108,6 +109,7 @@ export class ContactosService {
         respuesta = false;
       } else {
         respuesta = true;
+        this.actualizarContactos();
       }
       return respuesta;
     }
@@ -138,6 +140,7 @@ export class ContactosService {
         respuesta = false;
       } else {
         respuesta = true;
+        this.actualizarContactos();
       }
       return respuesta;
     }
@@ -145,5 +148,9 @@ export class ContactosService {
     {
         console.log(error);
     }
+  }
+
+  private async actualizarContactos() {
+    this.contactos = await this.getContacto();
   }
 }

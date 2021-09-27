@@ -7,6 +7,8 @@ import { ModalController } from '@ionic/angular';
 import { ModalsPage } from 'src/app/pages/modals/modals.page';
 import { LoginService } from 'src/app/shared/login.service';
 import { ServicioGeneralService } from 'src/app/shared/servicio-general.service';
+import { MedicamentosService } from 'src/app/shared/medicamentos.service';
+import { ContactosService } from 'src/app/shared/contactos.service';
 
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
@@ -30,7 +32,9 @@ export class IniciarPage implements OnInit {
     public login: LoginService,
     private router: Router,
     public toast: ToastController,
-    public servicioGeneral: ServicioGeneralService
+    private servicioGeneral: ServicioGeneralService,
+    private medicamentoService: MedicamentosService,
+    private contactoService:ContactosService
   ) { }  
 
   ngOnInit() {
@@ -52,11 +56,15 @@ export class IniciarPage implements OnInit {
           }
         });
         return await modal.present();
-      } else {        
+      } else {
+        // Carga de datos del usuario      
         this.servicioGeneral.nombreUsuario = respuesta.datos[0].nombre;
         this.servicioGeneral.idUsuario = respuesta.datos[0].idusuarios;
         this.servicioGeneral.emailUsuario = respuesta.datos[0].email;
-        this.servicioGeneral.fechaNacUsuario = respuesta.datos[0].fechaNacimiento;
+        this.servicioGeneral.fechaNacUsuario = respuesta.datos[0].fechaNacimiento.split(0,10);
+        this.servicioGeneral.tomasDeHoy = await this.servicioGeneral.getTomasHoy();
+        this.medicamentoService.medicamentos = await this.medicamentoService.getTodosLosMedicamentos(this.servicioGeneral.idUsuario);
+        this.contactoService.contactos = await this.contactoService.getContacto();
         this.primeraVez = true;
         this.servicioGeneral.primeraVezServicio = this.primeraVez;
         this.router.navigate(["/inicio-onboarding"]);        

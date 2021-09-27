@@ -11,7 +11,8 @@ export class ServicioGeneralService {
   public idUsuario: number;
   public emailUsuario: string;
   public fechaNacUsuario: string;
-  public primeraVezServicio: boolean = false
+  public primeraVezServicio: boolean = false;
+  public tomasDeHoy:any[];
 
   constructor() {
     let hoy = new Date();
@@ -30,7 +31,7 @@ export class ServicioGeneralService {
     try {
       let data = await fetch(url, param);
       let resultBruto = await data.json();
-      let tomas = resultBruto.datos;
+      let tomas = resultBruto.datos;      
       console.log("Nº tomas de hoy:", tomas.length);
       return tomas;
     } catch (error) {

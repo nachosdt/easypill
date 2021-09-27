@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { Medicamento } from '../models/medicamento/medicamento';
+import { ServicioGeneralService } from './servicio-general.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,7 +12,7 @@ export class MedicamentosService {
   public medicamentos:Medicamento[] = [];
   
 
-  constructor() {} 
+  constructor(private servicioGeneral:ServicioGeneralService) {} 
 
   public async getMedicamentosDeHoy(hora00:number, hora24:number, id:number) {
     let url = `https://api-easypill.herokuapp.com/tomas?id=${id}&desde=${hora00}&hasta=${hora24}`;
@@ -77,6 +78,8 @@ export class MedicamentosService {
         let respuesta:boolean;
         if (resultadoBruto.error===false) {
           respuesta = true;
+          this.actualizarMedicamentos();
+          this.actualizarTomas();
         } else {
           respuesta = false;
         }
@@ -100,6 +103,8 @@ export class MedicamentosService {
         let respuesta:boolean;
         if (resultadoBruto.error===false) {
           respuesta = true;
+          this.actualizarMedicamentos();
+          this.actualizarTomas();
         } else {
           respuesta = false;
         }
@@ -122,6 +127,8 @@ export class MedicamentosService {
         let respuesta:boolean;
         if (resultadoBruto.error===false) {
           respuesta = true;
+          this.actualizarMedicamentos();
+          this.actualizarTomas();
         } else {
           respuesta = false;
         }
@@ -130,4 +137,12 @@ export class MedicamentosService {
         console.log(error);
     }
   } 
+
+  private async actualizarMedicamentos() {
+    this.medicamentos = await this.getTodosLosMedicamentos(this.servicioGeneral.idUsuario);
+  }
+
+  private async actualizarTomas() {
+    this.servicioGeneral.tomasDeHoy = await this.servicioGeneral.getTomasHoy();
+  }
 }

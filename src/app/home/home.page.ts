@@ -44,37 +44,31 @@ export class HomePage implements OnInit {
     this.tomasDeHoyOlvidadas = [];
     this.tomasDeHoyPendientes = [];
     this.tomasDeHoyTomadas = [];
-    let tomas = this.servicioGeneral.getTomasHoy();
-    tomas.then((resultado) => {
-      if (resultado.length===0) {
-        this.casoVacio = true;
-      } else {
-        this.casoVacio = false;
-        let ahora = new Date();
-        for (let i = 0; i < resultado.length; i++) {
-          if (new Date(resultado[i].fecha) < ahora) {
-            this.tomasDeHoyPasadas.push(resultado[i]);
-          } else {
-            this.tomasDeHoyFuturas.push(resultado[i]);
-          }
+    let tomas = this.servicioGeneral.tomasDeHoy;    
+    if (tomas.length===0) {
+      this.casoVacio = true;
+    } else {
+      this.casoVacio = false;
+      let ahora = new Date();
+      for (let i = 0; i < tomas.length; i++) {
+        if (new Date(tomas[i].fecha) < ahora) {
+          this.tomasDeHoyPasadas.push(tomas[i]);
+        } else {
+          this.tomasDeHoyFuturas.push(tomas[i]);
         }
-        this.tomasDeHoyPendientes = this.tomasDeHoyPasadas.filter((toma) => {
-          return toma.estatus === "pendiente";
-        });
-        this.tomasDeHoyTomadas = this.tomasDeHoyPasadas.filter((toma) => {
-          return toma.estatus === "tomada";
-        });
-        this.tomasDeHoyOlvidadas = this.tomasDeHoyPasadas.filter((toma) => {
-          return toma.estatus === "olvidada";
-        });
-        // console.log("Pasadas:", this.tomasDeHoyPasadas);
-        // console.log("Futuras:", this.tomasDeHoyFuturas);
       }
-      
-    })
-      .catch((error) => {
-        console.log(error);
+      this.tomasDeHoyPendientes = this.tomasDeHoyPasadas.filter((toma) => {
+        return toma.estatus === "pendiente";
       });
+      this.tomasDeHoyTomadas = this.tomasDeHoyPasadas.filter((toma) => {
+        return toma.estatus === "tomada";
+      });
+      this.tomasDeHoyOlvidadas = this.tomasDeHoyPasadas.filter((toma) => {
+        return toma.estatus === "olvidada";
+      });
+      // console.log("Pasadas:", this.tomasDeHoyPasadas);
+      // console.log("Futuras:", this.tomasDeHoyFuturas);
+    }    
   }
 
   configpage() {

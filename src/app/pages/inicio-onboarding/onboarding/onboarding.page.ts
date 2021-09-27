@@ -13,7 +13,7 @@ export class OnboardingPage implements OnInit {
   public listaTitulos: string[] = ["Home", "Tratamientos", "Añadir medicamentos", "Buscar farmacias", "Consultar prospectos"];
   public titulo: string;
   public slideIndex: number;
-  public distancia: string[] = ["10vw", "27vw", "46vw", "63vw", "82vw"];
+  public distancia: string[] = ["6vw", "26vw", "46vw", "66vw", "86vw"];
   public yaEstoyLogueado: boolean = false;
 
   // mostrar/quitar el boton de comenzar en la ultima parte del onboarding

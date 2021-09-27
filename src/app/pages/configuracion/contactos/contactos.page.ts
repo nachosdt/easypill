@@ -22,13 +22,7 @@ export class ContactosPage implements OnInit {
   }
 
   ionViewWillEnter() {
-    this.contactoService.getContacto()
-    .then(result => {      
-      this.contactos = result;
-    })
-    .catch(error => {
-      console.log(error);
-    });
+    this.contactos = this.contactoService.contactos;
   }
 
   // POSICION DEL CONTACTO SELECCIONADO EN EL ARRAY

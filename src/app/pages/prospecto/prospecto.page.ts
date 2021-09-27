@@ -13,7 +13,7 @@ import { Prospecto } from 'src/app/models/prospecto/prospecto';
 
 export class ProspectoPage implements OnInit {
 
-  public prospectoBuscar : string = this.detalleServicio.medicamento2Buscar;
+  public prospectoBuscar : string;
   public nombreCabecera:string = "Consultar prospectos";
   public icono:boolean = false;
   public resultados: any [] = [];
@@ -28,6 +28,7 @@ export class ProspectoPage implements OnInit {
 
   ionViewWillEnter() {
     if (this.detalleServicio.medicamento2Buscar !== "") {
+      this.prospectoBuscar = this.detalleServicio.medicamento2Buscar;
       this.detalleServicio.getProspectos(this.detalleServicio.medicamento2Buscar)
       .then((respuesta)=>{
         this.resultados = respuesta;

@@ -44,11 +44,11 @@ export class PerfilPage implements OnInit {
     this.location.back();
   }
 
-  public getPerfil(id:number):void {
-    this.perfilService.getPerfil(id).subscribe((data:Usuario)=>{
-      this.usuario = data[0];
-    })
-  }
+  // public getPerfil(id:number):void {
+  //   this.perfilService.getPerfil(id).subscribe((data:Usuario)=>{
+  //     this.usuario = data[0];
+  //   });
+  // }
 
   public deletePerfil(id:number) {    
     this.perfilService.deletePerfil(id).subscribe(async (data)=>{    

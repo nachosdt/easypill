@@ -35,7 +35,7 @@ export class PerfilPage implements OnInit {
     .subscribe((respuesta)=>{
       console.log(respuesta);
       this.perfilService.usuario = respuesta.datos[0];
-      this.perfilService.usuario.fechaNacimiento = this.perfilService.usuario.fechaNacimiento.slice(0,10);
+      this.perfilService.usuario.fechaNacimiento = new Date(this.perfilService.usuario.fechaNacimiento).toUTCString().slice(5,16);
       this.usuario = this.perfilService.usuario;
     });
   }

@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class HomePage implements OnInit {
 
   @ViewChild('irAconfiguracion') irAconfiguracion: ElementRef;
-
+  
   public nombreUsuario: string;
   public diaDelMes: number;
   public diaDeLaSemana: string;
@@ -38,7 +38,7 @@ export class HomePage implements OnInit {
 
   ngOnInit() { }
 
-  ionViewWillEnter() {
+  ionViewWillEnter() {       
     this.tomasDeHoyFuturas = [];
     this.tomasDeHoyPasadas = [];
     this.tomasDeHoyOlvidadas = [];
@@ -69,9 +69,9 @@ export class HomePage implements OnInit {
       // console.log("Pasadas:", this.tomasDeHoyPasadas);
       // console.log("Futuras:", this.tomasDeHoyFuturas);
     }    
-  }
+  }  
 
-  configpage() {
+  public configpage() {
     this.iconoConfiguracion = "config-icon"
     setTimeout(() => {
       this.iconoConfiguracion = "quietoIcon"
@@ -100,6 +100,10 @@ export class HomePage implements OnInit {
   public mostarConfirmacion(botones: HTMLDivElement) {
     botones.classList.remove("desaparecer");
     botones.classList.add("aparecer");
+    setTimeout(()=>{
+      botones.classList.remove("aparecer");
+      botones.classList.add("desaparecer");
+    },5000);
   }
 
   public tomada(indice: number) {

@@ -4,9 +4,6 @@
     <div class="header-textos">
       <div class="header-titulo">
         <p>¡Hola {{nombreUsuario}}!</p>
-        <!-- (click)="mostarConfirmacion(botones)" -->
-        <!-- <div #irAconfiguracion class="config-icon" routerLink="/configuracion"> -->
-
         <div #irAconfiguracion [ngClass]=[iconoConfiguracion] (click)="configpage()">
           <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
             x="0px" y="0px" width="30px" height="30px" viewBox="0 0 48 48" enable-background="new 0 0 48 48"
@@ -91,7 +88,7 @@
     </ng-container>    
     <ng-container *ngFor="let toma of tomasDeHoyPendientes; let i = index;">
       <div class="card pendiente overConfirmacion" (id)="'card'+i" (click)="mostarConfirmacion(botones)">
-        <div class="botones desaparecer" #botones>          
+        <div class="botones desaparecer" #botones id="btns">          
           <button class="loheolvidado" (click)="olvidada(i)">Se me ha olvidado</button>
           <button class="lohetomado" (click)="tomada(i)">Lo he tomado</button>
         </div>

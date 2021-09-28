@@ -44,7 +44,7 @@ export class AddMedicamentoPage implements OnInit {
           componentProps: {
             'titulo': 'Nuevo tratamiento añadido',
             'mensaje': `¡Tratamiento añadido! Con EasyPill será más fácil recordar tus tomas`,
-            'textoBoton': 'Ir a Medicamentos',
+            'textoBoton': 'Ver tus Tratamientos',
             'urlSalida' : '/medicamentos'
           }
         });

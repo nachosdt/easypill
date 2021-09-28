@@ -20,19 +20,6 @@
     // por el logo interesa 20px
 }
 
-// form{
-//     margin-top:80px;
-// }
-
-// .body form ion-label{
-//     font-size:var(--font-size-form);
-//     font-weight:700;
-// }
-
-// .body form ion-input[placeholder] {
-//     font-size: var(--font-size-placeholder);
-// }
-
 .body form .grupo-registro:first-of-type{
     margin-top: 20px;
 }
@@ -63,4 +50,20 @@
 .iniciar_but{
      margin-top: 60px;
 
+}
+
+.ng-touched.ng-dirty.ng-invalid:not(form){
+    background-color: rgba(248, 142, 140,0.1);
+    }
+    
+.show-alert
+{
+    background-color: rgba(var(--secundary_color_cancel),0.5);
+}
+
+.show-alert p{
+    color: rgb(var(--primary_color));
+    font-size:14px;
+    font-weight: 500;
+    padding:0.5rem;
 }

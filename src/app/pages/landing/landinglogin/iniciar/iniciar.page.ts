@@ -26,6 +26,9 @@ export class IniciarPage implements OnInit {
   public contrasenia:string;
   public primeraVez: boolean = false;
 
+  ///
+  public usuario : Usuario = new Usuario();
+  ///
   constructor(
     public location: Location,
     public modalController: ModalController,
@@ -41,7 +44,11 @@ export class IniciarPage implements OnInit {
 
   }
 
-  onSubmit(form: NgForm) {    
+  onSubmit(form: NgForm) {
+    ///
+    this.usuario.email=form.value.email;
+    this.usuario.contrasenia=form.value.contrasenia;
+    ///
     this.login.postLogin(form.value.email,form.value.contrasenia)
     .subscribe(async (respuesta)=>{
       console.log(respuesta);

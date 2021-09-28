@@ -67,3 +67,19 @@
     text-decoration: underline;
     font-size: var(--font_size);
 }
+
+.ng-touched.ng-dirty.ng-invalid:not(form){
+    background-color: rgba(248, 142, 140,0.1);
+    }
+    
+.show-alert
+{
+    background-color: rgba(var(--secundary_color_cancel),0.5);
+}
+
+.show-alert p{
+    color: rgb(var(--primary_color));
+    font-size:14px;
+    font-weight: 500;
+    padding:0.5rem;
+}

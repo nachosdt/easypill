@@ -11,41 +11,23 @@
     margin-top: 40px;
 }
 
-// input {
-//     color: rgb(var(secundary_color_title));
-// }
-
-// .body form input.registro-borde
-// {
-//     border-bottom: 2px solid rgb(var(--primary_color));
-// }
-
-// .borde-textarea
-// {
-//     border-bottom: 2px solid rgb(var(--primary_color));
-//     font-size: var(--font-size-placeholder);
-//     resize: none;
-//     width:100%;
-//     padding: 5px;
-//     margin-top:10px;
-// }
-
-
-// .grupo-botones{
-//     display: flex;
-//     justify-content: space-evenly;
-// }
-
-// .grupo-botones ion-col{
-//     display: flex;
-//     justify-content: end;
-// }
-
-// .grupo-botones ion-col.grupo-botones-start{
-//     justify-content: start;
-// }
-
 .but, .but-cancel, .but-ver {
     width: 132px;
     max-width: 132px;
+}
+
+.ng-touched.ng-dirty.ng-invalid:not(form){
+    background-color: rgba(248, 142, 140,0.1);
+    }
+    
+.show-alert
+{
+    background-color: rgba(var(--secundary_color_cancel),0.5);
+}
+
+.show-alert p{
+    color: rgb(var(--primary_color));
+    font-size:14px;
+    font-weight: 500;
+    padding:0.5rem;
 }

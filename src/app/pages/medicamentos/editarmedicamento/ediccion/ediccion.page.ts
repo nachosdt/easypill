@@ -54,7 +54,7 @@ export class EdiccionPage implements OnInit {
           component: ModalsPage,
           componentProps: {
             'titulo': 'Tratamiento actualizado',
-            'mensaje': `El tratamiento se ha actualizado corréctamente`,
+            'mensaje': `El tratamiento se ha actualizado correctamente`,
             'textoBoton': 'Ir a Medicamentos',
             'urlSalida' : '/medicamentos'
           }

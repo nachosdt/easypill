@@ -17,13 +17,21 @@
       </ion-row>
       <ion-row class="ion-justify-content-center">
         <ion-col size="10" class="ion-justify-content-center">
-          <input type="text" [(ngModel)]="prospectoBuscar"
+          <input type="text" 
+            [(ngModel)]="prospectoBuscar"
             #medicamentoBuscado="ngModel" 
             placeholder="Nombre del medicamento que buscas"
             title="Nombre del medicamento que buscas"
             name="medicamentoBuscado" required
             autocomplete="on"
-            class="registro-borde">
+            minlength="5" 
+            maxlength="100"  
+            pattern = "^([A-zÁ-ÿ]+[ .,/-]*)+"
+            class="registro-borde form-group ng-untouched ng-pristine">
+        </ion-col>
+        <ion-col size="10" [hidden]="medicamentoBuscado.valid || medicamentoBuscado.pristine"
+        class="show-alert">
+          <p>Nombre medicamento no válido</p>
         </ion-col>
       </ion-row>
 

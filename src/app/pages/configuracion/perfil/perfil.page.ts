@@ -57,7 +57,7 @@ export class PerfilPage implements OnInit {
           component: ModalsPage,
           componentProps: {
             'titulo': 'Error al eliminar la cuenta',
-            'mensaje': `No se ha podido eliminar la cuenta. Por favor, inténtelo de nnuevo más tarde`,
+            'mensaje': `No se ha podido eliminar la cuenta. Por favor, inténtelo de nuevo más tarde`,
             'textoBoton': 'Volver',
             'urlSalida' : '/configuracion',
           }

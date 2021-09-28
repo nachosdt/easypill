@@ -17,9 +17,22 @@
 
         <ion-row class="ion-justify-content-center">
           <ion-col size="10" class="ion-justify-content-center">
-            <input type="text" [(ngModel)]="medicamento.nombre" #nombreMedicamento="ngModel"
-              placeholder="Nombre del medicamento" title="Medicamento que buscas"
-              name="nombreMedicamento" required autocomplete="on" class="registro-borde">
+            <input type="text" 
+              [(ngModel)]="medicamento.nombre" 
+              #nombreMedicamento="ngModel"
+              placeholder="Nombre del medicamento" 
+              title="Medicamento que buscas"
+              name="nombreMedicamento" 
+              required 
+              autocomplete="on" 
+              minlength="5" 
+              maxlength="100"  
+              pattern = "^([A-zÁ-ÿ]+[ .,/-]*)+"
+              class="registro-borde form-group ng-untouched ng-pristine">
+          </ion-col>
+          <ion-col size="10" [hidden]="nombreMedicamento.valid || nombreMedicamento.pristine"
+          class="show-alert">
+            <p>Nombre medicamento no válido</p>
           </ion-col>
         </ion-row>
 
@@ -35,14 +48,40 @@
 
         <ion-row class="ion-justify-content-around">
           <ion-col size="4">
-            <input type="number" inputmode="numeric" [(ngModel)]="medicamento.dosisPorToma" #dosis="ngModel"
-              placeholder="Cantidad toma" title="Qué cantidad de medicamento tomar" name="dosis"
-              required class="registro-borde">
+            <input type="number" 
+            inputmode="numeric" 
+              [(ngModel)]="medicamento.dosisPorToma" 
+              #dosis="ngModel"
+              placeholder="Cantidad toma" 
+              title="Qué cantidad de medicamento tomar" 
+              name="dosis"
+              required 
+              class="registro-borde form-group ng-untouched ng-pristine"
+              min="0"
+              >
           </ion-col>
           <ion-col size="4">
-            <input type="number" inputmode="numeric" [(ngModel)]="medicamento.frecuencia" #frecuencia="ngModel"
-              placeholder="Frecuencia" title="Cada cuanto tiempo tomas el medicamento" name="frecuencia" required
-              autocomplete="on" class="registro-borde">
+            <input type="number" 
+              inputmode="numeric" 
+              [(ngModel)]="medicamento.frecuencia" 
+              #frecuencia="ngModel"
+              placeholder="Frecuencia" 
+              title="Cada cuanto tiempo tomas el medicamento" 
+              name="frecuencia" 
+              required
+              autocomplete="on" 
+              min="0"
+              class="registro-borde form-group ng-untouched ng-pristine">
+          </ion-col>
+        </ion-row>
+        <ion-row class="ion-justify-content-around">
+          <ion-col size="4" [hidden]="dosis.valid || dosis.pristine"
+          class="show-alert">
+            <p>Dosis no válida</p>
+          </ion-col>
+          <ion-col size="4" [hidden]="frecuencia.valid || frecuencia.pristine"
+          class="show-alert">
+            <p>Frecuencia no válida</p>
           </ion-col>
         </ion-row>
 
@@ -58,14 +97,37 @@
 
         <ion-row class="ion-justify-content-around">
           <ion-col size="4">
-            <input type="number" inputmode="numeric" [(ngModel)]="medicamento.stock" #cantidadInicials="ngModel"
-              placeholder="Unidades" title="Stock de medicamento" name="cantidadInicial"
-              autocomplete="on" class="registro-borde">
+            <input type="number" 
+              inputmode="numeric" 
+              [(ngModel)]="medicamento.stock" 
+              #cantidadInicials="ngModel"
+              placeholder="Unidades" 
+              title="Stock de medicamento" 
+              name="cantidadInicial"
+              autocomplete="on"
+              min="0" 
+              class="registro-borde form-group ng-untouched ng-pristine">
           </ion-col>
           <ion-col size="4">
-            <ion-datetime displayFormat="HH:mm" minuteValues="0,15,30,45" [(ngModel)]="medicamento.fechaInicio"
-              #primeraToma="ngModel" placeholder="HH:MM" title="Hora y minutos de tu primera toma"
-              name="primeraToma" autocomplete="on" class="registro-borde"></ion-datetime>            
+            <ion-datetime displayFormat="HH:mm" 
+              minuteValues="0,15,30,45" 
+              [(ngModel)]="medicamento.fechaInicio"
+              #primeraToma="ngModel" 
+              placeholder="HH:MM" 
+              title="Hora y minutos de tu primera toma"
+              name="primeraToma" 
+              autocomplete="on" 
+              class="registro-borde form-group ng-untouched ng-pristine"></ion-datetime>            
+          </ion-col>
+        </ion-row>
+        <ion-row class="ion-justify-content-around">
+          <ion-col size="4" [hidden]="cantidadInicials.valid || cantidadInicials.pristine"
+          class="show-alert">
+            <p>Cantidad inicial no válida</p>
+          </ion-col>
+          <ion-col size="4" [hidden]="primeraToma.valid || primeraToma.pristine"
+          class="show-alert">
+            <p>Hora no válida</p>
           </ion-col>
         </ion-row>
 
@@ -78,9 +140,21 @@
 
         <ion-row class="ion-justify-content-center">
           <ion-col size="10">
-            <textarea type="text" [(ngModel)]="medicamento.comentarios" #comentarios="ngModel"
-              placeholder="Notas de la toma" title="Notas de la toma" rows="1"
-              name="comentarios" autocomplete="on" class="borde-textarea"></textarea>
+            <textarea type="text" 
+              [(ngModel)]="medicamento.comentarios" 
+              #comentarios="ngModel"
+              placeholder="Notas de la toma" 
+              title="Notas de la toma" 
+              rows="1"
+              name="comentarios" 
+              autocomplete="on" 
+              class="borde-textarea form-group ng-untouched ng-pristine"
+              minlength="10"
+              maxlength="255"></textarea>
+          </ion-col>
+          <ion-col size="10" [hidden]="comentarios.valid || comentarios.pristine"
+          class="show-alert">
+            <p>Comentario no válido</p>
           </ion-col>
         </ion-row>
 

@@ -27,6 +27,7 @@ export class HomePage implements OnInit {
   public casoVacio:boolean;
 
   public iconoConfiguracion: string = "quietoIcon";
+  @ViewChild("contenedor",{ read: ElementRef }) private contenedor: ElementRef;
 
 
   constructor(private servicioGeneral: ServicioGeneralService, private servicioMedicamento: MedicamentosService, public router: Router) {
@@ -47,8 +48,11 @@ export class HomePage implements OnInit {
     let tomas = this.servicioGeneral.tomasDeHoy;    
     if (tomas.length===0) {
       this.casoVacio = true;
+      this.contenedor.nativeElement.setAttribute("style","--overflow: hidden;");
     } else {
       this.casoVacio = false;
+      if (tomas.length > 2) {this.contenedor.nativeElement.setAttribute("style","--overflow: auto;")}
+      else {this.contenedor.nativeElement.setAttribute("style","--overflow: hidden;");}
       let ahora = new Date();
       for (let i = 0; i < tomas.length; i++) {
         if (new Date(tomas[i].fecha) < ahora) {

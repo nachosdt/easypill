@@ -1,13 +1,18 @@
 // /// mover el scroll a la derecha
 
-ion-content {
-    width: calc(100% + 15px);
-  }
-  ion-content::part(scroll) {
-    padding-right: 15px;
-  }
+// ion-content {    
+//     --overflow: hidden;
+// }
+
+// ion-content::part(scroll) {
+//   padding-right: 15px;
+// }
 
 ////
+
+// .body {
+//     min-height: 77vh;
+// }
 
 #scrollmenu {
     position: relative;    
@@ -178,4 +183,5 @@ h2 {
 
 #ejemplo {
     opacity: 0.6;
+    margin-bottom: 0;
 }

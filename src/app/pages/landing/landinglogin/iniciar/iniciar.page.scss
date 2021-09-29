@@ -1,3 +1,7 @@
+ion-content {   
+    --overflow: hidden;
+  }
+
 #logoNegro{
     width: 120px;
     height: auto;
@@ -14,24 +18,11 @@
     font-weight:bold;
     font-size:25px;
 }
-.body{
+.body{    
     padding-top: 20px;
     // En resto de paginas suele ser 40px pero aquí
     // por el logo interesa 20px
 }
-
-// form{
-//     margin-top:80px;
-// }
-
-// .body form ion-label{
-//     font-size:var(--font-size-form);
-//     font-weight:700;
-// }
-
-// .body form ion-input[placeholder] {
-//     font-size: var(--font-size-placeholder);
-// }
 
 .body form .grupo-registro:first-of-type{
     margin-top: 20px;

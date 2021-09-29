@@ -1,49 +1,19 @@
 // /// mover el scroll a la derecha
 
-ion-content {
-  width: calc(100% + 15px);
-}
-ion-content::part(scroll) {
-  padding-right: 15px;
-}
+// ion-content {
+//   overflow: hidden;
+//   --overflow: hidden;
+// }
+
+// ion-content::part(scroll) {
+//   padding-right: 15px;
+// }
 
 ////
 
-//		Imports
-
-@import "../../../theme/variables.scss";
-@import "../../../estilosGenerales.scss";
-
-.body {
-    position: absolute;
-    min-height: var(--body_height);
-    border-radius: var(--border_radius-header) var(--border_radius-header) 0 0;
-    width: 100%;
-    top: var(--header_height);
-    background-color: rgb(var(--color_white));
-    z-index: 1;
-    padding-top: 40px;
-}
-
-.container-center {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-
-.display-center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.display-around {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
+.body {    
+  min-height: 77vh;    
+  padding-top: 40px;    
 }
 
 // Estilo Sección Prospectos

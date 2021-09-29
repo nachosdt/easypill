@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 import { MedicamentosService } from '../../../shared/medicamentos.service';
 import { ServicioGeneralService } from 'src/app/shared/servicio-general.service';
@@ -15,15 +15,24 @@ export class LunesPage implements OnInit {
   public dias:string[] = ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"];
   public titulo:string = this.dias[this.calcularDia()];
 
+  @ViewChild("contenedor",{ read: ElementRef }) private contenedor: ElementRef;
+
   constructor(private medicamentoService: MedicamentosService, private servicioGeneral:ServicioGeneralService) {
     
   }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  ionViewWillEnter() {
     let medicamentos = this.medicamentoService.getTomasDia(this.servicioGeneral.idUsuario,this.diaSolicitado);
     medicamentos.then((respuesta) => {
       this.medicamentosDia = respuesta;
       console.log(respuesta);
+      if (this.medicamentosDia.length < 7) {
+        this.contenedor.nativeElement.setAttribute("style","--overflow: hidden;");
+      } else {
+        this.contenedor.nativeElement.setAttribute("style","--overflow: auto;");
+      }
     })
     .catch((error) => {
       console.log(error);

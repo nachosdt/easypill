@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { NgForm } from '@angular/forms';
 // import { FormsModule } from '@angular/forms';
 import { DetalleProspectoService } from 'src/app/shared/detalle-prospecto.service';
@@ -19,6 +19,7 @@ export class ProspectoPage implements OnInit {
   public resultados: any [] = [];
   public sinResultados:boolean = false;
 
+  @ViewChild("contenedor",{ read: ElementRef }) private contenedor: ElementRef;
 
   constructor(private detalleServicio : DetalleProspectoService) { 
   }
@@ -32,11 +33,21 @@ export class ProspectoPage implements OnInit {
       this.detalleServicio.getProspectos(this.detalleServicio.medicamento2Buscar)
       .then((respuesta)=>{
         this.resultados = respuesta;
+        if (this.resultados.length === 0) {
+          this.contenedor.nativeElement.setAttribute("style","--overflow: hidden;");
+          this.sinResultados = true;
+        } else {
+          this.contenedor.nativeElement.setAttribute("style","--overflow: auto;");
+        }
       })
       .catch((error)=>{
         console.log(error);
       });
+    } else {
+      this.contenedor.nativeElement.setAttribute("style","--overflow: hidden;");
     }
+
+    
   }
 
   async buscarProspectos(form:NgForm){
@@ -46,7 +57,12 @@ export class ProspectoPage implements OnInit {
     await this.detalleServicio.getProspectos(this.prospectoBuscar)
     .then( data => {
       this.resultados = data;      
-      if (data.length===0) {this.sinResultados = true;}
+      if (data.length===0) {
+        this.sinResultados = true;
+        this.contenedor.nativeElement.setAttribute("style","--overflow: hidden;");
+      } else {
+        this.contenedor.nativeElement.setAttribute("style","--overflow: auto;");
+      }
     })
     .catch((error)=>{
       console.log(error);

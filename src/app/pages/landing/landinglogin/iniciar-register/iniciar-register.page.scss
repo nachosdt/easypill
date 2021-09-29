@@ -1,3 +1,7 @@
+ion-content {
+    --overflow: hidden;
+}
+
 #logoNegro{
     width: 150px;
     height: auto;
@@ -20,19 +24,6 @@
     // por el logo interesa 20px
 }
 
-// form{
-//     margin-top:80px;
-// }
-
-// .body form ion-label{
-//     font-size:var(--font-size-form);
-//     font-weight:700;
-// }
-
-// .body form input[placeholder] {
-//     font-size: var(--font-size-placeholder);
-// }
-
 .body form .grupo-registro:first-of-type{
     margin-top: 20px;
 }
@@ -46,8 +37,6 @@
     border-bottom: 2px solid rgb(var(--primary_color));
 }
 .but{
-    // margin-top: 130px;
-    // margin-top: 75px;
     max-width:186px;
     width:186px;
 }

@@ -125,14 +125,17 @@ ion-modal {
     max-height: 50%;
 }
 
-ion-content > p{
-        display: flex;
-        justify-content: center;
-        width: 70%;
-        margin: 10px auto;
-        text-align: center;
-        font-size: 15px;
+ion-content {
+    --background: rgb(111, 0, 255);
+}
 
+ion-content > p{
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    margin: 10px auto;
+    text-align: center;
+    font-size: 15px;
 }
 
 .destacado-modal{

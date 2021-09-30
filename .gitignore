@@ -2,15 +2,15 @@
 # http://git-scm.com/docs/gitignore
 
 # Quitamos las páginas que no usamos
-src/app/pages/medicamentos/martes
-src/app/pages/medicamentos/miercoles
-src/app/pages/medicamentos/jueves
-src/app/pages/medicamentos/viernes
-src/app/pages/medicamentos/sabado
-src/app/pages/medicamentos/dommingo
-src/app/pages/modals/modal1
-src/app/pages/modals/modal2
-src/app/pages/modals/modal3
+src/app/pages/medicamentos/martes/
+src/app/pages/medicamentos/miercoles/
+src/app/pages/medicamentos/jueves/
+src/app/pages/medicamentos/viernes/
+src/app/pages/medicamentos/sabado/
+src/app/pages/medicamentos/dommingo/
+src/app/pages/modals/modal1/
+src/app/pages/modals/modal2/
+src/app/pages/modals/modal3/
 
 *~
 *.sw[mnpcod]

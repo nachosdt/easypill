@@ -38,10 +38,12 @@
 //		HEADER
 
 .header {
-    height: 20vh;
+    height: var(--header_height);
     background-color: rgb(var(--primary_color));
     position: fixed;
+    top:0;
     width: 100%;
+    padding-top:30px;
 }
 
 .header > div > img {
@@ -60,10 +62,10 @@
 
 .body {
     position: absolute;
+    top: var(--header_height);
     min-height: var(--body_height);
     border-radius: var(--border_radius-header) var(--border_radius-header) 0 0;
-    width: 100%;
-    top: var(--header_height);
+    width: 100%;    
     background-color: rgb(var(--color_white));
     z-index: 1;
 }

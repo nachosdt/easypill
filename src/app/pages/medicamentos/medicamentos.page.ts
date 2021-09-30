@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { MedicamentosService } from '../../shared/medicamentos.service';
 import { Medicamento } from '../../models/medicamento/medicamento';
 import { ServicioGeneralService } from 'src/app/shared/servicio-general.service';
@@ -16,6 +16,8 @@ export class MedicamentosPage implements OnInit {
   public diasOrdenados:string[];  
   public medicamentos:Medicamento[] = [];
 
+  @ViewChild("contenedor",{ read: ElementRef }) private contenedor: ElementRef;
+
   constructor(public medicamentoService: MedicamentosService, private servicioGeneral:ServicioGeneralService) { 
     
     this.diaSemana = servicioGeneral.diaSemana;
@@ -28,6 +30,11 @@ export class MedicamentosPage implements OnInit {
 
   ionViewWillEnter() {    
     this.medicamentos = this.medicamentoService.medicamentos;
+    if (this.medicamentos.length < 5) {
+      this.contenedor.nativeElement.setAttribute("style","--overflow: hidden;");
+    } else {
+      this.contenedor.nativeElement.setAttribute("style","--overflow: auto;");
+    }
   }
 
   private ordenDiasSemana() {

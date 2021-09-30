@@ -59,7 +59,7 @@ export class IniciarPage implements OnInit {
             'titulo': 'Email o contraseña incorrectos',
             'mensaje': `Por favor, asegurese de introducir correctamente el email y la contraseña.`,
             'textoBoton': 'Continuar',
-            'urlSalida': 'landing/landinlogin/'
+            'urlSalida': 'landing/landinlogin/iniciar'
           }
         });
         return await modal.present();
@@ -78,29 +78,6 @@ export class IniciarPage implements OnInit {
       }
 
     });
-  }
-
-  async recuperarPass() {
-    const modal = await this.modalController.create({
-      component: ModalsPage,
-      componentProps: {
-        'titulo': 'Recuperación de contraseña',
-        'mensaje': `En breve te enviaremos un email.`,
-        'textoBoton': 'Continuar',
-        'urlSalida': 'landing'
-      }
-    });
-    return await modal.present();
-  } 
-
-  // async loginIncorrecto() {
-  //   const alerta = await this.toast.create({
-  //     message: "Email o contraseña incorrectos",
-  //     duration: 3000,
-  //     position: 'top',
-  //     color: "warning",
-  //   });
-  //   alerta.present();
-  // }
+  }  
 }
 

@@ -12,4 +12,10 @@ export class LoginService {
     let body = {"email":email,"contrasenia":contrasenia};
     return this.http.post(url, body);
   }
+
+  public recuperarContrasenia(email:string):any {
+    let url = "https://api-easypill.herokuapp.com/recuperarpass";
+    let body = {"email":email};
+    return this.http.post(url, body);
+  }
 }

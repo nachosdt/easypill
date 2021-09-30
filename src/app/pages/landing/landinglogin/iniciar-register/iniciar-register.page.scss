@@ -1,3 +1,7 @@
+ion-content {
+    --overflow: hidden;
+}
+
 #logoNegro{
     width: 150px;
     height: auto;
@@ -33,23 +37,14 @@
     border-bottom: 2px solid rgb(var(--primary_color));
 }
 .but{
-    // margin-top: 130px;
-    // margin-top: 75px;
     max-width:186px;
     width:186px;
-}
-.but-cancel{
-    max-width:186px;
-    min-width: 60%;
-    font-size:14px;
-    height: 34px;
-    margin-top: 25px;
-    background-color: rgb(var(--primary_color_light));
 }
 
 .iniciar_but{
     margin-top: 60px;
 }
+
 
 
 .ng-touched.ng-dirty.ng-invalid:not(form){
@@ -66,4 +61,9 @@
     font-size:14px;
     font-weight: 500;
     padding:0.5rem;
+
+#texto {
+    padding: 40px;
+    color: rgb(var(--primary_color));
+    text-align: center;
 }

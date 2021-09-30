@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ContactosService } from '../../../shared/contactos.service';
 import { Contacto } from '../../../models/contacto';
 
@@ -16,6 +16,8 @@ export class ContactosPage implements OnInit {
   public contactos: Contacto[] = [];
   public contacto !: Contacto;  
 
+  @ViewChild("contenedor",{ read: ElementRef }) private contenedor: ElementRef;
+
   constructor(public contactoService: ContactosService) {}
 
   ngOnInit() {
@@ -23,6 +25,11 @@ export class ContactosPage implements OnInit {
 
   ionViewWillEnter() {
     this.contactos = this.contactoService.contactos;
+    if (this.contactos.length < 6) {
+      this.contenedor.nativeElement.setAttribute("style","--overflow: hidden;");
+    } else {
+      this.contenedor.nativeElement.setAttribute("style","--overflow: auto;");
+    }    
   }
 
   // POSICION DEL CONTACTO SELECCIONADO EN EL ARRAY

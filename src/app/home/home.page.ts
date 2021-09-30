@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class HomePage implements OnInit {
 
   @ViewChild('irAconfiguracion') irAconfiguracion: ElementRef;
-
+  
   public nombreUsuario: string;
   public diaDelMes: number;
   public diaDeLaSemana: string;
@@ -27,6 +27,7 @@ export class HomePage implements OnInit {
   public casoVacio:boolean;
 
   public iconoConfiguracion: string = "quietoIcon";
+  @ViewChild("contenedor",{ read: ElementRef }) private contenedor: ElementRef;
 
 
   constructor(private servicioGeneral: ServicioGeneralService, private servicioMedicamento: MedicamentosService, public router: Router) {
@@ -38,7 +39,7 @@ export class HomePage implements OnInit {
 
   ngOnInit() { }
 
-  ionViewWillEnter() {
+  ionViewWillEnter() {       
     this.tomasDeHoyFuturas = [];
     this.tomasDeHoyPasadas = [];
     this.tomasDeHoyOlvidadas = [];
@@ -47,8 +48,11 @@ export class HomePage implements OnInit {
     let tomas = this.servicioGeneral.tomasDeHoy;    
     if (tomas.length===0) {
       this.casoVacio = true;
+      this.contenedor.nativeElement.setAttribute("style","--overflow: hidden;");
     } else {
       this.casoVacio = false;
+      if (tomas.length > 2) {this.contenedor.nativeElement.setAttribute("style","--overflow: auto;")}
+      else {this.contenedor.nativeElement.setAttribute("style","--overflow: hidden;");}
       let ahora = new Date();
       for (let i = 0; i < tomas.length; i++) {
         if (new Date(tomas[i].fecha) < ahora) {
@@ -69,9 +73,9 @@ export class HomePage implements OnInit {
       // console.log("Pasadas:", this.tomasDeHoyPasadas);
       // console.log("Futuras:", this.tomasDeHoyFuturas);
     }    
-  }
+  }  
 
-  configpage() {
+  public configpage() {
     this.iconoConfiguracion = "config-icon"
     setTimeout(() => {
       this.iconoConfiguracion = "quietoIcon"
@@ -100,6 +104,10 @@ export class HomePage implements OnInit {
   public mostarConfirmacion(botones: HTMLDivElement) {
     botones.classList.remove("desaparecer");
     botones.classList.add("aparecer");
+    setTimeout(()=>{
+      botones.classList.remove("aparecer");
+      botones.classList.add("desaparecer");
+    },5000);
   }
 
   public tomada(indice: number) {

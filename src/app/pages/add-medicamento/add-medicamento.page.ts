@@ -27,6 +27,7 @@ export class AddMedicamentoPage implements OnInit {
 
   async onSubmit(form:NgForm) {
 
+
     if(
       (form.value.nombreMedicamento!=null) &&
       (form.value.dosis!=null) &&
@@ -73,6 +74,7 @@ export class AddMedicamentoPage implements OnInit {
       });
       return await modal.present();
     }    
+
   }
 
 }

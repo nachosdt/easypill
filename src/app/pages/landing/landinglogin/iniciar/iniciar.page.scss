@@ -1,3 +1,7 @@
+ion-content {   
+    --overflow: hidden;
+  }
+
 #logoNegro{
     width: 120px;
     height: auto;
@@ -14,7 +18,7 @@
     font-weight:bold;
     font-size:25px;
 }
-.body{
+.body{    
     padding-top: 20px;
     // En resto de paginas suele ser 40px pero aquí
     // por el logo interesa 20px

@@ -17,7 +17,7 @@
           
           <!-- Acordeon  -->
           <details *ngFor="let item of arrSecciones; let indice = index">
-            <summary><h4 class="tit-acordeon">{{ (indice+1) +". " + arrSecciones[indice].titulo}}</h4></summary>
+            <summary><h4 class="tit-acordeon">{{ (indice+1) +". " + arrSecciones[indice].titulo}}</h4><img src="../../../../assets/back_claro_down.svg"></summary>
             <p class="text-acordeon" [innerHTML]="arrSecciones[indice].contenido"></p>
           </details>
 

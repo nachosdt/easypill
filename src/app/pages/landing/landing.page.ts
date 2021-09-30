@@ -11,34 +11,37 @@ import { Animation, AnimationController } from '@ionic/angular';
 })
 export class LandingPage implements OnInit {
 
-  @ViewChild('imagen', {read:ElementRef,static:true}) imagen: ElementRef;
-  @ViewChild('marca', {read:ElementRef,static:true}) marca: ElementRef;
-  @ViewChild('botones', {read:ElementRef,static:true}) botones: ElementRef;
+  @ViewChild('imagen', { read: ElementRef, static: true }) imagen: ElementRef;
+  @ViewChild('marca', { read: ElementRef, static: true }) marca: ElementRef;
+  @ViewChild('botones', { read: ElementRef, static: true }) botones: ElementRef;
 
-  constructor(private router: Router,private animationCtrl: AnimationController) {
-    
+  constructor(private router: Router, private animationCtrl: AnimationController) {
+
   }
 
   ngOnInit() {
     const animation1: Animation = this.animationCtrl.create()
-    .addElement(this.imagen.nativeElement)
-    .duration(3000)
-    .fromTo('opacity', '1', '0');
+      .addElement(this.imagen.nativeElement)
+      .duration(500)
+      .fromTo('opacity', '1', '0');
     const animation2: Animation = this.animationCtrl.create()
-    .addElement(this.marca.nativeElement)
-    .duration(1200)
-    .easing("ease-in-out")
-    .fromTo('transform', 'translateY(0px)', 'translateY(-200px)');
+      .addElement(this.marca.nativeElement)
+      .duration(1200)
+      .easing("ease-in-out")
+      .fromTo('transform', 'translateY(0px)', 'translateY(-200px)');
     const animation3: Animation = this.animationCtrl.create()
-    .addElement(this.botones.nativeElement)
-    .duration(2000)
-    .fromTo('opacity', '0', '1');
+      .addElement(this.botones.nativeElement)
+      .duration(1000)
+      .fromTo('opacity', '0', '1')
+      .fromTo('transform', 'translateY(40px)', 'translateY(0px)');
 
-    animation1.play();
-    setTimeout(()=> {
+    setTimeout(() => {
+      animation1.play();
+    }, 1000);
+    setTimeout(() => {
       animation2.play();
       this.botones.nativeElement.style.display = "flex";
       animation3.play();
-    },2600);
-  }  
+    }, 900);
+  }
 }

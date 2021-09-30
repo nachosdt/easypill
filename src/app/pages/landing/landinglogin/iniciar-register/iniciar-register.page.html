@@ -2,7 +2,7 @@
   <header class="header container-center">
     <div class="container-center">
       <img src="../../../assets/back_claro.svg" (click)="goBack()">
-     <h1>Iniciar Sesión</h1>
+     <h1>Recuperar contraseña</h1>
     </div>
 </header>
 
@@ -13,7 +13,7 @@
   </article>
 
   <!-- Formulario -->
-  <form #iniciarForm="ngForm">
+  <form #emailForm="ngForm">
 
     <ion-grid>
 
@@ -25,7 +25,8 @@
 
       <ion-row class="ion-justify-content-center">
         <ion-col size="10" class="ion-justify-content-center">
-          <ion-input type="text" 
+
+          <input type="text" 
             [(ngModel)]="usuario.email" 
             #email="ngModel" 
             placeholder="emailejemplo@gmail.com"
@@ -36,8 +37,9 @@
             minlength="5" 
             maxlength="45" 
             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-            class="registro-borde form-group ng-untouched ng-pristine"></ion-input>
+            class="registro-borde form-group ng-untouched ng-pristine">
         </ion-col>
+
         <ion-col size="10" [hidden]="email.valid || email.pristine"
               class="show-alert">
           Email no válido
@@ -52,7 +54,7 @@
 
       <ion-row class="ion-justify-content-center">
         <ion-col size="10" class="ion-justify-content-center">
-          <ion-input type="password" 
+          <input type="password" 
             [(ngModel)]="usuario.contrasenia" 
             #contrasenia="ngModel" 
             placeholder="***********"
@@ -63,24 +65,22 @@
             minlength="6" 
             maxlength="45"
             pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{6,45}$"
-            class="registro-borde form-group ng-untouched ng-pristine"></ion-input>
+            class="registro-borde form-group ng-untouched ng-pristine">
         </ion-col>
         <ion-col size="10" [hidden]="contrasenia.valid || contrasenia.pristine"
               class="show-alert">
           Contraseña no válida
         </ion-col>
       </ion-row>
+      </ion-row>        
 
       <div size="10" class="display-center iniciar_but">
-        <button (click)="onSubmit(iniciarForm)" expand="block" 
-        class="but" fill="clear" shape="round" routerLink="/inicio-onboarding">
-         Aceptar
-        </button>
-        <button expand="block" 
-        class="but-cancel" fill="clear" shape="round">
-          He olvidado mi contraseña
-        </button>
+        <button (click)="enviarEmail(emailForm)" expand="block" 
+        class="but" fill="clear" shape="round">
+         Recuperar contraseña
+        </button>        
       </div>
+      <p id="texto">Se le enviará un email a esta dirección con una nueva contraseña provisional.</p>
 
     </ion-grid> 
   </form>

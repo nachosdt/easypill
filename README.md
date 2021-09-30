@@ -31,7 +31,7 @@ En la pestaña de Code, desplegamos el botón code y copiamos el enlace https o 
 En consola ejecutamos git clone + url
 
 ```
-git clone https://github.com/nachosdt/API_Easypill.git
+git clone https://github.com/nachosdt/easypill.git
 ```
 
 _Descargado el proyecto, desde consola instalamos los paquetes necesarios._

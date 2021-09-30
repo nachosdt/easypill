@@ -83,7 +83,7 @@ This project is under License (Our license) - Read the [LICENSE.md](LICENSE.md) 
 
 * Loads of thanks to Jose, Ventu and Ruben for their theachings and support. 📢Thank you teachers!
 * Thanks to fellow mates, for being such a great fellows. You all deserve a shot 🍻 or a coffee ☕ for those healthy ones.
-* And thanks to CodeNotch girls for their help and for those delicious pizzas :pizza: and hamburguers :hamburger:
+* And thanks to CodeNotch girls for their help and for those delicious pizzas :pizza: and hamburguers :hamburger: 🤓
 
 ---
 😊:clap::clap::clap:

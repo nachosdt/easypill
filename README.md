@@ -4,6 +4,7 @@ Easypill es una aplicación para la gestión de tratamientos médicos.
 En el pastillero virtual, por días, podemos ver de forma sencilla y práctica las tomas de esa jornada, 
 ordenadas por proximidad horaria. 
 De un vistazo podemos ver si nos hemos saltado una toma.
+
 Además, se añaden otras funcionalidades:
 * Consultar y buscar los prospectos de los fármacos
 * Buscar la farmacia más próxima en nuestra zona
@@ -12,22 +13,22 @@ Además, se añaden otras funcionalidades:
 
 ## Copia del proyecto 🚀
 
-_Para probar la aplicación sigue las siguientes indicaciones._
+Para probar la aplicación sigue las siguientes indicaciones.
 
 ### Pre-requisitos 📋
 
-_Es necesario tener instalado Node js_
+Es necesario tener instalado Node js
 
 Puedes descargarlo en [node.org](https://nodejs.org/es/download/)
 
 
 ### Instalación 🔧
 
-_Entramos en el repositorio [easypill](https://github.com/nachosdt/easypill)_
+Entramos en el repositorio [easypill](https://github.com/nachosdt/easypill)
 
-_En la pestaña de Code, desplegamos el botón code y copiamos el enlace https o el SSH_
+En la pestaña de Code, desplegamos el botón code y copiamos el enlace https o el SSH
 
-_En consola ejecutamos git clone + url_
+En consola ejecutamos git clone + url
 
 ```
 git clone https://github.com/nachosdt/API_Easypill.git
@@ -39,16 +40,16 @@ _Descargado el proyecto, desde consola instalamos los paquetes necesarios._
 npm install
 ```
 
-_Ahora debemos iniciar el proyecto con Ionic._
+Ahora debemos iniciar el proyecto con Ionic.
 
 ```
 ionic serve
 ```
-_Ya tendremos la aplicación funcionando._
+Ya tendremos la aplicación funcionando.
 
 ## Construido con 🛠️
 
-_La aplicación se ha construido con las siguientes tecnologías:_
+La aplicación se ha construido con las siguientes tecnologías:
 
 * [Ionic](https://ionicframework.com/)
 * [Angular](https://angular.io/)
@@ -60,10 +61,10 @@ _La aplicación se ha construido con las siguientes tecnologías:_
 _Equipo de desarrollo Easypill_
 
 * **Antonio Haran** - [antonioharan](https://github.com/antonioharan)
-* **Jaime Martorell** -[Martorell93](https://github.com/Martorell93)
-* *Dario Paucar** -[Dariioo1](https://github.com/Dariioo1)
+* **Jaime Martorell** - [Martorell93](https://github.com/Martorell93)
+* **Dario Paucar** - [Dariioo1](https://github.com/Dariioo1)
 * **Kika Picón** - [fpicong71](https://github.com/fpicong71)
-* *Isabel Rosales** - [Isabel](https://github.com/LIRVisabel)
+* **Isabel Rosales** - [Isabel](https://github.com/LIRVisabel)
 * **Nacho Sáenz de Tejada** - [Nacho](https://github.com/nachosdt)
 
 ## Licencia 📄
@@ -72,7 +73,7 @@ Este proyecto está bajo la Licencia (Tu Licencia) - mira el archivo [LICENSE.md
 
 ## Expresiones de Gratitud 🎁
 
-* Muchas gracias a Jose, Ventu y Ruben por sus enseñanzas y su apoyo. ¡Gracias profes!📢
+* Muchas gracias a Jose, Ventu y Ruben por sus enseñanzas y su apoyo.📢¡Gracias profes!
 * A los compis, por ser tan buenos compis. Os mereceis unas cañitas 🍺 o un cafés ☕ para los sanos. 
 * Y a las chicas de Codenotch por su ayuda y por esas pizzas :pizza: y hamburguesas :hamburger: tan ricas 🤓.
 

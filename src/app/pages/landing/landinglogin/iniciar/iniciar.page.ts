@@ -52,7 +52,7 @@ export class IniciarPage implements OnInit {
               'titulo': 'Email o contraseña incorrectos',
               'mensaje': `Por favor, asegurese de introducir correctamente el email y la contraseña.`,
               'textoBoton': 'Continuar',
-              'urlSalida': 'landing/landinlogin/iniciar'
+              'urlSalida': 'landing/landinglogin/iniciar'
             }
           });
           return await modal.present();

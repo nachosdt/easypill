@@ -59,11 +59,11 @@ _La aplicación se ha construido con las siguientes tecnologías:_
 
 _Equipo de desarrollo Easypill_
 
-* **Antonio Haran** - [antonioharan] (https://github.com/antonioharan)
-* **Jaime Martorell** -[Martorell93] (https://github.com/Martorell93)
-* *Dario Paucar** -[Dariioo1] (https://github.com/Dariioo1)
-* **Kika Picón** - [fpicong71] (https://github.com/fpicong71)
-* *Isabel Rosales** - [Isabel] (https://github.com/LIRVisabel)
+* **Antonio Haran** - [antonioharan](https://github.com/antonioharan)
+* **Jaime Martorell** -[Martorell93](https://github.com/Martorell93)
+* *Dario Paucar** -[Dariioo1](https://github.com/Dariioo1)
+* **Kika Picón** - [fpicong71](https://github.com/fpicong71)
+* *Isabel Rosales** - [Isabel](https://github.com/LIRVisabel)
 * **Nacho Sáenz de Tejada** - [Nacho](https://github.com/nachosdt)
 
 ## Licencia 📄

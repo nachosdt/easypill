@@ -1,5 +1,5 @@
 ## Easypill
-
+_Este documento también está disponible en [inglés](https://github.com/nachosdt/easypill/blob/master/README_en.md)_
 Easypill es una aplicación para la gestión de tratamientos médicos. 
 En el pastillero virtual, por días, podemos ver de forma sencilla y práctica las tomas de esa jornada, 
 ordenadas por proximidad horaria. 

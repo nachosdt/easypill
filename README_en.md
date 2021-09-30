@@ -11,7 +11,7 @@ Additionally, other functionalities has been added:
 * Seek for the nearest drugstore to you.
 * Agenda with your contacts for keeping them informed and notify when a take hasn´t been fullfill.
 
-## Poyect copy 🚀
+## Project copy 🚀
 
 For trying out the app follow the instructions.
 

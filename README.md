@@ -23,11 +23,14 @@ Puedes descargarlo en [node.org](https://nodejs.org/es/download/)
 
 ### Instalación 🔧
 
-_Desde consola escribimos git clone "git@github.com:nachosdt/easypill.git"_
+_Entramos en el repositorio [easypill](https://github.com/nachosdt/easypill)_
 
+_En la pestaña de <Code>, desplegamos el botón code y copiamos el enlace https o el SSH_
+
+_En consola ejecutamos git clone + url_
 
 ```
-git clone git@github.com:nachosdt/easypill.git
+git clone https://github.com/nachosdt/API_Easypill.git
 ```
 
 _Descargado el proyecto, desde consola instalamos los paquetes necesarios._

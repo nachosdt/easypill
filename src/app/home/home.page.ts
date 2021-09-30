@@ -86,7 +86,7 @@ export class HomePage implements OnInit {
 
 
   public convertirHora(hora: string): string {
-    return hora.slice(10, 15);
+    return hora.split(" ")[1].slice(0,5);
   }
 
   public hoyOManiana(hora: string) {
@@ -126,7 +126,7 @@ export class HomePage implements OnInit {
 
   public olvidada(indice: number) {
     let registro = this.tomasDeHoyPendientes[indice];
-    let actualizacion = this.servicioGeneral.actualizarTomas(registro.idtomas, "olvidada", null);
+    let actualizacion = this.servicioGeneral.actualizarTomas(registro.idtomas, "olvidada", registro.id_medicamento);
     actualizacion.then((respuesta) => {
       if (respuesta) {
         this.tomasDeHoyPendientes.splice(indice, 1);

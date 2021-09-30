@@ -8,16 +8,20 @@ import { Router } from '@angular/router';
 })
 export class CabeceraComponent implements OnInit {
 
-  @Input() titulo:string;
-  @Input() iconoAtras:boolean;
-  @Input() rutaAtras:string;
-  
-  constructor(private router:Router) { }
+  @Input() titulo: string;
+  @Input() iconoAtras: boolean;
+  @Input() rutaAtras: string;
 
-  ngOnInit() {}
+  constructor(private router: Router) { }
 
-  public ruta(ruta:string) {
+
+
+  ngOnInit() { }
+
+  public ruta(ruta: any) {
     this.router.navigate([ruta]);
+
+
   }
 
 }

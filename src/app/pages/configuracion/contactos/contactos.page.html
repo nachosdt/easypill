@@ -1,9 +1,10 @@
 <ion-content #contenedor>
-  <app-cabecera [titulo]="nombreCabecera" [iconoAtras]="icono" [rutaAtras]="rutaAtras"></app-cabecera>  
-  
+  <app-cabecera [titulo]="nombreCabecera" [iconoAtras]="icono" [rutaAtras]="rutaAtras">
+  </app-cabecera>
+
   <section class="body">
-      <!-- NG FOR PARA CONTACTOS GUARDADOS -->
-    <ng-container *ngIf="contactos.length!==0; else vacio" >
+    <!-- NG FOR PARA CONTACTOS GUARDADOS -->
+    <ng-container *ngIf="contactos.length!==0; else vacio">
       <ng-container *ngFor="let contacto of contactos">
         <div class="display-around">
           <div class="medicina-next" routerLink="contacto" (click)="guardarPosicion(contacto.posicionArray)">
@@ -19,7 +20,7 @@
     <ng-template #vacio>
       <p id="vacio">En cuanto hayas añadido nuevos contactos, aquí te aparecerá una lista con todos ellos.
         <br><br>
-        En caso de que olvides tomarte algún medicamento les avisaremos por mail o sms, para ayudarte a 
+        En caso de que olvides tomarte algún medicamento les avisaremos por mail o sms, para ayudarte a
         estar al día con tus tratamientos.
       </p>
       <div class="display-around" id="ejemplo">
@@ -36,7 +37,7 @@
     <article class="container-center">
       <button class="but container-center" routerLink="anadir-contacto">Añadir contacto</button>
     </article>
-    
-  
+
+
   </section>
-  </ion-content>
+</ion-content>

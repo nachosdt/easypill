@@ -79,7 +79,7 @@ Easypill´s development team
 
 This project is under License (Our license) - Read the [LICENSE.md](LICENSE.md) file for futher details.
 
-## Thankings 🎁
+## Gratefulness 🎁
 
 * Loads of thanks to Jose, Ventu and Ruben for their theachings and support. 📢Thank you teachers!
 * Thanks to fellow mates, for being such a great fellows. You all deserve a shot 🍻 or a coffee ☕ for those healthy ones.

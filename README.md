@@ -47,6 +47,14 @@ ionic serve
 ```
 Ya tendremos la aplicación funcionando.
 
+## Enlaces :link:
+*API Rest: posibilita el intercambio de datos entre el front y la DDBB así como otras APIs externas.
+[API_Easypill](https://github.com/nachosdt/API_Easypill)
+*APK: 
+[EasypillAPK]()
+*Visualización de la app
+[Heroku](https://easypillapp.herokuapp.com/landing)
+
 ## Construido con 🛠️
 
 La aplicación se ha construido con las siguientes tecnologías:
@@ -58,7 +66,7 @@ La aplicación se ha construido con las siguientes tecnologías:
 
 ## Autores ✒️
 
-_Equipo de desarrollo Easypill_
+Equipo de desarrollo Easypill
 
 * **Antonio Haran** - [antonioharan](https://github.com/antonioharan)
 * **Jaime Martorell** - [Martorell93](https://github.com/Martorell93)
@@ -71,7 +79,7 @@ _Equipo de desarrollo Easypill_
 
 Este proyecto está bajo la Licencia (Tu Licencia) - mira el archivo [LICENSE.md](LICENSE.md) para detalles
 
-## Expresiones de Gratitud 🎁
+## Agradecimientos 🎁
 
 * Muchas gracias a Jose, Ventu y Ruben por sus enseñanzas y su apoyo.📢¡Gracias profes!
 * A los compis, por ser tan buenos compis. Os mereceis unas cañitas 🍺 o un cafés ☕ para los sanos. 

@@ -1,3 +1,4 @@
+![Easypill App](https://github.com/nachosdt/easypill/blob/master/src/assets/EasyPill-header.jpg)
 # Easypill
 _Este documento también está disponible en [inglés](https://github.com/nachosdt/easypill/blob/master/README_en.md)_
 Easypill es una aplicación para la gestión de tratamientos médicos. 

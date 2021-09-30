@@ -31,7 +31,7 @@ export class RegistroPage implements OnInit {
       const modal = await this.modalController.create({
         component: ModalsPage,
         componentProps: {
-          'titulo': 'La contraseña no coinciden',
+          'titulo': 'Las contraseñas no coinciden',
           'mensaje': `Por favor, asegurese de que ambos campos coinciden.`,
           'textoBoton': 'Entendido',
           'urlSalida' : 'landing/landinglogin/registro'

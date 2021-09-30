@@ -16,9 +16,20 @@
 
         <ion-row class="ion-justify-content-center">
           <ion-col size="10" class="ion-justify-content-center">
-            <input type="text" [(ngModel)]="contacto.nombreContacto" #nombreContacto="ngModel" 
-              title="Nombre completo del contacto" name="nombreContacto"
-              required autocomplete="on" class="registro-borde">
+            <input type="text" 
+              [(ngModel)]="contacto.nombreContacto" 
+              #nombreContacto="ngModel" 
+              title="Nombre completo del contacto" 
+              name="nombreContacto"
+              required 
+              autocomplete="on"minlength="5" 
+              maxlength="100"  
+              pattern = "^([A-zÁ-ÿ]+[ .,/-]*)+"
+              class="registro-borde form-group ng-untouched ng-pristine"
+              >
+          </ion-col>
+          <ion-col size="10" [hidden]="nombreContacto.valid || nombreContacto.pristine" class="show-alert">
+            <p>Nombre de contacto no válido</p>
           </ion-col>
         </ion-row>
 
@@ -31,8 +42,19 @@
 
         <ion-row class="ion-justify-content-around">
           <ion-col size="10">
-            <input type="text" [(ngModel)]="contacto.tlfContacto" #tlfContacto="ngModel" 
-              title="Teléfono del contacto" name="tlfContacto" required class="registro-borde">
+            <input type="text" 
+              [(ngModel)]="contacto.tlfContacto"
+              #tlfContacto="ngModel" 
+              title="Teléfono del contacto" 
+              name="tlfContacto" 
+              required 
+              class="registro-borde form-group ng-untouched ng-pristine"
+              pattern="(\+[0-9]{2,3})?[ -]*([0-9])[ -]*([0-9][ -]*){8}"
+              minlength="8"
+              maxlength="17">
+          </ion-col>
+          <ion-col size="10" [hidden]="tlfContacto.valid || tlfContacto.pristine" class="show-alert">
+            <p>Teléfono no válido</p>
           </ion-col>
         </ion-row>
 
@@ -45,9 +67,20 @@
 
         <ion-row class="ion-justify-content-around">
           <ion-col size="10">
-            <input type="email" [(ngModel)]="contacto.emailContacto" #emailContacto="ngModel"
-               title="Email del contacto" name="emailContacto" required
-              autocomplete="on" class="registro-borde">
+            <input type="email" 
+              [(ngModel)]="contacto.emailContacto" 
+              #emailContacto="ngModel"
+              title="Email del contacto" 
+              name="emailContacto" 
+              required
+              autocomplete="on"
+              minlength="5" 
+              maxlength="45" 
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" 
+              class="registro-borde form-group ng-untouched ng-pristine">
+          </ion-col>
+          <ion-col size="10" [hidden]="emailContacto.valid || emailContacto.pristine" class="show-alert">
+            <p>Email no válido</p>
           </ion-col>
         </ion-row>
 

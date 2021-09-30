@@ -23,7 +23,7 @@ export class AnadirContactoPage implements OnInit {
   public contacto: Contacto = new Contacto();
   public checkedEmail: boolean;
   public checkedSms: boolean;
-  public yaEstoyLogueado: boolean = false
+  public yaEstoyLogueado: boolean = false;
 
   constructor(public contactoService: ContactosService,
     public servicioGeneralService: ServicioGeneralService,
@@ -72,7 +72,7 @@ export class AnadirContactoPage implements OnInit {
           component: ModalsPage,
           componentProps: {
             'titulo': 'Error al crear el nuevo contacto',
-            'mensaje': 'Se ha producido un error al crear el nuevo  contacto. Por favor, inténtalo de nuvo más tarde',
+            'mensaje': 'Se ha producido un error al crear el nuevo  contacto. Por favor, inténtalo de nuevo más tarde',
             'textoBoton': 'Ir a Contactos',
             'urlSalida': '/configuracion/contactos'
           }

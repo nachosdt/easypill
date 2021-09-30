@@ -6,8 +6,6 @@
 <section class="body">
   <!-- Logo letra imagen -->
   <article class="display-center">
-    <!--<img src="../../../assets/logoMorado.svg" id="logoNegro">
-     <img src="../../../assets/logoNegro.svg" id="logoNegro"> -->
     <img src="../../../../../assets/logoOk_h_fblanco.svg" alt="Logo" class="logo-cabecera">
   </article>
 
@@ -24,12 +22,21 @@
       </ion-row>
       <ion-row class="ion-justify-content-center">
         <ion-col size="10" class="ion-justify-content-center">
-          <input type="text" [(ngModel)]="usuario.nombre" 
+          <input type="text" 
+            [(ngModel)]="usuario.nombre" 
             #nombre="ngModel"             
             title="NombreUsuario"
-            name="nombreUsuario" required
+            name="nombreUsuario" 
+            required
             autocomplete="on"
-            class="registro-borde"> 
+            class="registro-borde form-group ng-untouched ng-pristine"
+            minlength="3" 
+            maxlength="45" 
+            pattern="^([A-zÀ-ÿ\u00f1\u00d1]+[,.]?[ ]?|[A-zÀ-ÿ\u00f1\u00d1]+['-]?[A-zÀ-ÿ\u00f1\u00d1]+)+$"> 
+        </ion-col>
+        <ion-col size="10" [hidden]="nombre.valid || nombre.pristine"
+        class="show-alert">
+          <p>Nombre de usuario no válido</p>
         </ion-col>
       </ion-row>
 
@@ -41,12 +48,21 @@
       </ion-row>
       <ion-row class="ion-justify-content-center">
         <ion-col size="10" class="ion-justify-content-center">
-          <input type="text" [(ngModel)]="usuario.email" 
+          <input type="text" 
+            [(ngModel)]="usuario.email" 
             #email="ngModel"             
             title="email"
-            name="email" required
+            name="email" 
+            required
             autocomplete="on"
-            class="registro-borde"> 
+            class="registro-borde form-group ng-untouched ng-pristine"
+            minlength="3" 
+            maxlength="45" 
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"> 
+        </ion-col>
+        <ion-col size="10" [hidden]="email.valid || email.pristine"
+        class="show-alert">
+          <p>Email no válido</p>
         </ion-col>
       </ion-row>
 
@@ -58,12 +74,14 @@
       </ion-row>
       <ion-row class="ion-justify-content-center">
         <ion-col size="10" class="ion-justify-content-center">
-          <ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="usuario.fechaNacimiento" 
+          <ion-datetime displayFormat="DD MMM YYYY" 
+            [(ngModel)]="usuario.fechaNacimiento" 
             #fechaNacimiento="ngModel"             
             title="fechaNacimiento"
-            name="fechaNacimiento" required
+            name="fechaNacimiento" 
+            required
             autocomplete="on"
-            class="registro-borde"></ion-datetime> 
+            class="registro-borde form-group ng-untouched ng-pristine"></ion-datetime> 
         </ion-col>
       </ion-row>
 
@@ -75,12 +93,21 @@
       </ion-row>
       <ion-row class="ion-justify-content-center">
         <ion-col size="10" class="ion-justify-content-center">
-          <input type="password" [(ngModel)]="usuario.contrasenia" 
+          <input type="password" 
+            [(ngModel)]="usuario.contrasenia" 
             #contrasenia="ngModel"             
             title="contrasenia"
-            name="contrasenia" required
+            name="contrasenia" 
+            required
             autocomplete="on"
-            class="registro-borde"> 
+            class="registro-borde form-group ng-untouched ng-pristine"
+            minlength="6" 
+            maxlength="45"
+            pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{6,45}$"> 
+        </ion-col>
+        <ion-col size="10" [hidden]="contrasenia.valid || contrasenia.pristine"
+        class="show-alert">
+          <p>Contraseña no válida</p>
         </ion-col>
       </ion-row>
 
@@ -92,13 +119,21 @@
       </ion-row>
       <ion-row class="ion-justify-content-center">
         <ion-col size="10" class="ion-justify-content-center">
-          <input type="password" [(ngModel)]="usuario.confContrasenia" 
+          <input type="password" 
+            [(ngModel)]="usuario.confContrasenia" 
             #confContrasenia="ngModel" 
-            
             title="confContrasenia"
-            name="confContrasenia" required
+            name="confContrasenia" 
+            required
             autocomplete="on"
-            class="registro-borde"> 
+            class="registro-borde form-group ng-untouched ng-pristine"
+            minlength="6" 
+            maxlength="45"
+            pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{6,45}$"> 
+        </ion-col>
+        <ion-col size="10" [hidden]="confContrasenia.valid || confContrasenia.pristine"
+        class="show-alert">
+          <p>Confirmación de contraseña no válida</p>
         </ion-col>
       </ion-row>
 

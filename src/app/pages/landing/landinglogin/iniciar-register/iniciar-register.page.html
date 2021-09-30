@@ -25,13 +25,53 @@
 
       <ion-row class="ion-justify-content-center">
         <ion-col size="10" class="ion-justify-content-center">
-          <ion-input type="text" [(ngModel)]="miEmail" 
-            #email="ngModel"             
+
+          <input type="text" 
+            [(ngModel)]="usuario.email" 
+            #email="ngModel" 
+            placeholder="emailejemplo@gmail.com"
             title="email"
-            name="email" required
+            name="email" 
+            required
             autocomplete="on"
-            class="registro-borde"></ion-input>
+            minlength="5" 
+            maxlength="45" 
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            class="registro-borde form-group ng-untouched ng-pristine">
         </ion-col>
+
+        <ion-col size="10" [hidden]="email.valid || email.pristine"
+              class="show-alert">
+          Email no válido
+        </ion-col>
+      </ion-row>
+      <!-- Contraseña -->
+      <ion-row class="ion-justify-content-center grupo-registro">
+      <ion-col size="10">
+        <ion-label for="contrasenia">Contraseña</ion-label>
+      </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="10" class="ion-justify-content-center">
+          <input type="password" 
+            [(ngModel)]="usuario.contrasenia" 
+            #contrasenia="ngModel" 
+            placeholder="***********"
+            title="contrasenia"
+            name="contrasenia" 
+            required
+            autocomplete="on"
+            minlength="6" 
+            maxlength="45"
+            pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{6,45}$"
+            class="registro-borde form-group ng-untouched ng-pristine">
+        </ion-col>
+        <ion-col size="10" [hidden]="contrasenia.valid || contrasenia.pristine"
+              class="show-alert">
+          Contraseña no válida
+        </ion-col>
+      </ion-row>
       </ion-row>        
 
       <div size="10" class="display-center iniciar_but">

@@ -21,8 +21,21 @@
 
         <ion-row class="ion-justify-content-center">
           <ion-col size="10" class="ion-justify-content-center">
-            <input type="email" [(ngModel)]="email"
-              title="email" name="email" required autocomplete="on" class="registro-borde">
+            <input type="email" 
+              [(ngModel)]="usuario.email"
+              #email="ngModel" 
+              title="email" 
+              name="email" 
+              required 
+              autocomplete="on" 
+              class="registro-borde form-group ng-untouched ng-pristine" 
+              minlength="5" 
+              maxlength="45" 
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+          </ion-col>
+          <ion-col size="10" [hidden]="email.valid || email.pristine"
+          class="show-alert">
+            <p>Email no válido</p>
           </ion-col>
         </ion-row>
 
@@ -35,8 +48,20 @@
 
         <ion-row class="ion-justify-content-center">
           <ion-col size="10" class="ion-justify-content-center">
-            <input type="password" [(ngModel)]="contrasenia"
-              title="contrasenia" name="contrasenia" required autocomplete="on" class="registro-borde">
+            <input type="password" 
+              [(ngModel)]="contrasenia"
+              #contrasenia="ngModel"
+              title="contrasenia" 
+              name="contrasenia" 
+              required 
+              autocomplete="on" 
+              class="registro-borde form-group ng-untouched ng-pristine" 
+              minlength="6" 
+              maxlength="45"
+              pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{6,45}$">
+          </ion-col>
+          <ion-col size="10" [hidden]="contrasenia.valid || contrasenia.pristine" class="show-alert">
+            <p>Contraseña no válida</p>
           </ion-col>
         </ion-row>
 

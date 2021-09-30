@@ -14,6 +14,7 @@ export class LunesPage implements OnInit {
   public medicamentosDia:any[] = [];
   public dias:string[] = ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"];
   public titulo:string = this.dias[this.calcularDia()];
+  public vacio:boolean = false;
 
   @ViewChild("contenedor",{ read: ElementRef }) private contenedor: ElementRef;
 
@@ -28,6 +29,11 @@ export class LunesPage implements OnInit {
     medicamentos.then((respuesta) => {
       this.medicamentosDia = respuesta;
       console.log(respuesta);
+      if (this.medicamentosDia.length > 0) {
+        this.vacio = false;
+      } else {
+        this.vacio = true;
+      }
       if (this.medicamentosDia.length < 7) {
         this.contenedor.nativeElement.setAttribute("style","--overflow: hidden;");
       } else {

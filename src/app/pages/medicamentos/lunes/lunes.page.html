@@ -8,7 +8,7 @@
   
   <section class="body">
     <!-- MEDICAMENTOS para el día -->
-    <ng-container *ngIf="medicamentosDia.length!==0; else vacio" >
+    <ng-container *ngIf="medicamentosDia.length!==0">
       <ng-container *ngFor="let medicamento of medicamentosDia; let i = index;">        
         <div class="display-around">
           <div class="medicina-next color-medio">
@@ -28,8 +28,8 @@
         </div>        
       </ng-container>        
     </ng-container>
-    <ng-template #vacio>
+    <ng-container  *ngIf="vacio">
       <p id="vacio">No hay ningún tratamiento planificado para este día de la semana.</p>      
-    </ng-template>
+    </ng-container>
   </section>
 </ion-content>

@@ -18,6 +18,13 @@
     min-height: 85vh;
 }
 
+.body{
+    background-image: url("/assets/medicamentos/lunesBg.svg");
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: cover;  
+}
+
 #vacio {
     color: rgb(111, 0, 255);
     font-weight: 500;

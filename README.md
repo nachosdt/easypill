@@ -48,11 +48,13 @@ ionic serve
 Ya tendremos la aplicación funcionando.
 
 ## Enlaces :link:
-*API Rest: posibilita el intercambio de datos entre el front y la DDBB así como otras APIs externas.
+* **API Rest:** posibilita el intercambio de datos entre el front y la DDBB así como otras APIs externas.
 [API_Easypill](https://github.com/nachosdt/API_Easypill)
-*APK: 
+
+* **APK:** 
 [EasypillAPK]()
-*Visualización de la app
+
+* **Visualización de la app:**
 [Heroku](https://easypillapp.herokuapp.com/landing)
 
 ## Construido con 🛠️

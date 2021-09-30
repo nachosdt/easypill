@@ -25,7 +25,7 @@ Puedes descargarlo en [node.org](https://nodejs.org/es/download/)
 
 _Entramos en el repositorio [easypill](https://github.com/nachosdt/easypill)_
 
-_En la pestaña de <Code>, desplegamos el botón code y copiamos el enlace https o el SSH_
+_En la pestaña de Code, desplegamos el botón code y copiamos el enlace https o el SSH_
 
 _En consola ejecutamos git clone + url_
 

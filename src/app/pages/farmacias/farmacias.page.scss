@@ -1,3 +1,7 @@
+.body {
+    position: fixed;
+}
+
 #mapId {
     border-radius: var(--border_radius-header) var(--border_radius-header) 0 0;    
     width: 100vw;

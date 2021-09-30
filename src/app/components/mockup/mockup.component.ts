@@ -16,12 +16,8 @@ export class MockupComponent implements OnInit {
 
   ngOnInit() {
     let horario: Date = new Date();
-    let minutos = horario.getMinutes()
-    let hora = horario.getHours()
-    // console.log(horario.getMinutes());
-    // console.log(horario.getHours());
-
-
+    let minutos = horario.toString().slice(19,21);
+    let hora = horario.toString().slice(16,18);
   }
 
 }

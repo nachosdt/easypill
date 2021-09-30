@@ -52,7 +52,7 @@ export class LunesPage implements OnInit {
   }
 
   public convertirHora(hora:string):string {
-    return hora.slice(10,15);
+    return hora.split(" ")[1].slice(0,5);
   }
 
 }

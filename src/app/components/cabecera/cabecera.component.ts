@@ -10,13 +10,13 @@ export class CabeceraComponent implements OnInit {
 
   @Input() titulo:string;
   @Input() iconoAtras:boolean;
-  @Input() rutaAtras:any;
+  @Input() rutaAtras:string;
   
   constructor(private router:Router) { }
 
   ngOnInit() {}
 
-  public ruta(ruta:any) {
+  public ruta(ruta:string) {
     this.router.navigate([ruta]);
   }
 

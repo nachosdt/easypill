@@ -23,7 +23,7 @@ Puedes descargarlo en [node.org](https://nodejs.org/es/download/)
 
 ### Instalación 🔧
 
-_Desde consola escribimos git clone git@github.com:nachosdt/easypill.git_
+_Desde consola escribimos git clone "git@github.com:nachosdt/easypill.git"_
 
 
 ```

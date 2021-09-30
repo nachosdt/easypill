@@ -16,10 +16,10 @@ export class NavbarComponent implements OnInit {
   private subscriber: Subscription;
   public url: string;
   public mostrar: boolean = true;
-  public mostrarIconoHome: string = "soyUnValor"
-  public mostrarIconoMedicamentos: string = "soyUnValor"
-  public mostrarIconoFarmacias: string = "soyUnValor"
-  public mostrarIconoProspectos: string = "soyUnValor"
+  public mostrarIconoHome: string = "ocultarHome"
+  public mostrarIconoMedicamentos: string = "ocultarMedicamentos"
+  public mostrarIconoFarmacias: string = "ocultarFarmacias"
+  public mostrarIconoProspectos: string = "ocultarProspectos"
 
 
   public homeIconoAnimacion: string = "";
@@ -67,10 +67,10 @@ export class NavbarComponent implements OnInit {
 
         /// mostrar el icono de Farmacias
         if (this.url == "/prospecto") {
-          this.mostrarIconoProspectos = "mostrarFarmacias"
+          this.mostrarIconoProspectos = "mostrarProspectos"
 
         } else {
-          this.mostrarIconoProspectos = "ocultarFarmacias"
+          this.mostrarIconoProspectos = "ocultarProspectos"
           this.prospectosIconoAnimacion = "";
 
         }

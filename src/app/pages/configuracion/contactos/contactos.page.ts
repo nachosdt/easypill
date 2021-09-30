@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ContactosService } from '../../../shared/contactos.service';
 import { Contacto } from '../../../models/contacto';
-
+import { ServicioGeneralService } from 'src/app/shared/servicio-general.service';
 
 @Component({
   selector: 'app-contactos',
@@ -10,26 +10,35 @@ import { Contacto } from '../../../models/contacto';
 })
 export class ContactosPage implements OnInit {
 
-  public nombreCabecera:string = "Contactos del usuario";
-  public icono:boolean = true;
-  public rutaAtras:any = "/configuracion";
+  public nombreCabecera: string = "Contactos del usuario";
+  public icono: boolean = true;
+  public rutaAtras: string;
   public contactos: Contacto[] = [];
-  public contacto !: Contacto;  
+  public contacto !: Contacto;
 
-  @ViewChild("contenedor",{ read: ElementRef }) private contenedor: ElementRef;
+  @ViewChild("contenedor", { read: ElementRef }) private contenedor: ElementRef;
 
-  constructor(public contactoService: ContactosService) {}
+  constructor(public contactoService: ContactosService, public servicioGeneral: ServicioGeneralService) { }
 
   ngOnInit() {
+    if (this.servicioGeneral.primeraVezServicio == true) {
+
+      this.rutaAtras = "/home";
+      this.servicioGeneral.primeraVezServicio = false;
+
+    } else {
+      this.rutaAtras = "/configuracion"
+
+    }
   }
 
   ionViewWillEnter() {
     this.contactos = this.contactoService.contactos;
     if (this.contactos.length < 6) {
-      this.contenedor.nativeElement.setAttribute("style","--overflow: hidden;");
+      this.contenedor.nativeElement.setAttribute("style", "--overflow: hidden;");
     } else {
-      this.contenedor.nativeElement.setAttribute("style","--overflow: auto;");
-    }    
+      this.contenedor.nativeElement.setAttribute("style", "--overflow: auto;");
+    }
   }
 
   // POSICION DEL CONTACTO SELECCIONADO EN EL ARRAY

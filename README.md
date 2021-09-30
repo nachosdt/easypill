@@ -74,4 +74,4 @@ Este proyecto está bajo la Licencia (Tu Licencia) - mira el archivo [LICENSE.md
 * Y a las chicas de Codenotch por su ayuda y por esas pizzas :pizza: y hamburguesas :hamburger: tan ricas 🤓.
 
 ---
-😊
+😊:clap::clap::clap:

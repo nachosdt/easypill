@@ -1,3 +1,4 @@
+![Easypill App](https://github.com/nachosdt/easypill/blob/master/src/assets/EasyPill-header.jpg)
 # Easypill
 _This doc is also available in [Spanish](https://github.com/nachosdt/easypill/blob/master/README.md)_
 

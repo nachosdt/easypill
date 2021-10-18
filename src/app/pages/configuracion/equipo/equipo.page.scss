@@ -118,12 +118,13 @@ ion-content{
 .perfiles-container{
     background-color: #ffffff;
     width: 100%;
-    height: 100%;
+    height: 1860px;
     border-radius: 36px 36px 0 0;
     display: flex;
     flex-direction: column;
     align-items: center;
    padding-top: 40px;   
+   gap:20px;
    
 }
 
@@ -150,16 +151,82 @@ ion-content{
 .perfil-imagen{
     flex:3;
     background-color: #566abb;
-     background-image: url("/assets/equipo/foto.jpg");
+    // background-image: url("/assets/equipo/foto.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;   
    
-     width: 120px;
+    width: 135px;
      height: 80px;
     border-radius: 50%;
 
+}
+
+.perfil-imagenNacho{
+    flex:3;
+    background-color: #566abb;
+    background-image: url("/assets/equipo/Nacho.jpeg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;   
    
+    width: 135px;
+     height: 80px;
+    border-radius: 50%;
+}
+
+.perfil-imagenKika{
+    flex:3;
+    background-color: #566abb;
+    background-image: url("/assets/equipo/kika.jpeg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;   
+   
+    width: 135px;
+     height: 80px;
+    border-radius: 50%;
+}
+
+
+
+.perfil-imagenAnto{
+    flex:3;
+    background-color: #566abb;
+    background-image: url("/assets/equipo/antonio.jpeg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;   
+   
+     width: 135px;
+     height: 80px;
+    border-radius: 50%;
+}
+
+.perfil-imagenJaime{
+    flex:3;
+    background-color: #566abb;
+    background-image: url("/assets/equipo/jaime.jpeg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;   
+   
+    width: 135px;
+     height: 80px;
+    border-radius: 50%;
+}
+
+.perfil-imagenIsabel{
+    flex:3;
+    background-color: #566abb;
+    background-image: url("/assets/equipo/isabel.jpeg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;   
+   
+    width: 135px;
+     height: 80px;
+    border-radius: 50%;
 }
 
 
@@ -177,12 +244,16 @@ ion-content{
 
 .perfil .nombre{
     font-weight: 600;
-    font-size: 14pt;
+    font-size: 13pt;
+    width: 100%;
+    text-align: center;
 }
 
 .perfil .titulo{
     font-weight: 400;
     font-size: 10pt;
+    width: 100%;
+    text-align: center;
 }
 
 .perfil-info p {  color: #6F00FF;
@@ -200,10 +271,12 @@ ion-content{
 
 .linkedin{
     background-image: url("/assets/equipo/linkedin.svg");
-    width: 60px;
-    height:60px;
+    width: 30px;
+    height:30px;
     background-position: center center;
     background-repeat: no-repeat;
+    box-shadow: 2px 3px 4px 0px rgba(85, 84, 84, 0.4);
+    border-radius: 50%;
     
 }
 

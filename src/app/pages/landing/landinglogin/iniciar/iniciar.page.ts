@@ -65,13 +65,20 @@ export class IniciarPage implements OnInit {
           this.servicioGeneral.tomasDeHoy = await this.servicioGeneral.getTomasHoy();
           this.medicamentoService.medicamentos = await this.medicamentoService.getTodosLosMedicamentos(this.servicioGeneral.idUsuario);
           this.contactoService.contactos = await this.contactoService.getContacto();
-          this.primeraVez = true;
+
+          if (this.servicioGeneral.tomasDeHoy===[] && this.medicamentoService.medicamentos===[]) {
+            this.primeraVez = true;
+          } else {
+            this.primeraVez = false;
+          }
+          
           this.servicioGeneral.primeraVezServicio = this.primeraVez;
-          console.log("soy el valor de primeraVez:" + this.servicioGeneral.primeraVezServicio);
-
-          this.router.navigate(["/inicio-onboarding"]);
+          if (this.servicioGeneral.primeraVezServicio) {
+            this.router.navigate(["/inicio-onboarding"]);
+          } else {
+            this.router.navigate(["/home"]);
+          }          
         }
-
       });
   }
 }

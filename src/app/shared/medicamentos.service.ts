@@ -138,11 +138,11 @@ export class MedicamentosService {
     }
   } 
 
-  private async actualizarMedicamentos() {
+  public async actualizarMedicamentos() {
     this.medicamentos = await this.getTodosLosMedicamentos(this.servicioGeneral.idUsuario);
   }
 
-  private async actualizarTomas() {
+  public async actualizarTomas() {
     this.servicioGeneral.tomasDeHoy = await this.servicioGeneral.getTomasHoy();
   }
 }

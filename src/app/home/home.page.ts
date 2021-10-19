@@ -117,6 +117,7 @@ export class HomePage implements OnInit {
       if (respuesta) {
         this.tomasDeHoyPendientes.splice(indice, 1);
         this.tomasDeHoyTomadas.push(registro);
+        this.servicioMedicamento.actualizarTomas();
       }
     })
       .catch((error) => {
@@ -131,6 +132,7 @@ export class HomePage implements OnInit {
       if (respuesta) {
         this.tomasDeHoyPendientes.splice(indice, 1);
         this.tomasDeHoyOlvidadas.push(registro);
+        this.servicioMedicamento.actualizarTomas();
       }
     })
       .catch((error) => {

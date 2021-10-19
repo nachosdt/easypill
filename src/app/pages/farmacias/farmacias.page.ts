@@ -46,6 +46,16 @@ export class FarmaciasPage implements OnInit {
     this.geolocation.getCurrentPosition().then((resp) => {
       console.log(resp);
       this.map.setView([resp.coords.latitude,resp.coords.longitude],16);
+      let icono = Leaflet.icon({
+        iconUrl: "../../../../assets/map/marker-icon.png",
+        iconSize: [25, 41], // size of the icon
+        iconAnchor: [12, 41], // point of the icon which will correspond to marker's location
+        shadowUrl: "../../../../assets/map/marker-shadow.png",
+        shadowSize: [41, 41], // size of the shadow
+        shadowAnchor: [12, 41],
+        popupAnchor: [0, -40] // point from which the popup should open relative to the iconAnchor
+      });
+      Leaflet.marker([resp.coords.latitude, resp.coords.longitude],{icon: icono}).addTo(this.map);
       
       // Añadimos las farmacias cercanas      
       let iconoFarmacias = Leaflet.icon({

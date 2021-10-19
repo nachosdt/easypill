@@ -143,6 +143,10 @@ export class NavbarComponent implements OnInit {
           this.mostrar = false;
         }
 
+        if (this.url == "/configuracion/equipo") {
+          this.mostrar = false;
+        }
+
         if (this.url == "/inicio-onboarding") {
           this.mostrar = false;
         }
